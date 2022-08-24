@@ -219,50 +219,41 @@ blocks:
 # The 'Products' ContentType can be used to manage information about the
 # products or services you (or your company, organisation) provide.
 
-products:
-    name: Products
-    singular_name: Product
+produits:
+    name: Produits
+    singular_name: Produit
     fields:
         title:
             type: text
             class: large
             variant: inline
-            label: Name of this product
-            group: Block
+            label: Nom du produit
             fixture_format: '{catchPhrase}'
-        feature_1:
-            type: text
-            variant: inline
-            fixture_format: '{bs}'
-            label: "Key feature 1"
-        feature_2:
-            type: text
-            variant: inline
-            fixture_format: '{bs}'
-            label: "Key feature 2"
-        feature_3:
-            type: text
-            variant: inline
-            fixture_format: '{bs}'
-            label: "Key feature 3"
         price:
             type: text
+            label: Prix
             fixture_format: "€ {randomDigitNotNull}0,-"
         image:
             type: image
         teaser:
-            type: redactor
+            type: textarea
+            label: Texte d'accroche
             fixture_format: '{paragraph}'
         content:
-            type: redactor
+            type: textarea
+            label: Texte de présentation
+        ingredient:
+            type: textarea
+            label: Liste d'ingrédient                   
+        nutrition:
+            type: textarea
+            label: Valeurs nutritionnelles pour 100g
         slug:
             type: slug
             uses: [ title ]
             group: Meta
     show_on_dashboard: true
-    viewless: false
     default_status: published
-    searchable: false
     order: title
     icon_many: "fa:gifts"
     icon_one: "fa:gift"

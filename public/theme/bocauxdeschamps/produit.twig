@@ -1,0 +1,38 @@
+{% extends 'partials/_master.twig' %}
+{% set record_before = record|previous %}
+{% set record_after = record|next %}
+
+{% block main %}
+    <div class="container">
+        <h1 class="text-center">
+            {{ record|title }}
+        </h1>
+        <div class="row">
+            <div class="d-flex justify-content-center align-items-center">
+                <img src={{ record.image }} alt="{{ record.title }}" style="width: 450px"/>
+
+                <p class="m-4">{{ record.content }}</p>
+            </div>
+        </div>
+        {% if record_before %}
+            <button>
+                <a href="{{ url('record', {contentTypeSlug: 'produits' ,slugOrId: record_before.slug}) }}">
+                   {{ record_before|title }}
+                </a>
+            </button>
+        {% endif %}
+        <button>
+            <a href="{{ path('listing', {'contentTypeSlug': 'produits'}) }}">
+                Liste des produits
+            </a>
+
+            {% if record_after %}
+                <button>
+                    <a href="{{ url('record', {contentTypeSlug: 'produits' ,slugOrId: record_after.slug}) }}">
+                       {{ record_after|title }}
+                    </a>
+                </button>
+            {% endif %}
+        </div>
+
+    {% endblock %}

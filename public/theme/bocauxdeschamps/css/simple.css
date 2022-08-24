@@ -71,13 +71,6 @@ body {
     flex-direction: column;
 }
 
-/* Make the main element a nice central block */
-main {
-    margin: 1rem auto 0;
-    max-width: 45rem;
-    padding: 0 .5rem;
-    flex: 1;
-}
 
 aside {
     margin: 1rem auto 0;
@@ -92,24 +85,7 @@ header {
     padding: 1.5rem 15rem;
 }
 
-/* Remove margins for header text */
-header h1,
-header h2,
-header p {
-    margin: 0;
-}
 
-/* Fix header line height when title wraps */
-header h1 {
-    line-height: 1.1;
-}
-
-header select,
-header input,
-footer select,
-footer input {
-    width: auto;
-}
 
 /* Format navigation */
 nav {

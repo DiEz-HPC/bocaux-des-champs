@@ -1,0 +1,30 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+    <div class="container">
+    <h1 class="text-center"> Nos produits </h1>
+    <p class="text-center"> Esse tempor officia mollit pariatur non cupidatat fugiat enim exercitation Lorem. Veniam amet ea sit anim cillum laboris esse amet et aliqua voluptate. Minim dolor dolor occaecat Lorem et aute.</p>
+        <div class="row d-flex justify-content-around align-items-center my-3">
+            {% for record in records %}
+                <div class="card" style="width: 18rem; height: 25rem">
+                   
+                        {% if record|image %}
+                            <a href="{{ record|image }}">
+                                <img src="{{ record|thumbnail(480, 320) }}" class="card-img-top" alt="{{ record|image.alt|default() }}"/>
+                            </a>
+                        {% endif %}
+                    <a href="{{ record|link }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ record|title }}</h5>
+                            <p class="card-text">{{ record.teaser }}</p>
+                        </div>
+                    </a>
+                </div>
+            {% else %}
+                {% include 'partials/_noContent.twig' %}
+            {% endfor %}
+        </div>
+        {# If there are more records than will fit on one page, the pager is shown. #}
+        {{ pager(records, template = 'helpers/_pager_basic.html.twig') }}
+    </div>
+{% endblock main %}
