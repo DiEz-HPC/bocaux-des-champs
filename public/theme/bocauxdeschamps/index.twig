@@ -1,0 +1,27 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+
+    {% if record|default %}
+
+        <h1>{{ record|title }}</h1>
+
+        {# Output the `introduction` field. If it doesn't exist, 'default' to
+           the full excerpt of the current Record #}
+        {{ record.introduction|default(record|excerpt) }}
+
+        {% include 'partials/_image.twig' with ({'image': record|image}) %}
+
+        {{ record.content }}
+
+       
+
+    {% endif %}
+
+{% endblock main %}
+
+{% block aside %}
+
+   
+    
+{% endblock aside %}

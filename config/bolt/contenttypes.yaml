@@ -12,7 +12,6 @@ homepage:
             type: text
             class: large
             group: content
-            localize: true
             label: Title
             postfix: |
                 The 'Homepage' can contain basic information about the website. This title will be
@@ -23,10 +22,8 @@ homepage:
             type: image
         introduction:
             type: redactor
-            localize: true
         content:
             type: redactor
-            localize: true
         contentlink:
             type: text
             label: Link
@@ -39,7 +36,6 @@ homepage:
             group: Meta
     viewless: false
     taxonomy: [ categories, tags, foobars ]
-    locales: ['en', 'nl', 'pt_BR', 'es']
     singleton: true
     icon_many: "fa:home"
     icon_one: "fa:home"
