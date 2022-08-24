@@ -2,8 +2,8 @@
 # in the project root.
 
 # The name of the website
-sitename: Bolt Project Website
-payoff: The amazing payoff goes here
+sitename: Bocaux des champs
+payoff: Conserverie bio & artisanale du Loiret
 
 secret: '%env(APP_SECRET)%'
 
@@ -23,7 +23,7 @@ caching:
 # Dont edit the provided templates directly, because they _will_ get updated
 # in next releases. If you wish to modify a default theme, copy its folder, and
 # change the name here accordingly.
-theme: base-2021
+theme: bocauxdeschamps
 #theme: skeleton
 
 # Set the timezone to be used on the website. For a list of valid timezone
