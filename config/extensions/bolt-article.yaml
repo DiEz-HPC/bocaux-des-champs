@@ -1,0 +1,26 @@
+# Settings for Bolt Article
+
+# All options: blockcode, buttonlink, carousel, counter, definedlinks, filelink,
+# handle, icons, imageposition, inlineformat, makebutton, print, reorder,
+# selector, specialchars, style, tags, textdirection, underline, variable,
+# removeformat, imageresize
+default:
+  plugins: [ blockcode, buttonlink, definedlinks, inlineformat, reorder, tags, underline, imageposition, filelink, removeformat, imageresize ]
+  source: true
+  grid:
+    classname: 'article-grid'
+    columns: 12
+    patterns:
+      '4|4|4': 'col-4|col-4|col-4'
+      '4|8': 'col-4|col-8'
+      '6|6': 'col-6|col-6'
+      '8|4': 'col-8|col-4'
+
+  # Settings for images
+  # Note: The current editor can only upload / insert images if they are granted 
+  # the 'upload' and 'list_files:files' permissions in `permissions.yaml`.  
+  image:
+    thumbnail: 1000×1000×max
+
+plugins:
+  ~

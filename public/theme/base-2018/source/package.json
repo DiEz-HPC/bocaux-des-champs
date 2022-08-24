@@ -1,0 +1,42 @@
+{
+  "name": "bolt-base-2018-theme",
+  "description": "Base 2018",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bolt/themes"
+  },
+  "bugs": {
+    "url": "https://github.com/bolt/themes/issues",
+    "email": "bob@twokings.nl"
+  },
+  "main": "gulpfile.js",
+  "dependencies": {
+    "baguettebox.js": "^1.11.1",
+    "bulma": "^0.9.0",
+    "gulp-concat": "^2.6.1",
+    "prismjs": "^1.25.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-if": "^3.0.0",
+    "gulp-load-plugins": "^2.0.4",
+    "gulp-sass": "^4.1.0",
+    "node-sass": "^4.14.1",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "yargs": "^15.4.1"
+  },
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build"
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%"
+  ]
+}

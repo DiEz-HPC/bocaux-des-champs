@@ -1,0 +1,69 @@
+version: '3.4'
+
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_DATABASE=bolt
+      - MYSQL_USER=bolt
+      - MYSQL_PASSWORD=!ChangeMe!
+      - MYSQL_ROOT_PASSWORD=!ChangeMe!
+    volumes:
+      - db-data:/var/lib/mysql:rw
+      # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
+      # - ./docker/db/data:/var/lib/mysql:rw
+    ports:
+      - target: 3306
+        published: 3306
+        protocol: tcp
+
+  php:
+    build:
+      context: ./
+      target: php
+    healthcheck:
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 30s
+    depends_on:
+      - db
+      - mailcatcher
+    volumes:
+      - ./:/srv/bolt:rw,cached
+      - ./docker/php/conf.d/bolt.dev.ini:/usr/local/etc/php/conf.d/bolt.ini
+      # if you develop on Linux, you may use a bind-mounted host directory instead
+      # - ./var:/srv/bolt/var:rw
+
+  nginx:
+    build:
+      context: ./
+      target: nginx
+    depends_on:
+      - php
+    volumes:
+      - ./public:/srv/bolt/public:ro
+    ports:
+      - target: 80
+        published: 8080
+        protocol: tcp
+
+  h2-proxy:
+    build:
+      context: ./docker/h2-proxy
+    depends_on:
+      - nginx
+    ports:
+      - target: 8443
+        published: 8443
+        protocol: tcp
+
+  mailcatcher:
+    image: schickling/mailcatcher
+    ports:
+      - target: 1080
+        published: 1080
+        protocol: tcp
+
+volumes:
+  db-data: {}
