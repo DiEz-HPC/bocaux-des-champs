@@ -9,12 +9,10 @@
         {# Output the `introduction` field. If it doesn't exist, 'default' to
            the full excerpt of the current Record #}
         {{ record.introduction|default(record|excerpt) }}
-
         {% include 'partials/_image.twig' with ({'image': record|image}) %}
-
         {{ record.content }}
 
-       
+
 
     {% endif %}
 
@@ -22,6 +20,6 @@
 
 {% block aside %}
 
-   
-    
+
+
 {% endblock aside %}

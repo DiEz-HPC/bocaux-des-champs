@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="{{ htmllang() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        {# make sure we always display a proper title: The record's title if there is one, appended with the
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {# make sure we always display a proper title: The record's title if there is one, appended with the
            sitename. If there is no title, we append the sitename with the payoff, if there is one. #}
-        <title>
-            {%- if record|default and record.title -%}
-                {{- record.title ~ ' | ' -}}
-            {%- endif -%}
-            {{- config.get('general/sitename') -}}
-            {%- if record|default == null and config.has('general/payoff') -%}
-                {{- ' | ' ~ config.get('general/payoff') -}}
-            {%- endif -%}
-        </title>
-        <link rel="stylesheet" href="{{ asset('css/simple.css') }}">
-    </head>
-    <body>
-    {{ include('partials/_header.twig') }}
+    <title>
+        {{- config.get('general/sitename') ~ ' | ' -}}
+        {%- if record|default and record.title -%}
+            {%- if record|feature == 'homepage' -%}
+                {{ 'Accueil' }}
+            {%- else -%}
+                {{ record.title }}
+            {% endif %}
+        {%- endif -%}
+    </title>
+    <link rel="stylesheet" href="{{ asset('css/simple.css') }}">
+</head>
+<body>
+{{ include('partials/_header.twig') }}
 
-    <main>
+<main>
     {% block body %}
 
-
-          
-            {% block main %}
-            {% endblock main %}
+        {% block main %}
+        {% endblock main %}
 
 
-        {% endblock body %}
-    </main>
+    {% endblock body %}
+</main>
 
-    {% block aside %}
-    {% endblock aside %}
+{% block aside %}
+{% endblock aside %}
 
-    {{ include('partials/_footer.twig') }}
+{{ include('partials/_footer.twig') }}
 
-    </body>
+<script defer src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+</body>
 </html>

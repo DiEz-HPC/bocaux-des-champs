@@ -8,13 +8,15 @@ homepage:
     name: Homepage
     singular_name: Homepage
     fields:
+        logo:
+            label: Logo du site
+            type: image
         title:
             type: text
             class: large
             group: content
             label: Title
-            postfix: |
-                The 'Homepage' can contain basic information about the website. This title will be
+            postfix: The 'Homepage' can contain basic information about the website. This title will be
                 shown on the homepage of the website, as the name implies. To change the
                 <em><strong>name</strong></em> of the site, as is shown in the header, and the tab
                 in the webbrowser, edit <code>sitename:</code> in the configuration file.
@@ -60,7 +62,7 @@ pages:
             group: content
         teaser:
             type: textarea
-            postfix: |
+            postfix: 
                 A text-only version of the content, that can be used to "tease"
                 the content when it's used in listing pages or search results.
         image:
@@ -102,7 +104,7 @@ entries:
             group: Entry
         teaser:
             type: textarea
-            postfix: |
+            postfix: 
                 A text-only version of the content, that can be used to "tease"
                 the content when it's used in listing pages or search results.
         image:
