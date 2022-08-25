@@ -1,6 +1,18 @@
 {% extends 'partials/_master.twig' %}
-{% set record_before = record|previous %}
-{% set record_after = record|next %}
+{# On récupère 3 entrées du même type en excluant l'entrée actuel #}
+{% set pageid = record.id %}
+{% set whereid = '!' ~ pageid %}
+{% setcontent records = record.contentTypeSlug where { id: whereid } limit 3 %}
+
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/produits.css') }}">
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/toggleRecipe.js') }}"></script>
+{% endblock %}
 
 {% block main %}
     <div class="container">
@@ -10,29 +22,62 @@
         <div class="row">
             <div class="d-flex justify-content-center align-items-center">
                 <img src={{ record.image }} alt="{{ record.title }}" style="width: 450px"/>
-
                 <p class="m-4">{{ record.content }}</p>
             </div>
         </div>
-        {% if record_before %}
-            <button>
-                <a href="{{ url('record', {contentTypeSlug: 'produits' ,slugOrId: record_before.slug}) }}">
-                   {{ record_before|title }}
-                </a>
-            </button>
-        {% endif %}
-        <button>
-            <a href="{{ path('listing', {'contentTypeSlug': 'produits'}) }}">
-                Liste des produits
-            </a>
-
-            {% if record_after %}
-                <button>
-                    <a href="{{ url('record', {contentTypeSlug: 'produits' ,slugOrId: record_after.slug}) }}">
-                       {{ record_after|title }}
-                    </a>
-                </button>
-            {% endif %}
+        <div class="row product-recipe-box--outer">
+            <div class="product-recipe-box--choice">
+                <span id="recipeBtn" class="product-recipe-button active">
+                    Ingrédients
+                </span>
+                <span id="nutritionalBtn" class="product-recipe-button">
+                    Valeurs nutritionelles
+                </span>
+            </div>
+            <div class="product-recipe-box--content">
+                <p id="recipeContainer">
+                    {% if record.ingredient is not empty %}
+                        {{ record.ingredient  }}
+                    {% else %}
+                        Information non disponible
+                    {% endif %}
+                </p>
+                <p id="nutritionalContainer" style="display:none;">
+                    {% if record.nutrition is not empty %}
+                        {{ record.nutrition  }}
+                    {% else %}
+                        Information non disponible
+                    {% endif %}
+                </p>
+            </div>
         </div>
+        <h2 class="text-center">Nos autres produits</h2>
+        <div class="row justify-content-around">
+            {% for otherProduct in records %}
+                <div class="card" style="width: 18rem; height: 30rem">
+                    {% if otherProduct|image %}
+                        <a href="{{ otherProduct|image }}">
+                            <img src="{{ otherProduct|thumbnail(480, 320) }}" class="card-img-top" alt="{{ otherProduct|image.alt|default() }}"/>
+                        </a>
+                    {% endif %}
+                    <a href="{{ otherProduct|link }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ otherProduct|title }}</h5>
+                            <p class="card-text">{{ otherProduct.teaser }}</p>
+                        </div>
+                    </a>
+                </div>
+            {% else %}
+                <p>Aucun produit</p>
+            {% endfor %}
+        </div>
+        <div class="row m-2 text-center">
+            <a href="{{ path('listing', {'contentTypeSlug': 'produits'}) }}">
+                <button>
+                    Retour a la liste des produits
+                </button>
+            </a>
+        </div>
+    </div>
 
-    {% endblock %}
+{% endblock %}

@@ -1,5 +1,10 @@
 {% extends 'partials/_master.twig' %}
 
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/produits.css') }}">
+{% endblock %}
+
 {% block main %}
     <div class="container">
     <h1 class="text-center"> Nos produits </h1>
