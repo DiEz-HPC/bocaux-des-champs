@@ -1,0 +1,68 @@
+{% extends 'partials/_master.twig' %}
+
+
+{% block stylesheet %}
+    {{ parent() }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+
+{% block main %}
+    <div class="container">
+        <h1 class="text-center">
+            Nos videos
+        </h1>
+        <p class="text-center">
+            Esse tempor officia mollit pariatur non cupidatat fugiat enim exercitation Lorem. Veniam amet ea sit anim cillum laboris esse amet et aliqua voluptate. Minim dolor dolor occaecat Lorem et aute.</p>
+     {% include 'partials/_tagCloud.twig' %}
+        <div class="row">
+            {% for record in records %}
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ record|title }}</h5>
+                                <p class="card-text">{{ record.teaser|excerpt(250) }}</p>
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        <p class="meta">
+                                            {% if user %}
+                                                <span class="edit-link">
+                                                    <a href="{{ record|edit_link }}">
+                                                        <strong>{{ __('general.phrase.edit') }}</strong>
+                                                    </a>
+                                                </span>
+                                            {% endif %}
+                                            {% if record|taxonomies['tags'] is defined %}
+                                                Tags:
+                                                {% for tag in record|taxonomies['tags'] %}
+                                                    <a href="{{ tag|link }}"><span class="badge bg-secondary">{{ tag.name }}</span></a>
+                                                    {% if not loop.last %},
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        </p>
+                                    </small>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            {% if record|image %}
+                                <img src="{{ record|thumbnail(480, 320) }}" class="card-img-top" alt="{{ record|image.alt|default() }}"/>
+                            {% else %}
+                                <img src="{{ record.embedded.thumbnail }}" class="card-img-top" alt="{{ record.title }}"/>
+                            {% endif %}
+                            <a href="{{ record|link }}">
+                                Voir la vidéo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+     {# If there are more records than will fit on one page, the pager is shown. #}
+        {{ pager(records, template = 'helpers/_pager_bootstrap.html.twig') }}
+{% endblock %}

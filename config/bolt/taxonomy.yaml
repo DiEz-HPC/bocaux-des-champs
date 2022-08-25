@@ -9,6 +9,15 @@ tags:
     allow_spaces: false
     #listing_template: tag-listing.twig #custom template
     required: false
+    
+videosTags:
+    slug: videos-tags
+    singular_slug: video-tag
+    behaves_like: tags
+    postfix: "Add some freeform tags. Start a new tag by typing a comma or space."
+    allow_spaces: false
+    #listing_template: tag-listing.twig #custom template
+    required: false
 
 groups:
     slug: groups
