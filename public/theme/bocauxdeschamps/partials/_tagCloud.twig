@@ -1,0 +1,9 @@
+{% for tag in tag_cloud(taxonomyType) %}
+
+    <a href="/{{ taxonomyType }}/{{ tag.slug }}" class="tagBadge position-relative" style="text-decoration: none;">
+        {{ tag.name }}
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {{ tag.count }}
+        </span>
+    </a>
+{% endfor %}

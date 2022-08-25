@@ -11,7 +11,7 @@
                     <img src="{{ otherRecord|thumbnail(480, 320) }}" class="card-img-top" alt="{{ otherRecord|image.alt|default() }}"/>
                 </a>
             {% else %}
-                <img src="{{ otherRecord.embed.thumbnail }}" class="card-img-top" alt="{{ record.title }}"/>
+                <img src="{{ otherRecord.embedded.thumbnail }}" class="card-img-top" alt="{{ otherRecord.title }}"/>
             {% endif %}
             <a href="{{ otherRecord|link }}">
                 <div class="card-body">

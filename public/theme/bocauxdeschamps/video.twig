@@ -1,0 +1,35 @@
+{% extends 'partials/_master.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h1 class="text-center">
+            {{ record|title }}
+        </h1>
+    <div class="row">
+            {{ record.embedded.responsive_inline }}
+  
+        </div>
+        <div class="row">
+            {{ record.teaser}}
+        </div>
+        <h2 class="text-center">Nos autres vidéos</h2>
+        <div class="row justify-content-around">
+         {% include 'partials/_relatedContent.twig' %}
+        </div>
+        <div class="row m-2 text-center">
+            <a href="{{ path('listing', {'contentTypeSlug': 'videos'}) }}">
+                <button>
+                    Retour à la liste des vidéos
+                </button>
+            </a>
+        </div>
+    </div>
+
+{% endblock %}

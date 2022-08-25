@@ -85,3 +85,12 @@ footer {
     font-size: 1rem;
     border-top: 1px solid var(--border);
 }
+
+.tagBadge{
+    background: grey;
+    color: black;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    margin: 0 0.5rem;
+    padding: 0.20rem;
+}

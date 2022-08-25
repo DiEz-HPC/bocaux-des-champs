@@ -115,7 +115,7 @@ products:
             label: Valeurs nutritionnelles pour 100g
         slug:
             type: slug
-            uses: [ title ]
+            uses: title 
             group: Meta
     show_on_dashboard: true
     default_status: published
@@ -147,6 +147,7 @@ movies:
             type: slug
             uses: [ title ]
             group: Meta
+    taxonomy:  videosTags 
     show_on_dashboard: true
     default_status: published
     order: title
