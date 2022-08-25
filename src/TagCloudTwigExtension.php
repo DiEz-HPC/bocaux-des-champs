@@ -20,18 +20,19 @@ class TagCloudTwigExtension extends AbstractExtension
     public function getFunctions()
     {
         return [
-            new TwigFunction('tag_cloud_videos', [$this, 'tagCloudVideos']),
+            new TwigFunction('tag_cloud', [$this, 'tagCloud']),
         ];
     }
 
-    public function tagCloudVideos() {
+    public function tagCloud(string $taxonomyType) {
+
         $om = $this->objectManager;
         $qb = $om->createQueryBuilder();
         $qb->select("t.name, t.slug")
             ->addSelect("count(c) as count")
             ->from(Taxonomy::class, 't')
-            ->leftJoin('t.content', 'c')
-            ->where("t.type = 'videos-tags'")
+            ->leftJoin('t.content', 'c')          
+            ->where("t.type = '".$taxonomyType."'")
             ->groupBy("t.id")
             ->orderBy("t.name");
         $query = $qb->getQuery();

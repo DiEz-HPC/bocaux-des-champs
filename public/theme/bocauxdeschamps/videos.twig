@@ -16,7 +16,7 @@
         </h1>
         <p class="text-center">
             Esse tempor officia mollit pariatur non cupidatat fugiat enim exercitation Lorem. Veniam amet ea sit anim cillum laboris esse amet et aliqua voluptate. Minim dolor dolor occaecat Lorem et aute.</p>
-     {% include 'partials/_tagCloud.twig' %}
+     {% include 'partials/_tagCloud.twig' with {'taxonomyType': 'videos-tags'} %}
         <div class="row">
             {% for record in records %}
                 <div class="card mb-3" style="max-width: 540px;">
@@ -35,12 +35,10 @@
                                                     </a>
                                                 </span>
                                             {% endif %}
-                                            {% if record|taxonomies['tags'] is defined %}
+                                            {% if record|taxonomies['videos-tags'] is defined %}
                                                 Tags:
-                                                {% for tag in record|taxonomies['tags'] %}
+                                                {% for tag in record|taxonomies['videos-tags'] %}
                                                     <a href="{{ tag|link }}"><span class="badge bg-secondary">{{ tag.name }}</span></a>
-                                                    {% if not loop.last %},
-                                                    {% endif %}
                                                 {% endfor %}
                                             {% endif %}
                                         </p>
