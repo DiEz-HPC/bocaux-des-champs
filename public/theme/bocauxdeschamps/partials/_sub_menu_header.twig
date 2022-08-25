@@ -9,7 +9,8 @@
 {% macro display_menu_item(item, loop, withsubmenus) %}
     {% from _self import display_menu_item %}
     {% apply spaceless %}
-        <a href="{{ item.uri }}" title="{{ item.title }}" {% if loop.class is defined or loop.first or loop.last or item|current %}class="{% if loop.first %}{{ 'first' }}{% elseif loop.last %}{{ 'last' }}{% endif %}{{ item|current ? ' active' }}"{% endif %}>{{- item.label -}}
+        <a href="{{ item.uri }}" title="{{ item.title }}"
+           {% if loop.class is defined or loop.first or loop.last or item|current %}class="{% if loop.first %}{{ 'first' }}{% elseif loop.last %}{{ 'last' }}{% endif %}{{ item|current ? ' active' }}"{% endif %}>{{- item.label -}}
         </a>
     {% endapply %}
 {% endmacro %}
@@ -20,9 +21,11 @@
 {% setcontent homepage = 'homepage' %}
 
 {# The main menu loop: Iterates over the items, calling `display_menu_item` #}
-<nav>
-    <img src="{{ thumbnail(homepage.logo, 200, 200) }}" alt="{{ homepage.logo.alt }}">
-    <div class="d-flex flex-column">
+<nav class="col-12 d-flex justify-content-around">
+    <div class="col d-flex justify-content-start">
+        <img src="{{ thumbnail(homepage.logo, 200, 200) }}" alt="{{ homepage.logo.alt }}">
+    </div>
+    <div class="col-11 d-flex align-items-center justify-content-around">
         {% for item in menu %}
             {% if item.label is defined %}
                 {{ display_menu_item(item, loop, withsubmenus) }}

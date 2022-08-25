@@ -1,5 +1,6 @@
 /* Set the global variables for everything. Change these to use your own fonts/colours. */
 @import 'bootstrap.min.css';
+@import 'navbar.css';
 
 :root {
 
@@ -55,12 +56,6 @@
 * {
     /* Set the font globally */
     font-family: var(--sans-font);
-}
-/* Make the header bg full width, but the content inline with body */
-header {
-    background: var(--accent-bg);
-    border-bottom: 1px solid var(--border);
-    padding: 1.5rem 15rem;
 }
 
 
