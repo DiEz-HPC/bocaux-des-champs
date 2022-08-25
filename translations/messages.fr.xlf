@@ -7,5 +7,11 @@
         <target><![CDATA[Unfortunately, no content could be found. Try another page, or go to the <a href="/">homepage</a>.]]></target>
       </segment>
     </unit>
+    <unit id="cgA7tsQ">
+      <segment>
+        <source>Malheureusement, aucun contenu n'a pu être trouvé. Essayez une autre page ou rendez-vous sur &lt;a href="%paths_root%"&gt;l'accueil&lt;/a&gt;.</source>
+        <target><![CDATA[Malheureusement, aucun contenu n'a pu être trouvé. Essayez une autre page ou rendez-vous sur <a href="/">l'accueil</a>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
