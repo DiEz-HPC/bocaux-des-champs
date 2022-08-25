@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ htmllang() }}">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,7 +17,9 @@
             {% endif %}
         {%- endif -%}
     </title>
-    <link rel="stylesheet" href="{{ asset('css/simple.css') }}">
+    {% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {% endblock %}
 </head>
 <body>
 {{ include('partials/_header.twig') }}
@@ -36,7 +39,9 @@
 
 {{ include('partials/_footer.twig') }}
 
-<script defer src="{{ asset('js/bootstrap.min.js') }}"></script>
-
+{% block javascripts %}
+        <script src="{{ asset('js/theme.js') }}"></script>
+        <script defer src="{{ asset('js/bootstrap.min.js') }}"></script>
+{% endblock %}
 </body>
 </html>

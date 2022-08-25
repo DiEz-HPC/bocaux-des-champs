@@ -1,0 +1,63 @@
+{% extends 'partials/_master.twig' %}
+
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/produits.css') }}">
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/toggleRecipe.js') }}"></script>
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h1 class="text-center">
+            {{ record|title }}
+        </h1>
+        <div class="row">
+            <div class="d-flex justify-content-center align-items-center">
+                <img src={{ record.image }} alt="{{ record.title }}" style="width: 450px"/>
+                <p class="m-4">{{ record.content }}</p>
+            </div>
+        </div>
+        <div class="row product-recipe-box--outer">
+            <div class="product-recipe-box--choice">
+                <span id="recipeBtn" class="product-recipe-button active">
+                    Ingrédients
+                </span>
+                <span id="nutritionalBtn" class="product-recipe-button">
+                    Valeurs nutritionelles
+                </span>
+            </div>
+            <div class="product-recipe-box--content">
+                <div id="recipeContainer">
+                    {% if record.ingredient is not empty %}
+                        {{ record.ingredient  }}
+                    {% else %}
+                        Information non disponible
+                    {% endif %}
+                </div>
+                <div id="nutritionalContainer" style="display:none;">
+                    {% if record.nutrition is not empty %}
+                        {{ record.nutrition  }}
+                    {% else %}
+                        Information non disponible
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <h2 class="text-center">Nos autres produits</h2>
+        <div class="row justify-content-around">
+         {% include 'partials/_relatedContent.twig' %}
+        </div>
+        <div class="row m-2 text-center">
+            <a href="{{ path('listing', {'contentTypeSlug': 'produits'}) }}">
+                <button>
+                    Retour a la liste des produits
+                </button>
+            </a>
+        </div>
+    </div>
+
+{% endblock %}

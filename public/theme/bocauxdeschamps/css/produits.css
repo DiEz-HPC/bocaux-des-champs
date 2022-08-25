@@ -1,0 +1,26 @@
+.product-recipe-box--outer{
+    margin: 1rem auto 0;
+    padding: 1.5rem 15rem;
+    font-size: 1rem;
+}
+.product-recipe-box--choice{
+    margin: 1rem auto 0;
+    padding: 0 !important;
+    font-size: 1rem;
+}
+.product-recipe-button{
+   border: 1px solid black;
+    font-size: 1rem;
+    padding: 2px;
+}
+.product-recipe-button:hover{
+    cursor: pointer;
+}
+.product-recipe-button.active{
+    background: var(--accent-bg);
+    color: var(--text-light);
+}
+.product-recipe-box--content{
+    padding: 1rem;
+    border: 1px solid black;
+}

@@ -32,7 +32,7 @@ theme: bocauxdeschamps
 
 # Set the default time format used on this website. For a list of valid date
 # format settings, see: https://www.php.net/manual/en/function.date.php
-date_format: 'F j, Y H:i'
+date_format: 'j F Y H:i'
 
 # You can set a preference to omit background images on the login screen.
 omit_backgrounds: false

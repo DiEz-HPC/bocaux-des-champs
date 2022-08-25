@@ -5,7 +5,7 @@
 # selector, specialchars, style, tags, textdirection, underline, variable,
 # removeformat, imageresize
 default:
-  plugins: [ blockcode, buttonlink, definedlinks, inlineformat, reorder, tags, underline, imageposition, filelink, removeformat, imageresize ]
+  plugins: [ blockcode, buttonlink, definedlinks, inlineformat, reorder, tags, underline, imageposition, filelink, removeformat, imageresize, carousel,textdirection ]
   source: true
   grid:
     classname: 'article-grid'
@@ -21,6 +21,5 @@ default:
   # the 'upload' and 'list_files:files' permissions in `permissions.yaml`.  
   image:
     thumbnail: 1000×1000×max
-
 plugins:
   ~
