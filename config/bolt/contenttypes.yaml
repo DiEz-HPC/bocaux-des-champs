@@ -80,146 +80,10 @@ pages:
     records_per_page: 5
     order: id
 
-
-# Entries can be used for things like 'news' or 'blogpostings'. They have a
-# 'teaser', which can be used for a short blurb on listing-pages, allowing
-# visitors to click-through to the rest of the entry. It also has fields for an
-# image and an optional video embed.
-# A relation is defined to the pages ContentType. This way you can refer to a
-# page from your news-item.
-# This ContentType defines 'categories' and 'tags' as taxonomies, allowing the
-# editor to use both to categorize a specific entry.
-# The 'order' is set to '-datepublish', which means that newer entries will be
-# shown above older entries.
-
-entries:
-    name: Entries
-    singular_name: Entry
-    fields:
-        title:
-            type: text
-            class: large
-            group: Entry
-        teaser:
-            type: textarea
-            postfix: |
-                A text-only version of the content, that can be used to "tease"
-                the content when it's used in listing pages or search results.
-        image:
-            type: image
-            upload: entries
-        body:
-            type: article
-        video:
-            type: embed
-        slug:
-            type: slug
-            uses: title
-            group: Meta
-    relations:
-        pages:
-            multiple: false
-            order: title
-            label: Select a page
-        people:
-            multiple: false
-            label: Author of this Entry
-            required: false
-    taxonomy: [ categories, tags, groups ]
-    record_template: entry.twig
-    listing_template: listing.twig
-    listing_records: 10
-    default_status: published
-    order: -publishedAt
-    records_per_page: 10
-    icon_many: "fa:file-alt"
-    icon_one: "fa:file-alt"
-
-
-# The 'People' ContentType can be used to build pages about the people in your
-# company, organisation or any other kind of team.
-
-people:
-    name: People
-    singular_name: Person
-    title_format: "{name} ({description})"
-    fields:
-        name:
-            type: text
-            class: large
-            variant: inline
-            fixture_format: '{name}'
-        description:
-            type: text
-            variant: inline
-            postfix: This person's job description, title or somesuch
-            fixture_format: '{jobTitle}'
-        email:
-            type: text
-            variant: inline
-            fixture_format: '{safeEmail}'
-        image:
-            type: image
-        content:
-            type: redactor
-        contentlink:
-            type: text
-            label: Link
-            placeholder: 'contentType/slug or https://example.org/'
-            postfix: "Use this to add a link for this Person. This could either be an 'internal' link like <tt>page//about</tt>, if you use a contentType/slug combination. Otherwise use a proper URL, like `https://example.org`. If left blank, it'll default to the internal link to this Record's detail page."
-            fixture_format: '{url}'
-        slug:
-            type: slug
-            uses: [ name ]
-    icon_one: fa:user
-    icon_many: fa:users
-
-
-# The 'Blocks' ContentType is a so-called 'resource ContentType'. This means
-# that it can be used to manage smaller pieces of content, like the 'about us'
-# text, an 'our address' in the footer, or similar short blurbs of text.
-# For more info, see: https://docs.bolt.cm/howto/resource-contenttype
-
-blocks:
-    name: Blocks
-    singular_name: Block
-    excerpt_format: '{teaser}'
-    fields:
-        title:
-            type: text
-            class: large
-            label: Title of this Block
-            group: Block
-        image:
-            type: image
-        teaser:
-            type: redactor
-            fixture_format: '{paragraph}'
-        content:
-            type: redactor
-        contentlink:
-            type: text
-            label: Link
-            placeholder: 'contentType/slug or https://example.org/'
-            postfix: "Use this to add a link for this Homepage. This could either be an 'internal' link like <tt>page//about</tt>, if you use a contentType/slug combination. Otherwise use a proper URL, like `https://example.org`."
-            fixture_format: '{url}'
-        slug:
-            type: slug
-            uses: [ title ]
-            group: Meta
-    show_on_dashboard: true
-    viewless: true
-    default_status: published
-    searchable: false
-    order: title
-    icon_many: "fa:cubes"
-    icon_one: "fa:cube"
-
-
 # The 'Products' ContentType can be used to manage information about the
 # products or services you (or your company, organisation) provide.
 
-produits:
+products:
     name: Produits
     singular_name: Produit
     fields:
@@ -259,6 +123,107 @@ produits:
     icon_many: "fa:gifts"
     icon_one: "fa:gift"
 
+movies:
+    name: Vidéos
+    singular_name: Vidéo
+    fields:
+        title:
+            type: text
+            class: large
+            variant: inline
+            info: Nom de la vidéo visible par les visiteurs
+            label: Nom de la vidéo
+            fixture_format: '{catchPhrase}'
+        teaser:
+            type: redactor
+            label: Texte d'accroche
+            info: Texte visible avant de voir la vidéo
+            fixture_format: '{paragraph}'
+        embedded:
+            type: embed
+            info: Lien vers la vidéo
+            label: Lien vers la vidéo
+        slug:
+            type: slug
+            uses: [ title ]
+            group: Meta
+    show_on_dashboard: true
+    default_status: published
+    order: title
+    icon_many: "fa:film"
+    icon_one: "fa:film"
+
+actuality:
+    name: Actualités
+    singular_name: Actualité
+    fields:
+        title:
+            type: text
+            class: large
+            variant: inline
+            info: Nom de l'actualité visible par les visiteurs
+            label: Nom de l'actualité
+            fixture_format: '{catchPhrase}'
+        pictures:
+            type: image
+            info: Image visible avant d'ouvrir' l'actualité
+            label: Image mise en avant
+        teaser:
+            type: redactor
+            label: Texte d'accroche
+            info: Texte visible avant d'ouvrir' l'actualité
+            fixture_format: '{paragraph}'
+        content:
+            type: article
+            class: large
+            info: Contenue de l'actualité
+            label: Contenue de la page
+        slug:
+            type: slug
+            uses: [ title ]
+            group: Meta
+    show_on_dashboard: true
+    default_status: published
+    order: date
+    icon_many: "fa:newspaper"
+    icon_one: "fa:newspaper"
+
+events:
+    name: Évènements
+    singular_name: Évènement
+    fields:
+        title:
+            type: text
+            class: large
+            variant: inline
+            info: Nom de l'événement visible par les visiteurs
+            label: Nom de l'événement
+            fixture_format: '{catchPhrase}'
+        pictures:
+            type: image
+            info: Image visible avant d'ouvrir l'événement
+            label: Image mise en avant
+        teaser:
+            type: redactor
+            label: Texte d'accroche
+            info: Texte visible avant d'ouvrir l'événement
+            fixture_format: '{paragraph}'
+        content:
+            type: article
+            class: large
+            info: Contenue de l'événement
+            label: Contenue de la page
+        slug:
+            type: slug
+            uses: [ title ]
+            group: Meta
+    show_on_dashboard: true
+    default_status: published
+    order: date
+    icon_many: "fa:calendar"
+    icon_one: "fa:calendar"
+
+    
 # Possible field types:
 #
 # text - varchar(256) - input type text.

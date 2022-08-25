@@ -1,0 +1,72 @@
+{# On récupère 3 entrées du même type en excluant l'entrée actuel #}
+{% set pageid = record.id %}
+{% set whereid = '!' ~ pageid %}
+{% setcontent records = record.contentTypeSlug where { id: whereid } limit 3 %}
+
+{% if (record.contentTypeSlug === 'produits' or record.contentTypeSlug === 'videos') %}
+    {% for otherRecord in records %}
+        <div class="card" style="width: 18rem; height: 30rem">
+            {% if otherRecord|image %}
+                <a href="{{ otherRecord|image }}">
+                    <img src="{{ otherRecord|thumbnail(480, 320) }}" class="card-img-top" alt="{{ otherRecord|image.alt|default() }}"/>
+                </a>
+            {% else %}
+                <img src="{{ otherRecord.embed.thumbnail }}" class="card-img-top" alt="{{ record.title }}"/>
+            {% endif %}
+            <a href="{{ otherRecord|link }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ otherRecord|title }}</h5>
+                    <p class="card-text">{{ otherRecord.teaser|excerpt(250) }}</p>
+                </div>
+            </a>
+        </div>
+    {% else %}
+        <p>Aucun
+            {{ record.contentTypeSlug }}</p>
+    {% endfor %}
+{% endif %}
+{% if (record.contentTypeSlug === 'actualites' or record.contentTypeSlug === 'evenements') %}
+    {% for otherRecord in records %}
+
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ otherRecord|title }}</h5>
+                            <p class="card-text">{{ otherRecord.teaser }}</p>
+                            <p class="card-text">
+                                <small class="text-muted">
+                                    <p class="meta">
+                                        {% if user %}
+                                            <span class="edit-link">
+                                                <a href="{{ otherRecord|edit_link }}">
+                                                    <strong>{{ __('general.phrase.edit') }}</strong>
+                                                </a>
+                                            </span>
+                                            -
+                                        {% endif %}
+                                        {{ __('general.phrase.written-by-on', {
+                                            '%name%': otherRecord.author.displayName|default(__('Unknown')),
+                                            '%date%': otherRecord.publishedAt|localdate("l j F Y")
+                                        }) }}
+                                    </p>
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="{{ otherRecord|thumbnail(480, 320) }}" class="img-fluid rounded-start" alt="{{ otherRecord.title }}">
+                              <a href="{{ otherRecord|link }}" >
+                    Lire l'article
+                    </a>
+                    </div>
+              
+            </div>
+        </div>
+    {% else %}
+        <p>Aucun
+            {{ record.contentTypeSlug }}</p>
+    {% endfor %}
+
+{% endif %}

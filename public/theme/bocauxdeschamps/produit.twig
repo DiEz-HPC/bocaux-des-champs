@@ -1,8 +1,4 @@
 {% extends 'partials/_master.twig' %}
-{# On récupère 3 entrées du même type en excluant l'entrée actuel #}
-{% set pageid = record.id %}
-{% set whereid = '!' ~ pageid %}
-{% setcontent records = record.contentTypeSlug where { id: whereid } limit 3 %}
 
 
 {% block stylesheet %}
@@ -53,23 +49,7 @@
         </div>
         <h2 class="text-center">Nos autres produits</h2>
         <div class="row justify-content-around">
-            {% for otherProduct in records %}
-                <div class="card" style="width: 18rem; height: 30rem">
-                    {% if otherProduct|image %}
-                        <a href="{{ otherProduct|image }}">
-                            <img src="{{ otherProduct|thumbnail(480, 320) }}" class="card-img-top" alt="{{ otherProduct|image.alt|default() }}"/>
-                        </a>
-                    {% endif %}
-                    <a href="{{ otherProduct|link }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ otherProduct|title }}</h5>
-                            <p class="card-text">{{ otherProduct.teaser }}</p>
-                        </div>
-                    </a>
-                </div>
-            {% else %}
-                <p>Aucun produit</p>
-            {% endfor %}
+         {% include 'partials/_relatedContent.twig' %}
         </div>
         <div class="row m-2 text-center">
             <a href="{{ path('listing', {'contentTypeSlug': 'produits'}) }}">
