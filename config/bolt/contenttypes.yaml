@@ -230,19 +230,15 @@ produits:
             info: Nom du produit visible par les visiteurs
             label: Nom du produit
             fixture_format: '{catchPhrase}'
-        price:
-            type: text
-            label: Prix
-            fixture_format: "€ {randomDigitNotNull}0,-"
         image:
             type: image
         teaser:
-            type: textarea
+            type: redactor
             label: Texte d'accroche
             info: Texte visible avant de visiter la fiche produit
             fixture_format: '{paragraph}'
         content:
-            type: textarea
+            type: redactor
             info: Texte visible dans la fiche produit
             label: Texte de présentation
         ingredient:
