@@ -35,20 +35,20 @@
                 </span>
             </div>
             <div class="product-recipe-box--content">
-                <p id="recipeContainer">
+                <div id="recipeContainer">
                     {% if record.ingredient is not empty %}
                         {{ record.ingredient  }}
                     {% else %}
                         Information non disponible
                     {% endif %}
-                </p>
-                <p id="nutritionalContainer" style="display:none;">
+                </div>
+                <div id="nutritionalContainer" style="display:none;">
                     {% if record.nutrition is not empty %}
                         {{ record.nutrition  }}
                     {% else %}
                         Information non disponible
                     {% endif %}
-                </p>
+                </div>
             </div>
         </div>
         <h2 class="text-center">Nos autres produits</h2>

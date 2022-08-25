@@ -227,6 +227,7 @@ produits:
             type: text
             class: large
             variant: inline
+            info: Nom du produit visible par les visiteurs
             label: Nom du produit
             fixture_format: '{catchPhrase}'
         price:
@@ -238,15 +239,19 @@ produits:
         teaser:
             type: textarea
             label: Texte d'accroche
+            info: Texte visible avant de visiter la fiche produit
             fixture_format: '{paragraph}'
         content:
             type: textarea
+            info: Texte visible dans la fiche produit
             label: Texte de présentation
         ingredient:
-            type: textarea
-            label: Liste d'ingrédient                   
+            type: redactor
+            info: La liste d'ingrédient du produit
+            label: Liste d'ingrédients                   
         nutrition:
-            type: textarea
+            type: redactor
+            info: Les valeurs nutritionnelles pour 100g du produit
             label: Valeurs nutritionnelles pour 100g
         slug:
             type: slug
