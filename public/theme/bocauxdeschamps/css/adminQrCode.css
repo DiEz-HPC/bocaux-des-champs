@@ -1,0 +1,7 @@
+td {
+    min-width: 125px;
+}
+td img {
+    height: 75px;    
+    width: auto;
+}

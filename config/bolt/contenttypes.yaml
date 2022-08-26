@@ -145,9 +145,9 @@ movies:
             label: Lien vers la vidéo
         slug:
             type: slug
-            uses: [ title ]
+            uses: title
             group: Meta
-    taxonomy:  videosTags 
+    taxonomy:  [videosTags, videoCategory] 
     show_on_dashboard: true
     default_status: published
     order: title

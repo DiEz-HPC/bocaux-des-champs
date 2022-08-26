@@ -23,7 +23,7 @@ groups:
     slug: groups
     singular_slug: group
     behaves_like: grouping
-    options: { main: "The main group", meta: "Meta group", other: "The other stuff" }
+    options: { main: "The main group", meta: "Meta group", other: "The other stuff", videos: "Videos group" }
     has_sortorder: true
     required: false
 
@@ -36,3 +36,14 @@ categories:
     multiple: true
     options: [ news, events, movies, music, books, life, love, fun ]
     required: false
+
+videoCategory:
+    name: Videos
+    slug: Videos
+    singular_name: Video
+    singular_slug: Video
+    behaves_like: videos
+    multiple: false
+    options: [ movies ]
+    required: true
+    default: movies

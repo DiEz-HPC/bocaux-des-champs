@@ -11,7 +11,9 @@
         "bolt/newswidget": "^1.3",
         "bolt/redactor": "^2.0",
         "bolt/themes": "^3.5",
+        "endroid/qr-code-bundle": "^4.1",
         "nelmio/security-bundle": "^2.12",
+        "symfony/filesystem": "^5.1",
         "symfony/flex": "^2.0"
     },
     "minimum-stability": "stable",

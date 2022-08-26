@@ -1,0 +1,65 @@
+{% extends '@bolt/_base/layout.html.twig' %}
+{% setcontent records = ('videos') %}
+
+{% block title %}
+    This is the title of the page
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/adminQrCode.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/adminQrCode.js') }}"></script>
+{% endblock %}
+{% block main %}
+    <div class="">
+        <h1 class="text-center">
+            Liste des videos :
+        </h1>
+        <p class="text-center">
+            Esse tempor officia mollit pariatur non cupidatat fugiat enim exercitation Lorem. Veniam amet ea sit anim cillum laboris esse amet et aliqua voluptate. Minim dolor dolor occaecat Lorem et aute.</p>
+        <form action="{{ path('app_qr_code_generate') }}" method="post">
+            <table class="table table-hover text-center" id="qrCode__table">
+                <thead>
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Titre</th>
+                        <th scope="col">Résumé</th>
+                        <th scope="col">Sélection</th>
+                    </tr>
+                    <tr>
+                        <th scope="col" colspan="2">Tout selectionner <span class="btn btn-primary" data-cliked=false id="qrCode__selectAll"> </span></th>
+                        </tr>
+                </thead>
+                <tbody>
+                    {% for record in records %}
+                        <tr class="formTr" data-id='{{loop.index}}'>
+                            <td>
+                                {% if record|image %}
+                                    <img src="{{ record|thumbnail(280, 120) }}" class="img-thumbnail" alt="{{ record|image.alt|default() }}"/>
+                                {% else %}
+                                    <img src="{{ record.embedded.thumbnail }}" class="img-fluid" alt="{{ record.title }}"/>
+                                {% endif %}
+                            </td>
+                            <td>{{ record|title }}</td>
+                            <td>{{ record.teaser|excerpt(250) }}</td>
+                            <td class="d-flex justify-content-center">
+                                <div class="form-check">
+                                    <input class="form-check-input qrCode__checkbox qrCode__checkbox_index{{loop.index}}" type="checkbox" value="{{ record.contentType }}" id="flexCheckDefault" name="{{ record.slug }}">
+                                </div>
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary">Générer le Qr code</button>
+            </div>
+        </form>
+
+        {{ pager(records, template = '@bolt/helpers/_pager_bootstrap.html.twig', class="justify-content-center") }}
+    </div>
+{% endblock %}
