@@ -9,9 +9,9 @@
 {% macro display_menu_item(item, loop, withsubmenus) %}
     {% from _self import display_menu_item %}
     {% apply spaceless %}
-        <a href="{{ item.uri }}" title="{{ item.title }}"
-           {% if loop.class is defined or loop.first or loop.last or item|current %}class="{% if loop.first %}{{ 'first' }}{% elseif loop.last %}{{ 'last' }}{% endif %}{{ item|current ? ' active' }}"{% endif %}>{{- item.label -}}
-        </a>
+        <li class="nav-item me-sm-5">
+            <a href="{{ item.link }}" title="{{ item.title }}" aria-current="page" class="nav-link {% if loop.first %}{{ 'first' }}{% elseif loop.last %}{{ 'last' }}{% endif %}{{ item|current ? ' active' }}">{{- item.label -}}</a>
+        </li>
     {% endapply %}
 {% endmacro %}
 
@@ -20,17 +20,22 @@
 
 {% setcontent homepage = 'homepage' %}
 
-{# The main menu loop: Iterates over the items, calling `display_menu_item` #}
-<nav class="col-12 d-flex justify-content-around">
-    <div class="col d-flex justify-content-start">
-        <img src="{{ thumbnail(homepage.logo, 200, 200) }}" alt="{{ homepage.logo.alt }}">
-    </div>
-    <div class="col-11 d-flex align-items-center justify-content-around">
-        {% for item in menu %}
-            {% if item.label is defined %}
-                {{ display_menu_item(item, loop, withsubmenus) }}
-            {% endif %}
-        {% endfor %}
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img src="{{ thumbnail(homepage.logo, 150, 150) }}" alt="{{ homepage.logo.alt }}"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav text-center text-sm-start mt-5 mt-sm-0">
+                {% for item in menu %}
+                    {{ dump(menu) }}
+                    {% if item.label is defined %}
+                        {{ display_menu_item(item, loop, withsubmenus) }}
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 </nav>
 

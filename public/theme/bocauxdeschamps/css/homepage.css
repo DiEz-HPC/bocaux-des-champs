@@ -1,0 +1,11 @@
+@import "variables.css";
+
+.firstview {
+    background-color: var(--primary-color);
+}
+
+
+.separate-block {
+    background-color: var(--primary-color);
+    height: 30px;
+}

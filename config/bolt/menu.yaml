@@ -12,16 +12,16 @@ main:
     link: history
     title: Notre histoire
   - label: Nos produits
-    link: products
+    link: produits
     title: Nos produits
   - label: Vidéos
-    link: movies
+    link: videos
     title: Vidéos
   - label: Actualités
-    link: actualities
+    link: actualites
     title: Actualités
   - label: Évènements
-    link: events
+    link: evenements
     title: Évènements
   - label: Contact
     link: contact

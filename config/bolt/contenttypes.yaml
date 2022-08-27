@@ -120,8 +120,8 @@ products:
     icon_one: "fa:gift"
 
 movies:
-    name: Vidéos
-    singular_name: Vidéo
+    name: Videos
+    singular_name: Video
     fields:
         title:
             type: text
@@ -150,8 +150,8 @@ movies:
     icon_one: "fa:film"
 
 actuality:
-    name: Actualités
-    singular_name: Actualité
+    name: Actualites
+    singular_name: Actualite
     fields:
         title:
             type: text
@@ -185,8 +185,8 @@ actuality:
     icon_one: "fa:newspaper"
 
 events:
-    name: Évènements
-    singular_name: Évènement
+    name: Evenements
+    singular_name: Evenement
     fields:
         title:
             type: text
