@@ -8,6 +8,10 @@ homepage:
     name: Homepage
     singular_name: Homepage
     fields:
+        logo:
+            label: Logo du site
+            type: image
+            required: true
         title:
             type: text
             class: large
