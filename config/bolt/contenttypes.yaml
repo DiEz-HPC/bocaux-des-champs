@@ -16,19 +16,10 @@ homepage:
             type: text
             class: large
             group: content
-            label: Title
+            label: Nom du site
         image:
             type: image
-        introduction:
-            type: redactor
-        content:
-            type: redactor
-        contentlink:
-            type: text
-            label: Link
-            placeholder: 'contentType/slug or https://example.org/'
-            postfix: "Use this to add a link for this Homepage. This could either be an 'internal' link like <tt>page//about</tt>, if you use a contentType/slug combination. Otherwise use a proper URL, like `https://example.org`."
-            fixture_format: '{url}'
+            label: 1ère image de la page d'accueil
         slug:
             type: slug
             uses: title
