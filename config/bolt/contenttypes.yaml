@@ -8,10 +8,6 @@ homepage:
     name: Homepage
     singular_name: Homepage
     fields:
-        logo:
-            label: Logo
-            type: image
-            info: Logo du site
         title:
             type: text
             class: large
@@ -111,7 +107,7 @@ products:
             label: Valeurs nutritionnelles pour 100g
         slug:
             type: slug
-            uses: [ title ]
+            uses: title 
             group: Meta
     show_on_dashboard: true
     default_status: published
@@ -120,8 +116,8 @@ products:
     icon_one: "fa:gift"
 
 movies:
-    name: Videos
-    singular_name: Video
+    name: Vidéos
+    singular_name: Vidéo
     fields:
         title:
             type: text
@@ -143,6 +139,7 @@ movies:
             type: slug
             uses: [ title ]
             group: Meta
+    taxonomy:  videosTags 
     show_on_dashboard: true
     default_status: published
     order: title
@@ -150,8 +147,8 @@ movies:
     icon_one: "fa:film"
 
 actuality:
-    name: Actualites
-    singular_name: Actualite
+    name: Actualités
+    singular_name: Actualité
     fields:
         title:
             type: text
@@ -185,8 +182,8 @@ actuality:
     icon_one: "fa:newspaper"
 
 events:
-    name: Evenements
-    singular_name: Evenement
+    name: Évènements
+    singular_name: Évènement
     fields:
         title:
             type: text

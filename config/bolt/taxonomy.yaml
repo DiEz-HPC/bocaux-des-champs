@@ -10,6 +10,15 @@ tags:
     #listing_template: tag-listing.twig #custom template
     required: false
 
+videosTags:
+    slug: videos-tags
+    singular_slug: video-tag
+    behaves_like: tags
+    postfix: "Commencez un nouveau tag en saisissant un caractère, valider le tag en appuyant sur entrée."
+    allow_spaces: false
+    #listing_template: tag-listing.twig #custom template
+    required: false
+
 groups:
     slug: groups
     singular_slug: group
