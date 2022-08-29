@@ -20,10 +20,10 @@ td img {
 .range-wrap {
     position: relative;
     margin: 0 auto 3rem;
-  }
-  .range {
+}
+.range {
     width: 100%;
-  }
+}
 .bubble {
     background: red;
     color: white;
@@ -32,9 +32,9 @@ td img {
     border-radius: 4px;
     left: 50%;
     transform: translateX(-50%);
-   bottom: -35px;
-  }
-  .bubble::after {
+    bottom: -35px;
+}
+.bubble::after {
     content: "";
     position: absolute;
     width: 2px;
@@ -42,5 +42,7 @@ td img {
     background: red;
     top: -1px;
     left: 50%;
-  }
-  
+}
+.qrCode-preview{
+    border: 1px solid black;
+}
