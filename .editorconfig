@@ -86,3 +86,7 @@ indent_size = 2
 [phpunit.xml{,.dist}]
 indent_style = space
 indent_size = 4
+
+[*.twig]
+indent_style = space
+indent_size = 4
