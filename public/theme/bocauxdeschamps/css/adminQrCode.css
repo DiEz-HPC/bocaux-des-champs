@@ -1,5 +1,8 @@
+table {
+    width: 100%;
+  }
 td {
-    min-width: 125px;
+    min-width: 20vw;
     height: 100%;
 }
 td img {
