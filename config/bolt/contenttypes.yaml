@@ -211,6 +211,28 @@ events:
     icon_many: "fa:calendar"
     icon_one: "fa:calendar"
 
+engagements:
+    name: Engagements
+    singular_name: Engagement
+    fields:
+        pictures:
+            type: imagelist
+            label: Images mises en avant
+        content:
+            type: redactor
+            class: large
+            info: Texte de l'engagement
+            label: Contenue de la page
+        slug:
+            type: slug
+            uses: [name]
+    show_on_dashboard: true
+    singleton: true
+    default_status: published
+    icon_many: "fa:handshake"
+    icon_one: "fa:handshake"
+    record_template: 'engagements.twig'
+
     
 # Possible field types:
 #

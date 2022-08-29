@@ -1,0 +1,19 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+    <div class="container-fluid">
+        <h1 class="my-5 fw-bold ">{{ 'Nos Engagements' | upper }}</h1>
+        <div class="content d-flex flex-column flex-lg-row justify-content-between">
+            <div class="left col-lg-5">
+                {{ record.content }}
+            </div>
+            <div class="right col-lg-6">
+                {%  if record.pictures %}
+                    {% for picture in record.pictures %}
+                        <img src="{{ picture }}" alt="{{ picture.alt }}" class="img-fluid">
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

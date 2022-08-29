@@ -1,6 +1,7 @@
 {% extends 'partials/_master.twig' %}
 
 {% setcontent products = 'Produits' latest limit 3 %}
+{% setcontent engagements = 'Engagements' latest limit 1 %}
 
 {% block main %}
     <div class="homepage mb-5 pb-5">
@@ -12,7 +13,7 @@
             <div class="left col-sm-6 d-flex flex-column justify-content-center">
                 <div class="engagements col-12">
                     <h2>{{ 'Nos engagements' | upper }}</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores dignissimos dolores doloribus, hic iste modi nam omnis pariatur perferendis quo sequi, totam voluptates. Animi blanditiis deleniti dolorum excepturi laborum minus obcaecati odio possimus repudiandae, suscipit? Ad adipisci at, autem consequatur eius enim exercitationem explicabo harum id ipsa minima mollitia natus nemo nulla odit, quam quas sint tenetur voluptas voluptatum. Adipisci amet commodi cupiditate dolores eligendi eos, illum impedit inventore labore laboriosam mollitia necessitatibus qui quia quisquam reiciendis repellendus sit totam, voluptatum. Dicta error esse quidem vel. A aliquam aperiam eius, error explicabo harum ipsam officia officiis qui quo quod?</p>
+                    {{ engagements.content |excerpt(1600) }}
                     <div class="separate-block col-6 my-3"></div>
                 </div>
                 <div class="history">
