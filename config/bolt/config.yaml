@@ -35,7 +35,7 @@ theme: bocauxdeschamps
 date_format: 'j F Y H:i'
 
 # You can set a preference to omit background images on the login screen.
-omit_backgrounds: false
+omit_backgrounds: true
 
 # If you're a party-pooper who wants to hide the `generator` meta tag and
 # `x-powered-by` header, set these to true
@@ -46,7 +46,7 @@ headers:
     # https://github.com/symfony/symfony/pull/40989
     allow-floc: false
     # Add Bolt's "Powered By" (defaults to `true`)
-    powered_by: true
+    powered_by: false
 
 # If your site is reachable under different urls (say, both blog.example.org/
 # as well as example.org/), its a good idea to set one of these as the

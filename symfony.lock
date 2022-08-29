@@ -182,6 +182,9 @@
     "embed/embed": {
         "version": "v3.4.9"
     },
+    "endroid/qr-code-bundle": {
+        "version": "4.1.0"
+    },
     "erusev/parsedown": {
         "version": "1.7.4"
     },
