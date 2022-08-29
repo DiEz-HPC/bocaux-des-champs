@@ -58,6 +58,7 @@
         }
     },
     "scripts": {
+        "reset": "php bin/console d:d:d --force && php bin/console bolt:setup",
         "pre-install-cmd": [
             "Bolt\\ComposerScripts\\ProjectEventHandler::preInstall"
         ],
