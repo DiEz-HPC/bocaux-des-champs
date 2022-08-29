@@ -143,6 +143,7 @@ movies:
             type: embed
             info: Lien vers la vidéo
             label: Lien vers la vidéo
+            fixture_format: '{url}'
         slug:
             type: slug
             uses: title
