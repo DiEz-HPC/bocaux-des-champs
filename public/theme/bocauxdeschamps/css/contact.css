@@ -1,4 +1,6 @@
-
+.form-outer-container{
+    background-color: grey;
+}
 .form-special {
     display: none; /* Hide the honeypot */
 }
@@ -11,4 +13,8 @@
 }
 iframe {
     width: 100%;
+}
+
+.left-container {
+    border-right: 1px solid #ccc;
 }
