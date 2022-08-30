@@ -1,0 +1,14 @@
+
+.form-special {
+    display: none; /* Hide the honeypot */
+}
+.contactInput {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+iframe {
+    width: 100%;
+}

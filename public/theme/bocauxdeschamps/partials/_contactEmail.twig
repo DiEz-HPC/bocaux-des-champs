@@ -1,0 +1,21 @@
+{#
+ # Passed in variables:
+ #   email    — The mail's WrappedTemplatedEmail instance
+ #   data     — POSTed data
+ #   formname — Field data from the form configuration
+ #   config   — Current Form's configuration data
+ #   meta     — Meta data (IP, URL, Timestamp)
+ #}
+<p>Vous avez reçu un message de contact</p>
+
+<p>Voici les informations:</p>
+
+<hr size="1">
+    {{ block('submission_summary', '@boltforms/email_blocks.html.twig') }}
+<hr size="1">
+
+<p>
+    Vous pouvez répondre à ce message en répondant à ce mail. Ou vous pouvez vous rendre sur votre panel d'administration pour gérer ce message.<br>
+</p>
+
+<br>
