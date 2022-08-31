@@ -29,6 +29,46 @@ homepage:
     singleton: true
     icon_many: "fa:home"
     icon_one: "fa:home"
+    
+engagements:
+    name: Engagements
+    singular_name: Engagement
+    fields:
+        pictures:
+            type: imagelist
+            label: Images mises en avant
+        content:
+            type: redactor
+            class: large
+            info: Texte de l'engagement
+            label: Contenue de la page
+        slug:
+            type: slug
+            uses: [name]
+    show_on_dashboard: true
+    singleton: true
+    default_status: published
+    icon_many: "fa:handshake"
+    icon_one: "fa:handshake"
+    record_template: 'engagements.twig'
+
+history:
+    name: Histoire
+    singular_name: Histoire
+    fields:
+        content:
+            type: redactor
+            class: large
+            info: Texte de l'histoire
+            label: Contenue de la page
+        slug:
+            type: slug
+            uses: [name]
+    show_on_dashboard: true
+    singleton: true
+    default_status: published
+    icon_many: "fa:history"
+    icon_one: "fa:history"
 
 
 # Pages can be used for the more 'static' pages on your site. This content-type
@@ -211,27 +251,6 @@ events:
     icon_many: "fa:calendar"
     icon_one: "fa:calendar"
 
-engagements:
-    name: Engagements
-    singular_name: Engagement
-    fields:
-        pictures:
-            type: imagelist
-            label: Images mises en avant
-        content:
-            type: redactor
-            class: large
-            info: Texte de l'engagement
-            label: Contenue de la page
-        slug:
-            type: slug
-            uses: [name]
-    show_on_dashboard: true
-    singleton: true
-    default_status: published
-    icon_many: "fa:handshake"
-    icon_one: "fa:handshake"
-    record_template: 'engagements.twig'
 
     
 # Possible field types:

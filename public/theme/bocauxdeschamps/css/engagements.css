@@ -1,0 +1,20 @@
+.engagements img {
+    width: 500px;
+    object-fit: cover;
+}
+
+.image-top {
+    position: relative;
+    z-index: 0;
+}
+
+.image-middle {
+    position: absolute;
+    right: 50%;
+    z-index: 2;
+}
+
+.image-bottom {
+    position: relative;
+    z-index: 3;
+}
