@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ac71f3c5134d7f9a2da4a64feb7aa93",
+    "content-hash": "0f98b9e88b09d1291d3362ea0c124f59",
     "packages": [
         {
             "name": "api-platform/core",
@@ -812,6 +812,58 @@
                 }
             ],
             "time": "2022-07-11T09:20:46+00:00"
+        },
+        {
+            "name": "bolt/forms",
+            "version": "1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bolt/forms.git",
+                "reference": "e3c32b39c27bd2e7aad93872d5bff09e9237e9ce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bolt/forms/zipball/e3c32b39c27bd2e7aad93872d5bff09e9237e9ce",
+                "reference": "e3c32b39c27bd2e7aad93872d5bff09e9237e9ce",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.2.9",
+                "twig/twig": "^2.12 || ^3.0"
+            },
+            "require-dev": {
+                "bolt/core": "^4.1",
+                "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan-doctrine": "^0.12",
+                "phpstan/phpstan-symfony": "^0.12",
+                "symplify/easy-coding-standard": "^10.2"
+            },
+            "type": "bolt-extension",
+            "extra": {
+                "entrypoint": "Bolt\\BoltForms\\Extension"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bolt\\BoltForms\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bob den Otter",
+                    "email": "bobdenotter@gmail.com"
+                }
+            ],
+            "description": "📦 This Bolt extension can be used to handle forms in your Bolt 5 project.",
+            "support": {
+                "issues": "https://github.com/bolt/forms/issues",
+                "source": "https://github.com/bolt/forms/tree/1.5.1"
+            },
+            "time": "2022-06-29T13:38:23+00:00"
         },
         {
             "name": "bolt/newswidget",
@@ -13724,6 +13776,99 @@
                 "source": "https://github.com/phpstan/phpstan-symfony/tree/0.12.44"
             },
             "time": "2021-09-02T12:14:11+00:00"
+        },
+        {
+            "name": "symfony/maker-bundle",
+            "version": "v1.45.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/maker-bundle.git",
+                "reference": "7ae4ff28ac1b6d6d55591999026040d58b8a3967"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/7ae4ff28ac1b6d6d55591999026040d58b8a3967",
+                "reference": "7ae4ff28ac1b6d6d55591999026040d58b8a3967",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/inflector": "^2.0",
+                "nikic/php-parser": "^4.11",
+                "php": ">=8.0",
+                "symfony/config": "^5.4.7|^6.0",
+                "symfony/console": "^5.4.7|^6.0",
+                "symfony/dependency-injection": "^5.4.7|^6.0",
+                "symfony/deprecation-contracts": "^2.2|^3",
+                "symfony/filesystem": "^5.4.7|^6.0",
+                "symfony/finder": "^5.4.3|^6.0",
+                "symfony/framework-bundle": "^5.4.7|^6.0",
+                "symfony/http-kernel": "^5.4.7|^6.0"
+            },
+            "conflict": {
+                "doctrine/doctrine-bundle": "<2.4",
+                "doctrine/orm": "<2.10",
+                "symfony/doctrine-bridge": "<5.4"
+            },
+            "require-dev": {
+                "composer/semver": "^3.0",
+                "doctrine/doctrine-bundle": "^2.4",
+                "doctrine/orm": "^2.10.0",
+                "symfony/http-client": "^5.4.7|^6.0",
+                "symfony/phpunit-bridge": "^5.4.7|^6.0",
+                "symfony/polyfill-php80": "^1.16.0",
+                "symfony/process": "^5.4.7|^6.0",
+                "symfony/security-core": "^5.4.7|^6.0",
+                "symfony/yaml": "^5.4.3|^6.0",
+                "twig/twig": "^2.0|^3.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Bundle\\MakerBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Maker helps you create empty commands, controllers, form classes, tests and more so you can forget about writing boilerplate code.",
+            "homepage": "https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html",
+            "keywords": [
+                "code generator",
+                "generator",
+                "scaffold",
+                "scaffolding"
+            ],
+            "support": {
+                "issues": "https://github.com/symfony/maker-bundle/issues",
+                "source": "https://github.com/symfony/maker-bundle/tree/v1.45.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-07-26T12:31:45+00:00"
         },
         {
             "name": "symplify/easy-coding-standard",
