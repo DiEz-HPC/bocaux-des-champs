@@ -49,3 +49,20 @@ td img {
 .qrCode-preview{
     border: 1px solid black;
 }
+
+.card-img-top{
+    object-fit: cover;
+    height: 50vh;
+}
+
+
+.setting-container{
+    height: 100vh;
+}
+
+#contentType.contentTypeQr{
+    width: 15vw;
+    text-align: center;
+    padding: 5px;
+    border-radius: 0.25em;
+}

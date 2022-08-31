@@ -20,22 +20,41 @@ class QrCodeController extends TwigAwareController implements BackendZoneInterfa
         $this->objectManager = $objectManager;
     }
 
-
+/**
+ * 
+ * To Do:
+ * - Refactoriser le code
+ * - Styliser le rendu
+ * 
+ */
     #[Route("qr-code/", name: "app_qr_code")]
     public function viewEdits(Request $request): Response
     {
-        // get all content types
-        $contentTypes = $this->config->get('contenttypes');
+        // get all content types for input
+        $allContentTypes = $this->config->get('contenttypes');
+
         $selectedContentType = null;
         $data = $request->request->all();
+        $isSingleton = false;
+
+        
         if ($data) {
-            $selectedContentType = $data['contentType'];
+            $contentType = $this->config->get('contenttypes/' . strtolower($data['contentType']));
+
+            if(isset($contentType['singleton']) && $contentType['singleton']==true ) {
+               $isSingleton = true;
+               $selectedContentType = $contentType['slug'];
+            }else{
+                $selectedContentType = $data['contentType'];
+            }
+           
         }
         return $this->render(
             'content_QrCode.html.twig',
             [
-                'contentTypes' => $contentTypes,
+                'contentTypes' => $allContentTypes,
                 'selectedContentType' => $selectedContentType,
+                'isSingleton' => $isSingleton,
             ]
         );
     }
@@ -44,8 +63,8 @@ class QrCodeController extends TwigAwareController implements BackendZoneInterfa
     public function gerenateQr(Request $request, QrGenerator $qrGenerator)
     {
         $data = $request->request->all();
-
-        if (!empty($data)) {
+dd($data);
+        if (!empty($data) && count($data) > 3) {
             $qrGenerator->parseFormData($data);
             $response = new Response();
             $response->headers->set('Content-Type', 'application/zip');
@@ -54,6 +73,8 @@ class QrCodeController extends TwigAwareController implements BackendZoneInterfa
             $qrGenerator->purgeDirectories();
             return $response;
         }
-        return $this->redirectToRoute('app_qr_code');
+        // return flash message if no data is sent
+        $this->addFlash('error', 'Vous n\'avez pas sélectionné de contenu');
+        return $this->redirectToRoute('app_qr_code'); 
     }
 }
