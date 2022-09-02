@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   selectCheckboxOnRowClick();
   changeButton();
   settingToggle();
+  editPreview();
 });
 
 function selectAllCheckbox() {
@@ -53,7 +54,7 @@ function changeButton() {
   var count = checkCount();
   if (count == 0) {
     button.disabled = true;
-    button.innerHTML = "Aucune vidéo sélectionné";
+    button.innerHTML = "Aucun contenu sélectionné";
   } else if (count == 1) {
     button.disabled = false;
     button.innerHTML = "Générer le QR Code";
@@ -95,4 +96,15 @@ function setBubble(range, bubble) {
 
   // Sorta magic numbers based on size of the native UI thumb
   bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
+}
+
+
+function editPreview(){
+    var preview = document.getElementById('qrCode__preview');
+    document.getElementById('qrCodeSize').addEventListener('click', function(){
+       preview.style.width = this.value + 'px';
+    })
+    document.getElementById('qrCodeMargin').addEventListener('click', function(){
+       preview.style.padding = this.value + 'px';
+    })
 }

@@ -1,5 +1,5 @@
 {% extends '@bolt/_base/layout.html.twig' %}
-{% setcontent records = ('Vidéos') %}
+
 
 {% block title %}
     Génération des Qr codes
@@ -14,24 +14,45 @@
     <script src="{{ asset('js/adminQrCode.js') }}"></script>
 {% endblock %}
 {% block main %}
-    <div>
-        <p class="text-center">
-            Vous pouvez sélectionnez les vidéos que vous souhaitez puis cliquer sur le bouton
-            <span class="badge bg-secondary">Générer le Qr Code</span>
-            afin de procédé à la création des Qr Codes.</p>
-       
-        <div class="row flex-column m-3 justify-content-center align-items-center">
-         <h2>Configuration des Qr codes</h2>
-         <button class="btn btn-secondary w-50" id="qrCode__setting_toggler">Configuration</button>
+    {% if selectedContentType is null %}
+        <div class="row flex-column justify-content-center align-items-center">
+            <div class="text-center">
+                <h2>Pour quelle contenu voulez vous générer des Qr Codes ?</h2>
+            </div>
+            <div>
+                <form action="{{ path('app_qr_code') }}" method="post">
+                    <div class="form-group row flex-column justify-content-center align-items-center">
+                        <label for="contentType">Choisissez le contenu à générer</label>
+                        <select class="form-select" id="contentType" name="contentType">
+                            {% for contentType in contentTypes %}
+                                <option value="{{ contentType.name }}">{{ contentType.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Valider</button>
+                </form>
+            </div>
         </div>
-        <form action="{{ path('app_qr_code_generate') }}" method="post">
-            <div class="setting-container" id="qrCode__setting_container" style="display:none;">
+    {% else %}
+        {% setcontent records = selectedContentType %}
+        <div>
+            <p class="text-center">
+                Vous pouvez sélectionnez le contenu que vous souhaitez puis cliquer sur le bouton
+                <span class="badge bg-secondary">Générer le Qr Code</span>
+                afin de procédé à la création des Qr Codes.</p>
+
+            <div class="row flex-column m-3 justify-content-center align-items-center">
+                <h2>Configuration des Qr codes</h2>
+                <button class="btn btn-secondary w-50" id="qrCode__setting_toggler">Configuration</button>
+            </div>
+            <form action="{{ path('app_qr_code_generate') }}" method="post">
+                <div class="setting-container" id="qrCode__setting_container" style="display:none;">
                     <div class="row g-2">
                         <div class="col-md">
                             <div class="form-group d-flex flex-column range-wrap">
                                 <label for="qrCodeSize">Taille des Qr codes</label>
                                 <input type="range" class="form-range range" min="200" max="600" step="40" id="qrCodeSize" name="qrCodeSize" value="400">
-                                 <output class="bubble"></output>
+                                <output class="bubble"></output>
                             </div>
                         </div>
                         <div class="col-md">
@@ -42,59 +63,62 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <h3>Label des Qr codes
-                        </h3>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="LabelQrCode" id="LabelNomDesVideos" value="moviesName" checked>
-                            <label class="form-check-label" for="LabelNomDesVideos">
-                                Nom des vidéos
-                            </label>
+                    <div class="d-flex justify-content-around align-items-center mb-4">
+                        <div class="form-group">
+                            <h3>Label des Qr codes
+                            </h3>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="LabelQrCode" id="LabelNomDesVideos" value="moviesName" checked>
+                                <label class="form-check-label" for="LabelNomDesVideos">
+                                    Nom du contenu
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="LabelQrCode" id="LabelNomDuSites" value="websiteName">
+                                <label class="form-check-label" for="LabelNomDuSites">
+                                    Nom du site
+                                </label>
+                            </div>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="LabelQrCode" id="LabelNomDuSites" value="websiteName">
-                            <label class="form-check-label" for="LabelNomDuSites">
-                                Nom du site
-                            </label>
-                        </div>
+                        <img src="{{ qr_code_data_uri('My QR Code') }}" class="img-responsive mx-5 qrCode-preview" id="qrCode__preview"/>
+                    </div>
                 </div>
-            </div>
 
-            <table class="table table-hover text-center table-responsive" id="qrCode__table">
-                <thead>
-                    <tr>
-                        <th scope="col">Image</th>
-                        <th scope="col">Titre</th>
-                        <th scope="col">Résumé</th>
-                        <th scope="col">
-                            <span class="btn btn-primary" data-cliked="false" id="qrCode__selectAll"></span>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for record in records %}
-                        <tr class="formTr" data-id='{{loop.index}}'>
-                            <td>
-                                {% if record|image %}
-                                    <img src="{{ record|thumbnail(280, 120) }}" class="img-thumbnail" alt="{{ record|image.alt|default() }}"/>
-                                {% else %}
-                                    <img src="{{ record.embedded.thumbnail }}" class="img-fluid" alt="{{ record.title }}"/>
-                                {% endif %}
-                            </td>
-                            <td>{{ record|title }}</td>
-                            <td>{{ record.teaser|excerpt(250) }}</td>
-                            <td class="checkbox__td">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input qrCode__checkbox qrCode__checkbox_index{{loop.index}}" type="checkbox" value="{{ record.contentType }}" id="flexCheckDefault" name="{{ record.slug }}">
-                                </div>
-                            </td>
+                <table class="table table-hover text-center table-responsive w-100" id="qrCode__table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Image</th>
+                            <th scope="col">Titre</th>
+                            <th scope="col">Lien</th>
+                            <th scope="col">
+                                <span class="btn btn-primary" data-cliked="false" id="qrCode__selectAll"></span>
+                            </th>
                         </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary" id="qrCode__sendButton" disable>Aucune vidéo sélectionné</button>
-            </div>
-        </form>
-    </div>
+                    </thead>
+                    <tbody>
+                        {% for record in records %}
+                            <tr class="formTr" data-id='{{loop.index}}'>
+                                {% for field in record.fields %}
+                                    {% include 'partials/_adminFieldType.twig' with {'type': field|type , 'record': record} %}
+                                {% endfor %}
+                                <td>{{ record|title }}</td>
+                                <td>
+                                    <a href="{{ record|link }}" target="_blank">
+                                        {{ record.slug }}</a>
+                                </td>
+                                <td class="checkbox__td">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input qrCode__checkbox qrCode__checkbox_index{{loop.index}}" type="checkbox" value="{{ record.contentType }}" id="flexCheckDefault" name="{{ record.slug }}">
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary" id="qrCode__sendButton" disable>Aucune vidéo sélectionné</button>
+                </div>
+            </form>
+        </div>
+    {% endif %}
 {% endblock %}

@@ -5,6 +5,7 @@ namespace App;
 use App\Service\QrGenerator;
 use Bolt\Controller\TwigAwareController;
 use Doctrine\ORM\EntityManagerInterface;
+use Bolt\Configuration\Content\ContentType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,9 +22,22 @@ class QrCodeController extends TwigAwareController implements BackendZoneInterfa
 
 
     #[Route("qr-code/", name: "app_qr_code")]
-    public function viewEdits(): Response
+    public function viewEdits(Request $request): Response
     {
-       return $this->render('content_QrCode.html.twig');
+        // get all content types
+        $contentTypes = $this->config->get('contenttypes');
+        $selectedContentType = null;
+        $data = $request->request->all();
+        if ($data) {
+            $selectedContentType = $data['contentType'];
+        }
+        return $this->render(
+            'content_QrCode.html.twig',
+            [
+                'contentTypes' => $contentTypes,
+                'selectedContentType' => $selectedContentType,
+            ]
+        );
     }
 
     #[Route("/qr-code/generate", name: "app_qr_code_generate")]
@@ -31,7 +45,7 @@ class QrCodeController extends TwigAwareController implements BackendZoneInterfa
     {
         $data = $request->request->all();
 
-        if (!empty($data)) {         
+        if (!empty($data)) {
             $qrGenerator->parseFormData($data);
             $response = new Response();
             $response->headers->set('Content-Type', 'application/zip');

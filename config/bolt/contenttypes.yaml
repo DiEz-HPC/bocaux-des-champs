@@ -135,14 +135,14 @@ products:
         ingredient:
             type: redactor
             info: La liste d'ingrédient du produit
-            label: Liste d'ingrédients                   
+            label: Liste d'ingrédients
         nutrition:
             type: redactor
             info: Les valeurs nutritionnelles pour 100g du produit
             label: Valeurs nutritionnelles pour 100g
         slug:
             type: slug
-            uses: title 
+            uses: title
             group: Meta
     show_on_dashboard: true
     default_status: published
@@ -174,7 +174,7 @@ movies:
             type: slug
             uses: [ title ]
             group: Meta
-    taxonomy:  videosTags 
+    taxonomy:  videosTags
     show_on_dashboard: true
     default_status: published
     order: title
@@ -251,8 +251,79 @@ events:
     icon_many: "fa:calendar"
     icon_one: "fa:calendar"
 
+contact:
+    name: Contact
+    singular_name: Contact
+    fields:
+        title:
+            type: text
+            class: large
+            variant: inline
+            info: Nom de la page
+            label: Nom de la page
+            fixture_format: '{catchPhrase}'
+        texte:
+            label: Texte de la page
+            type: textarea
+            required: true
+        bocauxAdress:
+            label: Adresse de Bocaux des champs
+            type: text
+            required: true
+        bocauxMail:
+            label: Mail de Bocaux des champs
+            type: text
+            required: true
+        atcAdress:
+            label: Adresse de ATC45
+            type: text
+            required: true
+        atcMail:
+            label: Mail de ATC45
+            type: text
+            required: true
+        slug:
+            type: slug
+            uses: title
+            group: Meta
+    viewless: false
+    singleton: true
+    icon_many: "fa:envelope"
+    icon_one: "fa:envelope"
+    show_in_menu: Formulaire de contact
 
-    
+Message:
+    name: Messages
+    singular_name: Message
+    title_format: "Message de : {name} {firstname}"
+    excerpt_format: "{message}"
+    fields:
+        name:
+            type: text
+            variant: inline
+        firstname:
+            type: text
+            variant: inline
+        email:
+            type: text
+            variant: inline
+        message:
+            type: textarea
+        timestamp:
+            type: text
+            variant: inline
+        url:
+            type: text
+            variant: inline
+        path:
+            type: text
+            variant: inline
+        ip:
+            type: text
+            variant: inline
+    show_in_menu: Formulaire de contact
+    viewless: true
+    searchable: false
 # Possible field types:
 #
 # text - varchar(256) - input type text.
