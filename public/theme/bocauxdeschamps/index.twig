@@ -1,11 +1,22 @@
 {% extends 'partials/_master.twig' %}
 
+{% from '@theme/macros/images.twig' import imagePosition %}
+
 {% setcontent products = 'Produits' latest limit 3 %}
 {% setcontent engagements = 'Engagements' latest limit 1 %}
 {% setcontent history = 'Histoire' latest limit 1 %}
-{% set pictures = []|merge([engagements.pictures]) %}
+{% set pictures = [] %}
 
-{% from '@theme/macros/images.twig' import imagePosition %}
+{% if engagements.pictures %}
+    {% for picture in engagements.pictures %}
+        {% set pictures = pictures|merge([picture]) %}
+    {% endfor %}
+{% endif %}
+{% if history.pictures %}
+    {% for picture in history.pictures %}
+        {% set pictures = pictures|merge([picture]) %}
+    {% endfor %}
+{% endif %}
 
 {% block main %}
     <div class="homepage mb-5 pb-5">
@@ -49,8 +60,6 @@
                     </div>
                 {% endfor %}
             </div>
-            {# insérer 3 images de produits aléatoire #}
-            <div class="products"></div>
             <div class="d-flex justify-content-center align-items-center">
                 <div class="separate-block col-6 my-5"></div>
             </div>
