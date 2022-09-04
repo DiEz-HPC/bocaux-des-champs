@@ -1,6 +1,6 @@
 /* Set the global variables for everything. Change these to use your own fonts/colours. */
-@import 'bootstrap.min.css';
-@import 'navbar.css';
+@import "bootstrap.min.css";
+@import "navbar.css";
 
 :root {
 

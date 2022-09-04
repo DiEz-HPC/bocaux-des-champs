@@ -5,40 +5,25 @@
     <link rel="stylesheet" href="{{ asset('css/engagements.css') }}">
 {% endblock %}
 
-
-{% macro imagePosition(loopIndex, picture) %}
-    {% if loopIndex == 1 %}
-        {% apply spaceless %}
-            <img src="{{ picture }}" alt="{{ picture.alt }}" class="image-top col-9 mb-5">
-        {% endapply %}
-    {% elseif loopIndex == 2 %}
-        {% apply spaceless %}
-            <img src="{{ picture }}" alt="{{ picture.alt }}" class="image-middle col-9">
-        {% endapply %}
-    {% else %}
-        {% apply spaceless %}
-            <img src="{{ picture }}" alt="{{ picture.alt }}" class="image-bottom col-9">
-        {% endapply %}
-    {% endif %}
-{% endmacro %}
-
-{% from _self import imagePosition %}
+{% from '@theme/macros/images.twig' import imagePosition %}
 
 {% block main %}
     <div class="engagements container-fluid">
         <h1 class="my-5 fw-bold ">{{ 'Nos Engagements' | upper }}</h1>
-        <div class="content d-flex flex-column flex-lg-row justify-content-between">
+        <div class="content d-flex flex-column flex-lg-row justify-content-between position-relative">
             <div class="left col-lg-5">
                 {{ record.content }}
             </div>
             <div class="right col-lg-6 d-flex flex-column align-items-center position-relative">
-                {% if record.pictures %}
-                    {% for picture in record.pictures|shuffle %}
-                        {% if loop.index <= 3 %}
-                            {{ imagePosition(loop.index, picture) }}
-                        {% endif %}
-                    {% endfor %}
-                {% endif %}
+                <div class="position-fixed w-100">
+                    {% if record.pictures %}
+                        {% for picture in record.pictures|shuffle %}
+                            {% if loop.index <= 3 %}
+                                {{ imagePosition(loop.index, picture) }}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>

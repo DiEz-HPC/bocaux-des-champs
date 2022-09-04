@@ -1,20 +1,36 @@
 .engagements img {
-    width: 500px;
+    width: 100%;
     object-fit: cover;
 }
 
-.image-top {
+.container-image {
+    height: 400px;
+    width: 80%;
+}
+
+.top {
     position: relative;
     z-index: 0;
+    background-color: red;
+}
+
+.middle {
+    position: relative;
+    right: 20%;
+    z-index: 2;
+    background-color: green;
+    margin-top: -20%;
 }
 
 .image-middle {
-    position: absolute;
-    right: 50%;
+    position: relative;
     z-index: 2;
+    right: 50%;
 }
 
-.image-bottom {
+.bottom {
     position: relative;
     z-index: 3;
+    background-color: rebeccapurple;
+    margin-top: -20%;
 }

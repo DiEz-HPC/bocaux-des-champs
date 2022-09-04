@@ -1,0 +1,21 @@
+{% macro imagePosition(loopIndex, picture) %}
+    {% if loopIndex == 1 %}
+        {% apply spaceless %}
+            <div class="container-image top">
+                {# <img src="{{ picture }}" alt="{{ picture.alt }}" class="image-top col-9 mb-5"> #}
+            </div>
+        {% endapply %}
+    {% elseif loopIndex == 2 %}
+        {% apply spaceless %}
+            <div class="container-image middle">
+                {# <img src="{{ picture }}" alt="{{ picture.alt }}" class="image-middle col-9 mb-5"> #}
+            </div>
+        {% endapply %}
+    {% else %}
+        {% apply spaceless %}
+            <div class="container-image bottom">
+                {# <img src="{{ picture }}" alt="{{ picture.alt }}" class="image-bottom col-9"> #}
+            </div>
+        {% endapply %}
+    {% endif %}
+{% endmacro %}
