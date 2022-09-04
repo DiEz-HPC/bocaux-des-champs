@@ -8,7 +8,7 @@
 default:
     # All options for buttons: html, format, bold, italic, deleted, lists, link, file, line, redo,
     # undo, underline, ol, ul, indent, outdent, sup, sub
-    buttons: [ format, bold, italic, underline, line, lists, link ] # Dont touch this, it's use in product
+    buttons: [ format, bold, italic, underline, line, lists, link, image ] # Dont touch this, it's use in product
 
     # See https://imperavi.com/redactor/plugins/ for available plugins
     # Common items include video, widget, counter, clips, imagemanager, definedlinks

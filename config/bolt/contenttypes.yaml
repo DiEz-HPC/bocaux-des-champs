@@ -44,7 +44,7 @@ engagements:
             label: Contenue de la page
         slug:
             type: slug
-            uses: [name]
+            uses: name
     show_on_dashboard: true
     singleton: true
     default_status: published
