@@ -11,10 +11,10 @@
     <div class="engagements container-fluid px-5">
         <h1 class="my-5 fw-bold ">{{ 'Nos Engagements' | upper }}</h1>
         <div class="content d-flex flex-column flex-lg-row justify-content-between position-relative">
-            <div class="block-left col-lg-5">
+            <div class="block-left col-lg-6">
                 {{ record.content }}
             </div>
-            <div class="block-right col-lg-6 d-flex flex-column align-items-center justify-content-lg-center justify-content-between position-relative">
+            <div class="block-right col-lg-5 d-flex flex-column align-items-center justify-content-lg-center justify-content-between position-relative">
                 {% if record.pictures %}
                     {% for picture in record.pictures|shuffle %}
                             {{ imagePosition(loop.index, picture) }}

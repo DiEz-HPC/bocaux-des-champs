@@ -34,14 +34,15 @@ engagements:
     name: Engagements
     singular_name: Engagement
     fields:
-        pictures:
-            type: imagelist
-            label: Images mises en avant
         content:
             type: redactor
             class: large
             info: Texte de l'engagement
             label: Contenue de la page
+        pictures:
+            type: imagelist
+            label: Images mises en avant
+            info: Images mises en avant sur la page d'accueil
         slug:
             type: slug
             uses: name
