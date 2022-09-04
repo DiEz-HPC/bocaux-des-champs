@@ -42,7 +42,6 @@ engagements:
         pictures:
             type: imagelist
             label: Images mises en avant
-            info: Images mises en avant sur la page d'accueil
         slug:
             type: slug
             uses: name
@@ -62,6 +61,9 @@ history:
             class: large
             info: Texte de l'histoire
             label: Contenue de la page
+        pictures:
+            type: imagelist
+            label: Images mises en avant
         slug:
             type: slug
             uses: [name]

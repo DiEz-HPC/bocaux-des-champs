@@ -2,6 +2,10 @@
 
 {% setcontent products = 'Produits' latest limit 3 %}
 {% setcontent engagements = 'Engagements' latest limit 1 %}
+{% setcontent history = 'Histoire' latest limit 1 %}
+{% set pictures = []|merge([engagements.pictures]) %}
+
+{% from '@theme/macros/images.twig' import imagePosition %}
 
 {% block main %}
     <div class="homepage mb-5 pb-5">
@@ -23,8 +27,12 @@
                 </div>
 
             </div>
-            <div class="right col-sm-6">
-
+            <div class="right col-lg-5 d-flex flex-column align-items-center justify-content-lg-center justify-content-between position-relative">
+                {% if pictures %}
+                    {% for picture in pictures|shuffle %}
+                        {{ imagePosition(loop.index, picture) }}
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
         <div class="thirdview">
