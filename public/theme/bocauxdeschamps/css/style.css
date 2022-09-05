@@ -1,12 +1,14 @@
 /* Set the global variables for everything. Change these to use your own fonts/colours. */
-@import 'bootstrap.min.css';
-@import 'navbar.css';
+@import "bootstrap.min.css";
+@import "navbar.css";
 
 :root {
-
     /* Set sans-serif & mono fonts */
-    --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Nimbus Sans L", Roboto, Noto, "Segoe UI", Arial, Helvetica, "Helvetica Neue", sans-serif;
-    --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+        "Nimbus Sans L", Roboto, Noto, "Segoe UI", Arial, Helvetica,
+        "Helvetica Neue", sans-serif;
+    --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono",
+        monospace;
 
     /* Body font size. By default, effectively 18.4px, based on 16px as 'root em' */
     --base-fontsize: 1.15rem;
@@ -18,47 +20,45 @@
     --line-height: 1.618;
 
     /* Default (light) theme */
-    --bg: #FFF;
-    --accent-bg: #F5F7FF;
-    --accent-bg-stronger: #E8E8E8;
+    --bg: #fff;
+    --accent-bg: #f5f7ff;
+    --accent-bg-stronger: #e8e8e8;
     --text: #212121;
     --text-light: #585858;
-    --border: #D8DAE1;
-    --accent: #0D47A1;
-    --accent-light: #90CAF9;
-    --code: #D81B60;
+    --border: #d8dae1;
+    --accent: #0d47a1;
+    --accent-light: #90caf9;
+    --code: #d81b60;
     --preformatted: #444;
-    --marked: #FFDD33;
-    --disabled: #EFEFEF;
-
+    --marked: #ffdd33;
+    --disabled: #efefef;
 }
 
 /* Dark theme */
 @media (prefers-color-scheme: dark) {
     :root {
         --bg: #212121;
-        --accent-bg: #2B2B2B;
+        --accent-bg: #2b2b2b;
         --accent-bg-stronger: #444;
-        --text: #DCDCDC;
-        --text-light: #ABABAB;
+        --text: #dcdcdc;
+        --text-light: #ababab;
         --border: #666;
-        --accent: #FFB300;
-        --accent-light: #FFECB3;
-        --code: #F06292;
-        --preformatted: #CCC;
+        --accent: #ffb300;
+        --accent-light: #ffecb3;
+        --code: #f06292;
+        --preformatted: #ccc;
         --disabled: #111;
     }
 
-    img, video {
-        opacity: .6;
+    img,
+    video {
+        opacity: 0.6;
     }
 }
-
 * {
     /* Set the font globally */
     font-family: var(--sans-font);
 }
-
 
 /* Make the body a nice central block */
 body {
@@ -72,8 +72,6 @@ body {
     flex-direction: column;
 }
 
-
-
 footer {
     background: var(--accent-bg);
     border-top: 1px solid var(--border);
@@ -84,11 +82,11 @@ footer {
     border-top: 1px solid var(--border);
 }
 
-.tagBadge{
+.tagBadge {
     background: grey;
     color: black;
     font-size: 1rem;
     border-radius: 0.25rem;
     margin: 0 0.5rem;
-    padding: 0.20rem;
+    padding: 0.2rem;
 }

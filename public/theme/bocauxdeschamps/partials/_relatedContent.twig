@@ -5,20 +5,22 @@
 
 {% if (record.contentTypeSlug === 'produits' or record.contentTypeSlug === 'videos') %}
     {% for otherRecord in records %}
-        <div class="card" style="width: 18rem; height: 30rem">
-            {% if otherRecord|image %}
-                <a href="{{ otherRecord|image }}">
-                    <img src="{{ otherRecord|thumbnail(480, 320) }}" class="card-img-top" alt="{{ otherRecord|image.alt|default() }}"/>
-                </a>
-            {% else %}
-                <img src="{{ otherRecord.embedded.thumbnail }}" class="card-img-top" alt="{{ otherRecord.title }}"/>
-            {% endif %}
-            <a href="{{ otherRecord|link }}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ otherRecord|title }}</h5>
-                    <p class="card-text">{{ otherRecord.teaser|excerpt(250) }}</p>
+
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-4 mt-4 mt-lg-4">
+            <div class="card rounded shadow-sm border-0">
+                <div class="card-body p-4">
+                    {% if otherRecord|image %}
+                        <img src="{{ otherRecord|thumbnail(480, 320) }}" class="img-fluid card-img-top d-block mx-auto mb-3" alt="{{ record|image.alt|default() }}"/>
+                    {% else %}
+                        <img src="{{ otherRecord.embedded.thumbnail }}" class="card-img-top" alt="{{ otherRecord.title }}"/>
+                    {% endif %}
+                    <h5>
+                        <a href="{{ otherRecord|link }}" class="text-dark">{{ otherRecord|title|excerpt(25) }}</a>
+                    </h5>
+                    <div class="small text-muted font-italic">{{ otherRecord.teaser|excerpt(60) }}</div>
+                    <a href="{{ otherRecord|link }}" class="btn btn-block mt-4">Voir le produit</a>
                 </div>
-            </a>
+            </div>
         </div>
     {% else %}
         <p>Aucun
@@ -30,38 +32,38 @@
 
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
-                
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ otherRecord|title }}</h5>
-                            <p class="card-text">{{ otherRecord.teaser }}</p>
-                            <p class="card-text">
-                                <small class="text-muted">
-                                    <p class="meta">
-                                        {% if user %}
-                                            <span class="edit-link">
-                                                <a href="{{ otherRecord|edit_link }}">
-                                                    <strong>{{ __('general.phrase.edit') }}</strong>
-                                                </a>
-                                            </span>
-                                            -
-                                        {% endif %}
-                                        {{ __('general.phrase.written-by-on', {
+
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ otherRecord|title }}</h5>
+                        <p class="card-text">{{ otherRecord.teaser }}</p>
+                        <p class="card-text">
+                            <small class="text-muted">
+                                <p class="meta">
+                                    {% if user %}
+                                        <span class="edit-link">
+                                            <a href="{{ otherRecord|edit_link }}">
+                                                <strong>{{ __('general.phrase.edit') }}</strong>
+                                            </a>
+                                        </span>
+                                        -
+                                    {% endif %}
+                                    {{ __('general.phrase.written-by-on', {
                                             '%name%': otherRecord.author.displayName|default(__('Unknown')),
                                             '%date%': otherRecord.publishedAt|localdate("l j F Y")
                                         }) }}
-                                    </p>
-                                </small>
-                            </p>
-                        </div>
+                                </p>
+                            </small>
+                        </p>
                     </div>
-                    <div class="col-md-4">
-                        <img src="{{ otherRecord|thumbnail(480, 320) }}" class="img-fluid rounded-start" alt="{{ otherRecord.title }}">
-                              <a href="{{ otherRecord|link }}" >
-                    Lire l'article
+                </div>
+                <div class="col-md-4">
+                    <img src="{{ otherRecord|thumbnail(480, 320) }}" class="img-fluid rounded-start" alt="{{ otherRecord.title }}">
+                    <a href="{{ otherRecord|link }}">
+                        Lire l'article
                     </a>
-                    </div>
-              
+                </div>
+
             </div>
         </div>
     {% else %}
@@ -70,3 +72,10 @@
     {% endfor %}
 
 {% endif %}
+<div class="row m-2 text-center">
+    <a href="{{ path('listing', {'contentTypeSlug': record.contentTypeSlug }) }}">
+        <button class="btn">
+            Retour à la liste des {{ record.contentTypeSlug }}
+        </button>
+    </a>
+</div>
