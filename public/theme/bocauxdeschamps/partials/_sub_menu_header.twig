@@ -26,7 +26,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav text-center text-sm-start mt-5 mt-sm-0">
+            <ul class="navbar-nav text-center text-lg-start mt-5 mt-sm-0">
                 {% for item in menu %}
                     {% if item.label is defined %}
                         {{ display_menu_item(item, loop, withsubmenus) }}
