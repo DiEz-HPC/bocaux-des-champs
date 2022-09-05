@@ -13,6 +13,18 @@
         <target><![CDATA[Malheureusement, aucun contenu n'a pu être trouvé. Essayez une autre page ou rendez-vous sur <a href="/">l'accueil</a>.]]></target>
       </segment>
     </unit>
+    <unit id="ygD8z7Q" name="error">
+      <segment>
+        <source>error</source>
+        <target>error</target>
+      </segment>
+    </unit>
+    <unit id="Z4fH3Wl" name="Vous n'avez pas sélectionné de contenu">
+      <segment>
+        <source>Vous n'avez pas sélectionné de contenu</source>
+        <target>Vous n'avez pas sélectionné de contenu</target>
+      </segment>
+    </unit>
     <unit id="3NHVIj9" name="Name">
       <segment>
         <source>Name</source>
