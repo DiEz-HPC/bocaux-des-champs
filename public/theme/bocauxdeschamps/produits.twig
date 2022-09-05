@@ -7,29 +7,39 @@
 
 {% block main %}
     <div class="container">
-        <h1 class="text-center"> Nos produits </h1>
-        <p class="text-center"> Esse tempor officia mollit pariatur non cupidatat fugiat enim exercitation Lorem. Veniam
-            amet ea sit anim cillum laboris esse amet et aliqua voluptate. Minim dolor dolor occaecat Lorem et aute.</p>
-        <div class="row d-flex justify-content-around align-items-center my-3">
+        <h1 class="text-center my-4">
+            Nos produits
+        </h1>
+        <p class="text-center">
+            Esse tempor officia mollit pariatur non cupidatat fugiat enim exercitation Lorem. Veniam
+                                                                                                                                                amet ea sit anim cillum laboris esse amet et aliqua voluptate. Minim dolor dolor occaecat Lorem et aute.</p>
+        <div class="row my-3"></div>
+        <div class="row pb-5 mb-4 justify-content-evenly align-items-center">
+
             {% for record in records %}
-                <div class="card" style="width: 18rem; height: 25rem">
-                    {% if record|image %}
-                        <a href="{{ record|image }}">
-                            <img src="{{ record|thumbnail(480, 320) }}" class="card-img-top"
-                                 alt="{{ record|image.alt|default() }}"/>
-                        </a>
-                    {% endif %}
-                    <a href="{{ record|link }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ record|title }}</h5>
-                            <p class="card-text">{{ record.teaser }}</p>
+                <div class="col-6 col-lg-3 col-md-6 mb-4 mb-lg-4 mt-4 mt-lg-4">
+                        <div class="card rounded shadow border-0">
+                            <div class="card-body p-2 p-md-4">
+                                {% if record|image %}
+                                    <img src="{{ record|image }}" class="img-fluid card-img-top d-block mx-auto mb-3" alt="{{ record|image.alt|default() }}"/>
+                                {% endif %}
+                                <h5>
+                                    <a href="{{ record|link }}" class="text-dark">{{ record|title|excerpt(25) }}</a>
+                                </h5>
+                                <div class="small text-muted font-italic">{{ record.teaser|excerpt(60) }}</div>
+
+                            </div>
+                            <div class=" text-center mb-2">
+                                <a href="{{ record|link }}" class="btn btn-block">Voir le produit</a>
+                            </div>
                         </div>
-                    </a>
                 </div>
             {% else %}
                 {% include 'partials/_noContent.twig' %}
             {% endfor %}
+
         </div>
+
         {# If there are more records than will fit on one page, the pager is shown. #}
         {{ pager(records, template = 'helpers/_pager_basic.html.twig') }}
     </div>

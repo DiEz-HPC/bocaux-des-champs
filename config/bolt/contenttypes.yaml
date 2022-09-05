@@ -70,7 +70,7 @@ pages:
 # The 'Products' ContentType can be used to manage information about the
 # products or services you (or your company, organisation) provide.
 
-products:
+produits:
     name: Produits
     singular_name: Produit
     fields:

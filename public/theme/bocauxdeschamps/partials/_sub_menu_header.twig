@@ -10,7 +10,7 @@
     {% from _self import display_menu_item %}
     {% apply spaceless %}
         <li class="nav-item me-sm-5">
-            <a href="{{ item.link }}" title="{{ item.title }}" aria-current="page" class="nav-link {% if loop.first %}{{ 'first' }}{% elseif loop.last %}{{ 'last' }}{% endif %}{{ item|current ? ' active' }}">{{- item.label -}}</a>
+            <a href="/{{ item.link }}" title="{{ item.title }}" aria-current="page" class="nav-link {% if loop.first %}{{ 'first' }}{% elseif loop.last %}{{ 'last' }}{% endif %}{{ item|current ? ' active' }}">{{- item.label -}}</a>
         </li>
     {% endapply %}
 {% endmacro %}

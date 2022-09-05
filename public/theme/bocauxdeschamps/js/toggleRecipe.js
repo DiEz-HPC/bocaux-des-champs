@@ -1,20 +1,30 @@
+window.onload = function () {
+  var recipeContainer = document.getElementById("recipeContainer");
+  var nutritionalContainer = document.getElementById("nutritionalContainer");
+  var buttons = [document.getElementById("recipeBtn"), document.getElementById("nutritionalBtn")];
 
-window.onload = function(){
-    var recipeBtn = document.getElementById('recipeBtn');
-    var recipeContainer = document.getElementById('recipeContainer');
-    var nutritionalBtn = document.getElementById('nutritionalBtn');
-    var nutritionalContainer = document.getElementById('nutritionalContainer');
+  buttons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      if (button.id === "recipeBtn") {
+        toggleStyle(recipeContainer, nutritionalContainer);
+        toggleClassname(buttons, "active");
+      } else {
+        toggleStyle(nutritionalContainer, recipeContainer);
+        toggleClassname(buttons, "active");
+      }
+    });
+  });
+};
 
-    recipeBtn.addEventListener('click', function(){
-        recipeContainer.style.display = 'block';
-        nutritionalContainer.style.display = 'none';
-        recipeBtn.classList.add('active');
-        nutritionalBtn.classList.remove('active');
-    });
-    nutritionalBtn.addEventListener('click', function(){
-        recipeContainer.style.display = 'none';
-        nutritionalContainer.style.display = 'block';
-        recipeBtn.classList.remove('active');
-        nutritionalBtn.classList.add('active');
-    });
+function toggleClassname(elements, classname) {
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].classList.toggle(classname);
+  }
+}
+
+function toggleStyle(elementVisible, elementHidden) {
+  elementVisible.style.visibility = "visible";
+  elementVisible.style.height = "auto";
+  elementHidden.style.visibility = "hidden";
+  elementHidden.style.height = "0";
 }

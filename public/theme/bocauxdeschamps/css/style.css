@@ -33,27 +33,6 @@
 
 }
 
-/* Dark theme */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg: #212121;
-        --accent-bg: #2B2B2B;
-        --accent-bg-stronger: #444;
-        --text: #DCDCDC;
-        --text-light: #ABABAB;
-        --border: #666;
-        --accent: #FFB300;
-        --accent-light: #FFECB3;
-        --code: #F06292;
-        --preformatted: #CCC;
-        --disabled: #111;
-    }
-
-    img, video {
-        opacity: .6;
-    }
-}
-
 * {
     /* Set the font globally */
     font-family: var(--sans-font);
