@@ -20,13 +20,12 @@ class QrCodeController extends TwigAwareController implements BackendZoneInterfa
         $this->objectManager = $objectManager;
     }
 
-/**
- * 
- * To Do:
- * - Refactoriser le code
- * - Styliser le rendu
- * 
- */
+    /**
+     * 
+     * To Do:
+     * - Refactoriser le code
+     * 
+     */
     #[Route("qr-code/", name: "app_qr_code")]
     public function viewEdits(Request $request): Response
     {
@@ -37,17 +36,14 @@ class QrCodeController extends TwigAwareController implements BackendZoneInterfa
         $data = $request->request->all();
         $isSingleton = false;
 
-        
         if ($data) {
             $contentType = $this->config->get('contenttypes/' . strtolower($data['contentType']));
-
-            if(isset($contentType['singleton']) && $contentType['singleton']==true ) {
-               $isSingleton = true;
-               $selectedContentType = $contentType['slug'];
-            }else{
+            if (isset($contentType['singleton']) && $contentType['singleton'] == true) {
+                $isSingleton = true;
+                $selectedContentType = $contentType['slug'];
+            } else {
                 $selectedContentType = $data['contentType'];
             }
-           
         }
         return $this->render(
             'content_QrCode.html.twig',
@@ -63,7 +59,6 @@ class QrCodeController extends TwigAwareController implements BackendZoneInterfa
     public function gerenateQr(Request $request, QrGenerator $qrGenerator)
     {
         $data = $request->request->all();
-dd($data);
         if (!empty($data) && count($data) > 3) {
             $qrGenerator->parseFormData($data);
             $response = new Response();
@@ -75,6 +70,6 @@ dd($data);
         }
         // return flash message if no data is sent
         $this->addFlash('error', 'Vous n\'avez pas sélectionné de contenu');
-        return $this->redirectToRoute('app_qr_code'); 
+        return $this->redirectToRoute('app_qr_code');
     }
 }
