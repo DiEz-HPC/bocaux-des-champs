@@ -38,7 +38,7 @@
     border-radius: 0.25em;
     font-size: 1rem;
     padding: 2px;
-    color: gray;
+    color: rgb(114, 113, 113);
 }
 .product-recipe-button:hover {
     cursor: pointer;

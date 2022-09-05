@@ -1,7 +1,10 @@
 window.onload = function () {
   var recipeContainer = document.getElementById("recipeContainer");
   var nutritionalContainer = document.getElementById("nutritionalContainer");
-  var buttons = [document.getElementById("recipeBtn"), document.getElementById("nutritionalBtn")];
+  var buttons = [
+    document.getElementById("recipeBtn"),
+    document.getElementById("nutritionalBtn"),
+  ];
 
   buttons.forEach(function (button) {
     button.addEventListener("click", function () {
