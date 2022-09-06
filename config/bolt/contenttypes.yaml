@@ -34,11 +34,45 @@ engagements:
     name: Engagements
     singular_name: Engagement
     fields:
-        content:
+        firstEngagement:
+            type: text
+            class: large
+            group: content
+            label: Titre du 1er engagement
+        firstImage:
+            type: image
+            label: Image de l'engagement
+        firstParagraph:
             type: redactor
             class: large
             info: Texte de l'engagement
-            label: Contenue de la page
+            label: Description du 1er engagement
+        secondEngagement:
+            type: text
+            class: large
+            group: content
+            label: Titre du 2ème engagement
+        secondImage:
+            type: image
+            label: Image de l'engagement
+        secondParagraphe:
+            type: redactor
+            class: large
+            info: Texte de l'engagement
+            label: Description du 3ème engagement
+        troisiemeEngagement:
+            type: text
+            class: large
+            group: content
+            label: Titre du 3ème engagement
+        troisiemeImage:                 
+            type: image
+            label: Image de l'engagement
+        troisiemeParagraphe:
+            type: redactor
+            class: large
+            info: Texte de l'engagement
+            label: Description du 3ème engagement
         pictures:
             type: imagelist
             label: Images mises en avant

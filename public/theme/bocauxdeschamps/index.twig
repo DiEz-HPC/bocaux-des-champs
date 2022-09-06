@@ -21,14 +21,14 @@
 {% block main %}
     <div class="homepage mb-5 pb-5">
         <div class="firstview vh-100 d-flex flex-column align-items-center justify-content-center">
-            <img src="{{ thumbnail(homepage.logo, 350, 350) }}" alt="{{ homepage.logo.alt }}">
+            <img class="firstImage" src="{{ thumbnail(homepage.logo, 200, 200) }}" alt="{{ homepage.logo.alt }}">
             <h1 class="text-center">{{ homepage.title | upper }}</h1>
         </div>
-        <div class="secondview min-vh-100 d-flex py-5">
-            <div class="left col-sm-6 d-flex flex-column justify-content-center">
+        <div class="secondview min-vh-100 d-flex flex-column align-items-center justify-content-center flex-lg-row py-5 px-3 px-xl-5">
+            <div class="block-left col-lg-6 d-flex flex-column align-items-center justify-content-center">
                 <div class="engagements col-12">
                     <h2>{{ 'Nos engagements' | upper }}</h2>
-                    {{ engagements.content |excerpt(1600) }}
+                    <p>{{ engagements.content |excerpt(1600) }}</p>
                     <div class="separate-block col-6 my-3"></div>
                 </div>
                 <div class="history">
@@ -36,9 +36,8 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores dignissimos dolores doloribus, hic iste modi nam omnis pariatur perferendis quo sequi, totam voluptates. Animi blanditiis deleniti dolorum excepturi laborum minus obcaecati odio possimus repudiandae, suscipit? Ad adipisci at, autem consequatur eius enim exercitationem explicabo harum id ipsa minima mollitia natus nemo nulla odit, quam quas sint tenetur voluptas voluptatum. Adipisci amet commodi cupiditate dolores eligendi eos, illum impedit inventore labore laboriosam mollitia necessitatibus qui quia quisquam reiciendis repellendus sit totam, voluptatum. Dicta error esse quidem vel. A aliquam aperiam eius, error explicabo harum ipsam officia officiis qui quo quod?</p>
                     <div class="separate-block col-6 my-3"></div>
                 </div>
-
             </div>
-            <div class="right col-lg-5 d-flex flex-column align-items-center justify-content-lg-center justify-content-between position-relative">
+            <div class="block-right col-lg-5 d-flex flex-column align-items-center justify-content-lg-center justify-content-between position-relative">
                 {% if pictures %}
                     {% for picture in pictures|shuffle %}
                         {{ imagePosition(loop.index, picture) }}
@@ -46,7 +45,7 @@
                 {% endif %}
             </div>
         </div>
-        <div class="thirdview">
+        <div class="thirdview px-3 px-xl-5">
             <h2 class="text-center fw-bold mb-5">{{ 'Nos Produits' | upper }}</h2>
             <div class="card-container d-flex flex-column flex-sm-row justify-content-sm-around">
                 {% for product in products %}
@@ -70,4 +69,5 @@
 {% block stylesheet %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pictures.css') }}">
 {% endblock %}
