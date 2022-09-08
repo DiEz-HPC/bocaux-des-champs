@@ -3,21 +3,27 @@
 {% block stylesheet %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/pictures.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/engagements.css') }}">
 {% endblock %}
 
 {% from '@theme/macros/images.twig' import imagePosition %}
+{% from '@theme/macros/engagement.twig' import engagement %}
 
 {% block main %}
     <div class="engagements px-3 px-sm-5">
-        <h1 class="my-5 fw-bold ">{{ 'Nos Engagements' | upper }}</h1>
+        <h1 class="my-5 fw-bold text-center text-lg-start ">{{ 'Nos Engagements' | upper }}</h1>
         <div class="content d-flex flex-column flex-xl-row justify-content-between position-relative">
             <div class="block-left col-12 col-xl-6">
-                {{ record.content }}
+                {{ engagement(record.firstEngagement, record.firstImage, record.firstParagraph) }}
+                {{ engagement(record.secondEngagement, record.secondImage, record.secondParagraph) }}
+                {{ engagement(record.thirdEngagement, record.thirdImage, record.thirdParagraph) }}
             </div>
             <div class="block-right col-12 col-xl-5 d-flex flex-column align-items-center justify-content-lg-center justify-content-between position-relative">
                 {% if record.pictures %}
                     {% for picture in record.pictures|shuffle %}
+                        {% if loop.index <= 3 %}
                             {{ imagePosition(loop.index, picture) }}
+                        {% endif %}
                     {% endfor %}
                 {% endif %}
             </div>

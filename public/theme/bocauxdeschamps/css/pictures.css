@@ -1,5 +1,5 @@
 :root{
-    --margin-top-image-decalee: -20%;
+    --margin-top-image-decalee: -10%;
 }
 
 img:not(.firstImage) {
@@ -13,6 +13,18 @@ img:not(.firstImage) {
     height: 400px;
     width: 70%;
     position: relative;
+}
+
+ .content .block-right .container-image:hover {
+    z-index: 4 !important;
+    transform: scale(1.1);
+    transition: all 0.5s ease-in-out;
+}
+
+.content .block-right .container-image:hover img {
+    object-fit: contain;
+    object-position: initial;
+    transition: all 0.5s ease-in-out;
 }
 
 .left {
@@ -38,3 +50,4 @@ img:not(.firstImage) {
         margin-top: initial;
     }
 }
+

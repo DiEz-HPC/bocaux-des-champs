@@ -37,48 +37,56 @@ engagements:
         firstEngagement:
             type: text
             class: large
-            group: content
             label: Titre du 1er engagement
+            group: Premier engagement
         firstImage:
             type: image
-            label: Image de l'engagement
+            label: Logo de l'engagement
+            group: Premier engagement
         firstParagraph:
             type: redactor
             class: large
             info: Texte de l'engagement
             label: Description du 1er engagement
+            group: Premier engagement
         secondEngagement:
             type: text
             class: large
-            group: content
             label: Titre du 2ème engagement
+            group: Deuxième engagement
         secondImage:
             type: image
-            label: Image de l'engagement
-        secondParagraphe:
+            label: Logo de l'engagement
+            group: Deuxième engagement
+        secondParagraph:
             type: redactor
             class: large
             info: Texte de l'engagement
-            label: Description du 3ème engagement
-        troisiemeEngagement:
+            label: Description du 2ème engagement
+            group: Deuxième engagement
+        thirdEngagement:
             type: text
             class: large
-            group: content
             label: Titre du 3ème engagement
-        troisiemeImage:                 
+            group: Troisième engagement
+        thirdImage:                 
             type: image
-            label: Image de l'engagement
-        troisiemeParagraphe:
+            label: Logo de l'engagement
+            group: Troisième engagement
+        thirdParagraph:
             type: redactor
             class: large
             info: Texte de l'engagement
             label: Description du 3ème engagement
+            group: Troisième engagement
         pictures:
             type: imagelist
             label: Images mises en avant
+            group: Images en avants
         slug:
             type: slug
             uses: name
+            group: meta
     show_on_dashboard: true
     singleton: true
     default_status: published
@@ -361,6 +369,8 @@ Message:
     show_in_menu: Formulaire de contact
     viewless: true
     searchable: false
+    
+    
 # Possible field types:
 #
 # text - varchar(256) - input type text.
