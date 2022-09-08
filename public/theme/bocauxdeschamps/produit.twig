@@ -1,6 +1,5 @@
 {% extends 'partials/_master.twig' %}
 
-
 {% block stylesheet %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/produits.css') }}">
@@ -9,28 +8,30 @@
     {{ parent() }}
     <script src="{{ asset('js/toggleRecipe.js') }}"></script>
 {% endblock %}
-
+{% setcontent contact = 'contact' limit 1 returnsingle %}
 {% block main %}
     <div class="container">
-        <h1 class="text-center">
+        <h1 class="text-center m-4">
             {{ record|title }}
         </h1>
         <div class="row">
-            <div class="d-flex justify-content-center align-items-center">
-                <img src={{ record.image }} alt="{{ record.title }}" style="width: 450px"/>
-                <p class="m-4">{{ record.content }}</p>
+            <div class="col-12 col-md-6">
+                <img src={{ record.image }} alt="{{ record.title }}" class="img-fluid"/>
+            </div>
+            <div class="col-12 col-md-6 d-flex flex-column align-items-center justify-content-center">
+               {{ record.content }}
             </div>
         </div>
-        <div class="row product-recipe-box--outer">
+        <div class="row product-recipe-box--outer my-4">
             <div class="product-recipe-box--choice">
-                <span id="recipeBtn" class="product-recipe-button active">
+                <span id="recipeBtn" data-toggler="recipeContainer" class="product-recipe-button m-1 active">
                     Ingrédients
                 </span>
-                <span id="nutritionalBtn" class="product-recipe-button">
+                <span id="nutritionalBtn" data-toggler="nutritionalContainer" class="product-recipe-button m-1">
                     Valeurs nutritionelles
                 </span>
             </div>
-            <div class="product-recipe-box--content">
+            <div class="product-recipe-box--content mt-1">
                 <div id="recipeContainer">
                     {% if record.ingredient is not empty %}
                         {{ record.ingredient  }}
@@ -38,7 +39,7 @@
                         Information non disponible
                     {% endif %}
                 </div>
-                <div id="nutritionalContainer" style="display:none;">
+                <div id="nutritionalContainer" style="visibility:hidden; height: 0;">
                     {% if record.nutrition is not empty %}
                         {{ record.nutrition  }}
                     {% else %}
@@ -46,18 +47,14 @@
                     {% endif %}
                 </div>
             </div>
+            
+            <div class="m-3 text-danger"> Pour toutes commande veuillez nous contacter directement, rendez-vous sur la page <a href="/{{contact.contentType}}">Contact</a> , merci !</div>
         </div>
         <h2 class="text-center">Nos autres produits</h2>
         <div class="row justify-content-around">
-         {% include 'partials/_relatedContent.twig' %}
+            {% include 'partials/_relatedContent.twig' %}
         </div>
-        <div class="row m-2 text-center">
-            <a href="{{ path('listing', {'contentTypeSlug': 'produits'}) }}">
-                <button>
-                    Retour a la liste des produits
-                </button>
-            </a>
-        </div>
+    
     </div>
 
 {% endblock %}

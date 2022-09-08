@@ -38,14 +38,8 @@ class QrGenerator
                 unset($data[$key]);
             }
         }
-        $this->getQRs($data, $options);
+        $this->generateLink($data, $options);
     }
-
-    private function getQRs(array $slugs, array $options): array
-    {
-        return $this->generateLink($slugs, $options);
-    }
-
 
     private function generateLink(array $slugs, array $options): array
     {
@@ -61,20 +55,17 @@ class QrGenerator
 
     private function generateQr(string $link, string $slug, array $options)
     {
-        if ($options['label'] === 'moviesName') {
-            $options['label'] = $slug;
-        } else if ($options['label'] === 'websiteName') {
-            $options['label'] = $_SERVER['SERVER_NAME'];
-        }
-        $result = $this->qrBuilder
-            ->size($options['size'])
-            ->margin($options['margin'])
-            ->data($link)
-            ->labelText($options['label'])
-            ->build();
-        $qrCode = new QrCodeResponse($result);
-        $this->createImage($qrCode, $slug);
-        return $qrCode;
+        $options['label'] === 'moviesName' ? $options['label'] = $slug : $options['label'] = $_SERVER['SERVER_NAME'];
+
+        return $this->createImage(
+            new QrCodeResponse($this->qrBuilder
+                ->size($options['size'])
+                ->margin($options['margin'])
+                ->data($link)
+                ->labelText($options['label'])
+                ->build()),
+            $slug
+        );
     }
 
     private function createImage(QrCodeResponse $qrCode, string $slug)
