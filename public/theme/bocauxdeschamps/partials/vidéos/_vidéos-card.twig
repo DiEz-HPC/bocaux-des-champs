@@ -1,0 +1,55 @@
+
+
+{% if record|taxonomies['videos-tags'] is defined %}
+    {% set tags = record|taxonomies['videos-tags'] %}
+    {% set tagList = [] %}
+    {% for tag in tags %}
+        {% set tagList = tagList|merge([tag.slug]) %}
+    {% endfor %}
+{% else %}
+    {% set tags = [] %}
+    {% set tagList = ['no-tag'] %}
+{% endif %}
+<div class="card mb-3 movieCard">
+    <div class="row g-0 h-100">
+        <div class="col-md-5 d-flex align-items-center">
+            <a href="{{ record|link }}">
+                {% if record|image %}
+                    <img src="{{ record|thumbnail(480, 320) }}" class="card-img-top" alt="{{ record|image.alt|default() }}"/>
+                {% else %}
+                    <img src="{{ record.embedded.thumbnail }}" class="card-img-top" alt="{{ record.title }}"/>
+                {% endif %}
+                <button class="btn button-card mt-3">
+                    Voir la vidéo
+                </button>
+            </a>
+        </div>
+        <div class="col-md-7">
+            <div class="card-body">
+                <h5 class="card-title text-center fw-bold">{{ record|title }}</h5>
+                <p class="card-text">{{ record.teaser|excerpt(200) }}</p>
+            </div>
+
+        </div>
+        <div>
+            <small class="text-muted">
+                {% if tags|length > 0 %}
+                    Tags:
+                    {% for tag in tags %}
+                        <a href="{{ tag|link }}">
+                            <span class="badge tag-badge">{{ tag.name }}</span>
+                        </a>
+                    {% endfor %}
+                {% endif %}
+
+            </small>
+        </div>
+          {% if user %}
+                    <span class="edit-link">
+                        <a href="{{ record|edit_link }}">
+                            <strong>{{ __('general.phrase.edit') }}</strong>
+                        </a>
+                    </span>
+                {% endif %}
+    </div>
+</div>

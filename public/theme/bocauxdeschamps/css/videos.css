@@ -1,0 +1,43 @@
+.movieCard {
+    max-width: 30vw;
+    padding: 5px;
+}
+.button-card{
+    background: var(--secondary-color);
+    color: black;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    margin:0.5rem;
+    padding: 0.1rem 0.2rem;
+    width: fit-content;
+}
+.button-card:hover{
+border-color: var(--secondary-color);
+color: black;
+}
+.tag-badge{
+    font-weight: bold;
+    background: var(--secondary-color);
+    color: black;
+    border-radius: 0.25rem;
+    margin:0.5rem;
+    padding: 0.1rem 0.2rem;
+    width: fit-content;
+}
+@media screen and (max-width: 576px) {
+    .movieCard {
+        max-width: 90vw;
+    }
+}
+
+@media screen and (max-width: 991.98px) { 
+    .movieCard{
+        max-width: 90vw;
+    }
+ }
+
+ @media screen and (min-width: 992px) { 
+    .movieCard{
+        max-width: 35vw;
+    }
+ }
