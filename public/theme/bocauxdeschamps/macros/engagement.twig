@@ -1,0 +1,15 @@
+{% macro engagement(engagement, image, text) %}
+    {% apply spaceless %}
+        <div class="engagement mb-5">
+            <div class="engagement__title d-flex flex-column flex-sm-row align-items-center align-items-sm-end">
+                {% if image %}
+                    <img src="{{ image }}" alt="{{ engagement }}">
+                {% endif %}
+                <h2 class="pb-3">{{ engagement|upper }}</h2>
+            </div>
+            <div class="engagement__text">
+                <p>{{ text }}</p>
+            </div>
+        </div>
+    {% endapply %}
+{% endmacro engagement %}

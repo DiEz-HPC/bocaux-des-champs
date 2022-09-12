@@ -9,7 +9,7 @@ main:
     link: engagement
     title: Nos engagements
   - label: Notre histoire
-    link: history
+    link: histoire
     title: Notre histoire
   - label: Nos produits
     link: produits

@@ -1,9 +1,3 @@
-# This file defines the content types on the website. See the documentation for
-# details: https://docs.bolt.cm/contenttypes/intro
-
-# The Homepage content type is a singleton: There can be only one record of this
-# content type.
-
 homepage:
     name: Homepage
     singular_name: Homepage
@@ -29,6 +23,91 @@ homepage:
     singleton: true
     icon_many: "fa:home"
     icon_one: "fa:home"
+    
+engagements:
+    name: Engagements
+    singular_name: Engagement
+    fields:
+        firstEngagement:
+            type: text
+            class: large
+            label: Titre du 1er engagement
+            group: Premier engagement
+        firstImage:
+            type: image
+            label: Logo de l'engagement
+            group: Premier engagement
+        firstParagraph:
+            type: redactor
+            class: large
+            info: Texte de l'engagement
+            label: Description du 1er engagement
+            group: Premier engagement
+        secondEngagement:
+            type: text
+            class: large
+            label: Titre du 2ème engagement
+            group: Deuxième engagement
+        secondImage:
+            type: image
+            label: Logo de l'engagement
+            group: Deuxième engagement
+        secondParagraph:
+            type: redactor
+            class: large
+            info: Texte de l'engagement
+            label: Description du 2ème engagement
+            group: Deuxième engagement
+        thirdEngagement:
+            type: text
+            class: large
+            label: Titre du 3ème engagement
+            group: Troisième engagement
+        thirdImage:                 
+            type: image
+            label: Logo de l'engagement
+            group: Troisième engagement
+        thirdParagraph:
+            type: redactor
+            class: large
+            info: Texte de l'engagement
+            label: Description du 3ème engagement
+            group: Troisième engagement
+        pictures:
+            type: imagelist
+            label: Images mises en avant
+            group: Images en avants
+        slug:
+            type: slug
+            uses: name
+            group: meta
+    show_on_dashboard: true
+    singleton: true
+    default_status: published
+    icon_many: "fa:handshake"
+    icon_one: "fa:handshake"
+    record_template: 'engagements.twig'
+
+history:
+    name: Histoire
+    singular_name: Histoire
+    fields:
+        content:
+            type: redactor
+            class: large
+            info: Texte de l'histoire
+            label: Contenue de la page
+        pictures:
+            type: imagelist
+            label: Images mises en avant
+        slug:
+            type: slug
+            uses: [name]
+    show_on_dashboard: true
+    singleton: true
+    default_status: published
+    icon_many: "fa:history"
+    icon_one: "fa:history"
 
 
 # Pages can be used for the more 'static' pages on your site. This content-type

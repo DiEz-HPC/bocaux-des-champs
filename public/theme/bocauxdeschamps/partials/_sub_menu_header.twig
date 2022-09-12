@@ -7,7 +7,6 @@
 {# The 'recursive' macro, for inserting one menu item. If it has a submenu, it
    invokes itself to insert the items of the submenus. #}
 {% macro display_menu_item(item, loop, withsubmenus) %}
-    {% from _self import display_menu_item %}
     {% apply spaceless %}
         <li class="nav-item me-sm-5">
             <a href="/{{ item.link }}" title="{{ item.title }}" aria-current="page" class="nav-link {% if loop.first %}{{ 'first' }}{% elseif loop.last %}{{ 'last' }}{% endif %}{{ item|current ? ' active' }}">{{- item.label -}}</a>
@@ -27,7 +26,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav text-center text-sm-start mt-5 mt-sm-0">
+            <ul class="navbar-nav text-center text-lg-start mt-5 mt-sm-0">
                 {% for item in menu %}
                     {% if item.label is defined %}
                         {{ display_menu_item(item, loop, withsubmenus) }}
