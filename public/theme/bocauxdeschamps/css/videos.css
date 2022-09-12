@@ -1,0 +1,21 @@
+.movieCard {
+    max-width: 30vw;
+    padding: 5px;
+}
+@media screen and (max-width: 576px) {
+    .movieCard {
+        max-width: 90vw;
+    }
+}
+
+@media screen and (max-width: 991.98px) { 
+    .movieCard{
+        max-width: 90vw;
+    }
+ }
+
+ @media screen and (min-width: 992px) { 
+    .movieCard{
+        max-width: 35vw;
+    }
+ }

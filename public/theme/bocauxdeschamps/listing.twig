@@ -1,52 +1,39 @@
 {% extends 'partials/_master.twig' %}
 
+{# Check the contentType of records  #}
+{% set firstrecords = records|first %}
+{% set recordsContentType = firstrecords.taxonomyType %}
+
 {% block main %}
-
-    {# This template is used for 'listings': Generic pages that list a number of
-       records from a certain content type. These records are available as an array
-       called 'records'. In the for-loop below, we iterate over the records that
-       are on this page. It can be used for overview pages like 'all entries', or
-       'all records tagged with kittens'. #}
-
-    {# If used for listing a taxonomy, we add a heading #}
-    {% if taxonomy is defined %}
-        <h1>
-            {{ __('general.phrase.overview-for', {'%slug%': taxonomy.options[slug]|default(slug) }) }}
-        </h1>
-    {% endif %}
-
-    {% for record in records %}
-        <article>
-
-            <h2><a href="{{ record|link }}">{{ record|title }}</a></h2>
-
-                {% if record|image %}
-                    <a href="{{ record|image }}">
-                        <img src="{{ record|thumbnail(480, 320) }}" alt="{{ record|image.alt|default() }}" />
-                    </a>
-            {% endif %}
-
-            <p>{{ record|excerpt(300, false, search|default('')) }}</p>
-
-        </article>
-
-        {% if not loop.last %}
-            <hr>
+    <div class="container">
+        {% if taxonomy is defined %}
+            <h1>
+                {{ __('general.phrase.overview-for', {'%slug%': taxonomy.options[slug]|default(slug) }) }}
+            </h1>
+            {% include 'partials/_tagCloud.twig' with {'taxonomyType': taxonomy.slug} %}
         {% endif %}
+        <div class="row justify-content-around">
+            {% for record in records %}
+                {% if record.contentTypeSlug == 'videos' %}
+                    {% block stylesheet %}
+                        {{ parent() }}
+                        <link rel="stylesheet" href="{{ asset('css/videos.css') }}">
+                    {% endblock %}
+                    {% include 'partials/vidéos/_vidéos-card.twig' %}
+                {% endif %}
+            {% else %}
+                <article>
 
-    {% else %}
-        <article>
+                    <h2>{{ __('general.phrase.no-content-found') }}</h2>
 
-            <h2>{{ __('general.phrase.no-content-found') }}</h2>
+                    <p>
+                        {{ __("Unfortunately, no content could be found. Try another page, or go to the <a href=\"%paths_root%\">homepage</a>.", {'%paths_root%': path('homepage')} ) }}
+                    </p>
 
-            <p>
-                {{ __("Unfortunately, no content could be found. Try another page, or go to the <a href=\"%paths_root%\">homepage</a>.", {'%paths_root%': path('homepage')} ) }}
-            </p>
-
-        </article>
-    {% endfor %}
-
+                </article>
+            {% endfor %}
+        </div>
+    </div>
     {# If there are more records than will fit on one page, the pager is shown. #}
-        {{ pager(records, template = 'helpers/_pager_basic.html.twig') }}
-
+    {{ pager(records, template = 'helpers/_pager_bootstrap.html.twig') }}
 {% endblock main %}

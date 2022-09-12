@@ -35,7 +35,7 @@
 }
 
 /* Dark theme */
-@media (prefers-color-scheme: dark) {
+/*@media (prefers-color-scheme: dark) {
     :root {
         --bg: #212121;
         --accent-bg: #2b2b2b;
@@ -54,7 +54,7 @@
     video {
         opacity: 0.6;
     }
-}
+}*/
 * {
     /* Set the font globally */
     font-family: var(--sans-font);
@@ -87,6 +87,10 @@ footer {
     color: black;
     font-size: 1rem;
     border-radius: 0.25rem;
-    margin: 0 0.5rem;
-    padding: 0.2rem;
+    margin:0.5rem;
+    padding: 0.1rem 0.2rem;
+    width: fit-content;
+}
+.tagBadgeContainer a {
+text-decoration: none;
 }
