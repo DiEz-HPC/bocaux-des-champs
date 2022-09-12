@@ -81,16 +81,18 @@ footer {
     font-size: 1rem;
     border-top: 1px solid var(--border);
 }
-
+.tagBadgeContainer a {
+text-decoration: none;
+}
 .tagBadge {
-    background: grey;
+    background: var(--secondary-color);
     color: black;
-    font-size: 1rem;
     border-radius: 0.25rem;
     margin:0.5rem;
     padding: 0.1rem 0.2rem;
     width: fit-content;
 }
-.tagBadgeContainer a {
-text-decoration: none;
+.tag-count{
+    background: var(--secondary-color);
+    color: rgb(61, 61, 61);
 }

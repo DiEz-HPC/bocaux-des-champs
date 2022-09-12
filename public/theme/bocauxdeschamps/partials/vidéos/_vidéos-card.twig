@@ -19,14 +19,14 @@
                 {% else %}
                     <img src="{{ record.embedded.thumbnail }}" class="card-img-top" alt="{{ record.title }}"/>
                 {% endif %}
-                <button class="btn btn-primary mt-3">
+                <button class="btn button-card mt-3">
                     Voir la vidéo
                 </button>
             </a>
         </div>
         <div class="col-md-7">
             <div class="card-body">
-                <h5 class="card-title text-center">{{ record|title }}</h5>
+                <h5 class="card-title text-center fw-bold">{{ record|title }}</h5>
                 <p class="card-text">{{ record.teaser|excerpt(200) }}</p>
             </div>
 
@@ -37,7 +37,7 @@
                     Tags:
                     {% for tag in tags %}
                         <a href="{{ tag|link }}">
-                            <span class="badge bg-secondary">{{ tag.name }}</span>
+                            <span class="badge tag-badge">{{ tag.name }}</span>
                         </a>
                     {% endfor %}
                 {% endif %}

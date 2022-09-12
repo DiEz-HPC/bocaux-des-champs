@@ -7,7 +7,7 @@
 {% block main %}
     <div class="container">
         {% if taxonomy is defined %}
-            <h1>
+            <h1 class="my-5 fw-bold text-center text-lg-start">
                 {{ __('general.phrase.overview-for', {'%slug%': taxonomy.options[slug]|default(slug) }) }}
             </h1>
             {% include 'partials/_tagCloud.twig' with {'taxonomyType': taxonomy.slug} %}
@@ -33,7 +33,9 @@
                 </article>
             {% endfor %}
         </div>
+        <div class="d-flex justify-content-center align-items-center w-100">
+            {{ pager(records, template = 'helpers/_pager_bootstrap.html.twig') }}
+        </div>
     </div>
-    {# If there are more records than will fit on one page, the pager is shown. #}
-    {{ pager(records, template = 'helpers/_pager_bootstrap.html.twig') }}
+
 {% endblock main %}
