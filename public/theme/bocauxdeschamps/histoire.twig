@@ -6,9 +6,23 @@
 {% block main %}
     <div class="history">
         <h1>{{ history.title | upper }}</h1>
-        <div class="introduction d-flex">
+        <div class="introduction d-flex justify-content-between">
             <img class="col-3" src="{{ thumbnail(history.imageIntroduction, 200, 200) }}" alt="{{ history.imageIntroduction.alt }}">
-            {{ history.introduction }}
+            <div class="text col-8 d-flex align-items-center">
+                {{ history.introduction }}
+            </div>
+        </div>
+        <div class="presentation d-flex justify-content-between flex-row-reverse">
+            <img class="col-3" src="{{ thumbnail(history.imagePresentation, 200, 200) }}" alt="{{ history.imagePresentation.alt }}">
+            <div class="text col-8 d-flex align-items-center">
+                {{ history.presentation }}
+            </div>
+        </div>
+        <div class="histoire d-flex">
+
+            <div class="col-5">
+                {{ history.histoire }}
+            </div>
         </div>
     </div>
 {% endblock %}
