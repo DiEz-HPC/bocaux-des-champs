@@ -1,0 +1,32 @@
+{% extends 'partials/_master.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/actuality.css') }}">
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+
+{% endblock %}
+
+
+{% block main %}
+    <div class="container actualityContainer">
+     <div class="row justify-content-between">
+            {% for record in records %}
+                {% if loop.index === 1 %}
+                        {% include 'partials/actuality/_largeCard.twig' %}
+                {% elseif loop.index > 1 && loop.index < 5 %}
+                    {% include 'partials/actuality/_smallCard.twig' with {'class': 'smallCard'}%}
+                {% else %}
+                    {% include 'partials/actuality/_smallCard.twig' with {'class': 'mediumCard'} %}
+                {% endif %}
+            {% endfor %}
+       </div>
+         <div class="d-flex justify-content-center w-100">
+        {{ pager(records, template = 'helpers/_pager_bootstrap.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

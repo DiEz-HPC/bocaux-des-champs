@@ -1,0 +1,14 @@
+<div class="card my-4 {{ class }}">
+    <a href="{{record|link}}" alt="{{record|title}}">
+        <div class="text-center">
+            {% if record|image %}
+                <img src="{{ record|thumbnail(480, 320) }}" alt="{{ record|image.alt|default() }}" class="img-fluid"/>
+            {% endif %}
+        </div>
+        <div class="card-body mb-4">
+            <h5 class="card-title">{{record|title}}</h5>
+            <p class="card-text">{{ record.teaser }}</p>
+        </div>
+    
+    </a>
+</div>

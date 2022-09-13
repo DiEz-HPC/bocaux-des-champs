@@ -1,0 +1,17 @@
+.actualityContainer a{
+    text-decoration: none;
+    color: #000;
+}
+.largeCard {
+    width: 100%;
+    height: 50vh;
+}
+.mediumCard {
+    width: 45%;
+}
+.smallCard {
+    width: 30%;
+}
+.footerCard{
+    height: 75px;
+}

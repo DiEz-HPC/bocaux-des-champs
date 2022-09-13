@@ -220,7 +220,7 @@ movies:
     icon_many: "fa:film"
     icon_one: "fa:film"
 
-actuality:
+actualités:
     name: Actualités
     singular_name: Actualité
     fields:
