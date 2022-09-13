@@ -21,7 +21,7 @@
 {% block main %}
     <div class="homepage mb-5 pb-5">
         <div class="firstview vh-100 d-flex flex-column align-items-center justify-content-center">
-            <img class="firstImage" src="{{ thumbnail(homepage.logo, 200, 200) }}" alt="{{ homepage.logo.alt }}">
+            <img class="firstImage" src="{{ thumbnail(homepage.image, 200, 200) }}" alt="{{ homepage.logo.alt }}">
             <h1 class="text-center">{{ homepage.title | upper }}</h1>
         </div>
         <div class="secondview min-vh-100 d-flex flex-column align-items-center justify-content-between flex-lg-row py-5 px-3 px-xl-5">

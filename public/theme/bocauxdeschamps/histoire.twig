@@ -1,0 +1,14 @@
+{% extends '@theme/partials/_master.twig' %}
+
+{% from '@theme/macros/images.twig' import imagePosition %}
+{% setcontent history = 'Histoire' %}
+
+{% block main %}
+    <div class="history">
+        <h1>{{ history.title | upper }}</h1>
+        <div class="introduction d-flex">
+            <img class="col-3" src="{{ thumbnail(history.imageIntroduction, 200, 200) }}" alt="{{ history.imageIntroduction.alt }}">
+            {{ history.introduction }}
+        </div>
+    </div>
+{% endblock %}

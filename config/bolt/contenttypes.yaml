@@ -6,20 +6,17 @@ homepage:
             label: Logo du site
             type: image
             required: true
+            group: Paramètres
         title:
             type: text
             class: large
-            group: content
             label: Nom du site
+            group: Paramètres
         image:
             type: image
             label: 1ère image de la page d'accueil
-        slug:
-            type: slug
-            uses: title
-            group: Meta
+            group: Paramètres
     viewless: false
-    taxonomy: [ categories, tags, foobars ]
     singleton: true
     icon_many: "fa:home"
     icon_one: "fa:home"
@@ -92,14 +89,41 @@ history:
     name: Histoire
     singular_name: Histoire
     fields:
-        content:
+        title:
+            type: text
+            class: large
+            label: Titre de la page
+            group: Paramètres
+        introduction:
             type: redactor
             class: large
-            info: Texte de l'histoire
-            label: Contenue de la page
+            info: Texte d'introduction
+            label: Introduction
+            group: Introduction
+        imageIntroduction:
+            type: image
+            label: Image d'introduction
+            group: Introduction
+        presentation:
+            type: redactor
+            class: large
+            info: Présentation de l'association
+            label: Présentation
+            group: Présentation
+        imagePresentation:
+            type: image
+            label: Image de présentation
+            group: Présentation
+        histoire:
+            type: redactor
+            class: large
+            info: Histoire de l'association
+            label: Notre Histoire
+            group: Notre Histoire
         pictures:
             type: imagelist
             label: Images mises en avant
+            group: Notre Histoire
         slug:
             type: slug
             uses: [name]
@@ -108,6 +132,7 @@ history:
     default_status: published
     icon_many: "fa:history"
     icon_one: "fa:history"
+    record_template: 'histoire.twig'
 
 
 # Pages can be used for the more 'static' pages on your site. This content-type
