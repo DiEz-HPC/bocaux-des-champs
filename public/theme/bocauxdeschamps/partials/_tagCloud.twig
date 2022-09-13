@@ -1,9 +1,16 @@
-{% for tag in tag_cloud(taxonomyType) %}
-
-    <a href="/{{ taxonomyType }}/{{ tag.slug }}" class="tagBadge position-relative" style="text-decoration: none;">
-        {{ tag.name }}
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            {{ tag.count }}
-        </span>
+<div class="row g-0 justify-content-center tagBadgeContainer">
+    <a href="/videos" class="tagBadge position-relative">
+        Tout voir
     </a>
-{% endfor %}
+    {% for tag in tag_cloud(taxonomyType) %}
+        {% if tag.count > 0 %}
+            <a href="/{{ taxonomyType }}/{{ tag.name }}" class="tagBadge position-relative">
+                {{ tag.name }}
+              
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill tag-count">
+                    {{ tag.count }}
+                </span>
+            </a>
+        {% endif %}
+    {% endfor %}
+</div>

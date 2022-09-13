@@ -22,9 +22,6 @@
     "bobdenotter/configuration-notices": {
         "version": "1.1.8"
     },
-    "bobdenotter/weatherwidget": {
-        "version": "1.1.2"
-    },
     "bobdenotter/yaml-migrations": {
         "version": "1.0.2"
     },
