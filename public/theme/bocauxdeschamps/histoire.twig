@@ -4,25 +4,37 @@
 {% setcontent history = 'Histoire' %}
 
 {% block main %}
-    <div class="history">
-        <h1>{{ history.title | upper }}</h1>
-        <div class="introduction d-flex justify-content-between">
-            <img class="col-3" src="{{ thumbnail(history.imageIntroduction, 200, 200) }}" alt="{{ history.imageIntroduction.alt }}">
-            <div class="text col-8 d-flex align-items-center">
-                {{ history.introduction }}
+    {% if history %}
+        <div class="history p-2 p-lg-5">
+            <h1 class="text-center mb-3">{{ history.title | upper }}</h1>
+            <div class="introduction d-flex flex-column flex-lg-row justify-content-between">
+                <img class="mb-3 col-lg-3" src="{{ thumbnail(history.imageIntroduction, 200, 200) }}" alt="{{ history.imageIntroduction.alt }}">
+                <div class="text col-lg-8 d-flex align-items-center">
+                    {{ history.introduction }}
+                </div>
+            </div>
+            <div class="presentation d-flex flex-column flex-lg-row justify-content-between">
+                <img class="mb-3 col-lg-3" src="{{ thumbnail(history.imagePresentation, 200, 200) }}" alt="{{ history.imagePresentation.alt }}">
+                <div class="text col-lg-8 d-flex align-items-center">
+                    {{ history.presentation }}
+                </div>
+            </div>
+            <div class="histoire d-flex flex-column flex-lg-row">
+                <div class="block-left col-lg-6">
+                    {% if history.pictures is defined %}
+                        {% for picture in history.pictures|shuffle %}
+                            {% if loop.index <= 3 %}
+                                {{ imagePosition(loop.index, picture) }}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="block-right col-lg-5">
+                    {{ history.histoire }}
+                </div>
             </div>
         </div>
-        <div class="presentation d-flex justify-content-between flex-row-reverse">
-            <img class="col-3" src="{{ thumbnail(history.imagePresentation, 200, 200) }}" alt="{{ history.imagePresentation.alt }}">
-            <div class="text col-8 d-flex align-items-center">
-                {{ history.presentation }}
-            </div>
-        </div>
-        <div class="histoire d-flex">
-
-            <div class="col-5">
-                {{ history.histoire }}
-            </div>
-        </div>
-    </div>
+    {% else %}
+        {% include '@theme/partials/_noContent.twig' %}
+    {% endif %}
 {% endblock %}

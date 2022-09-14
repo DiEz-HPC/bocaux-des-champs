@@ -94,36 +94,43 @@ history:
             class: large
             label: Titre de la page
             group: Paramètres
+            required: true
         introduction:
             type: redactor
             class: large
             info: Texte d'introduction
             label: Introduction
             group: Introduction
+            required: true
         imageIntroduction:
             type: image
             label: Image d'introduction
             group: Introduction
+            required: true
         presentation:
             type: redactor
             class: large
             info: Présentation de l'association
             label: Présentation
             group: Présentation
+            required: true
         imagePresentation:
             type: image
             label: Image de présentation
             group: Présentation
+            required: true
         histoire:
             type: redactor
             class: large
             info: Histoire de l'association
             label: Notre Histoire
             group: Notre Histoire
+            required: true
         pictures:
             type: imagelist
             label: Images mises en avant
             group: Notre Histoire
+            required: true
         slug:
             type: slug
             uses: [name]

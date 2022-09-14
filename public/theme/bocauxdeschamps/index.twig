@@ -7,12 +7,12 @@
 {% setcontent history = 'Histoire' latest limit 1 %}
 {% set pictures = [] %}
 
-{% if engagements.pictures %}
+{% if engagements.pictures is defined %}
     {% for picture in engagements.pictures %}
         {% set pictures = pictures|merge([picture]) %}
     {% endfor %}
 {% endif %}
-{% if history.pictures %}
+{% if history.pictures is defined %}
     {% for picture in history.pictures %}
         {% set pictures = pictures|merge([picture]) %}
     {% endfor %}
