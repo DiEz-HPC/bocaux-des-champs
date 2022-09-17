@@ -48,24 +48,21 @@
     }
 
     .histoire .block-left .container-image:nth-child(1) {
-        background-color: red;
         z-index: 0 !important;
         position: absolute;
-        top: -5%;
+        top: -10%;
         left: -10%;
         padding: 5%;
     }
 
     .histoire .block-left .container-image:nth-child(2) {
-        background-color: green;
         z-index: 1 !important;
     }
 
     .histoire .block-left .container-image:nth-child(3) {
-        background-color: red;
         z-index: 0 !important;
         position: absolute;
-        bottom: -5%;
+        bottom: -10%;
         right: -10%;
         padding: 10px;
     }
