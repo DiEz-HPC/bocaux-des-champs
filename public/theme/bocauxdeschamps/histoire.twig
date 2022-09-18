@@ -12,20 +12,24 @@
     {% if history %}
         <div class="history p-2 p-lg-5">
             <h1 class="text-center mb-3 mb-sm-5">{{ history.title | upper }}</h1>
-            <div class="introduction d-flex flex-column flex-lg-row justify-content-between mb-3 mb-sm-5">
-                <img class="mb-3 mb-sm-5 col-lg-3" src="{{ thumbnail(history.imageIntroduction, 200, 200) }}" alt="{{ history.imageIntroduction.alt }}">
+            <div class="introduction d-flex flex-column flex-lg-row justify-content-between mb-5">
+                <div class="container-img-solo col-lg-3 d-flex justify-content-center align-items-center mb-5 mb-lg-0">
+                    <img class="col-12" src="{{ history.imageIntroduction }}" alt="{{ history.imageIntroduction.alt }}">
+                </div>
                 <div class="text col-lg-8 d-flex align-items-center">
                     {{ history.introduction }}
                 </div>
             </div>
-            <div class="presentation d-flex flex-column flex-lg-row justify-content-between mb-3 mb-sm-5">
-                <img class="mb-3 col-lg-3" src="{{ thumbnail(history.imagePresentation, 200, 200) }}" alt="{{ history.imagePresentation.alt }}">
+            <div class="presentation d-flex flex-column flex-lg-row-reverse justify-content-between mb-5">
+                <div class="container-img-solo col-lg-3 d-flex justify-content-center align-items-center mb-5 mb-lg-0">
+                    <img class="col-12" src="{{ history.imagePresentation }}" alt="{{ history.imagePresentation.alt }}">
+                </div>
                 <div class="text col-lg-8 d-flex align-items-center">
                     {{ history.presentation }}
                 </div>
             </div>
-            <div class="histoire d-flex flex-column flex-lg-row align-items-center">
-                <div class="block-left col-lg-6 d-flex flex-column flex-lg-row align-items-center justify-content-center position-relative mb-3 mb-sm-5">
+            <div class="histoire d-flex flex-column flex-lg-row align-items-center mt-5 mt-lg-0">
+                <div class="block-left col-lg-6 d-flex flex-column align-items-between justify-content-center position-relative mb-5">
                     {% if history.pictures is defined %}
                         {% for picture in history.pictures|shuffle %}
                             {% if loop.index <= 3 %}
