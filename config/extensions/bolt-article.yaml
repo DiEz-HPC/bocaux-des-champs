@@ -5,16 +5,17 @@
 # selector, specialchars, style, tags, textdirection, underline, variable,
 # removeformat, imageresize
 default:
-  plugins: [ blockcode, buttonlink, definedlinks, inlineformat, reorder, tags, underline, imageposition, filelink, removeformat, imageresize, carousel,textdirection]
+  plugins: [ blockcode, buttonlink, definedlinks, inlineformat, reorder, tags, underline, imageposition, filelink, removeformat, imageresize, carousel,textdirection, style]
   source: true
   grid:
     classname: 'article-grid'
     columns: 12
     patterns:
-      '4|4|4': 'col-4|col-4|col-4'
-      '4|8': 'col-4|col-8'
-      '6|6': 'col-6|col-6'
-      '8|4': 'col-8|col-4'
+      '4|4|4': 'col-4 col-responsive|col-4 col-responsive|col-4 col-responsive'
+      '4|8': 'col-4 col-responsive|col-8 col-responsive'
+      '6|6': 'col-6 col-responsive|col-6 col-responsive'
+      '8|4': 'col-8 col-responsive|col-4 col-responsive'
+
 
   # Settings for images
   # Note: The current editor can only upload / insert images if they are granted 

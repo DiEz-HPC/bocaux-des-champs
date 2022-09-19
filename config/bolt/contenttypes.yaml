@@ -224,6 +224,7 @@ videos:
 actualités:
     name: Actualités
     singular_name: Actualité
+    slug: actualites
     fields:
         title:
             type: text
@@ -255,6 +256,7 @@ actualités:
     order: date
     icon_many: "fa:newspaper"
     icon_one: "fa:newspaper"
+    listing_records: 07 
 
 events:
     name: Évènements
