@@ -1,0 +1,23 @@
+{% extends 'partials/_master.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/actuality.css') }}">
+
+{% endblock %}
+
+{% block main %}
+    <div class="container actualityContainer p-4">
+        <h1 class="text-center mb-4">
+            Nos actualités
+        </h1>
+        <div class="grid mb-4 p-auto">
+            {% for record in records %}
+                    {% include 'partials/actuality/_actualityCard.twig' with {'class': 'item-'~loop.index } %}
+            {% endfor %}
+        </div>
+        <div class="d-flex justify-content-center w-100">
+            {{ pager(records, template = 'helpers/_pager_bootstrap.html.twig') }}
+        </div>
+    </div>
+{% endblock %}
