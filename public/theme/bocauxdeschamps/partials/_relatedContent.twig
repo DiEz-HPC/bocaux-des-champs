@@ -28,14 +28,15 @@
     {% endfor %}
 {% endif %}
 {% if (record.contentTypeSlug === 'actualites' or record.contentTypeSlug === 'evenements') %}
-        <div class="band">
-            {% for otherRecord in records %}
-                {% include 'partials/actuality/_actualityCard.twig' with {'record': otherRecord, 'class': 'item'~loop.index } %}
-            {% else %}
-                <p>Aucun
-                    {{ record.contentTypeSlug }}</p>
-            {% endfor %}
-        </div>
+    <div class="gridRelated">
+        {% for otherRecord in records %}
+            {% include 'partials/actuality/_actualityCard.twig' with {'record': otherRecord, 'class': 'item'~loop.index } %}
+        {% else %}
+            <p>Aucun
+                {{ record.contentTypeSlug }}</p>
+        {% endfor %}
+    </div>
+
 {% endif %}
 <div class="row m-2 text-center">
     <a href="{{ path('listing', {'contentTypeSlug': record.contentTypeSlug }) }}">

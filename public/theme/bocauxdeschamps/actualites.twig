@@ -11,7 +11,7 @@
         <h1 class="text-center mb-4">
             Nos actualitées
         </h1>
-        <div class="band mb-4 p-auto">
+        <div class="grid mb-4 p-auto">
             {% for record in records %}
                 {% if loop.index === 1 %}
                     {% include 'partials/actuality/_actualityCard.twig'  with {'class': 'item-1'} %}
@@ -24,5 +24,4 @@
             {{ pager(records, template = 'helpers/_pager_bootstrap.html.twig') }}
         </div>
     </div>
-
 {% endblock %}

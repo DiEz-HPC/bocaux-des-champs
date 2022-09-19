@@ -17,22 +17,24 @@
 }
 
 
-.band {
+.grid, .gridRelated {
     width: 90%;
     max-width: 1240px;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-gap: 20px;
   }
   @media (min-width: 30em) {
-    .band {
+    .grid {
       grid-template-columns: 1fr 1fr;
     }
   }
   @media (min-width: 60em) {
-    .band {
+    .gridRelated{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .grid {
       grid-template-columns: repeat(4, 1fr);
     }
   }
@@ -60,23 +62,17 @@
     flex-direction: column;
     justify-content: space-between;
   }
-  .card h1 {
+  .card h2 {
     font-size: 20px;
     margin: 0;
+    font-weight: bolder;
     color: #333;
   }
   .card p {
     flex: 1;
     line-height: 1.4;
   }
-  .card span {
-    font-size: 12px;
-    font-weight: bold;
-    color: #999;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin: 2em 0 0 0;
-  }
+
   .card .thumb {
     padding-bottom: 60%;
     background-size: cover;
