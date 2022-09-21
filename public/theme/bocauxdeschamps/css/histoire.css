@@ -22,16 +22,8 @@
     position: relative;
 }
 
-.content .block-right .container-image:hover {
-    z-index: 4 !important;
-    transform: scale(1.1);
-    transition: all 0.5s ease-in-out;
-}
-
-.content .block-right .container-image:hover img {
-    object-fit: contain;
-    object-position: initial;
-    transition: all 0.5s ease-in-out;
+.histoire .block-left {
+    padding-left: 10%;
 }
 
 .left {
@@ -45,6 +37,7 @@
 
 @media screen and (max-width: 991px) {
     .histoire .block-left {
+        padding-left: 0;
         width: 80%;
     }
 
