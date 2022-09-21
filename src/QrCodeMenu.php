@@ -19,9 +19,9 @@ class QrCodeMenu implements ExtensionBackendMenuInterface
     public function addItems(MenuItem $menu): void
     {
         // This adds a new heading
-        $menu->addChild('QR Code', [
+        $menu->addChild('Options', [
             'extras' => [
-                'name' => 'Extensions',
+                'name' => 'Extras',
                 'type' => 'separator',
             ]
         ]);
@@ -33,5 +33,14 @@ class QrCodeMenu implements ExtensionBackendMenuInterface
                 'icon' => 'fa-qrcode'
             ]
         ]);
+
+        $menu->addChild('Message de contact', [
+            'uri' => $this->urlGenerator->generate('app_contact_message'),
+             'extras' => [
+                 'icon' => 'fa-envelope'
+             ]
+         ]);
+
+        
     }
 }

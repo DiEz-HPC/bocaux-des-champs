@@ -209,7 +209,7 @@ videos:
             type: embed
             info: Lien vers la vidéo
             label: Lien vers la vidéo
-            fixture_format: '{embed}'
+            fixture_format: '{url}'
         slug:
             type: slug
             uses: [ title ]
@@ -308,6 +308,7 @@ contact:
             label: Texte de la page
             type: textarea
             required: true
+
         bocauxAdress:
             label: Adresse de Bocaux des champs
             type: text
@@ -343,27 +344,36 @@ Message:
     name:
       type: text
       variant: inline
+      fixture_format: '{lastName}'
     firstname:
       type: text
       variant: inline
+      fixture_format: '{firstName}'
     email:
       type: text
       variant: inline
+      fixture_format: '{email}'
     message:
       type: textarea
+      variant: inline
+      fixture_format: '{paragraph}'
     timestamp:
       type: text
       variant: inline
+      fixture_format: '{date}'
     url:
       type: text
       variant: inline
+      fixture_format: '{url}'
     path:
       type: text
       variant: inline
+      fixture_format: '{url}'
     ip:
       type: text
       variant: inline
-  show_in_menu: Formulaire de contact
+      fixture_format: '{ipv4}'
+  show_on_dashboard: false
   viewless: true
   searchable: false
 # Possible field types:

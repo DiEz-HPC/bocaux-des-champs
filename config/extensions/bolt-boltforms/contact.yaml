@@ -1,6 +1,6 @@
 templates:
-    form: partials/_contactForm.twig
-    email: partials/_contactEmail.twig
+    form: partials/forms/_contactForm.twig
+    email: partials/mail/_contactEmail.twig
 database:
   contenttype:
     name: Message # save all form submissions to the quotations contenttype
