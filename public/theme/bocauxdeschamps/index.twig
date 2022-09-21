@@ -27,10 +27,12 @@
 {% block main %}
     <div class="homepage mb-5 pb-5">
         <div class="firstview vh-100 d-flex flex-column align-items-center justify-content-center">
-            <img class="firstImage" src="{{ thumbnail(homepage.image, 200, 200) }}" alt="{{ homepage.logo.alt }}">
+            <img class="firstImage col-12 col-lg-3 mb-5 p-5 p-lg-0" src="{{ homepage.image }}"
+                 alt="{{ homepage.logo.alt }}">
             <h1 class="text-center">{{ homepage.title | upper }}</h1>
         </div>
-        <div class="secondview min-vh-100 d-flex flex-column align-items-center justify-content-between flex-lg-row py-5 px-3 px-xl-5">
+        <div
+            class="secondview min-vh-100 d-flex flex-column align-items-center justify-content-between flex-lg-row py-5 px-3 px-xl-5">
             <div class="block-left col-lg-6 d-flex flex-column align-items-center justify-content-center">
                 <div class="engagements col-12">
                     <h2>{{ 'Nos engagements' | upper }}</h2>
@@ -40,7 +42,8 @@
                 </div>
 
                 {# only mobile #}
-                <div class="mobile col-lg-6 d-flex d-lg-none flex-column align-items-between justify-content-center position-relative mb-5">
+                <div
+                    class="mobile d-flex flex-column d-lg-none position-relative justify-content-center align-items-center m-5 col-10">
                     {% if engagements.pictures is defined %}
                         {% for picture in engagements.pictures|shuffle %}
                             {% if loop.index <= 3 %}
@@ -50,15 +53,15 @@
                     {% endif %}
                 </div>
 
-                <div class="history">
+                <div class="history mt-5">
                     <h2>{{ 'Notre histoire' | upper }}</h2>
                     {{ history.introduction | excerpt(2000) }}
                     <div class="separate-block col-6 my-3"></div>
                 </div>
             </div>
-
             {# only mobile #}
-            <div class="mobile col-lg-6 d-flex d-lg-none flex-column align-items-between justify-content-center position-relative mb-5">
+            <div
+                class="mobile d-flex flex-column d-lg-none position-relative justify-content-center align-items-center m-5 col-10">
                 {% if history.pictures is defined %}
                     {% for picture in history.pictures|shuffle %}
                         {% if loop.index <= 3 %}
@@ -69,7 +72,8 @@
             </div>
 
             {# only desktop #}
-            <div class="block-right col-lg-5 d-none d-lg-flex flex-column align-items-center justify-content-lg-center justify-content-between position-relative">
+            <div
+                class="block-right col-lg-5 d-none d-lg-flex flex-column align-items-center justify-content-lg-center justify-content-between position-relative">
                 {% if pictures %}
                     {% for picture in pictures|shuffle %}
                         {% if loop.index <= 3 %}

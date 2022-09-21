@@ -21,9 +21,9 @@
 @media screen and (max-width: 991px) {
 
     .mobile .container-image {
-        position: static;
-        width: 100%;
-        height: 500px;
+        margin: 0 !important;
+        width: 100% !important;
+        height: 500px !important;
     }
 
     .mobile .container-image:nth-child(1) {
@@ -47,19 +47,13 @@
     }
 
 
-    .left{
-        margin-top: initial;
-    }
 
-    .up {
-        margin-top: initial;
-    }
 }
 
 @media screen and (max-width: 568px) {
 
-    .container-image {
-        height: 350px;
+    .mobile .container-image {
+        height: 300px !important;
     }
 
 }
