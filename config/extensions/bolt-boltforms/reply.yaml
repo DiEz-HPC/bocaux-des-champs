@@ -1,6 +1,6 @@
 templates:
     form: partials/forms/_replyform.twig
-    email: partials/mail/_contactEmail.twig
+    email: partials/mail/_replyEmail.twig
 notification:
     enabled: true
     debug: false
