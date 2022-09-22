@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="en">
+  <file id="messages.en">
+    <unit id="ygD8z7Q" name="error">
+      <segment>
+        <source>error</source>
+        <target>error</target>
+      </segment>
+    </unit>
+    <unit id="yuiXB57" name="Message introuvable">
+      <segment>
+        <source>Message introuvable</source>
+        <target>Message introuvable</target>
+      </segment>
+    </unit>
+    <unit id="sB0RYun" name="Adresse mail">
+      <segment>
+        <source>Adresse mail</source>
+        <target>Adresse mail</target>
+      </segment>
+    </unit>
+    <unit id="JrBQ5.0" name="Email du contact ...">
+      <segment>
+        <source>Email du contact ...</source>
+        <target>Email du contact ...</target>
+      </segment>
+    </unit>
+    <unit id="21nrsnI" name="Sujet">
+      <segment>
+        <source>Sujet</source>
+        <target>Sujet</target>
+      </segment>
+    </unit>
+    <unit id="rXOz2do" name="Sujet du mail ...">
+      <segment>
+        <source>Sujet du mail ...</source>
+        <target>Sujet du mail ...</target>
+      </segment>
+    </unit>
+    <unit id="QERVmkw" name="Votre message">
+      <segment>
+        <source>Votre message</source>
+        <target>Votre message</target>
+      </segment>
+    </unit>
+    <unit id=".fWf0o5" name="Votre message ...">
+      <segment>
+        <source>Votre message ...</source>
+        <target>Votre message ...</target>
+      </segment>
+    </unit>
+    <unit id="eQdSCfK" name="Envoyer">
+      <segment>
+        <source>Envoyer</source>
+        <target>Envoyer</target>
+      </segment>
+    </unit>
+    <unit id=".MeoEev" name="String city processor string">
+      <segment>
+        <source>String city processor string</source>
+        <target>String city processor string</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>
