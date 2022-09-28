@@ -1,6 +1,21 @@
 :root {
-    --primary-color: #5EC272;
-    --secondary-color: #9FCD6A;
-    --tertiary-color: #D6D66F;
-    --quaternary-color: #FFDD82;
+    /* Set sans-serif & mono fonts */
+    --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+        "Nimbus Sans L", Roboto, Noto, "Segoe UI", Arial, Helvetica,
+        "Helvetica Neue", sans-serif;
+    --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono",
+        monospace;
+    --primary-color: #9fcd6a;
+    --secondary-color: #5ec272;
+    --tertiary-color: #d6d66f;
+    --quaternary-color: #ffdd82;
+    --light-color: white;
+    /* Body font size. By default, effectively 18.4px, based on 16px as 'root em' */
+    --base-fontsize: 1.15rem;
+    --font-size-title: 2rem;
+    /* Line height is set to the "Golden ratio" for optimal legibility */
+    --line-height: 1.618;
+    --text-color: var(--light-color);
+
+    --background-color: #191919;
 }

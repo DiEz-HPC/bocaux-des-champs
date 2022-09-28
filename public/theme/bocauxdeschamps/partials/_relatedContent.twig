@@ -3,7 +3,16 @@
 {% set whereid = '!' ~ pageid %}
 {% setcontent records = record.contentTypeSlug where { id: whereid } limit 3 %}
 
-{% if (record.contentTypeSlug === 'produits' or record.contentTypeSlug === 'videos') %}
+{% if (record.contentTypeSlug === 'produits') %}
+    {% for record in records %}
+        {% include 'partials/_product/_productCard.twig' %}
+    {% else %}
+        <p>Aucun
+            {{ record.contentTypeSlug }}</p>
+    {% endfor %}
+{% endif %}
+
+{% if (record.contentTypeSlug === 'videos') %}
     {% for otherRecord in records %}
 
         <div class="col-lg-3 col-md-6 mb-4 mb-lg-4 mt-4 mt-lg-4">

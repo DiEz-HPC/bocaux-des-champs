@@ -1,0 +1,59 @@
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('css/componentStyle/pagination.css') }}">
+{% endblock %}
+{% set start = max(records.currentPage - surround, 1) %}
+{% set end = min(records.currentPage + surround, records.nbPages) %}
+
+{% block item %}
+    {% if path is defined and (enabled is not defined or enabled != false) %}
+        <li class="page-item mx-2 {{ class }}">
+            <a href="{{ path(route, p) }}" class="page-link" {%- if rel|default() %} rel="{{ rel }}"{% endif -%}>
+                
+            </a>
+        </li>
+    {% elseif label is defined %}
+        <li class="page-item disabled mx-2">
+            <a class="page-link {{ class }}" disabled></a>
+        </li>
+    {% endif %}
+{% endblock item %}
+
+{% if records.haveToPaginate|default() %}
+    <ul class="pager p-0 col-8 d-flex justify-content-center align-items-center {{ class != 'pagination' ? class }}" >
+        {# If we didn't start at the beginning, add a link to the first. #}
+        {% if start > 1 %}
+            {% set p = routeParams|merge({page: 1}) %}
+            {% with {'path': path(route, p), 'label': 1 } %}
+                {{ block('item') }}
+            {% endwith %}
+        {% endif %}
+        {% if start > 2 %}
+            {% with { 'label': '…', 'enabled': false } %}
+                {{ block('item') }}
+            {% endwith %}
+        {% endif %}
+
+        {# Iterate over the items. #}
+        {% for i in start .. end %}
+            {% set p = routeParams|merge({page: i}) %}
+            {% set class = (i == records.currentPage ? ' active') %}
+            {% with {'path': path(route, p), 'label': i, 'class': class } %}
+                {{ block('item') }}
+            {% endwith %}
+        {% endfor %}
+
+        {# If we didn't finish with the last, add a link to the end #}
+        {% if (end + 1) < records.nbPages %}
+            {% with { 'label': '…', 'enabled': false  } %}
+                {{ block('item') }}
+            {% endwith %}
+        {% endif %}
+        {% if end < records.nbPages %}
+            {% set p = routeParams|merge({page: records.nbPages}) %}
+            {% with {'path': path(route, p), 'label': records.nbPages } %}
+                {{ block('item') }}
+            {% endwith %}
+        {% endif %}
+    </ul>
+{#</div>#}
+{% endif %}

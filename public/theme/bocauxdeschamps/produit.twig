@@ -11,7 +11,7 @@
 {% setcontent contact = 'contact' limit 1 returnsingle %}
 {% block main %}
     <div class="container">
-        <h1 class="text-center m-4">
+        <h1 class="text-center styled-title">
             {{ record|title }}
         </h1>
         <div class="row">
@@ -19,7 +19,7 @@
                 <img src={{ record.image }} alt="{{ record.title }}" class="img-fluid"/>
             </div>
             <div class="col-12 col-md-6 d-flex flex-column align-items-center justify-content-center">
-               {{ record.content }}
+                {{ record.content }}
             </div>
         </div>
         <div class="row product-recipe-box--outer my-4">
@@ -39,7 +39,7 @@
                         Information non disponible
                     {% endif %}
                 </div>
-                <div id="nutritionalContainer" >
+                <div id="nutritionalContainer">
                     {% if record.nutrition is not empty %}
                         {{ record.nutrition  }}
                     {% else %}
@@ -47,14 +47,17 @@
                     {% endif %}
                 </div>
             </div>
-            
-            <div class="m-3 text-danger"> Pour toutes commande veuillez nous contacter directement, rendez-vous sur la page <a href="/{{contact.contentType}}">Contact</a> , merci !</div>
+
+            <div class="m-3 text-danger">
+                Pour toutes commande veuillez nous contacter directement, rendez-vous sur la page
+                <a href="/{{contact.contentType}}">Contact</a>
+                , merci !</div>
         </div>
-        <h2 class="text-center">Nos autres produits</h2>
+        <h2 class="text-center styled-title">Nos autres produits</h2>
         <div class="row justify-content-around">
             {% include 'partials/_relatedContent.twig' %}
         </div>
-    
+
     </div>
 
 {% endblock %}
