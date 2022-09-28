@@ -1,0 +1,87 @@
+:root {
+    --borderProductCard: 5px solid var(--primary-color);
+    --outlineBorderPlacement: -15px;
+}
+/* Products listing  */
+.products-title {
+    font-size: var(--font-size-title);
+    font-weight: bolder;
+    color: var(--primary-color);
+    position: relative;
+}
+.products-title::after {
+    content: "";
+    position: absolute;
+    right: 0px;
+    bottom: -9px;
+    left: 0px;
+    width: 10%;
+    border: 3px solid var(--light-color);
+    border-radius: 0.5em;
+    margin: auto;
+}
+.btn-block {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    font-weight: bolder;
+    position: relative;
+    z-index: 2;
+}
+.btn-block::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: -3px;
+    bottom: -3px;
+    left: 0px;
+    border-bottom: 3px solid var(--light-color);
+    border-right: 3px solid var(--light-color);
+    border-radius: 0.5em;
+}
+.btn-block:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.card-background {
+    border-radius: 0.5em;
+    margin: 0.5rem;
+    height: 300px;
+    width: 300px;
+    background-size: cover;
+    position: relative;
+}
+.card-background::before {
+    content: "";
+    position: absolute;
+    top: var(--outlineBorderPlacement);
+    right: var(--outlineBorderPlacement);
+    bottom: var(--outlineBorderPlacement);
+    left: var(--outlineBorderPlacement);
+    border: var(--borderProductCard);
+    border-radius: 0.5em;
+    z-index: 1;
+}
+.card-background-overlay {
+    display: none;
+}
+.card-background:hover .card-background-overlay {
+    height: 100%;
+    width: 100%;
+    border-radius: 0.25em;
+    padding: 0.5rem 0 0.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+}
+.card-background-overlay h5 {
+    color: var(--light-color);
+    font-weight: bolder;
+    font-size: 1.3rem;
+}
