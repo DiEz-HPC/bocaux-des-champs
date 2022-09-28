@@ -18,19 +18,21 @@ body {
     min-height: 100vh;
     flex-direction: column;
 }
-
-.tagBadgeContainer a {
-text-decoration: none;
+/* styled-title correspond to underlined green title */
+.styled-title {
+    font-size: var(--font-size-title);
+    font-weight: bolder;
+    color: var(--primary-color);
+    position: relative;
 }
-.tagBadge {
-    background: var(--secondary-color);
-    color: black;
-    border-radius: 0.25rem;
-    margin:0.5rem;
-    padding: 0.1rem 0.2rem;
-    width: fit-content;
-}
-.tag-count{
-    background: var(--secondary-color);
-    color: rgb(61, 61, 61);
+.styled-title::after {
+    content: "";
+    position: absolute;
+    right: 0px;
+    bottom: -9px;
+    left: 0px;
+    width: 10%;
+    border: 3px solid var(--light-color);
+    border-radius: 0.5em;
+    margin: auto;
 }

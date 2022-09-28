@@ -1,0 +1,15 @@
+.tagBadgeContainer a {
+    text-decoration: none;
+}
+.tagBadge {
+    background: var(--secondary-color);
+    color: black;
+    border-radius: 0.25rem;
+    margin: 0.5rem;
+    padding: 0.1rem 0.2rem;
+    width: fit-content;
+}
+.tag-count {
+    background: var(--secondary-color);
+    color: rgb(61, 61, 61);
+}

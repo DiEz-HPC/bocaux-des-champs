@@ -3,23 +3,7 @@
     --outlineBorderPlacement: -15px;
 }
 /* Products listing  */
-.products-title {
-    font-size: var(--font-size-title);
-    font-weight: bolder;
-    color: var(--primary-color);
-    position: relative;
-}
-.products-title::after {
-    content: "";
-    position: absolute;
-    right: 0px;
-    bottom: -9px;
-    left: 0px;
-    width: 10%;
-    border: 3px solid var(--light-color);
-    border-radius: 0.5em;
-    margin: auto;
-}
+
 .btn-block {
     background-color: var(--primary-color);
     color: var(--light-color);
