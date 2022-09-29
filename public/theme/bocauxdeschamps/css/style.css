@@ -18,6 +18,7 @@ body {
     min-height: 100vh;
     flex-direction: column;
 }
+
 /* styled-title correspond to underlined green title */
 .styled-title {
     font-size: var(--font-size-title);
