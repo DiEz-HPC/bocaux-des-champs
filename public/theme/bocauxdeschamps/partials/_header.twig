@@ -1,3 +1,6 @@
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('css/componentStyle/header.css') }}">
+{% endblock %}
 <header>
     <div class="header-container">
         <video autoplay muted loop id="myVideo" class="img-fluid">
@@ -6,10 +9,10 @@
         <div class="card-img-overlay header-overlay row flex-column align-items-center justify-content-center">
 
             <div class="col-12 col-md-6 d-flex justify-content-center">
-                <img src="{{ asset('pictures/BDC-logo.png') }}" alt="logo">
+                <img src="{{ asset('pictures/BDC-logo.png') }}" alt="logo Bocaux des champs">
             </div>
-            <div class="col-12 col-md-6 d-flex justify-content-center">
-               Conserverie bio & artisanale du Loiret <br>
+            <div class="col-12 col-md-6 d-flex justify-content-center text-center">
+             Conserverie bio & artisanale du Loiret <br>
                Des recettes gourmandes, saines et engagées, le tout made in Loiret !
             </div>
         </div>

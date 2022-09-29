@@ -9,7 +9,7 @@
 {% macro display_menu_item(item, loop, withsubmenus) %}
     {% apply spaceless %}
         <li class="nav-item me-sm-5">
-            <a href="/{{ item.link }}" title="{{ item.title }}" aria-current="page" class="nav-link {% if loop.first %}{{ 'first' }}{% elseif loop.last %}{{ 'last' }}{% endif %}{{ item|current ? ' active' }}">{{- item.label -}}</a>
+            <a href="/{{ item.link }}" title="{{ item.title }}" aria-current="page" class="{% if loop.first %}{{ 'first' }}{% elseif loop.last %}{{ 'last' }}{% endif %}{{ item|current ? ' active' }}">{{- item.label | upper -}}</a>
         </li>
     {% endapply %}
 {% endmacro %}
@@ -26,7 +26,7 @@
 
 <section class="navbar">
 <div class="d-flex justify-content-center align-items-center h-100">
-    <ul class="navbar-nav text-center text-lg-start mt-5 mt-sm-0">
+    <ul class="text-center mt-5 mt-sm-0">
         {% for item in menu %}
             {% if item.label is defined %}
                 {{ display_menu_item(item, loop, withsubmenus) }}
@@ -35,23 +35,3 @@
     </ul>
     </div>
 </section>
-{#
-<nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/"><img src="{{ thumbnail(homepage.logo, 150, 150)|default }}" alt="{{ homepage.logo.alt|default }}"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav text-center text-lg-start mt-5 mt-sm-0">
-                {% for item in menu %}
-                    {% if item.label is defined %}
-                        {{ display_menu_item(item, loop, withsubmenus) }}
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
-</nav>
-
-#}
