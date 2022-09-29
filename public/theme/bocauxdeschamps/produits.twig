@@ -6,41 +6,25 @@
 {% endblock %}
 
 {% block main %}
-    <div class="container">
-        <h1 class="text-center my-4">
+    <section class="container">
+        <h1 class="text-center my-4 styled-title">
             Nos produits
         </h1>
         <p class="text-center">
-            Esse tempor officia mollit pariatur non cupidatat fugiat enim exercitation Lorem. Veniam
-                                                                                                                                                            amet ea sit anim cillum laboris esse amet et aliqua voluptate. Minim dolor dolor occaecat Lorem et aute.</p>
-        <div class="row my-3"></div>
-        <div class="row pb-5 mb-4 justify-content-evenly align-items-center">
+            Des recettes gourmandes, saines et engagées, le tout made in Loiret !
+            <div class="row mb-4 justify-content-evenly align-items-center">
+                {% for record in records %}
+                    {% include 'partials/_product/_productCard.twig' %}
+                {% else %}
+                    {% include 'partials/_noContent.twig' %}
+                {% endfor %}
+            </div>
+            <div class="d-flex justify-content-center">
+                {{ pager(records, template = 'partials/helpers/_pager.html.twig') }}
+            </div>
+            <div class="d-flex justify-content-center mt-4">
+                {% include 'partials/_product/_productCardQr.twig' %}</div>
+        </p>
+    </section>
 
-            {% for record in records %}
-                <div class="col-6 col-lg-3 col-md-6 mb-4 mb-lg-4 mt-4 mt-lg-4">
-                    <div class="card rounded shadow border-0">
-                        <div class="card-body p-2 p-md-4">
-                            {% if record|image %}
-                                <img src="{{ record|image }}" class="img-fluid card-img-top d-block mx-auto mb-3" alt="{{ record|image.alt|default() }}"/>
-                            {% endif %}
-                            <h5>
-                                <a href="{{ record|link }}" class="text-dark">{{ record|title|excerpt(25) }}</a>
-                            </h5>
-                            <div class="small text-muted font-italic">{{ record.teaser|excerpt(60) }}</div>
-
-                        </div>
-                        <div class=" text-center mb-2">
-                            <a href="{{ record|link }}" class="btn btn-block">Voir le produit</a>
-                        </div>
-                    </div>
-                </div>
-            {% else %}
-                {% include 'partials/_noContent.twig' %}
-            {% endfor %}
-
-        </div>
-        <div class="d-flex justify-content-center w-100">
-            {{ pager(records, template = 'helpers/_pager_bootstrap.html.twig') }}
-        </div>
-    </div>
 {% endblock main %}
