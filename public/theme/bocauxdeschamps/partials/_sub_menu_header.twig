@@ -18,7 +18,24 @@
 {% from _self import display_menu_item %}
 
 {% setcontent homepage = 'homepage' %}
+<div class="menu__mobile">
+	<div class="menu__mobile_button">
+		<span></span>
+	</div>
+</div>
 
+<section class="navbar">
+<div class="d-flex justify-content-center align-items-center h-100">
+    <ul class="navbar-nav text-center text-lg-start mt-5 mt-sm-0">
+        {% for item in menu %}
+            {% if item.label is defined %}
+                {{ display_menu_item(item, loop, withsubmenus) }}
+            {% endif %}
+        {% endfor %}
+    </ul>
+    </div>
+</section>
+{#
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="/"><img src="{{ thumbnail(homepage.logo, 150, 150)|default }}" alt="{{ homepage.logo.alt|default }}"></a>
@@ -37,3 +54,4 @@
     </div>
 </nav>
 
+#}

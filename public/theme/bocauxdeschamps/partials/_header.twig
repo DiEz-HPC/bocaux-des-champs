@@ -1,8 +1,17 @@
-<!-- Header bar -->
 <header>
-    {{ menu(
-        name = 'main',
-        template = 'partials/_sub_menu_header.twig',
-        withsubmenus = false,
-    ) }}
+    <div class="header-container">
+        <video autoplay muted loop id="myVideo" class="img-fluid">
+            <source src="{{ asset('videos/header.webm') }}" type="video/webm">
+        </video>
+        <div class="card-img-overlay header-overlay row flex-column align-items-center justify-content-center">
+
+            <div class="col-12 col-md-6 d-flex justify-content-center">
+                <img src="{{ asset('pictures/BDC-logo.png') }}" alt="logo">
+            </div>
+            <div class="col-12 col-md-6 d-flex justify-content-center">
+               Conserverie bio & artisanale du Loiret <br>
+               Des recettes gourmandes, saines et engagées, le tout made in Loiret !
+            </div>
+        </div>
+    </div>
 </header>
