@@ -27,17 +27,13 @@
 {% block main %}
   {% include 'partials/_header.twig' %}
     <div class="homepage mb-5 pb-5">
-        <div class="firstview vh-100 d-flex flex-column align-items-center justify-content-center">
-            <img class="firstImage col-12 col-lg-3 mb-5 p-5 p-lg-0" src="{{ homepage.image }}" alt="{{ homepage.logo.alt }}">
-            <h1 class="text-center">{{ homepage.title | upper }}</h1>
-        </div>
         <div class="secondview min-vh-100 d-flex flex-column align-items-center justify-content-between flex-lg-row py-5 px-3 px-xl-5">
             <div class="block-left col-lg-6 d-flex flex-column align-items-center justify-content-center">
-                <div class="engagements col-12">
+                <div class="engagements col-12 mb-5">
                     <h2>{{ 'Nos engagements' | upper }}</h2>
                     <p>{{ engagements.firstParagraph | excerpt(800) }}</p>
                     <p>{{ engagements.secondParagraph | excerpt(200) }}</p>
-                    <a class="btn btn-separate text-light my-3" href="{{ history|link }}" role="button">Link</a>
+                    <a class="btn btn-block" href="{{ engagements|link }}" role="button">{{'en savoir plus' |upper }}</a>
                 </div>
 
                 {# only mobile #}
@@ -53,8 +49,10 @@
 
                 <div class="history mt-5">
                     <h2>{{ 'Notre histoire' | upper }}</h2>
-                    {{ history.introduction | excerpt(2000) }}
-                    <div class="separate-block col-6 my-3"></div>
+                    <p>
+                        {{ history.introduction | excerpt(2000) }}
+                    </p>
+                    <a class="btn btn-block" href="{{ history|link }}" role="button">{{'en savoir plus' |upper }}</a>
                 </div>
             </div>
             {# only mobile #}
@@ -69,7 +67,7 @@
             </div>
 
             {# only desktop #}
-            <div class="block-right col-lg-5 d-none d-lg-flex flex-column align-items-center justify-content-lg-center justify-content-between position-relative">
+            <div class="block-right col-lg-5 d-none d-lg-flex flex-column align-items-center justify-content-lg-center justify-content-between position-relative mt-lg-5">
                 {% if pictures %}
                     {% for picture in pictures|shuffle %}
                         {% if loop.index <= 3 %}
@@ -88,8 +86,11 @@
                     {% include 'partials/_noContent.twig' %}
                 {% endfor %}
             </div>
-            <div class="d-flex justify-content-center align-items-center">
-                <div class="separate-block col-6 my-5"></div>
+            <div class="d-flex justify-content-center align-items-center mb-5">
+                <a class="btn btn-block" href="{{ path('listing', {'contentTypeSlug': 'produits' }) }}" role="button">{{'en savoir plus' |upper }}</a>
+            </div>
+            <div class="d-flex justify-content-center align-items-center my-5">
+                {% include 'partials/_product/_productCardQr.twig' %}
             </div>
         </div>
     </div>
