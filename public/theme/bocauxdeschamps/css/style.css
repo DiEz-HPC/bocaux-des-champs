@@ -18,11 +18,13 @@ body {
     min-height: 100vh;
     flex-direction: column;
 }
+
 h2{
     font-size: var(--font-size-title);
     font-weight: bolder;
     color: var(--primary-color);
 }
+
 /* styled-title correspond to underlined green title */
 .styled-title {
     font-size: var(--font-size-title);
