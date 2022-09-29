@@ -6,9 +6,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 function menuBurger() {
   const button = document.querySelector(".menu__mobile_button");
-const navbar = document.querySelector(".navbar");
+  const navbar = document.querySelector(".navbar");
+  const body = document.querySelector("body");
   button.addEventListener("click", () => {
     button.classList.toggle("active");
     navbar.classList.toggle("active");
+    body.style.overflow = body.style.overflow === "hidden" ? "auto" : "hidden";
   });
 }
