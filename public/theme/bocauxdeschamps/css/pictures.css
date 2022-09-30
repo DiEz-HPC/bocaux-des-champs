@@ -2,7 +2,7 @@
     --margin-top-image-decalee: -10%;
 }
 
-.secondview img:not(.firstImage) {
+.image-bottom:not(.firstImage) {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -36,18 +36,6 @@
 .borderNumber3::before {
     border: 5px solid var(--primary-color);
 }
- .content .block-right .container-image:hover {
-    z-index: 4 !important;
-    transform: scale(1.1);
-    transition: all 0.5s ease-in-out;
-}
-
-.content .block-right .container-image:hover img {
-    object-fit: contain;
-    object-position: initial;
-    transition: all 0.5s ease-in-out;
-}
-
 .left {
     right: 20%;
     margin-top: var(--margin-top-image-decalee);
