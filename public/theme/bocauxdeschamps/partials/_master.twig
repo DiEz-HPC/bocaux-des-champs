@@ -7,7 +7,7 @@
         <meta
         name="viewport" content="width=device-width, initial-scale=1.0">
         {# make sure we always display a proper title: The record's title if there is one, appended with the
-                   sitename. If there is no title, we append the sitename with the payoff, if there is one. #}
+                           sitename. If there is no title, we append the sitename with the payoff, if there is one. #}
         <title>
             {{- config.get('general/sitename') ~ ' | ' -}}
             {%- if record|default and record.title -%}
@@ -37,7 +37,7 @@
 
         {% block aside %}{% endblock aside %}
 
-        {# {{ include('partials/_footer.twig') }} #}
+        {{ include('partials/_footer.twig') }}
 
         {% block javascripts %}
             <script src="{{ asset('js/theme.js') }}"></script>

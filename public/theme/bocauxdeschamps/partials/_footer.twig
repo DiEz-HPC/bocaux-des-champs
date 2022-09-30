@@ -1,6 +1,30 @@
-<!-- Footer -->
-<footer>
-
-<div> footer </div>
-
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+{% endblock %}
+<footer class="d-flex justify-content-center">
+    <div class="footer-container">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <img src="{{ asset('pictures/qrReader.png') }}" alt"logo"></div>
+        </div>
+        <div class="row justify-content-around">
+            <div class="col-md-4 d-flex justify-content-around align-items-center">
+                {{ menu(
+                    name = 'main',
+                    template = 'partials/_sub_menu_footer.twig',
+                    withsubmenus = false,
+                ) }}
+            </div>
+            <div class="col-md-4 d-flex justify-content-center">
+                <div class="mapouter">
+                    <iframe width="450" height="250" id="gmap_canvas" src="https://maps.google.com/maps?q=orl%C3%A9ans%2045000&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <p>Pariatur excepteur quis officia esse ea ut cillum dolore. Ex nulla culpa veniam cillum enim ea aliquip duis.
+                    Excepteur magna in do amet occaecat. 
+                    Incididunt sit ipsum minim non labore id adipisicing cupidatat. Nulla sint qui labore labore elit.</p>
+            </div>
+        </div>
+    </div>
 </footer>
