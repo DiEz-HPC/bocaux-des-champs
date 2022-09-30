@@ -1,5 +1,6 @@
 :root{
     --margin-top-image-decalee: -10%;
+    --image-backdrop-opacity:0.3;
 }
 
 .image-bottom:not(.firstImage) {
@@ -27,14 +28,36 @@
     border-radius: 0.5em;
     z-index: 1;
 }
+.container-image::after {
+    content: "";
+    position: absolute;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 0.5em;
+    z-index: 2;
+}
 .borderNumber1::before {
-    border: 5px solid var(--quaternary-color);
+    border: 5px solid var(--primary-color);
+}
+.borderNumber1::after{
+    background: var(--primary-color);
+    opacity: var(--image-backdrop-opacity);
 }
 .borderNumber2::before {
     border: 5px solid var(--tertiary-color);
 }
+.borderNumber2::after{
+    background: var(--tertiary-color);
+    opacity: var(--image-backdrop-opacity);
+}
 .borderNumber3::before {
-    border: 5px solid var(--primary-color);
+    border: 5px solid var(--secondary-color);
+}
+.borderNumber3::after{
+    background: var(--secondary-color);
+    opacity: var(--image-backdrop-opacity);
 }
 .left {
     right: 20%;
