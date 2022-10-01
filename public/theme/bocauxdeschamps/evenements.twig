@@ -1,0 +1,14 @@
+{% extends 'partials/_master.twig' %}
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/cardEvent.css') }}">
+{% endblock %}
+{% block main %}
+    <div class="container events pt-5">
+        <h1 class="text-center">Nos évènements</h1>
+        <p class="mt-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iste labore, maxime reiciendis reprehenderit vel voluptatem? Atque cumque enim excepturi incidunt natus obcaecati possimus quae quod temporibus vitae. Ad beatae cumque deserunt error et, ex harum illo iste laudantium maiores nemo odio perferendis quod reprehenderit repudiandae suscipit tempore totam, voluptates.</p>
+        <h2 class="mt-5">Événements à venir</h2>
+        {% include '@theme/partials/_event/_card_event.twig' %}
+        <h2 class="mt-5">Événements passés</h2>
+    </div>
+{% endblock %}

@@ -293,6 +293,7 @@ actualités:
 events:
     name: Évènements
     singular_name: Évènement
+    slug: evenements
     fields:
         title:
             type: text
