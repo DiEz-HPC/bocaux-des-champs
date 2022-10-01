@@ -1,6 +1,48 @@
-<!-- Footer -->
-<footer>
-
-<div> footer </div>
-
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+{% endblock %}
+<footer class="d-flex justify-content-center my-4">
+    <div class="footer-container">
+        <div class="row justify-content-center">
+            <div class="col-md-4 d-flex justify-content-center align-items-center my-3">
+                <img src="{{ asset('pictures/BDC-logo.png') }}" alt"logo">
+            </div>
+        </div>
+        <div class="row justify-content-around">
+            <div class="col-12 col-md-8 col-xl-4 d-flex justify-content-around align-items-center">
+                {{ menu(
+                    name = 'main',
+                    template = 'partials/_sub_menu_footer.twig',
+                    withsubmenus = false,
+                ) }}
+            </div>
+            <div class="col-12 col-md-8 col-xl-4 d-flex justify-content-center">
+                <div class="mapouter w-sm-70">
+                    <iframe width="450" height="250" id="gmap_canvas" src="https://maps.google.com/maps?q=orl%C3%A9ans%2045000&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                </div>
+            </div>
+            <div class="col-12 col-md-8 col-xl-4 ">
+                <div class="row">
+                    <h5>
+                        Bocaux des champs
+                    </h5>
+                    <br>
+                    <p>Conserverie bio & artisanale du Loiret</p>
+                </div>
+                <div class="row ">
+                    <ul class="information-list">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 128C0 92.65 28.65 64 64 64H448C483.3 64 512 92.65 512 128V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V128zM48 128V150.1L220.5 291.7C241.1 308.7 270.9 308.7 291.5 291.7L464 150.1V127.1C464 119.2 456.8 111.1 448 111.1H64C55.16 111.1 48 119.2 48 127.1L48 128zM48 212.2V384C48 392.8 55.16 400 64 400H448C456.8 400 464 392.8 464 384V212.2L322 328.8C283.6 360.3 228.4 360.3 189.1 328.8L48 212.2z"/></svg>
+                            bocauxdeschamps@gmail.com</li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 256c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z"/></svg>
+                            6 rue des tanneurs 45000 Orléans</li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+                            06 06 06 06 06</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </footer>
