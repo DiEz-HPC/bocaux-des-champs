@@ -13,7 +13,6 @@
 
 .product-details {
     height: 100%;
-    width: 40%;
 }
 
 .card-event .product-details h3 {
@@ -52,7 +51,7 @@
 .card-event .product-details > p {
     font-family: "EB Garamond", serif;
     text-align: center;
-    font-size: 18px;
+    font-size: calc(var(--base-fontsize) - 35%) ;
     color: #7d7d7d;
 }
 .control {
@@ -129,7 +128,6 @@
     overflow: hidden;
     height: 100%;
     float: right;
-    width: 45%;
 }
 
 .card-event img {

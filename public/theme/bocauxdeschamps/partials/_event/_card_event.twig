@@ -1,16 +1,18 @@
+{# event = contentype #}
+
 <div class="card-event col-5">
-    <div class="product-details position-relative text-start overflow-hidden float-start p-4">
-        <h3>{{'La fête au village' | upper}}</h3>
-        <p class="information">" Let's spread the joy , here is Christmas , the most awaited day of the year.Christmas Tree is what one need the most. Here is the correct tree which will enhance your Christmas.</p>
-        <div class="control">
+    <div class="product-details position-relative text-start overflow-hidden float-start p-4 col-6">
+        <h3 class="text-center">{{event.title | upper}}</h3>
+        <p class="information">{{ event.teaser}}</p>
+        <!--<div class="control">
             <button class="btn">
                 <span class="price">$250</span>
                 <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
                 <span class="buy">Get now</span>
             </button>
-        </div>
+        </div>-->
     </div>
-    <div class="product-image">
+    <div class="product-image col-6">
         <img src="https://images.unsplash.com/photo-1606830733744-0ad778449672?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mzl8fGNocmlzdG1hcyUyMHRyZWV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
         <div class="info">
             <h4> Description</h4>
