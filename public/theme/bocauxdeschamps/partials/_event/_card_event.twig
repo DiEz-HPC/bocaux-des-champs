@@ -13,14 +13,15 @@
         </div>-->
     </div>
     <div class="product-image col-6">
-        <img src="https://images.unsplash.com/photo-1606830733744-0ad778449672?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mzl8fGNocmlzdG1hcyUyMHRyZWV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
-        <div class="info">
-            <h4> Description</h4>
+        <img src="{{event|image}}" alt="{{ event.pictures.alt|default() }}">
+        <div class="info d-flex flex-column align-items-center justify-content-center">
+            <h4> Informations</h4>
             <ul>
-                <li><strong>Height : </strong>5 Ft </li>
-                <li><strong>Shade : </strong>Olive green</li>
-                <li><strong>Decoration: </strong>balls and bells</li>
-                <li><strong>Material: </strong>Eco-Friendly</li>
+                <li><strong>Du : </strong>{{ event.DateStart|date('d/m/Y') }}</li>
+                <li><strong>Au : </strong>{{ event.DateEnd|date('d/m/Y') }}</li>
+                <li><strong>À: </strong>{{ event.Ville }}</li>
+                <li><strong>Adresse: </strong>{{ event.adresse }}</li>
+                <li><strong>Code Postal: </strong>{{ event.codePostal }}</li>
             </ul>
         </div>
     </div>

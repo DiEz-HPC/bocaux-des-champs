@@ -10,9 +10,20 @@
         <h2 class="mt-5">Événements à venir</h2>
         <div class="cards-events d-flex">
             {% for record in records %}
-                {% include '@theme/partials/_event/_card_event.twig' with {'event': record} %}
+                {% if not date('now'|date()).diff(date(record.DateStart)).invert  %}
+                    {% include '@theme/partials/_event/_card_event.twig' with {'event': record} %}
+                {% endif %}
             {%  endfor  %}
         </div>
         <h2 class="mt-5">Événements passés</h2>
+        <div class="cards-events d-flex">
+            {% set card = 1 %}
+            {% for record in records %}
+                {% if date('now'|date()).diff(date(record.DateStart)).invert and card <= 2  %}
+                    {% include '@theme/partials/_event/_card_event.twig' with {'event': record} %}
+                    {% set card = card + 1 %}
+                {% endif %}
+            {%  endfor  %}
+        </div>
     </div>
 {% endblock %}
