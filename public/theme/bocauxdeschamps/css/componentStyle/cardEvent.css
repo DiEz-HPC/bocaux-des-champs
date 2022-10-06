@@ -1,0 +1,23 @@
+.card-event {
+    background-color: transparent;
+    box-shadow: 0 0 10px 2px black;
+    border-radius: 10px;
+}
+
+.card-event .date {
+    color: var(--primary-color);
+}
+
+.card-event img {
+    object-fit: cover;
+    border-radius: 5px 0 0 5px;
+    height: 100% !important;
+}
+
+
+
+@media screen and (max-width: 767px) {
+    .card-event img {
+        border-radius: 5px 5px 0 0;
+    }
+}

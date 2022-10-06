@@ -19,7 +19,7 @@ body {
     flex-direction: column;
 }
 
-h2{
+h1, h2{
     font-size: var(--font-size-title);
     font-weight: bolder;
     color: var(--primary-color);
@@ -35,9 +35,9 @@ h2{
 .styled-title::after {
     content: "";
     position: absolute;
-    right: 0px;
+    right: 0;
     bottom: -9px;
-    left: 0px;
+    left: 0;
     width: 10%;
     border: 3px solid var(--light-color);
     border-radius: 0.5em;

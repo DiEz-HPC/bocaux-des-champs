@@ -1,30 +1,35 @@
-{# event = contentype #}
-
-<div class="card-event col-5">
-    <div class="product-details position-relative text-start overflow-hidden float-start p-4 col-6">
-        <h3 class="text-center">{{event.title | upper}}</h3>
-        <p class="information">{{ event.teaser}}</p>
-        <!--<div class="control">
-            <button class="btn">
-                <span class="price">$250</span>
-                <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-                <span class="buy">Get now</span>
-            </button>
-        </div>-->
+ {# event = contentype #}
+<!--
+<div class="card-event col col-lg-6 d-flex align-items-center p-2">
+    <div class="col-4">
+        <img src="{{ event.pictures }}" alt="{{ event.pictures.alt }}" class="img-fluid">
     </div>
-    <div class="product-image col-6">
-        <img src="{{event|image}}" alt="{{ event.pictures.alt|default() }}">
-        <div class="info d-flex flex-column align-items-center justify-content-center">
-            <h4> Informations</h4>
-            <ul>
-                <li><strong>Du : </strong>{{ event.DateStart|date('d/m/Y') }}</li>
-                <li><strong>Au : </strong>{{ event.DateEnd|date('d/m/Y') }}</li>
-                <li><strong>À: </strong>{{ event.Ville }}</li>
-                <li><strong>Adresse: </strong>{{ event.adresse }}</li>
-                <li><strong>Code Postal: </strong>{{ event.codePostal }}</li>
-            </ul>
-        </div>
+    <div class="col-8 ms-4 d-flex flex-column">
+        <h3 class="fw-semibold h4 mb-3">{{ event.title }}</h3>
+        <ul class="p-0 list-unstyled">
+            <li class="date mb-2">{{ event.DateStart|format_datetime(locale='fr',pattern="d MMMM") ~ " | " ~ event.DateEnd | format_datetime(locale='fr',pattern="d MMMM")  }} </li>
+            <li class="mb-2 pe-5">{{ event.teaser|excerpt(50) }}</li>
+            <li class="d-flex align-items-baseline"><svg class="me-2" width="15" fill="white" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 256c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z"/></svg>{{ event.adresse ~ ', ' ~ event.Ville | capitalize }}</li>
+        </ul>
     </div>
 </div>
-
+-->
+ <div class="card-event card mb-3 col-12 col-lg-6">
+     <div class="row g-0 d-flex">
+         <div class="col-12 col-md-5 position-relative">
+             <div class="flag position-absolute">{{ event.DateStart|format_datetime(locale='fr',pattern="MMM d") }}</div>
+             <img src="{{ event.pictures }}" alt="{{ event.pictures.alt }}" class="img-fluid col-12">
+         </div>
+         <div class="col-md-7">
+             <div class="card-body py-0">
+                 <h3 class="fw-semibold h4 mb-3 text-center text-sm-start pt-3 pt-sm-2">{{ event.title }}</h3>
+                 <ul class="p-0 list-unstyled">
+                     <li class="date mb-2 text-center text-sm-start">{{ event.DateStart|format_datetime(locale='fr',pattern="d MMMM") ~ " | " ~ event.DateEnd | format_datetime(locale='fr',pattern="d MMMM")  }} </li>
+                     <li class="mb-2 pe-sm-5 text-center text-sm-start">{{ event.teaser|excerpt(50) }}</li>
+                     <li class="d-flex align-items-baseline text-center text-sm-start"><svg class="me-2" width="15" fill="white" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 256c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z"/></svg>{{ event.adresse ~ ', ' ~ event.Ville | capitalize }}</li>
+                 </ul>
+             </div>
+         </div>
+     </div>
+ </div>
 

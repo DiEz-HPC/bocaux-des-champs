@@ -1,0 +1,8 @@
+.events h1::after {
+    content: "";
+    display: block;
+    border-top: .4rem solid white;
+    border-radius: 5px;
+    width: 12rem;
+    margin: 5px auto 0 auto;
+}
