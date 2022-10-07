@@ -1,6 +1,5 @@
 :root {
     --borderProductCard: 5px solid var(--primary-color);
-    --outlineBorderPlacement: -15px;
 }
 /* Products listing  */
 
