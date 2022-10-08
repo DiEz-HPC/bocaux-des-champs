@@ -15,7 +15,7 @@ const menuBurger = () => {
       navbar.classList.toggle("active");
       body.style.overflow = body.style.overflow === "hidden" ? "auto" : "hidden";
       main.style.transition="filter 0.5s ease-in-out";
-      main.style.filter === "blur(5px)" ? main.style.filter="none" : main.style.filter="blur(5px)";
+      main.style.filter === "brightness(45%)" ? main.style.filter="none" : main.style.filter="brightness(45%)";
       // If user clicks outside of navbar, close it, remove active class and remove active style
       main.addEventListener("click", () => {
         button.classList.remove("active");

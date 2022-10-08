@@ -8,8 +8,11 @@
    invokes itself to insert the items of the submenus. #}
 {% macro display_menu_item(item, loop, withsubmenus) %}
     {% apply spaceless %}
-        <li class="nav-item me-sm-5">
-            <a href="/{{ item.link }}" title="{{ item.title }}" aria-current="page" class="{% if loop.first %}{{ 'first' }}{% elseif loop.last %}{{ 'last' }}{% endif %}{{ item|current ? ' active' }}">{{- item.label | upper -}}</a>
+        <li class="nav-item me-sm-5 d-flex flex-row justify-content-between w-100 {{ item|current ? ' active' }}">
+        {% include 'pictures/' ~ item.class ~ '.svg' %}
+        <div class="text-center w-100">
+            <a href="/{{ item.link }}" title="{{ item.title }}" aria-current="page" class="{{ item|current ? ' active' }}">{{- item.label | upper -}}</a>
+            </div>
         </li>
     {% endapply %}
 {% endmacro %}
@@ -17,7 +20,7 @@
 {# Make the macro available for use #}
 {% from _self import display_menu_item %}
 
-{% setcontent homepage = 'homepage' %}
+{% setcontent options = 'Options' %}
 <div class="menu__mobile">
 	<div class="menu__mobile_button">
 		<span></span>
@@ -25,13 +28,18 @@
 </div>
 
 <section class="navbar" id="navbar">
-<div class="d-flex justify-content-center align-items-center h-100">
-    <ul class="text-center mt-5 mt-sm-0">
-        {% for item in menu %}
-            {% if item.label is defined %}
-                {{ display_menu_item(item, loop, withsubmenus) }}
-            {% endif %}
-        {% endfor %}
-    </ul>
+    <div class="d-flex justify-content-center align-items-center flex-column h-100">
+        {% if options and options.logo is not empty %}
+            <img src="{{ options.logo }}" alt="{{ options.sitename }}" class="navbarLogo">
+        {% else %}
+            Veuillez renseigner le logo dans l'administration
+        {% endif %}
+        <ul class="text-center mt-5 mt-sm-0">
+            {% for item in menu %}
+                {% if item.label is defined %}
+                    {{ display_menu_item(item, loop, withsubmenus) }}
+                {% endif %}
+            {% endfor %}
+        </ul>
     </div>
 </section>
