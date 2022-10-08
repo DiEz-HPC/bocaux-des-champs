@@ -1,7 +1,7 @@
 .menu__mobile {
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 25px;
+    left: 25px;
     z-index: 100;
 }
 .menu__mobile_button {
@@ -29,7 +29,7 @@
 .menu__mobile_button:after {
     display: block;
     position: absolute;
-    height: 6px;
+    height: 7px;
     width: 100%;
     background-color: var(--primary-color);
     border-radius: 6px;
@@ -51,13 +51,23 @@
 .menu__mobile_button:after {
     top: calc(100% - 6px);
 }
+@keyframes navbarAnimation {
+    0% {
+        opacity: 0.5;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 
 .navbar {
     display: none;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 0;
     height: 100vh;
     background-color: rgb(25, 25, 25);
     z-index: 0;
@@ -65,6 +75,8 @@
 .navbar.active {
     display: block;
     z-index: 99;
+    width: 30vw;
+    animation: navbarAnimation 1s ease-in-out;
 }
 .navbar.active ul {
     display: flex;
@@ -79,12 +91,45 @@
 }
 
 .navbar.active a {
-    color: var(--primary-color);
+    color: var(--light-color);
     text-decoration: none;
+    font-weight: bolder;
 }
 .navbar.active a.active {
-    color: var(--light-color);
+    color: var(--primary-color);
 }
 .navbar.active a:hover {
-    color: var(--light-color);
+    color: var(--primary-color);
 }
+.navbar .navbarLogo {
+    width: 50%;
+}
+.nav-item svg {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.nav-item svg path {
+    fill: var(--light-color);
+}
+.navbar.active .nav-item.active svg path {
+    fill: var(--primary-color);
+}
+.navbar.active .nav-item:hover svg path {
+    fill: var(--primary-color);
+}
+@media screen and (max-width: 576px) {
+    .navbar.active {
+        width: 100vw;
+    }
+}
+@media screen and (min-width: 576px) and (max-width: 991.98px) {
+    .navbar.active {
+        width: 50vw;
+    }
+ }
+ @media screen and (min-width: 992px) {
+    .navbar.active {
+        width: 30vw;
+    }
+ }

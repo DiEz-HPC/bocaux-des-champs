@@ -3,11 +3,12 @@
 
 {% block stylesheet %}
     {{ parent() }}
-       <link rel="stylesheet" href="{{ asset('css/videos.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/videos.css') }}">
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
 {% endblock %}
+{% setcontent options = 'Options' %}
 
 
 {% block main %}
@@ -16,15 +17,20 @@
             Nos videos
         </h1>
         <p class="text-center">
-            Esse tempor officia mollit pariatur non cupidatat fugiat enim exercitation Lorem. Veniam amet ea sit anim cillum laboris esse amet et aliqua voluptate. Minim dolor dolor occaecat Lorem et aute.</p>
+            {% if options and options.videosIntro is not empty %}
+                {{ options.videosIntro|raw }}
+            {% else %}
+                Veuillez renseigner le texte d'introduction pour la page vidéos dans l'administration
+            {% endif %}
+        </p>
         {% include 'partials/_tagCloud.twig' with {'taxonomyType': 'videos-tags'} %}
         <div class="row g-0 justify-content-around">
             {% for record in records %}
-              {% include 'partials/vidéos/_vidéos-card.twig' %}
+                {% include 'partials/vidéos/_vidéos-card.twig' %}
             {% endfor %}
         </div>
         <div class="d-flex justify-content-center align-items-center w-100">
-        {{ pager(records, template = 'helpers/_pager_bootstrap.html.twig') }}
+            {{ pager(records, template = 'helpers/_pager_bootstrap.html.twig') }}
         </div>
-  </div>
+    </div>
 {% endblock %}
