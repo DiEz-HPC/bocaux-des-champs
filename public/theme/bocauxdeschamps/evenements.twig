@@ -6,7 +6,7 @@
 {% endblock %}
 {% block main %}
     <div class="container events pt-5 mt-3">
-        <h1 class="text-center">Nos évènements</h1>
+        <h1 class="text-center styled-title">Nos évènements</h1>
         <p class="mt-5 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iste labore, maxime reiciendis reprehenderit vel voluptatem? Atque cumque enim excepturi incidunt natus obcaecati possimus quae quod temporibus vitae. Ad beatae cumque deserunt error et, ex harum illo iste laudantium maiores nemo odio perferendis quod reprehenderit repudiandae suscipit tempore totam, voluptates.</p>
         <h2 class="my-5 h3 text-light">Événements à venir</h2>
         <div class="cards-events d-flex">
@@ -16,8 +16,8 @@
                 {% endif %}
             {%  endfor  %}
         </div>
-        <h2 class="mt-5 h3 text-light">Événements passés</h2>
-        <div class="cards-events d-flex flex-column flex-lg-row">
+        <h2 class="my-5 h3 text-light">Événements terminés</h2>
+        <div class="row cards-events d-flex justify-content-between g-0">
             {% set card = 1 %}
             {% for record in records %}
                 {% if date('now'|date()).diff(date(record.DateStart)).invert and card <= 2  %}
