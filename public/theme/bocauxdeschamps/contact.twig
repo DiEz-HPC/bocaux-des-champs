@@ -4,7 +4,7 @@
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
 {% endblock %}
-
+{% setcontent options = 'Options' %}
 {% block main %}
     <h1>
         {{ contact|title }}
@@ -23,9 +23,18 @@
                 </h2>
                 <ul>
                     <li>
-                        {{ contact.bocauxMail }}
+                        {% if options.emailBocaux is not empty %}
+                            {{ options.emailBocaux }}
+                        {% else %}
+                            Veuillez renseigner l'email bocaux des champs dans l'administration
+                        {% endif %}
                     </li>
-                    <li>{{ contact.bocauxAdress }}
+                    <li>
+                        {% if options.adressBocaux is not empty %}
+                            {{ options.adressBocaux }}
+                        {% else %}
+                            Veuillez renseigner l'adresse bocaux des champs dans l'administration
+                        {% endif %}
                     </li>
                 </ul>
             </div>
@@ -35,10 +44,18 @@
                 </h2>
                 <ul>
                     <li>
-                        {{ contact.atcMail }}
+                        {% if options.emailATC45 is not empty %}
+                            {{ options.emailATC45 }}
+                        {% else %}
+                            Veuillez renseigner l'email ATC45 dans l'administration
+                        {% endif %}
                     </li>
                     <li>
-                        {{ contact.atcAdress }}
+                        {% if options.adressATC45 is not empty %}
+                            {{ options.adressATC45 }}
+                        {% else %}
+                            Veuillez renseigner l'adresse ATC45 dans l'administration
+                        {% endif %}
                     </li>
                 </ul>
             </div>

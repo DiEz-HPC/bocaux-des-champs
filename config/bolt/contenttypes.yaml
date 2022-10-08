@@ -340,23 +340,6 @@ contact:
             label: Texte de la page
             type: textarea
             required: true
-
-        bocauxAdress:
-            label: Adresse de Bocaux des champs
-            type: text
-            required: true
-        bocauxMail:
-            label: Mail de Bocaux des champs
-            type: text
-            required: true
-        atcAdress:
-            label: Adresse de ATC45
-            type: text
-            required: true
-        atcMail:
-            label: Mail de ATC45
-            type: text
-            required: true
         slug:
             type: slug
             uses: title
@@ -372,6 +355,7 @@ Message:
   singular_name: Message
   title_format: "Message de : {name} {firstname}"
   excerpt_format: "{message}"
+  slug: messages
   fields:
     name:
       type: text
@@ -408,6 +392,72 @@ Message:
   show_on_dashboard: false
   viewless: true
   searchable: false
+
+Options:
+  name: Options
+  singular_name: Option
+  slug: options
+  fields:
+    logo:
+      type: image
+      info: Logo de l'entreprise
+      label: Logo
+      group: Logo
+    logoFooter:
+      type: image
+      info: Logo de l'entreprise pour le footer
+      label: Logo pour le footer
+      group: Logo
+    productsIntro:
+      type: textarea
+      info: Texte d'introduction présent sur la page listing produits
+      label: Texte d'introduction pour la page produits
+      group: Texte pages de listing
+    videosIntro:
+      type: textarea
+      info: Texte d'introduction présent sur la page listing vidéos
+      label: Texte d'introduction pour la page vidéos
+      group: Texte pages de listing
+    eventsIntro:
+      type: textarea
+      info: Texte d'introduction présent sur la page listing évènements
+      label: Texte d'introduction pour la page évènements
+      group: Texte pages de listing
+    emailBocaux:
+      type: text
+      info: Email de l'association Bocaux des champs
+      label: Email Bocaux des champs
+      group: Contact
+    adressBocaux:
+      type: text
+      info: Adresse de l'association Bocaux des champs
+      label: Adresse Bocaux des champs
+      group: Contact
+    emailATC45:
+      type: text
+      info: Email de l'entreprise ATC45
+      label: Email ATC45
+      group: Contact
+    adressATC45:
+      type: text
+      info: Adresse de l'entreprise ATC45
+      label: Adresse ATC45
+      group: Contact
+    qrInfoCard:
+        type: textarea
+        info: Texte pour le bandeau QR code présent en bas de differentes pages
+        label: Texte pour le bandeau QR code
+        group: Autres
+    headerText:
+        type: textarea
+        info: Texte d'introduction présent sur le header
+        label: Texte d'introduction présent sur le header
+        group: Autres
+  viewless: true
+  singleton: true
+  icon_many: "fa:cogs"
+  icon_one: "fa:cogs"
+
 # Possible field types:
 #
 # text - varchar(256) - input type text.
