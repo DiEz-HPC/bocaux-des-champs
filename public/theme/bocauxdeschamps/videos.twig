@@ -14,7 +14,7 @@
 {% block main %}
     <div class="container">
         <h1 class="my-5 fw-bold text-center text-lg-start">
-            Nos videos
+            Vidéos
         </h1>
         <p class="text-center">
             {% if options and options.videosIntro is not empty %}
@@ -22,6 +22,7 @@
             {% else %}
                 Veuillez renseigner le texte d'introduction pour la page vidéos dans l'administration
             {% endif %}
+
             {% include 'partials/_tagCloud.twig' with {'taxonomyType': 'videos-tags'} %}
             <div class="row g-0 justify-content-around">
                 {% for record in records %}
