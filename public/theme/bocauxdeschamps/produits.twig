@@ -4,14 +4,18 @@
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/produits.css') }}">
 {% endblock %}
-
+{% setcontent options = 'Options' %}
 {% block main %}
     <section class="container">
         <h1 class="text-center my-4 styled-title">
             Nos produits
         </h1>
         <p class="text-center">
-            Des recettes gourmandes, saines et engagées, le tout made in Loiret !
+            {% if options and options.productsIntro is not empty %}
+                {{ options.productsIntro|raw }}
+            {% else %}
+                Veuillez renseigner le texte d'introduction pour la page produits dans l'administration
+            {% endif %}
             <div class="row mb-4 justify-content-evenly align-items-center">
                 {% for record in records %}
                     {% include 'partials/_product/_productCard.twig' %}

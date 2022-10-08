@@ -340,23 +340,6 @@ contact:
             label: Texte de la page
             type: textarea
             required: true
-
-        bocauxAdress:
-            label: Adresse de Bocaux des champs
-            type: text
-            required: true
-        bocauxMail:
-            label: Mail de Bocaux des champs
-            type: text
-            required: true
-        atcAdress:
-            label: Adresse de ATC45
-            type: text
-            required: true
-        atcMail:
-            label: Mail de ATC45
-            type: text
-            required: true
         slug:
             type: slug
             uses: title
@@ -372,6 +355,7 @@ Message:
   singular_name: Message
   title_format: "Message de : {name} {firstname}"
   excerpt_format: "{message}"
+  slug: messages
   fields:
     name:
       type: text
@@ -412,6 +396,7 @@ Message:
 Options:
   name: Options
   singular_name: Option
+  slug: options
   fields:
     logo:
       type: image
@@ -424,22 +409,17 @@ Options:
       label: Logo pour le footer
       group: Logo
     productsIntro:
-      type: redactor
+      type: textarea
       info: Texte d'introduction présent sur la page listing produits
       label: Texte d'introduction pour la page produits
-      group: Textes page de listing
+      group: Texte pages de listing
     videosIntro:
-      type: redactor
+      type: textarea
       info: Texte d'introduction présent sur la page listing vidéos
       label: Texte d'introduction pour la page vidéos
-      group: Textes page de listing
-    actualitesIntro:
-      type: redactor
-      info: Texte d'introduction présent sur la page listing actualités
-      label: Texte d'introduction pour la page actualités
-      group: Textes page de listing
+      group: Texte pages de listing
     eventsIntro:
-      type: redactor
+      type: textarea
       info: Texte d'introduction présent sur la page listing évènements
       label: Texte d'introduction pour la page évènements
       group: Texte pages de listing
@@ -464,12 +444,12 @@ Options:
       label: Adresse ATC45
       group: Contact
     qrInfoCard:
-        type: redactor
-        info: Texte d'introduction pour le bandeau QR code
-        label: Texte d'introduction pour le bandeau QR code
+        type: textarea
+        info: Texte pour le bandeau QR code présent en bas de differentes pages
+        label: Texte pour le bandeau QR code
         group: Autres
     headerText:
-        type: redactor
+        type: textarea
         info: Texte d'introduction présent sur le header
         label: Texte d'introduction présent sur le header
         group: Autres
