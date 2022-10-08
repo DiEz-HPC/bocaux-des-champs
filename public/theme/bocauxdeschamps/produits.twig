@@ -7,11 +7,14 @@
 
 {% block main %}
     <section class="container">
-        <h1 class="text-center my-4 styled-title">
-            Nos produits
-        </h1>
+        <div class="d-flex justify-content-center my-4">
+            <h1 class="text-center styled-title">
+                Nos produits
+            </h1>
+        </div>
         <p class="text-center">
             Des recettes gourmandes, saines et engagées, le tout made in Loiret !
+        </p>
             <div class="row mb-4 justify-content-evenly align-items-center">
                 {% for record in records %}
                     {% include 'partials/_product/_productCard.twig' %}
@@ -23,8 +26,8 @@
                 {{ pager(records, template = 'partials/helpers/_pager.html.twig') }}
             </div>
             <div class="d-flex justify-content-center mt-4">
-                {% include 'partials/_product/_productCardQr.twig' %}</div>
-        </p>
+                {% include 'partials/_product/_productCardQr.twig' %}
+            </div>
     </section>
 
 {% endblock main %}

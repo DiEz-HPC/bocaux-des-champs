@@ -6,25 +6,39 @@
 {% endblock %}
 {% block main %}
     <div class="container events pt-5 mt-3">
-        <h1 class="text-center styled-title">Nos évènements</h1>
-        <p class="mt-5 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iste labore, maxime reiciendis reprehenderit vel voluptatem? Atque cumque enim excepturi incidunt natus obcaecati possimus quae quod temporibus vitae. Ad beatae cumque deserunt error et, ex harum illo iste laudantium maiores nemo odio perferendis quod reprehenderit repudiandae suscipit tempore totam, voluptates.</p>
+        <div class="d-flex justify-content-center">
+            <h1 class="text-center styled-title">Nos évènements</h1>
+        </div>
+        <p class="mt-5 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iste labore, maxime
+            reiciendis reprehenderit vel voluptatem? Atque cumque enim excepturi incidunt natus obcaecati possimus quae
+            quod temporibus vitae. Ad beatae cumque deserunt error et, ex harum illo iste laudantium maiores nemo odio
+            perferendis quod reprehenderit repudiandae suscipit tempore totam, voluptates.</p>
         <h2 class="my-5 h3 text-light">Événements à venir</h2>
-        <div class="cards-events d-flex">
+        <div class="cards-events d-flex flex-column flex-lg-row flex-lg-wrap justify-content-between">
             {% for record in records %}
-                {% if not date('now'|date()).diff(date(record.DateStart)).invert  %}
+                {% if not date('now'|date()).diff(date(record.DateStart)).invert %}
                     {% include '@theme/partials/_event/_card_event.twig' with {'event': record} %}
                 {% endif %}
-            {%  endfor  %}
+            {% endfor %}
         </div>
+
+        <div class="d-flex justify-content-center">
+            {{ pager(records, template = 'partials/helpers/_pager.html.twig') }}
+        </div>
+        <hr class="my-5">
+
         <h2 class="my-5 h3 text-light">Événements terminés</h2>
-        <div class="row cards-events d-flex justify-content-between g-0">
+        <div class="cards-events d-flex flex-column flex-lg-row flex-lg-wrap justify-content-between">
             {% set card = 1 %}
             {% for record in records %}
-                {% if date('now'|date()).diff(date(record.DateStart)).invert and card <= 2  %}
+                {% if date('now'|date()).diff(date(record.DateStart)).invert and card <= 2 %}
                     {% include '@theme/partials/_event/_card_event.twig' with {'event': record} %}
                     {% set card = card + 1 %}
                 {% endif %}
-            {%  endfor  %}
+            {% endfor %}
+        </div>
+        <div class="d-flex justify-content-center mt-4">
+            {% include 'partials/_product/_productCardQr.twig' %}
         </div>
     </div>
 {% endblock %}

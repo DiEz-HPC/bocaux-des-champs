@@ -1,1 +1,6 @@
-
+.events hr {
+    border: 0;
+    border-top: 3px solid var(--primary-color);
+    opacity: 1;
+    border-radius: 20px;
+}
