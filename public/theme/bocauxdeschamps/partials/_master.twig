@@ -27,7 +27,7 @@
         {% block navbar %}
             {% include 'partials/_navbar.twig' %}
         {% endblock navbar %}
-        <main>
+        <main id="mainContent">
             {% block body %}
 
                 {% block main %}{% endblock main %}
@@ -43,6 +43,7 @@
         {% block javascripts %}
             <script src="{{ asset('js/theme.js') }}"></script>
             <script defer src="{{ asset('js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('js/navbar.js') }}"></script>
         {% endblock %}
     </body>
 </html>

@@ -51,13 +51,23 @@
 .menu__mobile_button:after {
     top: calc(100% - 6px);
 }
+@keyframes navbarAnimation {
+    0% {
+        opacity: 0.5;
+        transform: translateX(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+}
 
 .navbar {
     display: none;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 0px;
     height: 100vh;
     background-color: rgb(25, 25, 25);
     z-index: 0;
@@ -65,6 +75,8 @@
 .navbar.active {
     display: block;
     z-index: 99;
+    width: 350px;
+    animation: navbarAnimation 1s ease-in-out;
 }
 .navbar.active ul {
     display: flex;
