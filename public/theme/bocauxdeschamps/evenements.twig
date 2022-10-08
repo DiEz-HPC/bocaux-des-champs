@@ -15,7 +15,7 @@
             perferendis quod reprehenderit repudiandae suscipit tempore totam, voluptates.</p>
         <h2 class="my-5 h3 text-light">Événements à venir</h2>
         <div class="cards-events d-flex flex-column flex-lg-row flex-lg-wrap justify-content-between">
-            {% for record in records %}
+            {% for record in records|sort((a,b) => a.DateStart <=> b.DateStart) %}
                 {% if not date('now'|date()).diff(date(record.DateStart)).invert %}
                     {% include '@theme/partials/_event/_card_event.twig' with {'event': record} %}
                 {% endif %}
