@@ -1,18 +1,19 @@
-{% extends 'partials/_master.twig' %}
+{% extends '@theme/partials/_master.twig' %}
+
+{% setcontent options = 'Options' %}
+
 {% block stylesheet %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/events.css') }}">
     <link rel="stylesheet" href="{{ asset('css/componentStyle/cardEvent.css') }}">
 {% endblock %}
+
 {% block main %}
     <div class="container events pt-5 mt-3">
         <div class="d-flex justify-content-center">
             <h1 class="text-center styled-title">Nos évènements</h1>
         </div>
-        <p class="mt-5 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum iste labore, maxime
-            reiciendis reprehenderit vel voluptatem? Atque cumque enim excepturi incidunt natus obcaecati possimus quae
-            quod temporibus vitae. Ad beatae cumque deserunt error et, ex harum illo iste laudantium maiores nemo odio
-            perferendis quod reprehenderit repudiandae suscipit tempore totam, voluptates.</p>
+        <div class="mt-5 text-center"> {{ options.headerEvents ?? "Veuillez renseigner le champ se situant dans les options de l'administration" }} </div>
         <h2 class="my-5 h3 text-light">Événements à venir</h2>
         <div class="cards-events d-flex flex-column flex-lg-row flex-lg-wrap justify-content-between">
             {% for record in records|sort((a,b) => a.DateStart <=> b.DateStart) %}
@@ -38,7 +39,7 @@
             {% endfor %}
         </div>
         <div class="d-flex justify-content-center mt-4">
-            {% include 'partials/_product/_productCardQr.twig' %}
+            {% include '@theme/partials/_product/_productCardQr.twig' %}
         </div>
     </div>
 {% endblock %}
