@@ -1,6 +1,7 @@
 /* Set the global variables for everything. Change these to use your own fonts/colours. */
 @import "bootstrap.min.css";
 @import "navbar.css";
+
 * {
     /* Set the font globally */
     font-family: var(--sans-font);
@@ -19,7 +20,7 @@ body {
     flex-direction: column;
 }
 
-h1, h2{
+h1 {
     font-size: var(--font-size-title);
     font-weight: bolder;
     color: var(--primary-color);
