@@ -4,7 +4,7 @@
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/produits.css') }}">
 {% endblock %}
-
+{% setcontent options = 'Options' %}
 {% block main %}
     <section class="container">
         <div class="d-flex justify-content-center my-4">
@@ -13,21 +13,25 @@
             </h1>
         </div>
         <p class="text-center">
-            Des recettes gourmandes, saines et engagées, le tout made in Loiret !
+            {% if options and options.productsIntro is not empty %}
+                {{ options.productsIntro|raw }}
+            {% else %}
+                Veuillez renseigner le texte d'introduction pour la page produits dans l'administration
+            {% endif %}
         </p>
-            <div class="row mb-4 justify-content-evenly align-items-center">
-                {% for record in records %}
-                    {% include 'partials/_product/_productCard.twig' %}
-                {% else %}
-                    {% include 'partials/_noContent.twig' %}
-                {% endfor %}
-            </div>
-            <div class="d-flex justify-content-center">
-                {{ pager(records, template = 'partials/helpers/_pager.html.twig') }}
-            </div>
-            <div class="d-flex justify-content-center mt-4">
-                {% include 'partials/_product/_productCardQr.twig' %}
-            </div>
+        <div class="row mb-4 justify-content-evenly align-items-center">
+            {% for record in records %}
+                {% include 'partials/_product/_productCard.twig' %}
+            {% else %}
+                {% include 'partials/_noContent.twig' %}
+            {% endfor %}
+        </div>
+        <div class="d-flex justify-content-center">
+            {{ pager(records, template = 'partials/helpers/_pager.html.twig') }}
+        </div>
+        <div class="d-flex justify-content-center mt-4">
+            {% include 'partials/_product/_productCardQr.twig' %}
+        </div>
     </section>
 
 {% endblock main %}
