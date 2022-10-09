@@ -331,7 +331,7 @@ events:
             label: Texte d'accroche
             info: Texte visible avant d'ouvrir l'événement
             fixture_format: '{paragraph}'
-        content:
+        article:
             type: article
             class: large
             info: Contenue de l'événement
