@@ -32,7 +32,7 @@
                     {% include '@theme/partials/_event/_card_event.twig' with {'event': event} %}
                 {% endfor %}
             </div>
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center my-5">
                 {{ pager(eventsClosed, template = 'partials/helpers/_pager.html.twig') }}
             </div>
             <div class="d-flex justify-content-center mt-4">
