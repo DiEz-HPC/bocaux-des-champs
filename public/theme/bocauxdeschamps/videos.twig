@@ -22,14 +22,15 @@
             {% else %}
                 Veuillez renseigner le texte d'introduction pour la page vidéos dans l'administration
             {% endif %}
-            {% include 'partials/_tagCloud.twig' with {'taxonomyType': 'videos-tags'} %}
-            <div class="row g-0 justify-content-around">
-                {% for record in records %}
-                    {% include 'partials/vidéos/_vidéos-card.twig' %}
-                {% endfor %}
-            </div>
-            <div class="d-flex justify-content-center align-items-center w-100">
-                {{ pager(records, template = 'helpers/_pager_bootstrap.html.twig') }}</div>
         </p>
+        {% include 'partials/_tagCloud.twig' with {'taxonomyType': 'videos-tags'} %}
+        <div class="row g-0 justify-content-around">
+            {% for record in records %}
+                {% include 'partials/vidéos/_vidéos-card.twig' %}
+            {% endfor %}
+        </div>
+        <div class="d-flex justify-content-center align-items-center w-100">
+            {{ pager(records, template = 'helpers/_pager_bootstrap.html.twig') }}
+        </div>
     </div>
 {% endblock %}

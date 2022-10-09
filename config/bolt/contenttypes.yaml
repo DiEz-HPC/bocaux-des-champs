@@ -293,6 +293,7 @@ actualités:
 events:
     name: Évènements
     singular_name: Évènement
+    slug: evenements
     fields:
         title:
             type: text
@@ -305,6 +306,26 @@ events:
             type: image
             info: Image visible avant d'ouvrir l'événement
             label: Image mise en avant
+        DateStart:
+            type: date
+            info: Date de début de l'événement
+            label: Date de début
+        DateEnd:
+            type: date
+            info: Date de fin de l'événement
+            label: Date de fin
+        adresse:
+            type: text
+            info: Adresse de l'événement
+            label: Adresse
+        codePostal:
+            type: text
+            info: Code postal de l'événement
+            label: Code postal
+        Ville:
+            type: text
+            info: Ville de l'événement
+            label: Ville
         teaser:
             type: redactor
             label: Texte d'accroche

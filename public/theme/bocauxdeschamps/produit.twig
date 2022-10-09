@@ -11,12 +11,14 @@
 {% setcontent contact = 'contact' limit 1 returnsingle %}
 {% block main %}
     <div class="container">
-        <h1 class="text-center styled-title">
-            {{ record|title }}
-        </h1>
+        <div class="d-flex justify-content-center">
+            <h1 class="text-center styled-title">
+                {{ record|title }}
+            </h1>
+        </div>
         <div class="row">
             <div class="col-12 col-md-6">
-                <img src={{ record.image }} alt="{{ record.title }}" class="img-fluid"/>
+                <img src="{{ record.image }}" class="img-fluid" alt="{{ record.title }}"/>
             </div>
             <div class="col-12 col-md-6 d-flex flex-column align-items-center justify-content-center">
                 {{ record.content }}
@@ -34,14 +36,14 @@
             <div class="product-recipe-box--content mt-1">
                 <div id="recipeContainer">
                     {% if record.ingredient is not empty %}
-                        {{ record.ingredient  }}
+                        {{ record.ingredient }}
                     {% else %}
                         Information non disponible
                     {% endif %}
                 </div>
                 <div id="nutritionalContainer">
                     {% if record.nutrition is not empty %}
-                        {{ record.nutrition  }}
+                        {{ record.nutrition }}
                     {% else %}
                         Information non disponible
                     {% endif %}
@@ -50,8 +52,9 @@
 
             <div class="m-3 text-danger">
                 Pour toutes commande veuillez nous contacter directement, rendez-vous sur la page
-                <a href="/{{contact.contentType}}">Contact</a>
-                , merci !</div>
+                <a href="/{{ contact.contentType }}">Contact</a>
+                , merci !
+            </div>
         </div>
         <h2 class="text-center styled-title">Nos autres produits</h2>
         <div class="row justify-content-around">
