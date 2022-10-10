@@ -331,7 +331,7 @@ events:
             label: Texte d'accroche
             info: Texte visible avant d'ouvrir l'événement
             fixture_format: '{paragraph}'
-        content:
+        article:
             type: article
             class: large
             info: Contenue de l'événement
@@ -474,6 +474,11 @@ Options:
         info: Texte d'introduction présent sur le header
         label: Texte d'introduction présent sur le header
         group: Autres
+    headerEvents:
+        type: textarea
+        info: Texte d'introduction présent sur le header de la page évènements
+        label: Texte d'introduction présent sur le header de la page évènements
+        group: Page évènements
   viewless: true
   singleton: true
   icon_many: "fa:cogs"
