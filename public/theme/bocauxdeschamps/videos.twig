@@ -4,6 +4,8 @@
 {% block stylesheet %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/videos.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/componentStyle/videoCard.css') }}">
+
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
@@ -12,8 +14,8 @@
 
 
 {% block main %}
-    <div class="container">
-        <h1 class="my-5 fw-bold text-center text-lg-start">
+    <div class="">
+        <h1 class="mt-5 fw-bold text-center w-100 likeH2">
             Vidéos
         </h1>
         <p class="text-center">
@@ -30,7 +32,7 @@
                 {% endfor %}
             </div>
             <div class="d-flex justify-content-center align-items-center w-100">
-                {{ pager(records, template = 'helpers/_pager_bootstrap.html.twig') }}</div>
+                {{ pager(records, template = 'partials/helpers/_pager.html.twig') }}</div>
         </p>
     </div>
 {% endblock %}

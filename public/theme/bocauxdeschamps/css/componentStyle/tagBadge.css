@@ -2,7 +2,7 @@
     text-decoration: none;
 }
 .tagBadge {
-    background: var(--secondary-color);
+    background-color: var(--primary-color);
     color: black;
     border-radius: 0.25rem;
     margin: 0.5rem;
@@ -10,10 +10,9 @@
     width: fit-content;
 }
 .tag-count {
-    background: var(--secondary-color);
+    background: var(--primary-color);
     color: rgb(61, 61, 61);
 }
-
 .form-container {
     height: 100%;
     width: 100%;
@@ -48,10 +47,9 @@
     }
   .search-bar button {
     border: 0;
-    border-radius: 50%;
     width: 50px;
     height: 50px;
-    background: #262626;
+    background: transparent;
   }
   .search-bar button svg{
     width: 30px;

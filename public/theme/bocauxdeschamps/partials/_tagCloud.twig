@@ -1,25 +1,31 @@
 {% block stylesheet %}
     <link rel="stylesheet" href="{{ asset('css/componentStyle/tagBadge.css') }}">
 {% endblock %}
-
-<div class="form-container">
-    <form class="search-bar">
-        <input class="form-control" type="text" name="anyField--like" placeholder="Taper votre recherche ...">
-       <button type="submit"> {% include 'pictures/searchBar.svg' %} </button>
-    </form>
+<div class="mb-5">
+    <div class="form-container">
+        <form class="search-bar">
+            <input class="form-control" type="text" name="anyField--like" placeholder="Taper votre recherche ...">
+            <button type="submit">
+                {% include 'pictures/searchBar.svg' %}
+            </button>
+        </form>
+    </div>
+    <div class="row g-0 justify-content-center tagBadgeContainer pt-4">
+        <a href="/videos" class="tagBadge position-relative">
+            Tout voir
+        </a>
+        {% for tag in tag_cloud(taxonomyType) %}
+            {% if tag.count > 0 %}
+                <a href="/{{ taxonomyType }}/{{ tag.name }}" class="tagBadge position-relative">
+                    {{ tag.name }}
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill tag-count">
+                        {{ tag.count }}
+                    </span>
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
 </div>
-<div class="row g-0 justify-content-center tagBadgeContainer">
-    <a href="/videos" class="tagBadge position-relative">
-        Tout voir
-    </a>
-    {% for tag in tag_cloud(taxonomyType) %}
-        {% if tag.count > 0 %}
-            <a href="/{{ taxonomyType }}/{{ tag.name }}" class="tagBadge position-relative">
-                {{ tag.name }}
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill tag-count">
-                    {{ tag.count }}
-                </span>
-            </a>
-        {% endif %}
-    {% endfor %}
-</div>
+{% block javascripts %}
+    <script src="{{ asset('js/_tagCloud/_tagCloud.js') }}"></script>
+{% endblock %}
