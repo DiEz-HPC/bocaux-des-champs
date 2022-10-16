@@ -4,7 +4,6 @@
 main:
   - label: Accueil
     title: Page d'accueil
-    link: /
     class: menu-home
   - label: Nos engagements
     link: engagement
