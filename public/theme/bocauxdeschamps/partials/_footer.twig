@@ -1,31 +1,29 @@
-{% block stylesheet %}
-    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
-{% endblock %}
 {% setcontent options = 'Options' %}
+
 <footer class="d-flex flex-column justify-content-center position-relative">
     <div class="productCardQr d-flex justify-content-center mt-4">
-        {% include '@theme/partials/_product/_productCardQr.twig' %}
+        {% include '@theme/partials/_product/_productCardQr.twig' with {options: options} %}
     </div>
     <div class="footer-container">
         <div class="row justify-content-center">
-            <div class="col-md-4 d-flex justify-content-center align-items-center my-3">
+            <div class="col-md-4 d-flex justify-content-center align-items-center mt-3">
                 <img src="{{ asset('pictures/BDC-logo.png') }}" alt="logo">
             </div>
         </div>
         <div class="row justify-content-around align-items-center">
-            <div class="col-12 col-md-8 col-xl-4 d-flex justify-content-around align-items-center">
+            <div class="col-12 col-md-8 col-xl-4 d-flex justify-content-around align-items-center mt-5">
                 {{ menu(
                     name = 'main',
                     template = 'partials/_sub_menu_footer.twig',
                     withsubmenus = false,
                 ) }}
             </div>
-            <div class="col-12 col-md-8 col-xl-4 d-flex justify-content-center">
+            <div class="col-12 col-md-8 col-xl-4 d-flex justify-content-center mt-5">
                 <div class="mapouter w-sm-70">
                     <iframe width="auto" height="250" id="gmap_canvas" src="https://maps.google.com/maps?q=orl%C3%A9ans%2045000&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                 </div>
             </div>
-            <div class="d-flex flex-column align-items-center align-items-lg-start col-md-8 col-xl-4 ">
+            <div class="d-flex flex-column align-items-center align-items-lg-start col-md-8 col-xl-4 mt-5">
                 <div class="row text-center text-lg-start">
                     <h5>
                         Bocaux des champs

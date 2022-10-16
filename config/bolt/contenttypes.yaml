@@ -74,10 +74,6 @@ engagements:
             type: imagelist
             label: Images mises en avant
             group: Images en avants
-        slug:
-            type: slug
-            uses: name
-            group: meta
     show_on_dashboard: true
     singleton: true
     default_status: published
@@ -119,7 +115,7 @@ history:
             label: Image de présentation
             group: Présentation
             required: true
-        histoire:
+        contentHistory:
             type: redactor
             class: large
             info: Histoire de l'association
@@ -131,9 +127,6 @@ history:
             label: Images mises en avant
             group: Notre Histoire
             required: true
-        slug:
-            type: slug
-            uses: [name]
     show_on_dashboard: true
     singleton: true
     default_status: published
