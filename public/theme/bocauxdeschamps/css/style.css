@@ -19,7 +19,8 @@ body {
     flex-direction: column;
 }
 
-h2 {
+h2,
+.likeH2{
     font-size: var(--font-size-title);
     font-weight: bolder;
     color: var(--primary-color);
