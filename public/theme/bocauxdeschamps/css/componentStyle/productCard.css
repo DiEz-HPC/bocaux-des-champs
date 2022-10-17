@@ -13,10 +13,10 @@
 .btn-block::before {
     content: "";
     position: absolute;
-    top: 0px;
+    top: 0;
     right: -3px;
     bottom: -3px;
-    left: 0px;
+    left: 0;
     border-bottom: 3px solid var(--light-color);
     border-right: 3px solid var(--light-color);
     border-radius: 0.5em;

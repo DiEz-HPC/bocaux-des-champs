@@ -74,10 +74,6 @@ engagements:
             type: imagelist
             label: Images mises en avant
             group: Images en avants
-        slug:
-            type: slug
-            uses: name
-            group: meta
     show_on_dashboard: true
     singleton: true
     default_status: published
@@ -119,7 +115,7 @@ history:
             label: Image de présentation
             group: Présentation
             required: true
-        histoire:
+        contentHistory:
             type: redactor
             class: large
             info: Histoire de l'association
@@ -131,9 +127,6 @@ history:
             label: Images mises en avant
             group: Notre Histoire
             required: true
-        slug:
-            type: slug
-            uses: [name]
     show_on_dashboard: true
     singleton: true
     default_status: published
@@ -293,6 +286,7 @@ actualités:
 events:
     name: Évènements
     singular_name: Évènement
+    slug: evenements
     fields:
         title:
             type: text
@@ -305,12 +299,32 @@ events:
             type: image
             info: Image visible avant d'ouvrir l'événement
             label: Image mise en avant
+        DateStart:
+            type: date
+            info: Date de début de l'événement
+            label: Date de début
+        DateEnd:
+            type: date
+            info: Date de fin de l'événement
+            label: Date de fin
+        adresse:
+            type: text
+            info: Adresse de l'événement
+            label: Adresse
+        codePostal:
+            type: text
+            info: Code postal de l'événement
+            label: Code postal
+        Ville:
+            type: text
+            info: Ville de l'événement
+            label: Ville
         teaser:
             type: redactor
             label: Texte d'accroche
             info: Texte visible avant d'ouvrir l'événement
             fixture_format: '{paragraph}'
-        content:
+        article:
             type: article
             class: large
             info: Contenue de l'événement
@@ -453,6 +467,11 @@ Options:
         info: Texte d'introduction présent sur le header
         label: Texte d'introduction présent sur le header
         group: Autres
+    headerEvents:
+        type: textarea
+        info: Texte d'introduction présent sur le header de la page évènements
+        label: Texte d'introduction présent sur le header de la page évènements
+        group: Page évènements
   viewless: true
   singleton: true
   icon_many: "fa:cogs"

@@ -1,0 +1,40 @@
+{% extends '@theme/partials/_master.twig' %}
+
+{% set title = '!' ~ record.title %}
+{% setcontent eventsClosed = 'Évènements' where {DateEnd: '<today', title: title } limit 2 %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/events.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/componentStyle/cardEvent.css') }}">
+{% endblock %}
+
+{% block main %}
+    <div class="container pt-5 mt-5">
+        <div class="event d-flex flex-column">
+            <div class="d-flex justify-content-center">
+                <h1 class="text-center styled-title">{{ record.title | capitalize }}</h1>
+            </div>
+            <div
+                class="content d-flex flex-column flex-xl-row align-items-center justify-content-between mt-5 px-3 px-sm-0">
+                <div class="image col-12 col-xl-5 mb-5 container-image borderNumber">
+                    <a href="{{ record | image }}" target="_blank"><img class="col-12" src="{{ record | image }}"
+                                                                        alt="{{ record.alt }}"></a>
+                </div>
+                <div class="text col-12 col-xl-6">
+                    {{ record.article }}
+                </div>
+            </div>
+            <hr class="my-5">
+            <h2 class="text-light">Événements terminés</h2>
+            <div class="cards-events d-flex flex-column flex-lg-row flex-lg-wrap justify-content-between mt-5">
+                {% for event in eventsClosed %}
+                    {% include '@theme/partials/_event/_card_event.twig' with {'event': event} %}
+                {% endfor %}
+            </div>
+            <div class="d-flex justify-content-center my-5">
+                {{ pager(eventsClosed, template = 'partials/helpers/_pager.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

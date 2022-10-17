@@ -67,7 +67,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 0px;
+    width: 0;
     height: 100vh;
     background-color: rgb(25, 25, 25);
     z-index: 0;
@@ -123,12 +123,12 @@
         width: 100vw;
     }
 }
-@media screen and (min-width: 576px) and (max-width: 991.98px) { 
+@media screen and (min-width: 576px) and (max-width: 991.98px) {
     .navbar.active {
         width: 50vw;
     }
  }
- @media screen and (min-width: 992px) { 
+ @media screen and (min-width: 992px) {
     .navbar.active {
         width: 30vw;
     }

@@ -11,7 +11,9 @@
 
 {% block main %}
     <div class="engagements px-3 px-sm-5">
-        <h1 class="my-5 styled-title text-center">{{ 'Nos Engagements' | upper }}</h1>
+        <div class="d-flex justify-content-center">
+            <h1 class="my-5 styled-title text-center">{{ 'Nos Engagements' | upper }}</h1>
+        </div>
         <div class="content d-flex flex-column flex-xl-row justify-content-between position-relative">
             <div class="block-left col-12 col-xl-6">
                 {{ engagement(record.firstEngagement, record.firstImage, record.firstParagraph) }}

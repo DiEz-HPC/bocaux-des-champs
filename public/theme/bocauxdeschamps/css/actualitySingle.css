@@ -11,7 +11,7 @@ figure {
     justify-content: center;
     align-items: center;
 }
-img {
+.actu img {
     width: 100%;
     height: auto;
 }
@@ -50,27 +50,27 @@ img {
     margin: 0;
 }
 
-.article-grid .col-1 { grid-column: span 1; }
-.article-grid .col-2 { grid-column: span 2; }
-.article-grid .col-3 { grid-column: span 3; }
-.article-grid .col-4 { grid-column: span 4; }
-.article-grid .col-5 { grid-column: span 5; }
-.article-grid .col-6 { grid-column: span 6; }
-.article-grid .col-7 { grid-column: span 7; }
-.article-grid .col-8 { grid-column: span 8; }
-.article-grid .col-9 { grid-column: span 9; }
-.article-grid .col-10 { grid-column: span 10; }
-.article-grid .col-11 { grid-column: span 11; }
-.article-grid .col-12 { grid-column: span 12; }
-.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12{
+.actu .article-grid .col-1 { grid-column: span 1; }
+.actu .article-grid .col-2 { grid-column: span 2; }
+.actu .article-grid .col-3 { grid-column: span 3; }
+.actu .article-grid .col-4 { grid-column: span 4; }
+.actu .article-grid .col-5 { grid-column: span 5; }
+.actu .article-grid .col-6 { grid-column: span 6; }
+.actu .article-grid .col-7 { grid-column: span 7; }
+.actu .article-grid .col-8 { grid-column: span 8; }
+.actu .article-grid .col-9 { grid-column: span 9; }
+.actu .article-grid .col-10 { grid-column: span 10; }
+.actu .article-grid .col-11 { grid-column: span 11; }
+.actu .article-grid .col-12 { grid-column: span 12; }
+.actu .col-1, .actu .col-2, .actu .col-3, .actu .col-4, .actu .col-5, .actu .col-6, .actu .col-7, .actu .col-8, .actu .col-9, .actu .col-10, .actu .col-11, .actu .col-12{
     width: 100%;
 }
 
 @media only screen and (max-width: 992px){
-    .article-grid {
+    .actu .article-grid {
         grid-template-columns: repeat(1, 1fr);
     }
-    .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+    .actu .col-1, .actu .col-2, .actu .col-3, .actu .col-4, .actu .col-5, .actu .col-6, .actu .col-7, .actu .col-8, .actu .col-9, .actu .col-10, .actu .col-11, .actu .col-12 {
         grid-column: span 1;
         margin-bottom: 1rem;
     }
