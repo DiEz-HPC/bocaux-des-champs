@@ -5,13 +5,13 @@ root {
 
 
 .card-event {
-    background-color: transparent;
+    background-color: #131313;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px, rgba(0, 0, 0, 0.24) 0 1px 2px;
 }
 
 .card-event:hover {
-    background-color: #131313;
+    box-shadow: rgba(0, 0, 0, 0.8) 0 1px 3px, rgba(0, 0, 0, 0.9) 0 1px 2px;
 }
 
 .card-event a {
@@ -23,10 +23,14 @@ root {
     color: var(--primary-color);
 }
 
+.card-event .image-container {
+    height: 200px;
+}
+
 .card-event img {
     object-fit: cover;
     border-radius: 5px 0 0 5px;
-    height: 100% !important;
+    height: 100%;
 }
 
 .card-event .flag {
