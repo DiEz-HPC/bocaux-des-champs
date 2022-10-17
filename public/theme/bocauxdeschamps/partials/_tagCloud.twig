@@ -18,9 +18,6 @@
             {% if tag.count > 0 %}
                 <a href="/{{ taxonomyType }}/{{ tag.name }}" class="tagBadge position-relative">
                     {{ tag.name }}
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill tag-count">
-                        {{ tag.count }}
-                    </span>
                 </a>
             {% endif %}
         {% endfor %}

@@ -4,6 +4,13 @@
 }
 .card-container:hover .card-content{
     display: flex !important;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+
 }
 .card-content{
     display: none !important;
@@ -15,4 +22,12 @@
 }
 .card-content svg path{
     fill: #fff;
+}
+
+.card-content a {
+    text-decoration: none;
+}
+.card-content button{
+    background: transparent !important;
+    border: none !important;
 }

@@ -1,25 +1,8 @@
-{% extends 'partials/_master.twig' %}
-
-{# Check the contentType of records  #}
-{% set firstrecords = records|first %}
-{% set recordsContentType = firstrecords.taxonomyType %}
 
 {% block main %}
-    <div class="container">
-        {% if taxonomy is defined %}
-            <h1 class="my-5 fw-bold text-center text-lg-start">
-                {{ __('general.phrase.overview-for', {'%slug%': taxonomy.options[slug]|default(slug) }) }}
-            </h1>
-            {% include 'partials/_tagCloud.twig' with {'taxonomyType': taxonomy.slug} %}
-        {% endif %}
-        <div class="row justify-content-around">
             {% for record in records %}
                 {% if record.contentTypeSlug == 'videos' %}
-                    {% block stylesheet %}
-                        {{ parent() }}
-                        <link rel="stylesheet" href="{{ asset('css/videos.css') }}">
-                    {% endblock %}
-                    {% include 'partials/vidéos/_vidéos-card.twig' %}
+                    {% include 'videos.twig' %}
                 {% endif %}
             {% else %}
                 <article>
@@ -34,7 +17,7 @@
             {% endfor %}
         </div>
         <div class="d-flex justify-content-center align-items-center w-100">
-            {{ pager(records, template = 'helpers/_pager_bootstrap.html.twig') }}
+            {{ pager(records, template = 'partials/helpers/_pager.html.twig') }}
         </div>
     </div>
 
