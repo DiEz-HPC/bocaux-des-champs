@@ -40,3 +40,11 @@
 .event .borderNumber::after{
     background: transparent;
 }
+
+.event .adresse {
+    font-size: .9rem;
+}
+
+.event .adresse svg {
+    width: .7rem;
+}
