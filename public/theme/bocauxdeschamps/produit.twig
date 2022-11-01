@@ -1,0 +1,66 @@
+{% extends 'partials/_master.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/produits.css') }}">
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/toggleRecipe.js') }}"></script>
+{% endblock %}
+{% setcontent contact = 'contact' limit 1 returnsingle %}
+{% block main %}
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <h1 class="text-center styled-title">
+                {{ record|title }}
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <img src="{{ record.image }}" class="img-fluid" alt="{{ record.title }}"/>
+            </div>
+            <div class="col-12 col-md-6 d-flex flex-column align-items-center justify-content-center">
+                {{ record.content }}
+            </div>
+        </div>
+        <div class="row product-recipe-box--outer my-4">
+            <div class="product-recipe-box--choice">
+                <span id="recipeBtn" data-toggler="recipeContainer" class="product-recipe-button m-1 active">
+                    Ingrédients
+                </span>
+                <span id="nutritionalBtn" data-toggler="nutritionalContainer" class="product-recipe-button m-1">
+                    Valeurs nutritionelles
+                </span>
+            </div>
+            <div class="product-recipe-box--content mt-1">
+                <div id="recipeContainer">
+                    {% if record.ingredient is not empty %}
+                        {{ record.ingredient }}
+                    {% else %}
+                        Information non disponible
+                    {% endif %}
+                </div>
+                <div id="nutritionalContainer">
+                    {% if record.nutrition is not empty %}
+                        {{ record.nutrition }}
+                    {% else %}
+                        Information non disponible
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="m-3 text-danger">
+                Pour toutes commande veuillez nous contacter directement, rendez-vous sur la page
+                <a href="/{{ contact.contentType }}">Contact</a>
+                , merci !
+            </div>
+        </div>
+        <h2 class="text-center styled-title">Nos autres produits</h2>
+        <div class="row justify-content-around">
+            {% include 'partials/_relatedContent.twig' %}
+        </div>
+
+    </div>
+
+{% endblock %}

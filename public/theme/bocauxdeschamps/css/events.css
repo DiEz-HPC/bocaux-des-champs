@@ -1,0 +1,50 @@
+.events {
+    padding: 100px 80px !important;
+}
+
+.events hr, .event hr {
+    border: 0;
+    border-top: 3px solid var(--primary-color);
+    opacity: 1;
+    border-radius: 20px;
+}
+
+.container-image {
+    position: relative;
+}
+
+.event .container-image::before {
+    content: "";
+    position: absolute;
+    top: var(--outlineBorderPlacement);
+    right: var(--outlineBorderPlacement);
+    bottom: var(--outlineBorderPlacement);
+    left: var(--outlineBorderPlacement);
+    border-radius: 0.5em;
+    z-index: 1;
+}
+.event .container-image::after {
+    content: "";
+    position: absolute;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 0.5em;
+    z-index: 2;
+}
+.event .borderNumber::before {
+    border: 5px solid var(--primary-color);
+}
+
+.event .borderNumber::after{
+    background: transparent;
+}
+
+.event .adresse {
+    font-size: .9rem;
+}
+
+.event .adresse svg {
+    width: .7rem;
+}

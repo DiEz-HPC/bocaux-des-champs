@@ -1,0 +1,78 @@
+h1,
+h2,
+h3 {
+    text-align: center;
+    margin: 50px 0;
+}
+
+figure {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.actu img {
+    width: 100%;
+    height: auto;
+}
+
+
+/* Setting for article field */
+
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 2rem;
+    grid-row-gap: 1rem;
+}
+
+.article-grid + .article-grid {
+    margin-top: 1rem;
+}
+
+.article-grid figure,
+.article-grid img {
+    margin: 0;
+}
+
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 2rem;
+    grid-row-gap: 1rem;
+}
+
+.article-grid + .article-grid {
+    margin-top: 1rem;
+}
+
+.article-grid figure, .article-grid img {
+    margin: 0;
+}
+
+.actu .article-grid .col-1 { grid-column: span 1; }
+.actu .article-grid .col-2 { grid-column: span 2; }
+.actu .article-grid .col-3 { grid-column: span 3; }
+.actu .article-grid .col-4 { grid-column: span 4; }
+.actu .article-grid .col-5 { grid-column: span 5; }
+.actu .article-grid .col-6 { grid-column: span 6; }
+.actu .article-grid .col-7 { grid-column: span 7; }
+.actu .article-grid .col-8 { grid-column: span 8; }
+.actu .article-grid .col-9 { grid-column: span 9; }
+.actu .article-grid .col-10 { grid-column: span 10; }
+.actu .article-grid .col-11 { grid-column: span 11; }
+.actu .article-grid .col-12 { grid-column: span 12; }
+.actu .col-1, .actu .col-2, .actu .col-3, .actu .col-4, .actu .col-5, .actu .col-6, .actu .col-7, .actu .col-8, .actu .col-9, .actu .col-10, .actu .col-11, .actu .col-12{
+    width: 100%;
+}
+
+@media only screen and (max-width: 992px){
+    .actu .article-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .actu .col-1, .actu .col-2, .actu .col-3, .actu .col-4, .actu .col-5, .actu .col-6, .actu .col-7, .actu .col-8, .actu .col-9, .actu .col-10, .actu .col-11, .actu .col-12 {
+        grid-column: span 1;
+        margin-bottom: 1rem;
+    }
+}
+/* END Setting for article field*/

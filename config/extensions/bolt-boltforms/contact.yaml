@@ -1,0 +1,65 @@
+templates:
+    form: partials/forms/_contactForm.twig
+    email: partials/mail/_contactEmail.twig
+database:
+  contenttype:
+    name: Message # save all form submissions to the quotations contenttype
+    ignore_missing: true # ignore fields in the form that aren't defined in the ContentType
+notification:
+    enabled: true
+    debug: true
+    debug_address: houry9@gmail.com # Email address used when debug mode is enabled
+    debug_smtp: true
+    subject: Vous avez reçu un message via le formulaire de contact
+    subject_prefix: "[Bocaux des champs]"
+    replyto_name: "{NAME} {FIRSTNAME}" # Email addresses and names can be either the
+    replyto_email: "{EMAIL}" # name of a field below or valid text.
+    to_name: "Bocaux des champs"
+    to_email: "youremail@example.org"
+    from_name: "Bocaux des champs"
+    from_email: "nepasrepondre@bocauxdeschamps.fr"
+feedback:
+    success: Votre message à bien était envoyé.
+    error: Il y a eu un problème lors de l'envoi de votre message. Veuillez réessayer.
+fields:
+    name:
+        type: text
+        options:
+            required: true
+            label: Nom
+            attr:
+                placeholder: Votre nom...
+                class: contactInput
+            constraints: [NotBlank, { Length: { "min": 3, "max": 128 } }]
+    firstname:
+        type: text
+        options:
+            required: true
+            label: Prénom
+            attr:
+                placeholder: Votre prénom...
+                class: contactInput
+            constraints: [NotBlank, { Length: { "min": 3, "max": 128 } }]
+    email:
+        type: email
+        options:
+            required: true
+            label: Adresse mail
+            attr:
+                placeholder: Votre mail...
+                class: contactInput
+            constraints: [NotBlank, Email]
+    message:
+        type: textarea
+        options:
+            required: true
+            label: Message
+            attr:
+                placeholder: Votre message...
+                class: contactInput
+    submit:
+        type: submit
+        options:
+            label: Envoyer le message
+            attr:
+                class: btn-secondary

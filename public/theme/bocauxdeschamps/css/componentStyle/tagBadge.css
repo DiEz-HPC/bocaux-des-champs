@@ -1,0 +1,60 @@
+.tagBadgeContainer a {
+    text-decoration: none;
+}
+.tagBadge {
+    background-color: var(--primary-color);
+    color: black;
+    border-radius: 0.25rem;
+    margin: 0.5rem;
+    padding: 0.1rem 0.2rem;
+    width: fit-content;
+}
+.tag-count {
+    background: var(--primary-color);
+    color: rgb(61, 61, 61);
+}
+.form-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .search-bar {
+    width: 75%;
+    background: #262626;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  .search-bar input {
+    background: transparent;
+    height: 50px;
+    flex: 1;
+    border: 0;
+    padding: 24px 20px;
+    font-size: 20px;
+    color: var(--light-color);
+  }
+  ::placeholder {
+    color: whitesmoke;
+  }
+  .search-bar input:active,
+    .search-bar input:focus {
+        background: #262626;
+        color: var(--light-color);
+    }
+  .search-bar button {
+    border: 0;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+  }
+  .search-bar button svg{
+    width: 30px;
+    height: 30px;
+  }
+  .search-bar button svg path{
+    fill: var(--light-color);
+  }

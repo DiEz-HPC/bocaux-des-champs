@@ -1,0 +1,30 @@
+/* Single product */
+.product-recipe-box--outer {
+    font-size: 1rem;
+}
+.product-recipe-box--choice {
+    padding: 0 !important; /* overwrite bootstrap variable causing bad positionning */
+    font-size: 1rem;
+}
+.product-recipe-button {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 0.25em;
+    font-size: 1rem;
+    padding: 2px;
+    color: rgb(114, 113, 113);
+}
+.product-recipe-button:hover {
+    cursor: pointer;
+}
+.product-recipe-button.active {
+    background: var(--secondary-color);
+    color: var(--light-color);
+}
+.product-recipe-box--content {
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+#nutritionalContainer {
+    visibility: hidden;
+    height: 0;
+}

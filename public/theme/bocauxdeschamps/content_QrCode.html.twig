@@ -1,0 +1,46 @@
+{% extends '@bolt/_base/layout.html.twig' %}
+
+
+{% block title %}
+    Génération des Qr codes
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/adminQrCode.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+{% block main %}
+    {% if selectedContentType is null %}
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% include 'partials/_adminQr/_adminQrContentType.twig' %}
+    {% else %}
+        {% setcontent records = selectedContentType %}
+
+        <div>
+            <p class="text-center">
+                Vous pouvez sélectionnez le contenu que vous souhaitez puis cliquer sur le bouton
+                <span class="badge bg-secondary">Générer le Qr Code</span>
+                afin de procédé à la création des Qr Codes.</p>
+
+            <div class="row flex-column m-3 justify-content-center align-items-center">
+                <h2>Configuration des Qr codes</h2>
+                <button class="btn btn-secondary w-50" id="qrCode__setting_toggler">Configuration</button>
+            </div>
+            <form action="{{ path('app_qr_code_generate') }}" method="post">
+                {% include 'partials/_adminQr/_adminQrSetting.twig' %}
+                {% if isSingleton %}
+                    {% include 'partials/_adminQr/_adminQrSingleton.twig' %}
+                {% else %}
+                    {% include 'partials/_adminQr/_adminList.twig' %}
+                {% endif %}
+            </form>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,38 @@
+{% if record|taxonomies['videos-tags'] is defined %}
+    {% set tags = record|taxonomies['videos-tags'] %}
+    {% set tagList = [] %}
+    {% for tag in tags %}
+        {% set tagList = tagList|merge([tag.slug]) %}
+    {% endfor %}
+{% else %}
+    {% set tags = [] %}
+    {% set tagList = ['no-tag'] %}
+{% endif %}
+{% if loopIndex is not defined %}
+    {% set loopIndex = 1 %}
+{% endif %}
+{% if record|image %}
+    <div class="card-container col-10 col-md-5 col-lg-3 my-5 mx-2" style="background-image: url({{ record|thumbnail(480, 320) }})">
+    {% else %}
+        <div class="card-container col-10 col-md-5 col-lg-3 my-5 mx-2" data-loopindex="{{loopIndex}}" style="background-image: url({{ record.embedded.thumbnail }})">
+        {% endif %}
+
+        <div class="card-content d-flex flex-column justify-content-end">
+            <div class="align-self-center my-auto">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#modal-{{loopIndex}}">
+                    {% include 'pictures/play-solid.svg' %}
+                </button>
+            </div>
+            <h5 class="card-title fw-bold">{{ record|title }}</h5>
+            <div class="my-2">
+                {% if tags|length > 0 %}
+                    {% for tag in tags %}
+                        <a href="{{ tag|link }}" class="tagBadge">
+                            {{ tag.name }}
+                        </a>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% include 'partials/vidéos/_videos-modal.twig'  with { 'record':record, 'loopIndex': loopIndex } %}

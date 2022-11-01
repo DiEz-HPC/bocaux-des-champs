@@ -1,0 +1,17 @@
+.pager {
+    list-style: none;
+}
+.page-item {
+    border: 3px solid var(--primary-color);
+    border-radius: 20px !important;
+    padding: 5px;
+}
+.page-item.active .page-link {
+    background-color: var(--primary-color);
+}
+
+.page-link {
+    width: 25px;
+    height: 25px;
+    border-radius: 20px !important;
+}

@@ -7,5 +7,155 @@
         <target><![CDATA[Unfortunately, no content could be found. Try another page, or go to the <a href="/">homepage</a>.]]></target>
       </segment>
     </unit>
+    <unit id="cgA7tsQ">
+      <segment>
+        <source>Malheureusement, aucun contenu n'a pu être trouvé. Essayez une autre page ou rendez-vous sur &lt;a href="%paths_root%"&gt;l'accueil&lt;/a&gt;.</source>
+        <target><![CDATA[Malheureusement, aucun contenu n'a pu être trouvé. Essayez une autre page ou rendez-vous sur <a href="/">l'accueil</a>.]]></target>
+      </segment>
+    </unit>
+    <unit id="ygD8z7Q" name="error">
+      <segment>
+        <source>error</source>
+        <target>error</target>
+      </segment>
+    </unit>
+    <unit id="Z4fH3Wl" name="Vous n'avez pas sélectionné de contenu">
+      <segment>
+        <source>Vous n'avez pas sélectionné de contenu</source>
+        <target>Vous n'avez pas sélectionné de contenu</target>
+      </segment>
+    </unit>
+    <unit id="3NHVIj9" name="Name">
+      <segment>
+        <source>Name</source>
+        <target>Name</target>
+      </segment>
+    </unit>
+    <unit id="rMKsKxN" name="Your name...">
+      <segment>
+        <source>Your name...</source>
+        <target>Your name...</target>
+      </segment>
+    </unit>
+    <unit id="8kiP1O9" name="Email address">
+      <segment>
+        <source>Email address</source>
+        <target>Email address</target>
+      </segment>
+    </unit>
+    <unit id="TMY52.l" name="Your email...">
+      <segment>
+        <source>Your email...</source>
+        <target>Your email...</target>
+      </segment>
+    </unit>
+    <unit id="egV72Za" name="Your message">
+      <segment>
+        <source>Your message</source>
+        <target>Your message</target>
+      </segment>
+    </unit>
+    <unit id="gvYWw0o" name="Your message...">
+      <segment>
+        <source>Your message...</source>
+        <target>Your message...</target>
+      </segment>
+    </unit>
+    <unit id="2Iib8ls" name="Do you want us to contact you back?">
+      <segment>
+        <source>Do you want us to contact you back?</source>
+        <target>Do you want us to contact you back?</target>
+      </segment>
+    </unit>
+    <unit id="haOas0X" name="Yes">
+      <segment>
+        <source>Yes</source>
+        <target>Yes</target>
+      </segment>
+    </unit>
+    <unit id="HqRCoTS" name="No">
+      <segment>
+        <source>No</source>
+        <target>No</target>
+      </segment>
+    </unit>
+    <unit id="_.3xzA_" name="Submit my message »">
+      <segment>
+        <source>Submit my message »</source>
+        <target>Submit my message »</target>
+      </segment>
+    </unit>
+    <unit id=".MeoEev" name="String city processor string">
+      <segment>
+        <source>String city processor string</source>
+        <target>String city processor string</target>
+      </segment>
+    </unit>
+    <unit id="ssEkU20" name="Nom">
+      <segment>
+        <source>Nom</source>
+        <target>Nom</target>
+      </segment>
+    </unit>
+    <unit id="qPTtpCA" name="Votre nom...">
+      <segment>
+        <source>Votre nom...</source>
+        <target>Votre nom...</target>
+      </segment>
+    </unit>
+    <unit id="sB0RYun" name="Adresse mail">
+      <segment>
+        <source>Adresse mail</source>
+        <target>Adresse mail</target>
+      </segment>
+    </unit>
+    <unit id="v8etfqd" name="Votre mail...">
+      <segment>
+        <source>Votre mail...</source>
+        <target>Votre mail...</target>
+      </segment>
+    </unit>
+    <unit id="L3dmip3" name="Message">
+      <segment>
+        <source>Message</source>
+        <target>Message</target>
+      </segment>
+    </unit>
+    <unit id="ctwI8yE" name="Votre message...">
+      <segment>
+        <source>Votre message...</source>
+        <target>Votre message...</target>
+      </segment>
+    </unit>
+    <unit id="e5oC.h4" name="Souhaitez vous être recontacté ?">
+      <segment>
+        <source>Souhaitez vous être recontacté ?</source>
+        <target>Souhaitez vous être recontacté ?</target>
+      </segment>
+    </unit>
+    <unit id="d7zpI6e" name="Envoyer le message">
+      <segment>
+        <source>Envoyer le message</source>
+        <target>Envoyer le message</target>
+      </segment>
+    </unit>
+    <unit id="4yW.j5A" name="Prénom">
+      <segment>
+        <source>Prénom</source>
+        <target>Prénom</target>
+      </segment>
+    </unit>
+    <unit id="KWbVHrq" name="Votre prénom...">
+      <segment>
+        <source>Votre prénom...</source>
+        <target>Votre prénom...</target>
+      </segment>
+    </unit>
+    <unit id="CHEjVlf" name="Votreeee nom...">
+      <segment>
+        <source>Votreeee nom...</source>
+        <target>Votreeee nom...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

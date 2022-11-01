@@ -1,0 +1,34 @@
+{% extends 'partials/_master.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/produits.css') }}">
+{% endblock %}
+{% setcontent options = 'Options' %}
+{% block main %}
+    <section class="container">
+        <div class="d-flex justify-content-center my-4">
+            <h1 class="text-center styled-title">
+                Nos produits
+            </h1>
+        </div>
+        <p class="text-center">
+            {% if options and options.productsIntro is not empty %}
+                {{ options.productsIntro|raw }}
+            {% else %}
+                Veuillez renseigner le texte d'introduction pour la page produits dans l'administration
+            {% endif %}
+        </p>
+        <div class="row mb-4 justify-content-evenly align-items-center">
+            {% for record in records %}
+                {% include 'partials/_product/_productCard.twig' %}
+            {% else %}
+                {% include 'partials/_noContent.twig' %}
+            {% endfor %}
+        </div>
+        <div class="d-flex justify-content-center">
+            {{ pager(records, template = 'partials/helpers/_pager.html.twig') }}
+        </div>
+    </section>
+
+{% endblock main %}

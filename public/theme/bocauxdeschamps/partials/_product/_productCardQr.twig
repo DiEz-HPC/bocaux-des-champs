@@ -1,0 +1,23 @@
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('css/componentStyle/productCardQr.css') }}">
+{% endblock %}
+
+<div class="card cardQr col-12 col-lg-8">
+    <div class="row g-0">
+        <div class="col-md-4 d-flex justify-content-center align-items-center py-3">
+            <img src="{{ asset('pictures/qrReader.png') }}" alt="Scanner nos Qr code !" class="qrCardImg">
+        </div>
+
+        <div class="col-md-8 d-flex justify-content-center align-items-center">
+            <div class="card-body">
+                <p class="card-text text-center text-xl-start">
+                    {% if options and options.qrInfoCard is not empty %}
+                        {{ options.qrInfoCard|raw }}
+                    {% else %}
+                        Veuillez renseigner le texte du bandeau QR dans l'administration
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

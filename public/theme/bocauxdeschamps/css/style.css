@@ -1,0 +1,47 @@
+/* Set the global variables for everything. Change these to use your own fonts/colours. */
+@import "bootstrap.min.css";
+@import "navbar.css";
+* {
+    /* Set the font globally */
+    font-family: var(--sans-font);
+    font-size: var(--base-fontsize);
+}
+
+/* Make the body a nice central block */
+body {
+    color: var(--text-color);
+    background: var(--background-color);
+    font-size: var(--base-fontsize);
+    line-height: var(--line-height);
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+h2,
+.likeH2{
+    font-size: var(--font-size-title);
+    font-weight: bolder;
+    color: var(--primary-color);
+}
+
+/* styled-title correspond to underlined green title */
+.styled-title {
+    font-size: var(--font-size-title);
+    font-weight: bolder;
+    color: var(--primary-color);
+    position: relative;
+}
+
+.styled-title::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -9px;
+    left: 0;
+    width: 70%;
+    border: 3px solid var(--light-color);
+    border-radius: 0.5em;
+    margin: auto;
+}

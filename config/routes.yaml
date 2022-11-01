@@ -6,7 +6,6 @@
 # Place your own routes here, that have a HIGHER priority than the default routes.
 
 
-
 # ------------------------------------------------------------------------------
 # These are the routes defining the default behaviour of Bolt's frontend.
 # Changing these might give unexpected results or even break your website. If
@@ -19,14 +18,21 @@ frontend:
 # ------------------------------------------------------------------------------
 # Place your own routes here, that have a LOWER priority than the default routes.
 
-
-
 # Routes for the project-specific functionality
 project:
   resource: '../src/Controller'
   prefix: /
   type: annotation
 
+app_panel:
+    resource: '../src/QrCodeController.php'
+    prefix: '%bolt.backend_url%'
+    type: annotation
+    
+app_panelContact:
+    resource: '../src/ContactMessageController.php'
+    prefix: '%bolt.backend_url%'
+    type: annotation
 # ------------------------------------------------------------------------------
 # Examples:
 

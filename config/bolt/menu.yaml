@@ -2,24 +2,34 @@
 # details: https://docs.bolt.cm/menus
 
 main:
-  - label: Home
-    title: This is the <b>first<b> menu item.
-    link: homepage
-    class: homepage
-  - label: About
-    link: page/2
-    submenu:
-        - label: Sub 1
-          link: entry/39
-        - label: Sub 2
-          class: menu-item-class
-          link: entry/40
-        - link: entry/41 # These two have no `label`, so they will show up as the title
-        - class: sub-class
-          link: page/42
-  - label: All pages
-    link: pages/
-  - label: The Bolt site
-    link: https://boltcms.io
-    class: bolt-site
-    title: Visit the excellent Bolt website!
+  - label: Accueil
+    title: Page d'accueil
+    class: menu-home
+  - label: Nos engagements
+    link: engagement
+    class: menu-engagement
+    title: Nos engagements
+  - label: Notre histoire
+    link: histoire
+    class: menu-histoire
+    title: Notre histoire
+  - label: Nos produits
+    link: produits
+    class: menu-produits
+    title: Nos produits
+  - label: Vidéos
+    link: videos
+    class: menu-videos
+    title: Vidéos
+  - label: Actualités
+    link: actualites
+    class: menu-actualites
+    title: Actualités
+  - label: Évènements
+    link: evenements
+    class: menu-evenements
+    title: Évènements
+  - label: Contact
+    link: contact
+    class: menu-contact
+    title: Contact

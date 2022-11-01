@@ -1,14 +1,26 @@
-<!-- Header bar -->
-<header>
-    {# the values in the 'config' object are taken directly from the file app/config/config.yml #}
-    <h2><a href="{{ path('homepage') }}">{{ config.get('general/sitename') }}</a></h2>
-    {% if config.has('general/payoff') and record is defined and record|feature == 'homepage' %}
-        <p>{{ config.get('general/payoff') }}</p>
-    {% endif %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('css/componentStyle/header.css') }}">
+{% endblock %}
+{% setcontent options = "Options"%}
 
-    {{ menu(
-        name = 'main',
-        template = 'partials/_sub_menu_header.twig',
-        withsubmenus = false
-    ) }}
+<header>
+
+    <div class="header-container">
+        <video autoplay muted loop id="myVideo" class="img-fluid">
+            <source src="{{ asset('videos/header.webm') }}" type="video/webm">
+        </video>
+        <div class="card-img-overlay header-overlay row flex-column align-items-center justify-content-center">
+
+            <div class="col-12 col-md-6 d-flex justify-content-center">
+                <img src="{{ asset('pictures/BDC-logo.png') }}" alt="logo Bocaux des champs">
+            </div>
+            <div class="col-12 col-md-6 d-flex justify-content-center text-center">
+                {% if options and options.headerText is not empty %}
+                    {{ options.headerText|raw }}
+                {% else %}
+                    Veuillez renseigner le texte du header dans l'administration
+                {% endif %}
+            </div>
+        </div>
+    </div>
 </header>

@@ -1,27 +1,94 @@
 {% extends 'partials/_master.twig' %}
 
+{% from '@theme/macros/images.twig' import imagePosition %}
+
+{% setcontent products = 'Produits' latest limit 3 %}
+{% setcontent engagements = 'Engagements' latest limit 1 %}
+{% setcontent history = 'Histoire' latest limit 1 %}
+{% set pictures = [] %}
+
+{% if engagements.pictures is defined %}
+    {% for picture in engagements.pictures %}
+        {% set pictures = pictures|merge([picture]) %}
+    {% endfor %}
+{% endif %}
+{% if history.pictures is defined %}
+    {% for picture in history.pictures %}
+        {% set pictures = pictures|merge([picture]) %}
+    {% endfor %}
+{% endif %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/pictures.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
+{% endblock %}
+
 {% block main %}
+  {% include 'partials/_header.twig' %}
+    <div class="homepage mb-5 pb-5">
+        <div class="secondview min-vh-100 d-flex flex-column align-items-center justify-content-between flex-lg-row py-5 px-3 px-xl-5">
+            <div class="block-left col-lg-6 d-flex flex-column align-items-center justify-content-center">
+                <div class="engagements col-12 mb-5">
+                    <h2>{{ 'Nos engagements' | upper }}</h2>
+                    <p>{{ engagements.firstParagraph | excerpt(800) }}</p>
+                    <p>{{ engagements.secondParagraph | excerpt(200) }}</p>
+                    <a class="btn btn-block" href="{{ engagements|link }}" role="button">{{'en savoir plus' |upper }}</a>
+                </div>
 
-    {% if record|default %}
+                {# only mobile #}
+                <div class="mobile d-flex flex-column d-lg-none position-relative justify-content-center align-items-center m-5 col-10">
+                    {% if engagements.pictures is defined %}
+                        {% for picture in engagements.pictures|shuffle %}
+                            {% if loop.index <= 3 %}
+                                {{ imagePosition(loop.index, picture) }}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
 
-        <h1>{{ record|title }}</h1>
+                <div class="history mt-5">
+                    <h2>{{ 'Notre histoire' | upper }}</h2>
+                    <p>
+                        {{ history.introduction | excerpt(2000) }}
+                    </p>
+                    <a class="btn btn-block" href="{{ history|link }}" role="button">{{'en savoir plus' |upper }}</a>
+                </div>
+            </div>
+            {# only mobile #}
+            <div class="mobile d-flex flex-column d-lg-none position-relative justify-content-center align-items-center m-5 col-10">
+                {% if history.pictures is defined %}
+                    {% for picture in history.pictures|shuffle %}
+                        {% if loop.index <= 3 %}
+                            {{ imagePosition(loop.index, picture) }}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
 
-        {# Output the `introduction` field. If it doesn't exist, 'default' to
-           the full excerpt of the current Record #}
-        {{ record.introduction|default(record|excerpt) }}
-
-        {% include 'partials/_image.twig' with ({'image': record|image}) %}
-
-        {{ record.content }}
-
-       
-
-    {% endif %}
-
+            {# only desktop #}
+            <div class="block-right col-lg-5 d-none d-lg-flex flex-column align-items-center justify-content-lg-center justify-content-between position-relative mt-lg-5">
+                {% if pictures %}
+                    {% for picture in pictures|shuffle %}
+                        {% if loop.index <= 3 %}
+                            {{ imagePosition(loop.index, picture) }}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="thirdview px-3 px-xl-5">
+            <h2 class="text-center styled-title mb-5">{{ 'Nos Produits' | upper }}</h2>
+            <div class="row mb-4 justify-content-evenly align-items-center">
+                {% for record in products %}
+                    {% include 'partials/_product/_productCard.twig' %}
+                {% else %}
+                    {% include 'partials/_noContent.twig' %}
+                {% endfor %}
+            </div>
+            <div class="d-flex justify-content-center align-items-center mb-5">
+                <a class="btn btn-block" href="{{ path('listing', {'contentTypeSlug': 'produits' }) }}" role="button">{{'en savoir plus' |upper }}</a>
+            </div>
+        </div>
+    </div>
 {% endblock main %}
-
-{% block aside %}
-
-   
-    
-{% endblock aside %}

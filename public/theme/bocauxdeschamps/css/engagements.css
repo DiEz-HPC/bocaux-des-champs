@@ -1,0 +1,6 @@
+@import "variables.css";
+
+.engagement__title img {
+    width: 150px;
+    height: 150px;
+}

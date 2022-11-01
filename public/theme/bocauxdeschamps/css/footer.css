@@ -1,0 +1,103 @@
+@import "variables.css";
+
+:root {
+    --top-qr-banner: -23%;
+}
+
+footer {
+    box-shadow: 0 -10px 30px -15px black;
+    margin-top: 10%;
+}
+
+.productCardQr {
+    position: absolute;
+    width: 80%;
+    top: var(--top-qr-banner);
+    left: 10%;
+}
+
+.cardQr {
+    box-shadow: rgb(0, 0, 0) 0 2px 5px -1px, rgb(0, 0, 0) 0 1px 3px -1px;
+}
+
+.footer-container {
+    padding: 10rem 1rem 1rem 1rem;
+    margin-top: 1rem;
+    max-width: 95vw;
+}
+.footer-list {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    width: 100%;
+    padding: 0 !important;
+}
+.footer-list-item {
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+.footer-list-item a {
+    color: var(--light-color);
+    text-decoration: none;
+}
+.footer-list-item a:hover {
+    text-decoration: underline;
+    color: var(--primary-color);
+}
+.information-list {
+    list-style: none;
+}
+.information-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+.information-list svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+    fill: var(--light-color);
+}
+
+@media screen and (max-width: 1200px) {
+
+    footer {
+        margin-top: 30%;
+    }
+
+    .productCardQr {
+        top: calc(var(--top-qr-banner) + 13%);
+    }
+
+    .footer-list-item {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    .productCardQr {
+        top: calc(var(--top-qr-banner) + 10%);
+    }
+
+    footer {
+        margin-top: 60%;
+    }
+
+    .footer-container .mapouter {
+        transform: scale(0.8);
+    }
+
+    .footer-list-item {
+        display: inline-block;
+    }
+
+    .footer-list {
+        text-align: center;
+        columns: 1;
+        -webkit-columns: 1;
+        -moz-columns: 1;
+    }
+}

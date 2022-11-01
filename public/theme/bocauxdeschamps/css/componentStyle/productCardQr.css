@@ -1,0 +1,7 @@
+.cardQr{
+    background-color: var(--primary-color);
+}
+
+.qrCardImg {
+    width: 60%;
+}

@@ -1,0 +1,135 @@
+.menu__mobile {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    z-index: 100;
+}
+.menu__mobile_button {
+    position: relative;
+    height: 26px;
+    width: 40px;
+    cursor: pointer;
+    background-color: transparent;
+}
+.menu__mobile_button.active span {
+    opacity: 0;
+}
+.menu__mobile_button.active.menu__mobile_button:before,
+.menu__mobile_button.active.menu__mobile_button:after {
+    top: 40%;
+}
+.menu__mobile_button.active.menu__mobile_button:before {
+    transform: rotate(45deg);
+}
+.menu__mobile_button.active.menu__mobile_button:after {
+    transform: rotate(-45deg);
+}
+.menu__mobile_button span,
+.menu__mobile_button:before,
+.menu__mobile_button:after {
+    display: block;
+    position: absolute;
+    height: 7px;
+    width: 100%;
+    background-color: var(--primary-color);
+    border-radius: 6px;
+    opacity: 1;
+}
+.menu__mobile_button:before,
+.menu__mobile_button:after {
+    content: "";
+    transition: top 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+        transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.menu__mobile_button span {
+    top: 50%;
+    transform: translateY(-50%);
+}
+.menu__mobile_button:before {
+    top: 0;
+}
+.menu__mobile_button:after {
+    top: calc(100% - 6px);
+}
+@keyframes navbarAnimation {
+    0% {
+        opacity: 0.5;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.navbar {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100vh;
+    background-color: rgb(25, 25, 25);
+    z-index: 0;
+}
+.navbar.active {
+    display: block;
+    z-index: 99;
+    width: 30vw;
+    animation: navbarAnimation 1s ease-in-out;
+}
+.navbar.active ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.navbar.active li {
+    list-style: none;
+    margin: 1rem;
+}
+
+.navbar.active a {
+    color: var(--light-color);
+    text-decoration: none;
+    font-weight: bolder;
+}
+.navbar.active a.active {
+    color: var(--primary-color);
+}
+.navbar.active a:hover {
+    color: var(--primary-color);
+}
+.navbar .navbarLogo {
+    width: 50%;
+}
+.nav-item svg {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.nav-item svg path {
+    fill: var(--light-color);
+}
+.navbar.active .nav-item.active svg path {
+    fill: var(--primary-color);
+}
+.navbar.active .nav-item:hover svg path {
+    fill: var(--primary-color);
+}
+@media screen and (max-width: 576px) {
+    .navbar.active {
+        width: 100vw;
+    }
+}
+@media screen and (min-width: 576px) and (max-width: 991.98px) {
+    .navbar.active {
+        width: 50vw;
+    }
+ }
+ @media screen and (min-width: 992px) {
+    .navbar.active {
+        width: 30vw;
+    }
+ }

@@ -1,0 +1,58 @@
+@import "variables.css";
+
+.firstview {
+    background-color: var(--primary-color);
+}
+
+
+.separate-block {
+    background-color: var(--primary-color);
+    height: 30px;
+}
+
+.btn-separate {
+    background-color: var(--primary-color);
+}
+
+.btn-separate:hover {
+    background-color: var(--secondary-color);
+}
+
+@media screen and (max-width: 991px) {
+
+    .mobile .container-image {
+        margin: 0 !important;
+        width: 100% !important;
+        height: 500px !important;
+    }
+
+    .mobile .container-image:nth-child(1) {
+        z-index: 0 !important;
+        position: absolute;
+        top: -10%;
+        left: -10%;
+    }
+
+    .mobile .container-image:nth-child(2) {
+        z-index: 1 !important;
+    }
+
+    .mobile .container-image:nth-child(3) {
+        z-index: 0 !important;
+        position: absolute;
+        bottom: -10%;
+        right: -10%;
+        padding: 10px;
+    }
+
+
+
+}
+
+@media screen and (max-width: 568px) {
+
+    .mobile .container-image {
+        height: 300px !important;
+    }
+
+}

@@ -1,0 +1,43 @@
+{% extends 'partials/_master.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
+{% endblock %}
+{% setcontent options = 'Options' %}
+{% block main %}
+    <h1>
+        {{ contact|title }}
+    </h1>
+    <p>
+        {{ contact.texte }}
+    </p>
+    <div class="row justify-content-center align-items-center form-outer-container p-5">
+        <div class="col-md-6 left-container">
+            {{ boltforms('contact') }}
+        </div>
+        <div class="row  col-md-6 right-container">
+            <div class="right-container-inner-top my-4 d-flex justify-content-center flex-column align-items-center">
+                <h2>
+                    Bocaux des champs
+                </h2>
+                <ul>
+                    <li>{{ options.emailBocaux ?? "Veuillez renseigner l'email bocaux des champs dans l'administration" }}</li>
+                    <li>{{ options.adressBocaux ?? "Veuillez renseigner l'adresse bocaux des champs dans l'administration" }}</li>
+                </ul>
+            </div>
+            <div class="right-container-inner-bottom my-4  d-flex justify-content-center flex-column align-items-center">
+                <h2>
+                    ATC 45
+                </h2>
+                <ul>
+                    <li>{{ options.emailATC45 ?? "Veuillez renseigner l'email ATC45 dans l'administration" }}</li>
+                    <li>{{ options.adressATC45 ?? "Veuillez renseigner l'adresse ATC45 dans l'administration" }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="mapouter">
+        <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=orl%C3%A9ans%2045000&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </div>
+{% endblock main %}

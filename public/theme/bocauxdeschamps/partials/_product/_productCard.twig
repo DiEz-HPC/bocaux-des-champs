@@ -1,0 +1,20 @@
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('css/componentStyle/productCard.css') }}">
+{% endblock %}
+
+<div class="col-10 col-lg-4 col-md-6 mb-4 mb-lg-4 mt-4 mt-lg-4 d-flex justify-content-center">
+    <div class="card-background d-flex justify-content-center align-items-end" style="background-image: url({{ record|image }});">
+        <div class="card-background-overlay">
+            <div class="card-background-overlay-content">
+                <h5 class="text-center mb-3">
+                    {{ record|title|excerpt(40) }}
+                </h5>
+                <div class="text-center">{{ record.teaser|excerpt(125) }}</div>
+                <div class=" text-center my-2">
+                    <a href="{{ record|link }}" class="btn btn-block">VOIR LE PRODUIT</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

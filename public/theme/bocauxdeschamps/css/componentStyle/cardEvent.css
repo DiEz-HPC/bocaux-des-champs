@@ -1,0 +1,95 @@
+root {
+    --font-size-card-title: .8rem;
+    --font-size-card-li: 50px;
+}
+
+
+.card-event {
+    background-color: #131313;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px, rgba(0, 0, 0, 0.24) 0 1px 2px;
+}
+
+.card-event:hover {
+    box-shadow: rgba(0, 0, 0, 0.8) 0 1px 3px, rgba(0, 0, 0, 0.9) 0 1px 2px;
+}
+
+.card-event a {
+    text-decoration: none;
+    color: white;
+}
+
+.card-event .date {
+    color: var(--primary-color);
+}
+
+.card-event .image-container {
+    height: 200px;
+}
+
+.card-event img {
+    object-fit: cover;
+    border-radius: 5px 0 0 5px;
+    height: 100%;
+}
+
+.card-event .flag {
+    position: absolute;
+    top: -1.5px;
+    left: 10%;
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    z-index: 1 !important;
+}
+
+.card-event .flag:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    width: 0;
+    height: 0;
+    border-top: 18px solid var(--primary-color);
+    border-bottom: 20px solid transparent;
+    border-left: 40px solid var(--primary-color);
+    z-index: -1;
+}
+
+.card-event .flag:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+    width: 0;
+    height: 0;
+    border-top: 18px solid var(--primary-color);
+    border-bottom: 20px solid transparent;
+    border-right: 40px solid var(--primary-color);
+    z-index: -1;
+}
+
+.card-event .flag .month {
+    font-size: .8rem;
+    line-height: 0;
+}
+
+.card-event .flag .day {
+    font-size: 1.8rem;
+}
+
+.card-event h3 {
+    font-size: var(--font-size-card-title);
+}
+
+li {
+    font-size: 15px;
+}
+
+@media screen and (max-width: 767px) {
+    .card-event img {
+        border-radius: 5px 5px 0 0;
+    }
+}

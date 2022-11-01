@@ -1,0 +1,51 @@
+templates:
+    form: partials/forms/_replyform.twig
+    email: partials/mail/_replyEmail.twig
+notification:
+    enabled: true
+    debug: false
+    debug_address: houry9@gmail.com # Email address used when debug mode is enabled
+    debug_smtp: false
+    subject: Bocaux des champs - Réponse à votre message
+    subject_prefix: '[Boltforms]'
+    replyto_name: Bocaux des champs                # Email addresses and names can be either the
+    replyto_email: emaildeladmin@mail.com                 # name of a field below or valid text.
+    to_name: "{EMAIL}"
+    to_email: "{EMAIL}"
+    from_name: 'Bocaux des champs'
+    from_email: emaildeladmin@mail.com
+feedback:
+    success: Votre message a était envoyé.
+    error: Il y a eu un problème lors de l'envoi de votre message. Veuillez réessayer.
+fields:
+    email:
+        type: email
+        options:
+            required: true
+            label: Adresse mail
+            attr:
+                placeholder: Email du contact ...
+                id: email
+            constraints: [ NotBlank, Email ]
+    subject:
+        type: text
+        options:
+            required: true
+            label: Sujet
+            attr:
+                placeholder: Sujet du mail ...
+            constraints: [ NotBlank, { Length: { 'min': 3, 'max': 128 } } ]
+    message:
+        type: textarea
+        options:
+            required: true
+            label: Votre message
+            attr:
+                placeholder: Votre message ...
+                class: myclass
+    submit:
+        type: submit
+        options:
+            label: Envoyer
+            attr:
+                class: button primary

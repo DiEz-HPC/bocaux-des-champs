@@ -8,10 +8,13 @@
         "bolt/article": "^2.0",
         "bolt/assets": "^5.1",
         "bolt/core": "^5.1",
+        "bolt/forms": "^1.5",
         "bolt/newswidget": "^1.3",
         "bolt/redactor": "^2.0",
         "bolt/themes": "^3.5",
+        "endroid/qr-code-bundle": "^4.1",
         "nelmio/security-bundle": "^2.12",
+        "symfony/filesystem": "^5.1",
         "symfony/flex": "^2.0"
     },
     "minimum-stability": "stable",
@@ -23,6 +26,7 @@
         "phpstan/phpstan": "^0.12.48",
         "phpstan/phpstan-doctrine": "^0.12.20",
         "phpstan/phpstan-symfony": "^0.12.8",
+        "symfony/maker-bundle": "^1.45",
         "symplify/easy-coding-standard": "^9.4"
     },
     "config": {
@@ -34,7 +38,8 @@
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
             "drupol/composer-packages": true,
-            "symfony/flex": true
+            "symfony/flex": true,
+            "endroid/installer": true
         }
     },
     "extra": {
@@ -56,6 +61,7 @@
         }
     },
     "scripts": {
+        "reset": "php bin/console d:d:d --force && php bin/console bolt:setup",
         "pre-install-cmd": [
             "Bolt\\ComposerScripts\\ProjectEventHandler::preInstall"
         ],

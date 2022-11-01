@@ -10,11 +10,20 @@ tags:
     #listing_template: tag-listing.twig #custom template
     required: false
 
+videosTags:
+    slug: videos-tags
+    singular_slug: video-tag
+    behaves_like: tags
+    postfix: "Commencez un nouveau tag en saisissant un caractère, valider le tag en appuyant sur entrée."
+    allow_spaces: false
+    listing_template: videos.twig #custom template
+    required: false
+
 groups:
     slug: groups
     singular_slug: group
     behaves_like: grouping
-    options: { main: "The main group", meta: "Meta group", other: "The other stuff" }
+    options: { main: "The main group", meta: "Meta group", other: "The other stuff", videos: "Videos group" }
     has_sortorder: true
     required: false
 
@@ -27,3 +36,14 @@ categories:
     multiple: true
     options: [ news, events, movies, music, books, life, love, fun ]
     required: false
+
+videoCategory:
+    name: Videos
+    slug: Videos
+    singular_name: Video
+    singular_slug: Video
+    behaves_like: videos
+    multiple: false
+    options: [ movies ]
+    required: true
+    default: movies

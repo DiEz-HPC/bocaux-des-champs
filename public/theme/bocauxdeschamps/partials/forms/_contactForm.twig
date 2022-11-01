@@ -1,0 +1,36 @@
+<div class="mb-4">
+
+    {{ form_start(form) }}
+    {% if valid %}
+        <div class="boltforms-feedback error bg-success">{{formconfig.feedback.success|raw }}</div>
+    {% endif %}
+    {% if submitted and not valid %}
+        <div class="boltforms-feedback error">{{ formconfig.feedback.error|raw }}</div>
+    {% endif %}
+    <div class="row">
+        <div class="col-6">
+            {{ form_label(form['name']) }}
+            {{ form_errors(form['name']) }}
+            {{ form_widget(form['name'], { 'attr': {'class': 'form-control'} } ) }}
+        </div>
+        <div class="col-6">
+            {{ form_label(form['firstname']) }}
+            {{ form_errors(form['firstname']) }}
+            {{ form_widget(form['firstname'], { 'attr': {'class': 'form-control'} } ) }}
+        </div>
+    </div>
+    {{ form_label(form['email']) }}
+    {{ form_errors(form['email']) }}
+    {{ form_widget(form['email'], { 'attr': {'class': 'form-control'} } ) }}
+
+    {{ form_label(form['message']) }}
+    {{ form_errors(form['message']) }}
+    {{ form_widget(form['message'], { 'attr': {'class': 'form-control'} } ) }}
+    <br>
+    {{ form_widget(form.string_city_processor_string, { 'attr': {'class': 'form-control form-special'} } ) }}
+    <div class="row justify-content-center align-items-center">
+        {{ form_widget(form.submit, { 'attr': {'class': 'btn btn-primary w-50'} } ) }}
+    </div>
+    {{ form_end(form) }}
+
+</div>

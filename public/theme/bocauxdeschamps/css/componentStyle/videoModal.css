@@ -1,0 +1,10 @@
+.modal,
+.modal-dialog,
+.modal-content,
+.modal-header,
+.modal-body{
+   background-color: transparent !important;
+}
+.modal .modal-header{
+    border: none;
+}

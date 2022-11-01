@@ -1,0 +1,57 @@
+{# On récupère 3 entrées du même type en excluant l'entrée actuel #}
+{% set pageid = record.id %}
+{% set whereid = '!' ~ pageid %}
+{% setcontent records = record.contentTypeSlug where { id: whereid } limit 3 %}
+
+{% if (record.contentTypeSlug === 'produits') %}
+    {% for record in records %}
+        {% include 'partials/_product/_productCard.twig' %}
+    {% else %}
+        <p>Aucun
+            {{ record.contentTypeSlug }}</p>
+    {% endfor %}
+{% endif %}
+
+{% if (record.contentTypeSlug === 'videos') %}
+    {% for otherRecord in records %}
+
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-4 mt-4 mt-lg-4">
+            <div class="card rounded shadow-sm border-0">
+                <div class="card-body p-4">
+                    {% if otherRecord|image %}
+                        <img src="{{ otherRecord|thumbnail(480, 320) }}" class="img-fluid card-img-top d-block mx-auto mb-3" alt="{{ record|image.alt|default() }}"/>
+                    {% else %}
+                        <img src="{{ otherRecord.embedded.thumbnail }}" class="card-img-top" alt="{{ otherRecord.title }}"/>
+                    {% endif %}
+                    <h5>
+                        <a href="{{ otherRecord|link }}" class="text-dark">{{ otherRecord|title|excerpt(25) }}</a>
+                    </h5>
+                    <div class="small text-muted font-italic">{{ otherRecord.teaser|excerpt(60) }}</div>
+                    <a href="{{ otherRecord|link }}" class="btn btn-block mt-4">Voir le produit</a>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <p>Aucun
+            {{ record.contentTypeSlug }}</p>
+    {% endfor %}
+{% endif %}
+{% if (record.contentTypeSlug === 'actualites' or record.contentTypeSlug === 'evenements') %}
+    <div class="gridRelated">
+        {% for otherRecord in records %}
+            {% include 'partials/actuality/_actualityCard.twig' with {'record': otherRecord, 'class': 'item'~loop.index } %}
+        {% else %}
+            <p>Aucun
+                {{ record.contentTypeSlug }}</p>
+        {% endfor %}
+    </div>
+
+{% endif %}
+<div class="row m-2 text-center">
+    <a href="{{ path('listing', {'contentTypeSlug': record.contentTypeSlug }) }}">
+        <button class="btn ">
+            Retour à la liste des
+            {{ record.contentTypeSlug }}
+        </button>
+    </a>
+</div>
