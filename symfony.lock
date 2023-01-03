@@ -197,6 +197,9 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.1"
     },
+    "gregwar/captcha-bundle": {
+        "version": "v2.2.0"
+    },
     "guzzlehttp/psr7": {
         "version": "1.7.0"
     },
