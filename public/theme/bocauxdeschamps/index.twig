@@ -20,8 +20,8 @@
 
 {% block stylesheet %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/pictures.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
+                   {{ encore_entry_link_tags('homeStyle', null, 'bocaux') }}
+     {{ encore_entry_link_tags('picturesStyle', null, 'bocaux') }}
 {% endblock %}
 
 {% block main %}

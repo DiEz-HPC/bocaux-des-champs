@@ -1,5 +1,5 @@
 {% block stylesheet %}
-    <link rel="stylesheet" href="{{ asset('css/componentStyle/pagination.css') }}">
+     {{ encore_entry_link_tags('paginationStyle', null, 'bocaux') }}
 {% endblock %}
 {% set start = max(records.currentPage - surround, 1) %}
 {% set end = min(records.currentPage + surround, records.nbPages) %}

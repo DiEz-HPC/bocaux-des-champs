@@ -11,7 +11,7 @@
     --quaternary-color: #ffdd82;
     --light-color: white;
     /* Body font size. By default, effectively 18.4px, based on 16px as 'root em' */
-    --base-fontsize: 1.15rem;
+    --base-fontsize: 1rem;
     --font-size-title: 2rem;
     /* Line height is set to the "Golden ratio" for optimal legibility */
     --line-height: 1.618;

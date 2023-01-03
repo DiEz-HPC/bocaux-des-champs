@@ -7,7 +7,7 @@
         <meta
         name="viewport" content="width=device-width, initial-scale=1.0">
         {# make sure we always display a proper title: The record's title if there is one, appended with the
-                           sitename. If there is no title, we append the sitename with the payoff, if there is one. #}
+                                   sitename. If there is no title, we append the sitename with the payoff, if there is one. #}
         <title>
             {{- config.get('general/sitename') ~ ' | ' -}}
             {%- if record|default and record.title -%}
@@ -19,9 +19,11 @@
             {%- endif -%}
         </title>
         {% block stylesheet %}
-            <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/variables.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+
+            {{ encore_entry_link_tags('appStyle', null, 'bocaux') }}
+
+            {{ encore_entry_link_tags('variables', null, 'bocaux') }}
+            {{ encore_entry_link_tags('footerStyle', null, 'bocaux') }}
         {% endblock %}
     </head>
     <body>
@@ -44,7 +46,7 @@
         {% block javascripts %}
             <script src="{{ asset('js/theme.js') }}"></script>
             <script defer src="{{ asset('js/bootstrap.min.js') }}"></script>
-            <script src="{{ asset('js/navbar.js') }}"></script>
+            {{ encore_entry_script_tags('navbar', null, 'bocaux') }}
         {% endblock %}
     </body>
 </html>

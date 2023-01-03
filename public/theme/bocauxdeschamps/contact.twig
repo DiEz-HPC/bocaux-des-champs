@@ -2,7 +2,7 @@
 
 {% block stylesheet %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
+       {{ encore_entry_link_tags('contactStyle', null, 'bocaux') }}
 {% endblock %}
 {% setcontent options = 'Options' %}
 {% block main %}

@@ -2,11 +2,11 @@
 
 {% block stylesheet %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/produits.css') }}">
+    {{ encore_entry_link_tags('productStyle', null, 'bocaux') }}
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('js/toggleRecipe.js') }}"></script>
+    {{ encore_entry_script_tags('toggleRecipe', null, 'bocaux') }}
 {% endblock %}
 {% setcontent contact = 'contact' limit 1 returnsingle %}
 {% block main %}

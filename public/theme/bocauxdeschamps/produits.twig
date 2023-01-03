@@ -2,7 +2,7 @@
 
 {% block stylesheet %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/produits.css') }}">
+    {{ encore_entry_link_tags('productStyle', null, 'bocaux') }}
 {% endblock %}
 {% setcontent options = 'Options' %}
 {% block main %}

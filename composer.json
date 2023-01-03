@@ -15,7 +15,8 @@
         "endroid/qr-code-bundle": "^4.1",
         "nelmio/security-bundle": "^2.12",
         "symfony/filesystem": "^5.1",
-        "symfony/flex": "^2.0"
+        "symfony/flex": "^2.0",
+        "symfony/webpack-encore-bundle": "^1.16"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,

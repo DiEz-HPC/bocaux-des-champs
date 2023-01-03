@@ -1,8 +1,9 @@
 {% extends 'partials/_master.twig' %}
 {% block stylesheet %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/actuality.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/actualitySingle.css') }}">
+    {{ encore_entry_link_tags('actualityStyle', null, 'bocaux') }}
+    {{ encore_entry_link_tags('actualitySingle', null, 'bocaux') }}
+
 {% endblock %}
 {% block main %}
     <div class="actu container">

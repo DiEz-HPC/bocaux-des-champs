@@ -1,0 +1,225 @@
+{
+  "entrypoints": {
+    "navbar": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js",
+        "http://localhost:8080/build/vendors~navbar~tagCloud~toggleRecipe~youtubePlayer.js",
+        "http://localhost:8080/build/navbar.js"
+      ]
+    },
+    "toggleRecipe": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js",
+        "http://localhost:8080/build/vendors~navbar~tagCloud~toggleRecipe~youtubePlayer.js",
+        "http://localhost:8080/build/toggleRecipe.js"
+      ]
+    },
+    "youtubePlayer": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js",
+        "http://localhost:8080/build/vendors~navbar~tagCloud~toggleRecipe~youtubePlayer.js",
+        "http://localhost:8080/build/youtubePlayer.js"
+      ]
+    },
+    "tagCloud": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js",
+        "http://localhost:8080/build/vendors~navbar~tagCloud~toggleRecipe~youtubePlayer.js",
+        "http://localhost:8080/build/tagCloud.js"
+      ]
+    },
+    "appStyle": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/appStyle.css"
+      ]
+    },
+    "actualityStyle": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/actualityStyle.css"
+      ]
+    },
+    "actualitySingle": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/actualitySingle.css"
+      ]
+    },
+    "contactStyle": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/contactStyle.css"
+      ]
+    },
+    "engagementStyle": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/engagementStyle.css"
+      ]
+    },
+    "eventStyle": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/eventStyle.css"
+      ]
+    },
+    "footerStyle": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/footerStyle.css"
+      ]
+    },
+    "historyStyle": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/historyStyle.css"
+      ]
+    },
+    "homeStyle": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/homeStyle.css"
+      ]
+    },
+    "picturesStyle": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/picturesStyle.css"
+      ]
+    },
+    "productStyle": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/productStyle.css"
+      ]
+    },
+    "variables": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/variables.css"
+      ]
+    },
+    "videoStyle": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/videoStyle.css"
+      ]
+    },
+    "cardEventStyle": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/cardEventStyle.css"
+      ]
+    },
+    "headerStyle": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/headerStyle.css"
+      ]
+    },
+    "paginationStyle": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/paginationStyle.css"
+      ]
+    },
+    "productCardStyle": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/productCardStyle.css"
+      ]
+    },
+    "productCardQrStyle": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/productCardQrStyle.css"
+      ]
+    },
+    "tagBadgeStyle": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/tagBadgeStyle.css"
+      ]
+    },
+    "videoCardStyle": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/videoCardStyle.css"
+      ]
+    },
+    "videoModalStyle": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~actualitySingle~actualityStyle~appStyle~cardEventStyle~contactStyle~engagementStyle~eventSty~f3a8233f.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/videoModalStyle.css"
+      ]
+    }
+  }
+}

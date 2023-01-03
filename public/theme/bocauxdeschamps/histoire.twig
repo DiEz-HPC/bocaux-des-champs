@@ -5,7 +5,7 @@
 
 {% block stylesheet %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/histoire.css') }}">
+    {{ encore_entry_link_tags('historyStyle', null, 'bocaux') }}
 {% endblock %}
 
 {% block main %}
