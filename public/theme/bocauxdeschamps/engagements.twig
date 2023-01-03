@@ -2,8 +2,10 @@
 
 {% block stylesheet %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/pictures.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/engagements.css') }}">
+
+    {{ encore_entry_link_tags('picturesStyle', null, 'bocaux') }}
+    {{ encore_entry_link_tags('engagementStyle', null, 'bocaux') }}
+
 {% endblock %}
 
 {% from '@theme/macros/images.twig' import imagePosition %}

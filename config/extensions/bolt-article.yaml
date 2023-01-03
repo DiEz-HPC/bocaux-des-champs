@@ -5,22 +5,36 @@
 # selector, specialchars, style, tags, textdirection, underline, variable,
 # removeformat, imageresize
 default:
-  plugins: [ blockcode, buttonlink, definedlinks, inlineformat, reorder, tags, underline, imageposition, filelink, removeformat, imageresize, carousel,textdirection, style]
+  plugins: [ blockcode, buttonlink, definedlinks, inlineformat, reorder, tags, underline, imageposition, filelink, removeformat, selector]
   source: true
+  custom: 
+    css: [ '/theme/bocauxdeschamps/css/customAdminArticle.css' ]
+  classes:
+    p: 'article-paragraph w-100'
+    figure: 'superposition d-none'
+    img: 'rounded mx-auto d-block img-fluid'
+    h1: 'article-h1'
+    h2: 'article-h2'
+    h3: 'article-h3'
+    h4: 'article-h4'
+    h5: 'article-h5'
+    h6: 'article-h6'
+    div: 'article-div'
+    ul: 'article-ul'
   grid:
-    classname: 'article-grid'
+    classname: 'row'
     columns: 12
     patterns:
-      '4|4|4': 'col-4|col-4|col-4'
-      '4|8': 'col-4|col-8'
-      '6|6': 'col-6|col-6'
-      '8|4': 'col-8|col-4'
-
+      '4|4|4': 'col-12 col-lg-4 d-flex align-items-start justify-content-center flex-column|col-12 col-lg-4|col-12 col-lg-4 d-flex align-items-start justify-content-center flex-column'
+      '4|8': 'col-12 col-md-4 col-lg-4 d-flex align-items-start justify-content-center flex-column|col-12 col-md-8 col-lg-8 d-flex align-items-start justify-content-center flex-column'
+      '6|6': 'col-12 col-md-6 col-lg-6 d-flex align-items-start justify-content-center flex-column|col-12 col-md-6 col-lg-6 d-flex align-items-start justify-content-center flex-column'
+      '8|4': 'col-12 col-md-8 col-lg-8 d-flex align-items-start justify-content-center flex-column|col-12 col-md-4 col-lg-4 d-flex align-items-start justify-content-center flex-column'
 
   # Settings for images
   # Note: The current editor can only upload / insert images if they are granted 
   # the 'upload' and 'list_files:files' permissions in `permissions.yaml`.  
   image:
     thumbnail: 1000×1000×max
+
 plugins:
   ~

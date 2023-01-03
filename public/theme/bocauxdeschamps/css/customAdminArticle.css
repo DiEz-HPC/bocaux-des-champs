@@ -1,0 +1,129 @@
+@import "../app.css";
+/* purgecss start ignore */
+/* Css pour le champ "Article" coté admin ( Agit uniquement sur le field ) */
+body {
+    font-size: var(--font-size);
+}
+b{
+    font-weight:normal !important;
+    color: #D30F4E !important;
+}
+.article-h2 {
+    font-size: var(--font-size-title);
+}
+.article-h3 {
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight--bold);
+    width: 100%;
+}
+/* Bootstrap */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    background-color: rgba(116, 116, 116, 0.3);
+}
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-0.5 * var(--bs-gutter-x));
+    margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+.row > * {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-top: var(--bs-gutter-y);
+}
+.d-none{
+    width: initial !important;
+    display: initial !important;
+}
+.col-lg {
+    flex: 1 0 0%;
+}
+.row-cols-lg-auto > * {
+    flex: 0 0 auto;
+    width: auto;
+}
+.row-cols-lg-1 > * {
+    flex: 0 0 auto;
+    width: 100%;
+}
+.row-cols-lg-2 > * {
+    flex: 0 0 auto;
+    width: 50%;
+}
+.row-cols-lg-3 > * {
+    flex: 0 0 auto;
+    width: 33.3333333333%;
+}
+.row-cols-lg-4 > * {
+    flex: 0 0 auto;
+    width: 25%;
+}
+.row-cols-lg-5 > * {
+    flex: 0 0 auto;
+    width: 20%;
+}
+.row-cols-lg-6 > * {
+    flex: 0 0 auto;
+    width: 16.6666666667%;
+}
+.col-lg-auto {
+    flex: 0 0 auto;
+    width: auto;
+}
+.col-lg-1 {
+    flex: 0 0 auto;
+    width: 8.33333333%;
+}
+.col-lg-2 {
+    flex: 0 0 auto;
+    width: 16.66666667%;
+}
+.col-lg-3 {
+    flex: 0 0 auto;
+    width: 25%;
+}
+.col-lg-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+}
+.col-lg-5 {
+    flex: 0 0 auto;
+    width: 41.66666667%;
+}
+.col-lg-6 {
+    flex: 0 0 auto;
+    width: 50%;
+}
+.col-lg-7 {
+    flex: 0 0 auto;
+    width: 58.33333333%;
+}
+.col-lg-8 {
+    flex: 0 0 auto;
+    width: 66.66666667%;
+}
+.col-lg-9 {
+    flex: 0 0 auto;
+    width: 75%;
+}
+.col-lg-10 {
+    flex: 0 0 auto;
+    width: 83.33333333%;
+}
+.col-lg-11 {
+    flex: 0 0 auto;
+    width: 91.66666667%;
+}
+.col-lg-12 {
+    flex: 0 0 auto;
+    width: 100%;
+}
+/* purgecss stop ignore */

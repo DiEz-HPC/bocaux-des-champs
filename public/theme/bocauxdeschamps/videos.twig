@@ -3,13 +3,13 @@
 
 {% block stylesheet %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/videos.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/componentStyle/videoCard.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/componentStyle/videoModal.css') }}">
+    {{ encore_entry_link_tags('videoStyle', null, 'bocaux') }}
+    {{ encore_entry_link_tags('videoCardStyle', null, 'bocaux') }}
+    {{ encore_entry_link_tags('videoModalStyle', null, 'bocaux') }}
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('js/youtubePlayer.js') }}"></script>
+    {{ encore_entry_script_tags('youtubePlayer', null, 'bocaux') }}
 {% endblock %}
 {% setcontent options = 'Options' %}
 

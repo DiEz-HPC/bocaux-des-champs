@@ -1,5 +1,6 @@
 {% block stylesheet %}
     <link rel="stylesheet" href="{{ asset('css/componentStyle/tagBadge.css') }}">
+    {{ encore_entry_link_tags('tagBadgeStyle', null, 'bocaux') }}
 {% endblock %}
 <div class="mb-5">
     <div class="form-container">
@@ -24,5 +25,5 @@
     </div>
 </div>
 {% block javascripts %}
-    <script src="{{ asset('js/_tagCloud/_tagCloud.js') }}"></script>
+     {{ encore_entry_script_tags('tagCloud', null, 'bocaux') }}
 {% endblock %}

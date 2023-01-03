@@ -2,8 +2,7 @@
 
 {% block stylesheet %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/actuality.css') }}">
-
+       {{ encore_entry_link_tags('actualityStyle', null, 'bocaux') }}
 {% endblock %}
 
 {% block main %}

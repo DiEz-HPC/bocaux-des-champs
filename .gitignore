@@ -12,6 +12,7 @@ config/extensions/*_local.yaml
 /public/thumbs/*
 !/public/thumbs/.gitkeep
 !/public/thumbs/index.html
+/public/build/*
 ###< bolt/core ###
 
 ### NPM and frontend assets building cruft
