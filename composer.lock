@@ -515,16 +515,16 @@
         },
         {
             "name": "bolt/article",
-            "version": "2.0.5",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bolt/article.git",
-                "reference": "6b9b357777ddbd71ff9ca79107123980d20b0a50"
+                "reference": "cd43f3da0a70e61b877d14192cca25a609ac8388"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bolt/article/zipball/6b9b357777ddbd71ff9ca79107123980d20b0a50",
-                "reference": "6b9b357777ddbd71ff9ca79107123980d20b0a50",
+                "url": "https://api.github.com/repos/bolt/article/zipball/cd43f3da0a70e61b877d14192cca25a609ac8388",
+                "reference": "cd43f3da0a70e61b877d14192cca25a609ac8388",
                 "shasum": ""
             },
             "require": {
@@ -559,9 +559,9 @@
             "description": "📝 Bolt Extension to add the Article FieldType",
             "support": {
                 "issues": "https://github.com/bolt/article/issues",
-                "source": "https://github.com/bolt/article/tree/2.0.5"
+                "source": "https://github.com/bolt/article/tree/2.1.2"
             },
-            "time": "2022-01-27T15:11:00+00:00"
+            "time": "2022-11-28T12:55:32+00:00"
         },
         {
             "name": "bolt/assets",
