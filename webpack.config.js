@@ -47,7 +47,7 @@ Encore
     .addEntry('navbar', './public/theme/bocauxdeschamps/js/navbar.js')
     .addEntry('toggleRecipe', './public/theme/bocauxdeschamps/js/toggleRecipe.js')
     .addEntry('youtubePlayer', './public/theme/bocauxdeschamps/js/youtubePlayer.js')
-    .addEntry('tagCloud', './public/theme/bocauxdeschamps/js/_tagCloud/c')
+    .addEntry('tagCloud', './public/theme/bocauxdeschamps/js/tagCloud/tagCloud.js')
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
    // .enableStimulusBridge('./assets/controllers.json')
 
