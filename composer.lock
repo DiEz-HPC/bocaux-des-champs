@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f98b9e88b09d1291d3362ea0c124f59",
+    "content-hash": "416213ae9a7cb65982729d8aee9dceff",
     "packages": [
         {
             "name": "api-platform/core",
@@ -12623,16 +12623,16 @@
         },
         {
             "name": "symfony/webpack-encore-bundle",
-            "version": "v1.15.0",
+            "version": "v1.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/webpack-encore-bundle.git",
-                "reference": "1fc386364200ca43108ff1871d86435b840ea67c"
+                "reference": "bb399930c0299866258b616a74a27b50b94c5d45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/webpack-encore-bundle/zipball/1fc386364200ca43108ff1871d86435b840ea67c",
-                "reference": "1fc386364200ca43108ff1871d86435b840ea67c",
+                "url": "https://api.github.com/repos/symfony/webpack-encore-bundle/zipball/bb399930c0299866258b616a74a27b50b94c5d45",
+                "reference": "bb399930c0299866258b616a74a27b50b94c5d45",
                 "shasum": ""
             },
             "require": {
@@ -12676,7 +12676,7 @@
             "description": "Integration with your Symfony app & Webpack Encore!",
             "support": {
                 "issues": "https://github.com/symfony/webpack-encore-bundle/issues",
-                "source": "https://github.com/symfony/webpack-encore-bundle/tree/v1.15.0"
+                "source": "https://github.com/symfony/webpack-encore-bundle/tree/v1.16.0"
             },
             "funding": [
                 {
@@ -12692,7 +12692,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-07-06T13:36:43+00:00"
+            "time": "2022-10-18T15:21:06+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -13935,5 +13935,5 @@
         "php": "^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }

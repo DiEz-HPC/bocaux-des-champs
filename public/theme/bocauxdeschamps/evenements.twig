@@ -4,8 +4,8 @@
 
 {% block stylesheet %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/events.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/componentStyle/cardEvent.css') }}">
+     {{ encore_entry_link_tags('eventStyle', null, 'bocaux') }}
+     {{ encore_entry_link_tags('cardEventStyle', null, 'bocaux') }}
 {% endblock %}
 
 {% block main %}

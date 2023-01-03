@@ -1,6 +1,6 @@
-
-{% block main %}
 {% extends 'partials/_master.twig' %}
+
+
 
 {# Check the contentType of records  #}
 {% set firstrecords = records|first %}
@@ -19,7 +19,8 @@
                 {% if record.contentTypeSlug == 'videos' %}
                     {% block stylesheet %}
                         {{ parent() }}
-                        <link rel="stylesheet" href="{{ asset('css/videos.css') }}">
+                        {{ encore_entry_link_tags('videoStyle', null, 'bocaux') }}
+
                     {% endblock %}
                     {% include 'partials/vidéos/_vidéos-card.twig' %}
                 {% endif %}
