@@ -918,16 +918,16 @@
         },
         {
             "name": "bolt/redactor",
-            "version": "2.0.4",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bolt/redactor.git",
-                "reference": "764fa1740dfacbc4779d0f028cb1a582b6fcd595"
+                "reference": "572f5a895d7d0a4b97ec5f39b07238a32aa1dc13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bolt/redactor/zipball/764fa1740dfacbc4779d0f028cb1a582b6fcd595",
-                "reference": "764fa1740dfacbc4779d0f028cb1a582b6fcd595",
+                "url": "https://api.github.com/repos/bolt/redactor/zipball/572f5a895d7d0a4b97ec5f39b07238a32aa1dc13",
+                "reference": "572f5a895d7d0a4b97ec5f39b07238a32aa1dc13",
                 "shasum": ""
             },
             "require": {
@@ -962,9 +962,9 @@
             "description": "📝 Bolt Extension to add the Redactor FieldType",
             "support": {
                 "issues": "https://github.com/bolt/redactor/issues",
-                "source": "https://github.com/bolt/redactor/tree/2.0.4"
+                "source": "https://github.com/bolt/redactor/tree/2.1.3"
             },
-            "time": "2021-11-16T11:02:26+00:00"
+            "time": "2022-12-20T12:16:33+00:00"
         },
         {
             "name": "bolt/themes",
