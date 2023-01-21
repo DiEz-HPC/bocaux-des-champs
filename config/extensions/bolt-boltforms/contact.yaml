@@ -1,5 +1,5 @@
 templates:
-    form: partials/forms/_contactForm.twig
+    form: partials/components/_forms/_contactForm.twig
     email: partials/mail/_contactEmail.twig
 database:
   contenttype:

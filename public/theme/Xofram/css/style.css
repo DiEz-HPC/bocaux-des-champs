@@ -16,10 +16,10 @@
 @import url(animate.min.css);
 @import url(normalize.css);
 @import url(icomoon.css);
-@import url(css/font-awesome.min.css);
+@import url(font-awesome.min.css);
 @import url(meanmenu.css);
 @import url(owl.carousel.min.css);
-@import url(swiper.min.css);
+/*@import url(swiper.min.css);*/
 @import url(slick.css);
 @import url(jquery.fancybox.min.css);
 @import url(jquery-ui.css);
@@ -353,7 +353,7 @@ button {
     border-radius: 4px;
 }
 
-#main_slider a.carousel-control-next {
+#main_slider a.owl-next {
     position: absolute;
     right: 30px;
     top: 0%;
@@ -361,7 +361,7 @@ button {
     color: #000;
 }
 
-#main_slider a.carousel-control-prev {
+#main_slider a.owl-prev {
     position: absolute;
     right: 30px;
     top: 15%;
@@ -370,8 +370,8 @@ button {
     color: #000;
 }
 
-#main_slider .carousel-control-prev,
-#main_slider .carousel-control-next {
+#main_slider .owl-prev,
+#main_slider .owl-next {
     width: 68px;
     height: 68px;
     background: #a3b104;
@@ -381,10 +381,10 @@ button {
     border-radius: 100px;
 }
 
-#main_slider .carousel-control-prev:hover,
-#main_slider .carousel-control-next:hover,
-#main_slider .carousel-control-prev:focus,
-#main_slider .carousel-control-next:focus {
+#main_slider .owl-prev:hover,
+#main_slider .owl-next:hover,
+#main_slider .owl-prev:focus,
+#main_slider .owl-next:focus {
     background: #a3b104;
     color: #000;
 }
@@ -890,43 +890,40 @@ input.mail_text::placeholder {
 }
 
 .quite_icon {
-    width: 100%;
+    width: 40px;
     float: left;
     padding-top: 20px;
 }
 
-#my_slider a.carousel-control-next {
+.owl-next {
     position: absolute;
     right: -100px;
     top: 53%;
-    background: #a3b104;
-    color: #ffffff;
 }
 
-#my_slider a.carousel-control-prev {
+.owl-prev {
     position: absolute;
     left: -100px;
     top: 53%;
-    background-color: #164006;
-    color: #ffffff;
 }
 
-#my_slider .carousel-control-prev,
-#my_slider .carousel-control-next {
+.owl-prev,
+.owl-next {
     width: 68px;
     height: 68px;
-    background: #a3b104;
+    background: #a3b104 !important;
     opacity: 1;
-    font-size: 20px;
-    color: #ffffff;
+    font-size: 30px !important;
+    font-weight: bolder;
+    color: #ffffff !important;
     border-radius: 100px;
 }
 
-#my_slider .carousel-control-prev:hover,
-#my_slider .carousel-control-next:hover,
-#my_slider .carousel-control-prev:focus,
-#my_slider .carousel-control-next:focus {
-    background: #164006;
+.owl-prev:hover,
+.owl-next:hover,
+.owl-prev:focus,
+.owl-next:focus {
+    background: #164006 !important;
     color: #ffffff;
 }
 

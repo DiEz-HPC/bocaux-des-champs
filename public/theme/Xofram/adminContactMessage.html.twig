@@ -1,0 +1,67 @@
+{% extends '@bolt/_base/layout.html.twig' %}
+{% setcontent contactMessage = 'Message' limit '5' orderby '-timestamp' where { status: 'published || held' } %}
+{% block title %}
+    Listes des messages
+{% endblock %}
+{% block main %}
+    <div class="container">
+        {% include 'partials/_appFlash.twig' %}
+        <div class="row">
+            {% for message in contactMessage %}
+                <div class="card w-100 my-3">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-8">
+                                Message envoyé par :
+                                {{ message.name }}
+                                {{message.firstname}}
+                            </div>
+                            <div class="col-4 d-flex justify-content-end">
+                                Message reçu le :
+                                {{ message.timestamp|date('d/m/Y') }}
+                            </div>
+                        </div>
+                        <div class="row text-muted mt-2 pl-3">
+                            <div class="col-6">
+                                {{ message.email }}
+                            </div>
+                            <div class="col-6 justify-content-end">
+                                {% if message.status == "published" %}
+                                    <span class="badge badge-success">Publié</span>
+                                {% else %}
+                                    <span class="badge badge-danger">Non publié</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            {{message.message}}
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row justify-content-around">
+                            <div class="col-4">
+                                {% if message.status == "published" %}
+                                    <a href="{{ path('app_contact_message_unpublish', {'id': message.id}) }}" class="btn btn-primary">Dépublier</a>
+                                {% else %}
+                                    <a href="{{ path('app_contact_message_publish', {'id': message.id}) }}" class="btn btn-primary">Publier</a>
+                                {% endif %}
+                            </div>
+                            <div class="col-4 d-flex justify-content-end">
+                                <form action="{{ path('app_contact_message_delete', {'id': message.id}) }}" method="post">
+                                    <button type="submit" class="btn btn-danger deleteButton">
+                                        <i class="fas fa-trash-alt"></i>
+                                        Supprimer</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="d-flex justify-content-center w-100">
+            {{ pager(contactMessage, template = 'helpers/_pager_bootstrap.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

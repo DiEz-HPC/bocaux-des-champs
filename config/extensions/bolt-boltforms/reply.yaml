@@ -1,5 +1,5 @@
 templates:
-    form: partials/forms/_replyform.twig
+    form: partials/components/_forms/_replyform.twig
     email: partials/mail/_replyEmail.twig
 notification:
     enabled: true

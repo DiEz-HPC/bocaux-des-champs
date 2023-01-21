@@ -1,10 +1,11 @@
+{% setcontent options = "Options" %}
 <!-- Header bar -->
 <header>
     <!-- header section start -->
     <div class="header_section">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="logo">
-                <a href="index.html"><img src="images/logo.png"></a>
+                <a href="index.html"><img src="{{ options.logo }}"></a>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -21,7 +22,7 @@
             <div class="login_menu">
                 <ul>
                     <li><a href="#">LOGIN</a></li>
-                    <li><a href="#"><img src="images/search-icon.png"></a></li>
+                    <li><a href="#"><img src="{{ asset('images/search-icon.png') }}"></a></li>
                 </ul>
             </div>
         </nav>
@@ -42,7 +43,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div><img src="images/img-1.png" class="image_1"></div>
+                                    <div><img src="{{ asset('images/img-1.png') }}" class="image_1"></div>
                                 </div>
                             </div>
                             <div class="custum_menu">
