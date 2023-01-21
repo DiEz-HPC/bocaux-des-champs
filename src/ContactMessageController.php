@@ -40,4 +40,32 @@ class ContactMessageController extends TwigAwareController implements BackendZon
         }
         return $this->redirectToRoute('app_contact_message');
     }
+
+    #[Route("contact-message/publish/{id}", name: "app_contact_message_publish")]
+    public function publishMessage(int $id)
+    {
+        $content = $this->contentRepository->find($id);
+        if ($content) {
+            $content->setStatus('published');
+            $this->entityManager->flush();
+            $this->addFlash('success', 'Message publié');
+        } else {
+            $this->addFlash('error', 'Message introuvable');
+        }
+        return $this->redirectToRoute('app_contact_message');
+    }
+
+    #[Route("contact-message/unpublish/{id}", name: "app_contact_message_unpublish")]
+    public function unpublishMessage(int $id)
+    {
+        $content = $this->contentRepository->find($id);
+        if ($content) {
+            $content->setStatus('held');
+            $this->entityManager->flush();
+            $this->addFlash('success', 'Message dépublié');
+        } else {
+            $this->addFlash('error', 'Message introuvable');
+        }
+        return $this->redirectToRoute('app_contact_message');
+    }
 }

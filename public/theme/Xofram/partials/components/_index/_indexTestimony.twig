@@ -1,0 +1,69 @@
+{% block indexTestimonyStyle %}
+    <!-- owl stylesheets -->
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
+{% endblock indexTestimonyStyle %}
+
+{% block indexTestimony %}
+    {% setcontent contactMessage = 'Message' orderby '-timestamp' where { status: 'published' } %}
+    <div class="client_section layout_padding">
+        <div class="container">
+            <h1 class="choose_taital">Ils nous ont laissé un avis</h1>
+            <p class="choose_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its</p>
+            <div id="my_slider" class="carousel slide owl-carousel" data-ride="carousel">
+
+                {% for message in contactMessage|batch(2) %}
+
+                    <div class="client_section_2 layout_padding">
+                        <div class="row">
+                            {% for msg in message %}
+                                <div class="col-md-6">
+                                    <h2 class="siaalya_text">{{ msg.name }} {{ msg.firstname }}</h2>
+                                    <p class="lorem_text">{{ msg.message }}</p>
+                                    <div class="quite_icon">
+                                        <a href="#">
+                                            <img src="{{ asset('images/quite-icon.png') }}">
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
+
+{% endblock indexTestimony %}
+{% block indexTestimonyJs %}
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel(
+                {
+                    lazyLoad: true,
+                    loop: true,
+                    margin: 10,
+                    nav: true,
+                    autoplay: true,
+                    autoplayTimeout: 7000,
+                    autoplayHoverPause: true,
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        600: {
+                            items: 1
+                        },
+                        1000: {
+                            items: 1
+                        }
+                    }
+                }
+            );
+        });
+    </script>
+{% endblock indexTestimonyJs %}

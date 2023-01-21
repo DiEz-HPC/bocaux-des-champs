@@ -23,53 +23,31 @@ homepage:
     
 engagements:
     name: Engagements
+    slug: engagements
     singular_name: Engagement
     fields:
-        firstEngagement:
-            type: text
-            class: large
-            label: Titre du 1er engagement
-            group: Premier engagement
-        firstImage:
-            type: image
-            label: Logo de l'engagement
-            group: Premier engagement
-        firstParagraph:
-            type: redactor
-            class: large
-            info: Texte de l'engagement
-            label: Description du 1er engagement
-            group: Premier engagement
-        secondEngagement:
-            type: text
-            class: large
-            label: Titre du 2ème engagement
-            group: Deuxième engagement
-        secondImage:
-            type: image
-            label: Logo de l'engagement
-            group: Deuxième engagement
-        secondParagraph:
-            type: redactor
-            class: large
-            info: Texte de l'engagement
-            label: Description du 2ème engagement
-            group: Deuxième engagement
-        thirdEngagement:
-            type: text
-            class: large
-            label: Titre du 3ème engagement
-            group: Troisième engagement
-        thirdImage:                 
-            type: image
-            label: Logo de l'engagement
-            group: Troisième engagement
-        thirdParagraph:
-            type: redactor
-            class: large
-            info: Texte de l'engagement
-            label: Description du 3ème engagement
-            group: Troisième engagement
+        engagements:
+            type: collection
+            limit: 3
+            label: Engagements
+            group: Engagements
+            fields:
+              engagement:
+                type: set
+                label: Engagement
+                fields:
+                  title:
+                      type: text
+                      class: large
+                      label: Titre de l'engagement
+                  image:
+                      type: image
+                      label: Logo de l'engagement
+                  paragraph:
+                      type: redactor
+                      class: large
+                      info: Texte de l'engagement
+                      label: Description de l'engagement
         pictures:
             type: imagelist
             label: Images mises en avant
@@ -354,6 +332,10 @@ contact:
             label: Texte de la page
             type: textarea
             required: true
+        image:
+            label: Image de la page
+            type: image
+            required: true
         slug:
             type: slug
             uses: title
@@ -406,6 +388,7 @@ Message:
   show_on_dashboard: false
   viewless: true
   searchable: false
+  status: held
 
 Options:
   name: Options

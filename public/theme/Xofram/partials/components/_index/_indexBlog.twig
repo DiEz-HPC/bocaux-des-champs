@@ -1,0 +1,27 @@
+{% block indexBlog %}
+    {% setcontent actualities = 'actualites' latest limit 3 %}
+    <!-- blog section start -->
+    <div class="blog_section layout_padding">
+        <div class="container">
+            <h1 class="choose_taital">Nos actualités</h1>
+            <p class="choose_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its</p>
+            <div class="blog_section_2 layout_padding">
+                <div class="row">
+                    {% for actuality in actualities %}
+                        <div class="col-lg-4">
+                            <div class="box_main">
+                                <img src="{{ actuality.pictures }}" class="image_9">
+                                <div class="post_main">
+                                    <h1 class="fresh_text">{{ actuality.title }}</h1>
+                                    <p class="long_text">{{ actuality.teaser|striptags|truncate(150) }}</p>
+                                    <div class="read_bt"><a href="{{actuality|link}}">Lire la suite</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- blog section end -->
+{% endblock indexBlog %}
