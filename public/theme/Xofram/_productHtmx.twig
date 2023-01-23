@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+    <h1 class="text-center styled-title">
+        {{ record|title }}
+    </h1>
+</div>
+<div class="row">
+    <div class="col-12 col-md-4">
+        <img src="{{ record.image }}" class="img-fluid imageProduct" alt="{{ record.title }}"/>
+    </div>
+    <div class="col-12 col-md-8 d-flex flex-column align-items-center justify-content-center">
+        {{ record.content }}
+    </div>
+</div>
+<div class="outer-tabs-container">
+    <div class="tabs-selector d-flex justify-content-center mt-4" id="tabsSelector">
+        <div class="tab-selector col-xl-3 active" data-tab="recipe">
+            <i class="fas fa-utensils"></i>
+            <span>Recette</span>
+        </div>
+        <div class="tab-selector col-xl-3" data-tab="nutritional">
+            <i class="fas fa-chart-pie"></i>
+            <span>Informations nutritionnelles</span>
+        </div>
+    </div>
+
+    <div class="tab-content" id="contentContainer">
+        <div id="recipeContainer">
+            {% if record.ingredient is not empty %}
+                {{ record.ingredient }}
+            {% else %}
+                Information non disponible
+            {% endif %}
+        </div>
+        <div id="nutritionalContainer" class="d-none">
+            {% if record.nutrition is not empty %}
+                {{ record.nutrition }}
+            {% else %}
+                Information non disponible
+            {% endif %}
+        </div>
+    </div>
+</div>

@@ -34,6 +34,7 @@ services:
             $tablePrefix: '%bolt.table_prefix%'
             $backendUrl: '%bolt.backend_url%'
             $rememberLifetime: '%bolt.remember_lifetime%'
+            $themeDir: '%kernel.project_dir%/public/%bolt.theme%'
 
     _instanceof:
         Bolt\Menu\ExtensionBackendMenuInterface:

@@ -1,25 +1,53 @@
 {% extends 'partials/_master.twig' %}
-
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/products.css') }}">
+{% endblock stylesheets %}
 {% block main %}
     <div class="services_section layout_padding">
         <div class="container">
             <h1 class="services_taital">Nos produits</h1>
             <div class="services_section_2 layout_padding">
+
                 <div class="row">
                     {% for product in records %}
                         <div class="col-md-4">
                             <div class="image_main">
                                 <img src="{{ product|image }}" class="image_2">
-                                <h2 class="vegetable_text">{{ product|title|excerpt(40) }}</h2>
+                                <h2 class="vegetable_text" hx-get="/htmx/{{ product.id }}" hx-trigger="click" hx-target="#htmx-results" hx-trigger="load delay:2s" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    {{ product|title|excerpt(40) }}
+                                </h2>
                             </div>
                         </div>
                     {% endfor %}
                 </div>
+
                 <div class="d-flex justify-content-center my-4">
                     {{ pager(records, template = 'partials/helpers/_pager.html.twig') }}
                 </div>
             </div>
-           
+
+
+            <div class="modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" id="htmx-results">
+                            <h3>Running</h3>
+                            <div class="progress">
+                                <div id="pb" class="progress-bar" style="width:0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 {% endblock main %}
+{% block javascript %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/products.js') }}"></script>
+{% endblock javascript %}
