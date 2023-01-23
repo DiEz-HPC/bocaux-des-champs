@@ -67,6 +67,7 @@ engagements:
 history:
     name: Histoire
     singular_name: Histoire
+    slug: histoire
     fields:
         title:
             type: text
@@ -245,16 +246,11 @@ actualités:
             type: image
             info: Image visible avant d'ouvrir' l'actualité
             label: Image mise en avant
-        teaser:
-            type: redactor
-            label: Texte d'accroche
-            info: Texte visible avant d'ouvrir' l'actualité
-            fixture_format: '{paragraph}'
         content:
             type: article
             class: large
-            info: Contenue de l'actualité
-            label: Contenue de la page
+            info: Contenu de l'actualité
+            label: Contenu
         slug:
             type: slug
             uses: [ title ]
