@@ -1,60 +1,43 @@
 <!-- contact section start -->
-<!-- {{ boltforms('contact') }} pour l'utiliser -->
 
-{% setcontent contact = 'contact' %}
-<div class="contact_section layout_padding">
-    <div class="container">
-        <h1 class="contact_text">Nous contacter</h1>
+
+
+    <div class="mail_main"> {{ form_start(form) }}
+    {% if valid %}
+        <div class="boltforms-feedback error bg-success">{{formconfig.feedback.success|raw }}</div>
+    {% endif %}
+    {% if submitted and not valid %}
+        <div class="boltforms-feedback error">{{ formconfig.feedback.error|raw }}</div>
+    {% endif %}
+    <div class="form-group">
+        
+        {{ form_errors(form['name']) }}
+        {{ form_widget(form['name'], { 'attr': {'class': 'form-control'} } ) }}
     </div>
-</div>
-<div class="contact_section_2 layout_padding">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="mail_main">
-                    {{ form_start(form) }}
-                    {% if valid %}
-                        <div class="boltforms-feedback error bg-success">{{formconfig.feedback.success|raw }}</div>
-                    {% endif %}
-                    {% if submitted and not valid %}
-                        <div class="boltforms-feedback error">{{ formconfig.feedback.error|raw }}</div>
-                    {% endif %}
-                    <div class="form-group">
-                        {{ form_label(form['name']) }}
-                        {{ form_errors(form['name']) }}
-                        {{ form_widget(form['name'], { 'attr': {'class': 'form-control'} } ) }}
-                    </div>
-                    <div class="form-group">
-                        {{ form_label(form['firstname']) }}
-                        {{ form_errors(form['firstname']) }}
-                        {{ form_widget(form['firstname'], { 'attr': {'class': 'form-control'} } ) }}
-                    </div>
-                    <div class="form-group">
-                        {{ form_label(form['email']) }}
-                        {{ form_errors(form['email']) }}
-                        {{ form_widget(form['email'], { 'attr': {'class': 'form-control'} } ) }}
+    <div class="form-group">
+      
+        {{ form_errors(form['firstname']) }}
+        {{ form_widget(form['firstname'], { 'attr': {'class': 'form-control'} } ) }}
+    </div>
+    <div class="form-group">
+        
+        {{ form_errors(form['email']) }}
+        {{ form_widget(form['email'], { 'attr': {'class': 'form-control'} } ) }}
 
-                    </div>
-                    <div class="form-group">
-                        {{ form_label(form['message']) }}
-                        {{ form_errors(form['message']) }}
-                        {{ form_widget(form['message'], { 'attr': {'class': 'form-control'} } ) }}
-                    </div>
+    </div>
+    <div class="form-group">
+        
+        {{ form_errors(form['message']) }}
+        {{ form_widget(form['message'], { 'attr': {'class': 'form-control form-textarea'} } ) }}
+    </div>
 
-                    <div class="send_btn">
-                        <div class="main_bt">
-                            {{ form_widget(form.submit, { 'attr': {'class': ''} } ) }}
-                        </div>
-                    </div>
-                    <div class="form-control form-special" style='opacity: 0; position: absolute; top: 0; left: 0; height: 0; width: 0; z-index: -1;'>
-                        {{ form_rest(form) }}
-                        {{ form_end(form) }}
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div><img src="{{contact.image}}" class="image_13"></div>
-            </div>
-        </div>
+    <div class="send_btn">
+        
+            {{ form_widget(form.submit, { 'attr': {'class': 'main_bt'} } ) }}
+        
+    </div>
+    <div class="form-control form-special" style='opacity: 0; position: absolute; top: 0; left: 0; height: 0; width: 0; z-index: -1;'>
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
     </div>
 </div>
