@@ -955,7 +955,7 @@ input.mail_text::placeholder {
     padding: 40px 40px 40px 100px;
 }
 
-.email-bt {
+.email-bt, .form-control {
     background: transparent;
     border: none;
     color: #a3b104;
@@ -965,11 +965,11 @@ input.mail_text::placeholder {
     border-bottom: 1px solid #a3b104;
 }
 
-input.email-bt::placeholder {
+input.email-bt::placeholder, .form-control::placeholder {
     color: #a3b104;
 }
 
-.massage-bt {
+.massage-bt, .form-textarea {
     background: transparent;
     border: none;
     color: #a3b104;
@@ -981,7 +981,7 @@ input.email-bt::placeholder {
     padding-left: 0px;
 }
 
-textarea.massage-bt::placeholder {
+textarea.massage-bt::placeholder, .form-textarea::placeholder {
     color: #a3b104;
 }
 
@@ -991,11 +991,11 @@ textarea.massage-bt::placeholder {
     margin-top: 50px;
 }
 
-.main_bt a {
+.main_bt  {
     background: #a3b104;
     border: none;
     color: #fff;
-    font-size: 22px;
+    font-size: 15px;
     width: 100%;
     float: left;
     text-align: center;
@@ -1003,7 +1003,7 @@ textarea.massage-bt::placeholder {
     border-radius: 5px;
 }
 
-.main_bt a:hover {
+.main_bt:hover {
     background-color: #101010;
     color: #ffffff;
 }
@@ -1015,7 +1015,9 @@ textarea.massage-bt::placeholder {
     height: auto;
     padding-bottom: 90px;
 }
-
+.contact-image-container {
+    padding: 8%;
+}
 .useful_text {
     width: 100%;
     float: left;
