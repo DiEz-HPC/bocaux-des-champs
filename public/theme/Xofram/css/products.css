@@ -1,0 +1,43 @@
+.modal .btn-close {
+    color: #163f06 !important;
+}
+.imageProduct{
+    border-radius: 8px;
+    border: 2px solid grey;
+}
+.outer-tabs-container {
+    width: 100%;
+    position: relative;
+    height: auto;
+}
+.tabs-selector {
+    width: 100%;
+}
+.tab-selector {
+    width: 50%;
+    font-weight: bold;
+    padding-top: 13px;
+    text-align: center;
+    background: #163f06;
+    color: #fff;
+    border-radius: 30px;
+    height: 100px;
+}
+.tabs-selector .tab-selector.active {
+    background: #fff;
+    color: #163f06;
+    border: 1px inset #163f06;
+}
+.tab-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-top: -50px;
+    background: #fff;
+    color: #000;
+    border-radius: 30px;
+    z-index: 1000;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    margin-bottom: 50px;
+}

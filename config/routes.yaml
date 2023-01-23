@@ -33,6 +33,11 @@ app_panelContact:
     resource: '../src/ContactMessageController.php'
     prefix: '%bolt.backend_url%'
     type: annotation
+
+app_htmx:
+    resource: '../src/Controller/HtmxController.php'
+    prefix: /
+    type: annotation
 # ------------------------------------------------------------------------------
 # Examples:
 
