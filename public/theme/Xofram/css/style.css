@@ -423,6 +423,8 @@ button {
     width: 100%;
     float: left;
     position: relative;
+    border-radius: 8px;
+    border: 2px solid grey;
 }
 
 .image_main:hover h2 {

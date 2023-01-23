@@ -1,11 +1,12 @@
-{% block indexProduct %}
-    {% setcontent products = 'Produits' latest limit 5 %}
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
     <div class="services_section layout_padding">
         <div class="container">
             <h1 class="services_taital">Nos produits</h1>
             <div class="services_section_2 layout_padding">
                 <div class="row">
-                    {% for product in products %}
+                    {% for product in records %}
                         <div class="col-md-4">
                             <div class="image_main">
                                 <img src="{{ product|image }}" class="image_2">
@@ -14,10 +15,11 @@
                         </div>
                     {% endfor %}
                 </div>
+                <div class="d-flex justify-content-center my-4">
+                    {{ pager(records, template = 'partials/helpers/_pager.html.twig') }}
+                </div>
             </div>
-            <div class="read_bt_1">
-                <a href="{{ path('listing', {'contentTypeSlug': 'produits' }) }}">Voir nos produits</a>
-            </div>
+           
         </div>
     </div>
-{% endblock indexProduct %}
+{% endblock main %}
