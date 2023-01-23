@@ -2,19 +2,24 @@ homepage:
     name: Homepage
     singular_name: Homepage
     fields:
-        logo:
-            label: Logo du site
-            type: image
-            required: true
+        contentset:
+            type: set
+            label: Titre
             group: Paramètres
-        title:
-            type: text
-            class: large
-            label: Nom du site
+            fields:
+                title:
+                    label: Titre de la page première ligne
+                    type: text
+                text:
+                    label: Titre de la page seconde ligne
+                    type: text
+        teaser:
+            type: redactor
+            label: Texte d'accroche
             group: Paramètres
         image:
             type: image
-            label: 1ère image de la page d'accueil
+            label: Image header
             group: Paramètres
     viewless: false
     singleton: true
