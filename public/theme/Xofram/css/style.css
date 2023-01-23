@@ -1022,6 +1022,9 @@ textarea.massage-bt::placeholder {
     font-weight: bold;
     text-transform: uppercase;
 }
+.useful_text.transparent {
+    color: #ffffff00 !important;
+}
 
 .ipsum_text {
     width: 90%;

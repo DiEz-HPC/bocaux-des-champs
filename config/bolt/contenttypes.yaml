@@ -450,16 +450,18 @@ Options:
         info: Texte pour le bandeau QR code présent en bas de differentes pages
         label: Texte pour le bandeau QR code
         group: Autres
-    headerText:
+    footerText:
         type: textarea
-        info: Texte d'introduction présent sur le header
-        label: Texte d'introduction présent sur le header
+        info: Texte d'introduction présent sur le footer
+        label: Texte d'introduction présent sur le footer
         group: Autres
     headerEvents:
         type: textarea
         info: Texte d'introduction présent sur le header de la page évènements
         label: Texte d'introduction présent sur le header de la page évènements
         group: Page évènements
+    
+       
   viewless: true
   singleton: true
   icon_many: "fa:cogs"
