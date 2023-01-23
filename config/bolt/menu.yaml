@@ -33,3 +33,38 @@ main:
     link: contact
     class: menu-contact
     title: Contact
+
+leftFooter:
+  - label: Accueil
+    title: Page d'accueil
+    class: menu-home
+  - label: Nos engagements
+    link: engagement
+    class: menu-engagement
+    title: Nos engagements
+  - label: Notre histoire
+    link: histoire
+    class: menu-histoire
+    title: Notre histoire
+  - label: Nos produits
+    link: produits
+    class: menu-produits
+    title: Nos produits
+
+rightFooter:
+  - label: Vidéos
+    link: videos
+    class: menu-videos
+    title: Vidéos
+  - label: Actualités
+    link: actualites
+    class: menu-actualites
+    title: Actualités
+  - label: Évènements
+    link: evenements
+    class: menu-evenements
+    title: Évènements
+  - label: Contact
+    link: contact
+    class: menu-contact
+    title: Contact

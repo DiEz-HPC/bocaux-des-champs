@@ -1,3 +1,4 @@
+{% setcontent options = 'Options' %}
 <!-- Footer -->
 <footer>
 
@@ -6,40 +7,33 @@
          <div class="container">
             <div class="row">
                <div class="col-lg-3 col-sm-6">
-                  <h2 class="useful_text">About</h2>
-                  <p class="ipsum_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised</p>
+                  <h2 class="useful_text">À propos</h2>
+                  <p class="ipsum_text">{{ options.footerText }} </p>
                </div>
                <div class="col-lg-3 col-sm-6">
-                  <h2 class="useful_text">Services</h2>
-                  <div class="footer_links">
-                     <ul>
-                        <li class="active"><a href="#">Farm</a></li>
-                        <li><a href="#">Agriculture</a></li>
-                        <li><a href="#">Vegetables</a></li>
-                        <li><a href="#">Fruit</a></li>
-                        <li><a href="#">And more</a></li>
-                     </ul>
-                  </div>
+                  <h2 class="useful_text">Navigation</h2>
+                   {{ menu(
+                    name = 'leftFooter',
+                    template = 'partials/_sub_menu_footer.twig',
+                    withsubmenus = false,
+                ) }}
                </div>
                <div class="col-lg-3 col-sm-6">
-                  <h2 class="useful_text">Our Product</h2>
-                  <div class="footer_links">
-                     <ul>
-                        <li><a href="#">Milk</a></li>
-                        <li><a href="#">Agriculture</a></li>
-                        <li><a href="#">Vegetables</a></li>
-                        <li><a href="#">Fruit</a></li>
-                        <li><a href="#">And more</a></li>
-                     </ul>
-                  </div>
+                  <h2 class="useful_text transparent">Our Product</h2>
+                  {{ menu(
+                    name = 'rightFooter',
+                    template = 'partials/_sub_menu_footer.twig',
+                    withsubmenus = false,
+                ) }}
                </div>
                <div class="col-lg-3 col-sm-6">
-                  <h2 class="useful_text">contact us</h2>
+                  <h2 class="useful_text">Nous contacter</h2>
                   <div class="addres_link">
                      <ul>
-                        <li><a href="#"><img src="{{ asset('images/map-icon.png') }}"><span class="padding_left_10">There are many vari</span></a></li>
-                        <li><a href="#"><img src="{{ asset('images/call-icon.png') }}"><span class="padding_left_10">+01 1234567890</span></a></li>
-                        <li><a href="#"><img src="{{ asset('images/mail-icon.png') }}"><span class="padding_left_10">demo@gmail.com</span></a></li>
+                        <li><a href="#"><img src="{{ asset('images/map-icon.png') }}"><span class="padding_left_10">{{ options.adressBocaux }}</span></a></li>
+                        <li><a href="#"><img src="{{ asset('images/map-icon.png') }}"><span class="padding_left_10">{{ options.adressATC45 }}</span></a></li>
+                        <li><a href="#"><img src="{{ asset('images/mail-icon.png') }}"><span class="padding_left_10">{{ options.emailBocaux }}</span></a></li>
+                        <li><a href="#"><img src="{{ asset('images/mail-icon.png') }}"><span class="padding_left_10">{{ options.emailATC45 }}</span></a></li>
                      </ul>
                   </div>
                </div>
