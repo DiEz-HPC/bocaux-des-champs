@@ -1109,3 +1109,7 @@ textarea.massage-bt::placeholder {
 .margin_top_90 {
     margin-top: 90px;
 }
+
+.banner_text p{
+    margin: 0px !important;
+}
