@@ -9,11 +9,14 @@
 {% macro display_menu_item(item, loop, withsubmenus) %}
     {% from _self import display_menu_item %}
     {% apply spaceless %}
-        <a href="{{ item.uri }}" title='{{ item.title }}' class='{{ item.class }} {{ loop.first ? ' first' -}}
-        {{ loop.last ? ' last' -}}
-        {{ item|current ? ' active' }}'>
-            {{- item.label -}}
+    <li {{ item|current ? "class='active'" }}>
+        <a  href="{{ item.uri }}" 
+            title='{{ item.title }}' 
+            class='{{ item.class }} {{ loop.first ? ' first' -}} {{ loop.last ? ' last' -}}'
+        >
+        {{- item.label -}}
         </a>
+    </li>
     {% endapply %}
 {% endmacro %}
 
@@ -21,12 +24,13 @@
 {% from _self import display_menu_item %}
 
 {# The main menu loop: Iterates over the items, calling `display_menu_item` #}
-<nav>
-{% for item in menu %}
-    {% if item.label is defined %}
-        {{ display_menu_item(item, loop, withsubmenus) }}
-    {% endif %}
-{% endfor %}
-{% include 'helpers/_languageselect.html.twig' with {'type': 'select'} %}
-</nav>
+<div class="custum_menu col-10">
+    <ul>
+        {% for item in menu %}
+            {% if item.label is defined %}
+                {{ display_menu_item(item, loop, withsubmenus) }}
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
 
