@@ -25,7 +25,7 @@
 
 {# The main menu loop: Iterates over the items, calling `display_menu_item` #}
 <div class="custum_menu col-10">
-    <ul>
+    <ul class="d-flex justify-content-center align-items-center">
         {% for item in menu %}
             {% if item.label is defined %}
                 {{ display_menu_item(item, loop, withsubmenus) }}
