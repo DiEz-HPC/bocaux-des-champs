@@ -1,10 +1,10 @@
 {% block indexProduct %}
     {% setcontent products = 'Produits' latest limit 5 %}
-    <div class="services_section layout_padding">
+    <div class="services_section layout_padding mb-5">
         <div class="container">
             <h1 class="services_taital">Nos produits</h1>
             <div class="services_section_2 layout_padding">
-                <div class="row">
+                <div class="row justify-content-around">
                     {% for product in products %}
                         <div class="col-md-4">
                             <div class="image_main">

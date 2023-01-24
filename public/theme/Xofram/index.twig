@@ -11,9 +11,16 @@
 {% endblock stylesheets %}
 
 {% block main %}
-    {{ block('indexProduct') }}
-    {{ block('indexAbout') }}
 
+{{ block('indexAbout') }}
+{{ block('indexEngagement') }}
+
+
+
+    {{ block('indexProduct') }}
+    
+{{ block('indexTestimony') }}
+    {{ block('indexBlog') }}
     <!-- resources section start -->
     <!--
             <div class="resources_section">
@@ -37,8 +44,7 @@
             </div>
             -->
     <!-- resources section end -->
-    {{ block('indexEngagement') }}
-    {{ block('indexBlog') }}
+    
 
     <!-- newsletter section start -->
     <!--
@@ -65,7 +71,7 @@
             -->
     <!-- newsletter section end -->
 <!-- client section start -->
-    {{ block('indexTestimony') }}
+    
     <!-- client section end -->
 
 {% endblock main %}
