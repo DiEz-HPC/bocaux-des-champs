@@ -10,11 +10,16 @@ use Bolt\Controller\TwigAwareController;
 class HtmxController extends TwigAwareController
 {
     #[Route('/htmx/{id}', name: 'app_htmx')]
-    public function index(int $id, ProductFetcher $fetcher): Response
+    public function getRecord(int $id, ProductFetcher $fetcher): Response
     {
-             $product = $fetcher->fetch($id);
-        return $this->render('_productHtmx.twig', [
-            'record' => $product,
+             $record = $fetcher->fetch($id);
+             if($record->getContentType() === 'produits') {
+                $template = '_productHtmx.twig';
+             }elseif($record->getContentType() === 'videos') {
+                $template = '_videoHtmx.twig';
+             }
+        return $this->render($template, [
+            'record' => $record,
         ]);
     }
 }
