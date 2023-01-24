@@ -6,17 +6,19 @@
 {% endblock %}
 
 {% block main %}
-    <div class="container actualityContainer p-4">
-        <h1 class="text-center mb-4">
-            Nos actualités
-        </h1>
-        <div class="grid mb-4 p-auto">
-            {% for record in records %}
+    <div class="services_section layout_padding">
+        <div class="container actualityContainer p-4">
+            <h1 class="text-center mb-4">
+                Nos actualités
+            </h1>
+            <div class="grid mb-4 p-auto">
+                {% for record in records %}
                     {% include 'partials/components/_actuality/_actualityCard.twig' with {'class': 'item-'~ loop.index } %}
-            {% endfor %}
-        </div>
-        <div class="d-flex justify-content-center w-100">
-            {{ pager(records, template = 'partials/helpers/_pager.html.twig') }}
+                {% endfor %}
+            </div>
+            <div class="d-flex justify-content-center w-100">
+                {{ pager(records, template = 'partials/helpers/_pager.html.twig') }}
+            </div>
         </div>
     </div>
 {% endblock %}

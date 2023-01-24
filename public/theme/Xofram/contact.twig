@@ -4,43 +4,45 @@
     {{ parent() }}
 {% endblock %}
 {% block main %}
-
-    <div class="contact_section layout_padding">
-        <div class="container">
-            <h1 class="contact_text">Nous contacter</h1>
-        </div>
-    </div>
-    <div class="contact_section_2 layout_padding">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6 d-flex align-items-center">{{ boltforms('contact') }}</div>
-                <div class="col-md-6 contact-image-container">
-                    <img src="{{record.image}}" class="image_13">
-                </div>
-            </div>
-            <div class="row d-flex justify-content-center mb-4">
-                <div class="col-md-4 text-center">
-                    <h2>
-                        Bocaux des champs
-                    </h2>
-                    <ul>
-                        <li>{{ options.emailBocaux ?? "Veuillez renseigner l'email bocaux des champs dans l'administration" }}</li>
-                        <li>{{ options.adressBocaux ?? "Veuillez renseigner l'adresse bocaux des champs dans l'administration" }}</li>
-                    </ul>
-                </div>
-                <div class="col-md-4 text-center">
-                    <h2>
-                        ATC 45
-                    </h2>
-                    <ul>
-                        <li>{{ options.emailATC45 ?? "Veuillez renseigner l'email ATC45 dans l'administration" }}</li>
-                        <li>{{ options.adressATC45 ?? "Veuillez renseigner l'adresse ATC45 dans l'administration" }}</li>
-                    </ul>
-
-                </div>
+    <div class="client_section">
+        <div class="contact_section layout_padding">
+            <div class="container">
+                <h1 class="contact_text">Nous contacter</h1>
             </div>
         </div>
-    </div>
+        <div class="contact_section_2 layout_padding">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 d-flex align-items-center">{{ boltforms('contact') }}</div>
+                    <div class="col-md-6">
+                        <div>
+                            <img src="{{record.image}}" class="image_13">
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center my-5">
+                    <div class="col-md-4 text-center">
+                        <h2>
+                            Bocaux des champs
+                        </h2>
+                        <ul>
+                            <li>{{ options.emailBocaux ?? "Veuillez renseigner l'email bocaux des champs dans l'administration" }}</li>
+                            <li>{{ options.adressBocaux ?? "Veuillez renseigner l'adresse bocaux des champs dans l'administration" }}</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <h2>
+                            ATC 45
+                        </h2>
+                        <ul>
+                            <li>{{ options.emailATC45 ?? "Veuillez renseigner l'email ATC45 dans l'administration" }}</li>
+                            <li>{{ options.adressATC45 ?? "Veuillez renseigner l'adresse ATC45 dans l'administration" }}</li>
+                        </ul>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock main %}
