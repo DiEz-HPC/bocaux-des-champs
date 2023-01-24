@@ -1,0 +1,53 @@
+.layout_padding_event{
+    width: 90%;
+}
+.events hr, .event hr {
+    border: 0;
+    border-top: 3px solid #a3b104;
+    opacity: 1;
+    border-radius: 20px;
+}
+.subtitle {
+    color: #164006;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.container-image {
+    position: relative;
+}
+/*
+.event .container-image::before {
+    content: "";
+    position: absolute;
+    top:  -15px;
+    right:  -15px;
+    bottom:  -15px;
+    left:  -15px;
+    border-radius: 0.5em;
+    z-index: 1;
+}
+.event .container-image::after {
+    content: "";
+    position: absolute;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 0.5em;
+    z-index: 2;
+}*/
+.event .borderNumber::before {
+    border: 5px solid #a3b104;
+}
+
+.event .borderNumber::after{
+    background: transparent;
+}
+
+.event .adresse {
+    font-size: .9rem;
+}
+
+.event .adresse svg {
+    width: .7rem;
+}

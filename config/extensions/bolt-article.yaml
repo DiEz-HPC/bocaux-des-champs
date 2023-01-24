@@ -8,17 +8,17 @@ default:
   plugins: [ blockcode, buttonlink, definedlinks, inlineformat, reorder, tags, underline, imageposition, filelink, removeformat, selector]
   source: true
   custom: 
-    css: [ '/theme/bocauxdeschamps/css/customAdminArticle.css' ]
+    css: [ '/theme/Xofram/css/customAdminArticle.css' ]
   classes:
     p: 'article-paragraph w-100'
     figure: 'superposition d-none'
     img: 'rounded mx-auto d-block img-fluid'
-    h1: 'article-h1'
-    h2: 'article-h2'
-    h3: 'article-h3'
-    h4: 'article-h4'
-    h5: 'article-h5'
-    h6: 'article-h6'
+    h1: 'services_taital'
+    h2: 'subtitle'
+    h3: 'subtitle'
+    h4: 'subtitle'
+    h5: 'subtitle'
+    h6: 'subtitle'
     div: 'article-div'
     ul: 'article-ul'
   grid:
