@@ -1,7 +1,9 @@
 {% extends 'partials/_master.twig' %}
+{% use '@theme/partials/helpers/_tagCloud.twig' %}
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/videoCard.css') }}">
+    {{ block('tagCloudStylesheet') }}
 {% endblock stylesheets %}
 {% block main %}
     {% setcontent options = 'Options' %}
@@ -16,7 +18,9 @@
                 {% else %}
                     Veuillez renseigner le texte d'introduction pour la page vidéos dans l'administration
                 {% endif %}
-
+                {% with {taxonomyType: 'videos-tags'} %}
+                    {{ block('tagCloud') }}
+                {% endwith %}
             </p>
             <div class="row justify-content-around">
                 {% for record in records %}
@@ -42,8 +46,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 {% endblock main %}
