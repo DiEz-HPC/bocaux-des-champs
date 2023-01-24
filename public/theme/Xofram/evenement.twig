@@ -1,0 +1,54 @@
+{% extends '@theme/partials/_master.twig' %}
+
+{% set title = '!' ~ record.title %}
+{% setcontent eventsClosed = 'Évènements' where {DateEnd: '<today', title: title } limit 2 %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/events.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/cardEvent.css') }}">
+{% endblock %}
+
+{% block main %}
+    <div class="services_section layout_padding ">
+        <div class="container pt-5 mt-5">
+            <div class="event d-flex flex-column">
+                <div class="d-flex flex-column justify-content-center text-center mb-5">
+                    <h1 class="services_taital">{{ record.title | capitalize }}</h1>
+                    <h2 class="h4 subtitle">{{ (record.DateStart|format_datetime(locale='fr',pattern="MMMM"))|capitalize }}
+                        {{ record.DateStart|format_datetime(locale='fr',pattern="dd") }}
+                        {% if record.DateEnd is defined %}
+                            |
+                            {{ (record.DateEnd|format_datetime(locale='fr',pattern="MMMM"))|capitalize }}
+                            {{ record.DateEnd|format_datetime(locale='fr',pattern="dd") }}
+                        {% endif %}
+                    </h2>
+                    <div class="adresse d-flex justify-content-center align-items-baseline">
+                        <svg class="me-2" width="15" fill="white" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512">
+                            <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 256c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z"/>
+                        </svg>
+                        {{ record.adresse ~ ', ' ~ record.Ville | capitalize }}
+                    </div>
+                </div>
+                <div class="content d-flex flex-column flex-xl-row align-items-center justify-content-between mt-5 px-3 px-sm-0">
+                    <div class="image col-12 col-xl-5 mb-5 container-image borderNumber">
+                        <a href="{{ record | image }}" target="_blank"><img class="col-12" src="{{ record | image }}" alt="{{ record.alt }}"></a>
+                    </div>
+                    <div class="text col-12 col-xl-6">
+                        {{ record.article }}
+                    </div>
+                </div>
+                <hr class="my-5">
+                <h2 class="subtitle">Événements terminés</h2>
+                <div class="cards-events d-flex flex-column flex-lg-row flex-lg-wrap justify-content-between mt-5">
+                    {% for event in eventsClosed %}
+                        {% include '@theme/partials/components/_event/_card_event.twig' with {'event': event} %}
+                    {% endfor %}
+                </div>
+                <div class="d-flex justify-content-center my-5">
+                    {{ pager(eventsClosed, template = 'partials/helpers/_pager.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
