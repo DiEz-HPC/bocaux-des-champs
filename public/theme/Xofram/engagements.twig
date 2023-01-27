@@ -1,0 +1,56 @@
+{% extends '@theme/partials/_master.twig' %}
+{% use '@theme/partials/components/_engagements/_engagementsSections.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/engagements.css') }}">
+{% endblock %}
+
+
+{% block main %}
+    <div class="services_section_2 layout_padding engagements_section">
+        <div class="container mb-5">
+            <div class="row justify-content-center">
+                <h1 class="my-5 services_taital mb-2 text-center">{{ 'Nos Engagements' | upper }}</h1>
+                <div class="mb-5 text-center engagements_intro">
+                    {{ record.teaser }}</div>
+            </div>
+            {% with {'record': record.recipe_engagements, 'title': record.recipe_title} %}
+            {{ block('engagementSections')}}
+            {% endwith %}
+            {% with {'record': record.earth_engagements, 'title': record.earth_title} %}
+            {{ block('engagementSections')}}
+            {% endwith %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+
+    {{ parent() }}
+    <script src="{{ asset('js/engagements.js') }}"></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                lazyLoad: true,
+                loop: true,
+                margin: 10,
+                nav: true,
+                autoplay: true,
+                autoplayTimeout: 7000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
+            });
+        });
+    </script>
+{% endblock %}
