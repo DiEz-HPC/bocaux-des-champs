@@ -113,40 +113,37 @@ history:
             group: Paramètres
             required: true
         introduction:
-            type: redactor
+            type: article
             class: large
             info: Texte d'introduction
             label: Introduction
             group: Introduction
             required: true
-        imageIntroduction:
-            type: image
-            label: Image d'introduction
-            group: Introduction
-            required: true
         presentation:
-            type: redactor
+            type: article
             class: large
-            info: Présentation de l'association
+            info: Présentation de Bocaux des champs
             label: Présentation
             group: Présentation
             required: true
-        imagePresentation:
-            type: image
-            label: Image de présentation
-            group: Présentation
-            required: true
         contentHistory:
-            type: redactor
+            type: article
             class: large
-            info: Histoire de l'association
+            info: Histoire de Bocaux des champs
             label: Notre Histoire
             group: Notre Histoire
+            required: true
+        atc:
+            type: article
+            class: large
+            info: Présentation de l'association
+            label: Présentation
+            group: ATC45
             required: true
         pictures:
             type: imagelist
             label: Images mises en avant
-            group: Notre Histoire
+            group: Images de la page
             required: true
     show_on_dashboard: true
     singleton: true
