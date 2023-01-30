@@ -1,0 +1,93 @@
+.engagements_section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('../images/backgroundEngagement.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.engagements_section .container {
+    position: relative;
+}
+.outer_engagement_card {
+    position: relative;
+}
+.engagement_card{    
+    height: calc(100% - 120px);
+    margin-top: 120px;
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    margin-bottom: 20px;
+    padding: 20px;
+    position: relative;
+
+}
+
+.icon_1 {
+    position: absolute;
+    top: -10px;
+    right: 0px;
+}
+
+.dummy_text {
+    width: 100%;
+    font-size: 16px;
+    color: #252525;
+    padding-top: 10px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+
+.farm_text{
+    color: #164006;
+}
+
+.engagements_intro{
+    width: 70%;
+}
+
+.carousel_image {
+    height: 450px;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    background-position: center;
+    background-size: cover;
+}
+
+.animate__fadeInUp .icon_1 {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(70px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media only screen and (min-width: 280px) and (max-width: 599px) {
+    .icon_1 {
+        top: -30px;
+    } 
+ }
+@media only screen and (min-width: 599px) and (max-width: 767px) {
+    .icon_1 {
+        top: -35px;
+    } 
+ }
+ @media (min-width: 768px) and (max-width: 991px) { 
+    .icon_1 {
+        top: -35px;
+    } 
+ }

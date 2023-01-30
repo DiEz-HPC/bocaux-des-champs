@@ -31,11 +31,24 @@ engagements:
     slug: engagements
     singular_name: Engagement
     fields:
-        engagements:
+        teaser:
+            type: redactor
+            class: large
+            info: Texte d'accroche
+            label: Texte d'accroche
+            group: Introduction
+            required: true
+        recipe_title:
+            type: text
+            class: large
+            label: Titre de la section recettes
+            group: Recettes
+            required: true
+        recipe_engagements:
             type: collection
             limit: 3
-            label: Engagements
-            group: Engagements
+            label: Recettes
+            group: Recettes
             fields:
               engagement:
                 type: set
@@ -53,10 +66,34 @@ engagements:
                       class: large
                       info: Texte de l'engagement
                       label: Description de l'engagement
-        pictures:
-            type: imagelist
-            label: Images mises en avant
-            group: Images en avants
+        earth_title:
+          type: text
+          class: large
+          label: Titre de la section terre
+          group: Terre
+          required: true
+        earth_engagements:
+            type: collection
+            limit: 3
+            label: Engagements
+            group: Terre
+            fields:
+              engagement:
+                type: set
+                label: Engagement
+                fields:
+                  title:
+                      type: text
+                      class: large
+                      label: Titre de l'engagement
+                  image:
+                      type: image
+                      label: Logo de l'engagement
+                  paragraph:
+                      type: redactor
+                      class: large
+                      info: Texte de l'engagement
+                      label: Description de l'engagement
     show_on_dashboard: true
     singleton: true
     default_status: published

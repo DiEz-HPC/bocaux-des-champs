@@ -1,0 +1,19 @@
+{% block engagementSections %}
+
+    <div class="engagement_section">
+        <h2 class="text-center farm_text mb-5">
+            {{ title }}
+        </h2>
+        <div class="row justify-content-around">
+            {% for engagement in record %}
+                <div class="col-12 col-md-6 col-lg-4 outer_engagement_card">
+                    <div class="icon_1"><img src="{{ asset(engagement.image.path) }}"></div>
+                    <div class="engagement_card">
+                        <h2 class="farm_text">{{ engagement.title }}</h2>
+                        <div class="dummy_text">{{ engagement.paragraph }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock engagementSections %}
