@@ -49,15 +49,15 @@ class CartController extends TwigAwareController
     public function addToCart(Request $request, int $id): Response
     {
         $cart = $this->isCartExist($request);
-
-        $sessions = $request->getSession();
+        $qty = $_POST['quantity'];
 
         if (array_key_exists($id, $cart)) {
-            $cart[$id]++;
+            $cart[$id] += $qty;
         } else {
-            $cart[$id] = 1;
+            $cart[$id] = $qty;
         }
 
+        $sessions = $request->getSession();
         $sessions->set('cart', $cart);
 
         return new Response(json_encode($cart));

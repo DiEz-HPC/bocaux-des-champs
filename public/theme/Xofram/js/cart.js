@@ -60,12 +60,13 @@ const clearQty = (button) => {
 };
 
 const updateTotalItems = () => {
+  const cartTotal = document.querySelector("#cart_qty");
   const totalItems = document.querySelector("#totalQuantity");
   const singleProductQty = document.querySelectorAll(".singleProductQty");
-  console.log(totalItems, singleProductQty);
   let total = 0;
   singleProductQty.forEach((item) => {
     total += parseInt(item.innerText);
   });
   totalItems.innerHTML = total;
+  cartTotal.innerHTML = total;
 };
