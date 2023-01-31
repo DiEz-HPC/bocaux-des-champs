@@ -1,6 +1,6 @@
 {% extends '@theme/partials/_master.twig' %}
 {% setcontent history = 'Histoire' %}
-{%  set images = [] %}
+{% set images = [] %}
 {% for picture in history.pictures %}
     {% set images = images|merge([picture]) %}
 {% endfor %}
@@ -12,29 +12,34 @@
 
 
 {% block main %}
-        {% if history %}
-            <div class="history">
-                <h1 class="text-center mb-3 mb-sm-5">{{ history.title | upper }}</h1>
-                <div class="position-relative introduction d-flex flex-column flex-lg-row justify-content-center mb-5">
-                    <img id="image-one" class="image-rounded" src="{{ asset(images[0]) }}" alt="">
-                    <div class="text-center col-lg-8 d-flex align-items-center">
-                        {{ history.introduction }}
-                    </div>
-                </div>
-
-                <div class="presentation d-flex flex-column flex-lg-row-reverse justify-content-between mb-5">
-                    <div class="text col-lg-8 d-flex align-items-center">
-                        {{ history.presentation }}
-                    </div>
-                </div>
-
-                <div class="histoire d-flex flex-column flex-lg-row align-items-center mt-5 mt-lg-0">
-                    <div class="col-lg-5">
-                        {{ history.contentHistory }}
-                    </div>
+    {% if history %}
+        <div class="history services_section layout_padding flex flex-column">
+            <div class="pt-5 mt-5">
+                <h1 class="pt-5 text-center mb-3 mb-sm-5">{{ history.title | upper }}</h1>
+            </div>
+            <div class="position-relative introduction d-flex flex-column flex-lg-row justify-content-center mb-5">
+                <img id="image-one" class="image-rounded" src="{{ asset(images[0]) }}" alt="">
+                <div class="text-center col-lg-8 d-flex align-items-center">
+                    {{ history.introduction }}
                 </div>
             </div>
-        {% else %}
-            {% include '@theme/partials/_noContent.twig' %}
-        {% endif %}
+
+            <div class="presentation d-flex flex-column flex-lg-row-reverse justify-content-between mb-5">
+                <div class="text col-lg-8 d-flex align-items-center">
+                    {{ history.presentation }}
+                </div>
+            </div>
+
+            <div class="histoire d-flex flex-column flex-lg-row align-items-center mt-5 mt-lg-0">
+                <div class="col-lg-5">
+                    {{ history.contentHistory }}
+                </div>
+
+            </div>
+
+
+        </div>
+    {% else %}
+        {% include '@theme/partials/_noContent.twig' %}
+    {% endif %}
 {% endblock %}
