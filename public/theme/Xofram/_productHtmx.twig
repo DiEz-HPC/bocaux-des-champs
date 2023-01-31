@@ -39,4 +39,7 @@
             {% endif %}
         </div>
     </div>
+    <button class="btn btn-primary" id="btnAddToCart" hx-get='/cart/add/{{ record.id }}' hx-swap='none'>
+        Ajouter au panier
+    </button>
 </div>

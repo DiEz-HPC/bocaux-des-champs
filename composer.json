@@ -27,7 +27,7 @@
         "phpstan/phpstan": "^0.12.48",
         "phpstan/phpstan-doctrine": "^0.12.20",
         "phpstan/phpstan-symfony": "^0.12.8",
-        "symfony/maker-bundle": "^1.45",
+        "symfony/maker-bundle": "1.43",
         "symplify/easy-coding-standard": "^9.4"
     },
     "config": {

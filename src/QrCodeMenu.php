@@ -41,6 +41,12 @@ class QrCodeMenu implements ExtensionBackendMenuInterface
              ]
          ]);
 
+         $menu->addChild('Commandes', [
+            'uri' => $this->urlGenerator->generate('app_ordered'),
+             'extras' => [
+                 'icon' => 'fa-warehouse'
+             ]
+         ]);
         
     }
 }

@@ -1,0 +1,22 @@
+.backLink {
+    color: #000;
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.quantity button {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+.productLine svg,
+.backLink svg {
+    width: 20px;
+    height: 20px;
+}

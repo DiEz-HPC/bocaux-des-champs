@@ -157,5 +157,47 @@
         <target>Votreeee nom...</target>
       </segment>
     </unit>
+    <unit id="lQh5NiI" name="Votre e-mail...">
+      <segment>
+        <source>Votre e-mail...</source>
+        <target>Votre e-mail...</target>
+      </segment>
+    </unit>
+    <unit id="eUcXPKI" name="Votre téléphone...">
+      <segment>
+        <source>Votre téléphone...</source>
+        <target>Votre téléphone...</target>
+      </segment>
+    </unit>
+    <unit id="wgoVoUy" name="Code postal...">
+      <segment>
+        <source>Code postal...</source>
+        <target>Code postal...</target>
+      </segment>
+    </unit>
+    <unit id="u92FkkK" name="Ville...">
+      <segment>
+        <source>Ville...</source>
+        <target>Ville...</target>
+      </segment>
+    </unit>
+    <unit id="Q4EdOKz" name="Adresse...">
+      <segment>
+        <source>Adresse...</source>
+        <target>Adresse...</target>
+      </segment>
+    </unit>
+    <unit id=".OAPtvy" name="Votre commentaire...">
+      <segment>
+        <source>Votre commentaire...</source>
+        <target>Votre commentaire...</target>
+      </segment>
+    </unit>
+    <unit id="gQ0Mqto" name="ENVOYER">
+      <segment>
+        <source>ENVOYER</source>
+        <target>ENVOYER</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
