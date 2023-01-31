@@ -111,35 +111,39 @@ history:
             class: large
             label: Titre de la page
             group: Paramètres
-            required: true
         introduction:
-            type: article
+            type: redactor
             class: large
             info: Texte d'introduction
             label: Introduction
             group: Introduction
-            required: true
         presentation:
-            type: article
+            type: redactor
             class: large
             info: Présentation de Bocaux des champs
             label: Présentation
             group: Présentation
-            required: true
-        contentHistory:
-            type: article
+        demarche:
+            type: set
             class: large
-            info: Histoire de Bocaux des champs
-            label: Notre Histoire
-            group: Notre Histoire
-            required: true
+            info: Notre démarche
+            label: Notre démarche
+            group: Objectifs
+            fields:
+                vision:
+                    type: redactor
+                    class: large
+                    label: Notre vision
+                mission:
+                    type: redactor
+                    class: large
+                    label: Notre mission
         atc:
             type: article
             class: large
             info: Présentation de l'association
             label: Présentation
             group: ATC45
-            required: true
         pictures:
             type: imagelist
             label: Images mises en avant
