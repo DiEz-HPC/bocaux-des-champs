@@ -217,6 +217,11 @@ produits:
             type: redactor
             info: Texte visible dans la fiche produit
             label: Texte de présentation
+        price: 
+            type: number
+            class: large
+            info: Prix du produit
+            label: Prix
         ingredient:
             type: redactor
             info: La liste d'ingrédient du produit
@@ -493,7 +498,11 @@ Options:
         info: Texte d'introduction présent sur le header de la page évènements
         label: Texte d'introduction présent sur le header de la page évènements
         group: Page évènements
-    
+    tva:
+        type: number
+        info: TVA de l'entreprise
+        label: TVA
+        group: Autres
        
   viewless: true
   singleton: true

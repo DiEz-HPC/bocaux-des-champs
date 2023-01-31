@@ -2,7 +2,7 @@ const htmxResult = document.getElementById("htmx-results");
 
 htmxResult.addEventListener("htmx:afterSwap", function (event) {
   const tabsSelector = document.getElementById("tabsSelector");
-
+ addTotalItems(); 
   if (tabsSelector.children.length > 0) {
     // On boucle sur les tabs
     for (let i = 0; i < tabsSelector.children.length; i++) {
@@ -35,4 +35,18 @@ const toggleActiveClass = (element) => {
     activeElements[i].classList.remove("active");
   }
   element.classList.add("active");
+};
+
+const addTotalItems = () => {
+    const btnAdd = document.querySelector("#btnAddToCart");
+    const cartTotal = document.querySelector("#cart_qty");
+    const selectedQty = document.querySelector("#quantitySelector");
+
+    btnAdd.addEventListener("click", function (e) {
+        let quantity = cartTotal.innerText;
+        let value = parseInt(quantity);
+        cartTotal.innerText = value + parseInt(selectedQty.value);
+
+    });
+
 };

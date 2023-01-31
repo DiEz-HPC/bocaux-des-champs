@@ -23,6 +23,13 @@
 {# Make the macro available for use #}
 {% from _self import display_menu_item %}
 
+{% set totalQty = 0 %}
+{% if app.session.get('cart') %}
+    {% for item, qty in app.session.get('cart') %}
+        {% set totalQty =  totalQty + qty %}
+    {% endfor %}
+{% endif %}
+
 {# The main menu loop: Iterates over the items, calling `display_menu_item` #}
 <div class="custum_menu col-10">
     <ul class="d-flex justify-content-center align-items-center">
@@ -31,6 +38,14 @@
                 {{ display_menu_item(item, loop, withsubmenus) }}
             {% endif %}
         {% endfor %}
+        <li>
+            <a href="/cart" class="cart-nav-item">
+                <img src="{{ asset('images/icons8-shopping-cart-64.png') }}">
+                <div class="cart-qty">
+                    <span class="cartQty" id="cart_qty"> {{ totalQty }}</span>
+                </div>
+            </a>
+        </li>
     </ul>
 </div>
 
