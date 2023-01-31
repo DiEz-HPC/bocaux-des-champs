@@ -1,0 +1,110 @@
+{% for message in app.flashes('error') %}
+    <div class="alert alert-warning">
+        {{ message }}
+    </div>
+{% endfor %}
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+{% endfor %}
+<div>
+    {{ form_start(form, { 'attr': {'class': 'form-contact'} } ) }}
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ form_errors(form.lastname) }}
+                {{ form_widget(form.lastname, { 'attr': {'class': 'form-control'} } ) }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ form_errors(form.firstname) }}
+                {{ form_widget(form.firstname, { 'attr': {'class': 'form-control'} } ) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="form-group">
+            {{ form_errors(form.email) }}
+            {{ form_widget(form.email, { 'attr': {'class': 'form-control'} } ) }}
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="form-group">
+            {{ form_errors(form.phone) }}
+            {{ form_widget(form.phone, { 'attr': {'class': 'form-control'} } ) }}
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ form_errors(form.zipcode) }}
+                {{ form_widget(form.zipcode, { 'attr': {'class': 'form-control'} } ) }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ form_errors(form.city) }}
+                {{ form_widget(form.city, { 'attr': {'class': 'form-control'} } ) }}
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="form-group">
+            {{ form_errors(form.address) }}
+            {{ form_widget(form.address, { 'attr': {'class': 'form-control'} } ) }}
+        </div>
+    </div>
+
+
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div class="form-group">
+                {{ form_errors(form.comment) }}
+                {{ form_widget(form.comment, { 'attr': {
+            'class': 'form-control',
+            'rows': '5'
+        } } ) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-check consentCheckbox col-11 mb-3">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+            En soumettant ce formulaire, j'accepte que les informations saisies soient exploitées dans le cadre de la demande de contact.
+        </label>
+    </div>
+    <div class="group-send d-flex flex-column flex-sm-row col-11 justify-content-around">
+
+
+        <div class="justify-content-center align-items-center">
+            {{ form_widget(form.submit, { 'attr': {
+                'class': 'btn btn-dark send-mail-button col-12 d-flex justify-content-center align-items-center', 
+                'disabled': 'disabled'},
+                'label' : 'ENVOYER'
+             } ) }}
+        </div>
+
+    </div>
+
+    <div class="form-control form-special" style=' opacity: 0; position: absolute; top: 0; left: 0; height: 0; width: 0; z-index: -1;'>
+        {{ form_rest(form) }}
+    </div>
+    {{ form_end(form) }}
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.querySelector('form');
+        form.querySelector(".consentCheckbox").addEventListener('click', function (element) {
+            if (element.target.checked) {
+                form.querySelector('button[type="submit"]').disabled = false;
+            } else {
+                form.querySelector('button[type="submit"]').disabled = true;
+            }
+        });
+    });
+</script>

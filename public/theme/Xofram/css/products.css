@@ -41,3 +41,23 @@
     padding: 30px;
     margin-bottom: 50px;
 }
+
+.btnAddToCart{
+    background: #163f06;
+    color: #fff;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 20px;
+    border: 1px solid #163f06;
+}
+.btnAddToCart:hover{
+    background: #fff;
+    color: #163f06;
+    border: 1px solid #163f06;
+}
+.btnAddToCart:disabled{
+    background: #fff;
+    color: #163f06;
+    border: 1px solid #163f06;
+}

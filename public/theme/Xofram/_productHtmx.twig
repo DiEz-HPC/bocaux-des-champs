@@ -39,4 +39,32 @@
             {% endif %}
         </div>
     </div>
+    <form hx-post="/cart/add/{{ record.id }}" hx-swap='none' class="d-flex flex-column align-items-center justify-content-center">
+        <div class="row align-items-center justify-content-center mb-4">
+            <div class="form-group col-6">
+                <input type="number" name="quantity" id="quantitySelector" class="form-control" value="1" min="1" max="100"/>
+            </div>
+             <div class="col-6">
+                <span class="price" id="singleProductPrice" data-original-price="{{ record.price|number_format(2, ',', ' ') }}">{{ record.price|number_format(2, ',', ' ') }}
+                    €</span>
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <button type="submit" id="btnAddToCart" class="btn btnAddToCart" onclick="this.disabled=true;this.innerHTML='Produits ajouté'; ">
+                Ajouter au panier
+            </button>
+        </div>
+    </form>
 </div>
+<script>
+var qtySelector = document.getElementById('quantitySelector');
+
+qtySelector.addEventListener('change', function() {
+    const price = document.querySelector('#singleProductPrice');
+    const initialPrice = price.dataset.originalPrice;
+    const qty = qtySelector.value;
+    const newPrice = (parseInt(initialPrice) * parseInt(qty));
+    price.innerText = newPrice + ' €';
+});
+</script>

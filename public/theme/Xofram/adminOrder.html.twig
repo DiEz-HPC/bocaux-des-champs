@@ -1,0 +1,101 @@
+{% extends '@bolt/_base/layout.html.twig' %}
+{% block title %}
+    Listes des commandes
+{% endblock %}
+{% block main %}
+    <link rel="stylesheet" href="{{ asset('css/adminOrder.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/r-2.4.0/datatables.min.css"/>
+
+
+    <table class="table table-striped table-bordered" id="orderTable">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">email</th>
+                <th scope="col">Téléphone</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Code postal</th>
+                <th scope="col">Ville</th>
+                <th scope="col">Date</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+                <tr>
+                    <th scope="row">{{ order.id }}</th>
+                    <td>{{ order.lastname }}</td>
+                    <td>{{ order.firstname }}</td>
+                    <td>{{ order.email }}</td>
+                    <td>{{ order.phone }}</td>
+                    <td>{{ order.address }}</td>
+                    <td>{{ order.city }}</td>
+                    <td>{{ order.zipcode }}</td>
+                    <td>{{ order.createdAt|date('d/m/Y') }}</td>
+                    <td>
+                        <select class="form-select" name="status" hx-get="/ordered/status/{{ order.id }}" hx-swap="none">
+
+                            {% for status in status %}
+                                <option value="{{ status.id }}" class="{{ status.status }}" {{ status.status == order.orderStatus ? 'selected' : ''}}>
+                                    {{ status.status }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+
+                    <td>
+                        <button id="order_btn" hx-get="/ordered/htmx/{{ order.id }}" hx-target="#order_modal">
+                            Voir la commande
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% include 'partials/_adminOrder/_orderModal.twig' %}
+
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/htmx.org@1.8.5" integrity="sha384-7aHh9lqPYGYZ7sTHvzP1t3BAfLhYSTy9ArHdP3Xsr9/3TlGurYgcPBoFmXX2TX/w" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/r-2.4.0/datatables.min.js"></script>
+
+    <script src="{{ asset('js/orderModal.js') }}"></script>
+    <script>
+        $.fn.dataTable.ext.order['dom-select'] = function (settings, col) {
+            return this.api().column(col, {order: 'index'}).nodes().map(function (td, i) {
+                return $('select', td).val();
+            });
+        };
+        $(document).ready(function () {
+            $('#orderTable').DataTable({
+                columns: [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null, {
+                        orderDataType: 'dom-select'
+                    },
+                    null
+                ],
+                searching: false,
+                language: {
+                    lengthMenu: 'Nombre de résultats par page _MENU_',
+                    zeroRecords: 'Aucune commande pour le moment',
+                    info: '_PAGE_ sur _PAGES_'
+                }
+            });
+        });
+    </script>
+{% endblock %}

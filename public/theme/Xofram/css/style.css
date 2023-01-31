@@ -1121,3 +1121,27 @@ textarea.massage-bt::placeholder, .form-textarea::placeholder {
     margin: 0px !important;
 }
 
+.cart-nav-item {
+    position: relative;
+}
+.cart-nav-item img {
+    width: 45px;
+    height: 45px;
+}
+
+.cart-qty {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: -10px;
+    right: 0;
+    background: #a3b104;
+    color: #fff;
+    font-size: 10px;
+    padding: 5px;
+    border-radius: 50%;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
