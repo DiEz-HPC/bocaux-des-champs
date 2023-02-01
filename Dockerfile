@@ -31,7 +31,7 @@ RUN apk add --no-cache \
 
 # silently install 'docker-php-ext-install' extensions
 RUN set -x
-RUN docker-php-ext-install -j$(nproc) gd exif -j$(nproc) intl mbstring
+RUN docker-php-ext-install gd exif intl mbstring
 RUN docker-php-ext-install pdo_mysql bcmath > /dev/null
 
 
