@@ -27,6 +27,8 @@ RUN apk add --no-cache \
       libzip-dev \
       zip \
       libpng-dev \
+      icu-dev \
+      oniguruma-dev \
     && docker-php-ext-install zip
 
 # silently install 'docker-php-ext-install' extensions
