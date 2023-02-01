@@ -4,9 +4,17 @@
     <link rel="stylesheet" href="{{ asset('css/products.css') }}">
 {% endblock stylesheets %}
 {% block main %}
+    {% setcontent options = 'Options' %}
     <div class="services_section layout_padding">
         <div class="container">
             <h1 class="services_taital">Nos produits</h1>
+             <p class="text-center">
+                {% if options and options.productsIntro is not empty %}
+                    {{ options.productsIntro|raw }}
+                {% else %}
+                    Veuillez renseigner le texte d'introduction pour la page vidéos dans l'administration
+                {% endif %}
+            </p>
             <div class="services_section_2 layout_padding">
 
                 <div class="row">

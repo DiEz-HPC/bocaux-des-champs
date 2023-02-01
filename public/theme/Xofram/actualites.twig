@@ -6,11 +6,20 @@
 {% endblock %}
 
 {% block main %}
+    {% setcontent options = 'Options' %}
     <div class="services_section layout_padding">
         <div class="container actualityContainer p-4">
-            <h1 class="text-center mb-4 services_taital">
+            <h1 class="text-center services_taital">
                 Nos actualités
             </h1>
+
+            <p class="text-center mb-4">
+                {% if options and options.actualitesIntro is not empty %}
+                    {{ options.actualitesIntro|raw }}
+                {% else %}
+                    Veuillez renseigner le texte d'introduction pour la page vidéos dans l'administration
+                {% endif %}
+            </p>
             <div class="grid mb-4 p-auto">
                 {% for record in records %}
                     {% include 'partials/components/_actuality/_actualityCard.twig' with {'class': 'item-'~ loop.index } %}
