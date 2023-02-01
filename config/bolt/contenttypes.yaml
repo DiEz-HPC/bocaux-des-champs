@@ -169,7 +169,7 @@ history:
                             type: text
                             class: large
                             label: Nom du membre
-                        statu:
+                        hierarchy:
                             type: text
                             class: large
                             label: Statut du membre

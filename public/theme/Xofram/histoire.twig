@@ -79,7 +79,9 @@
                 <div class="about introduction">
                     <h2>Qui sommes-nous?</h2>
                     <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center">
-
+                        {% for member in history.about %}
+                            {{ block('cardAboutContent') }}
+                        {%  endfor %}
                     </div>
                 </div>
             </div>
