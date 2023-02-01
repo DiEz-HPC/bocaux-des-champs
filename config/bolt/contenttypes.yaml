@@ -139,11 +139,48 @@ history:
                     class: large
                     label: Notre mission
         atc:
-            type: article
+            type: set
             class: large
             info: Présentation de l'association
             label: Présentation
             group: ATC45
+            fields:
+                logo:
+                    type: image
+                    class: large
+                    label: logo de l'association
+                paragraph:
+                    type: redactor
+                    class: large
+                    info: Présentation de l'association
+                    label: Présentation
+        about:
+            type: collection
+            class: large
+            info: Présentation des membres de l'association
+            label: Qui sommes-nous
+            group: Qui sommes-nous ?
+            fields:
+                members:
+                    type: set
+                    label: Membre
+                    fields:
+                        fullname:
+                            type: text
+                            class: large
+                            label: Nom du membre
+                        statu:
+                            type: text
+                            class: large
+                            label: Statut du membre
+                        image:
+                              type: image
+                              label: Photo du membre
+                        paragraph:
+                            type: redactor
+                            class: large
+                            info: Présentation du membre
+                            label: Présentation
         pictures:
             type: imagelist
             label: Images mises en avant

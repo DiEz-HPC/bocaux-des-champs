@@ -1,0 +1,16 @@
+{% block cardAboutStylesheet %}
+    <link rel="stylesheet" href="{{ asset('css/cardAbout.css') }}">
+{% endblock %}
+
+{% block cardAboutContent %}
+    <div class="card">
+        <div class="imgBx">
+            <img
+                src="{{ asset(member.image.path) }}"
+                alt="photo de {{ member.name }}">
+        </div>
+        <div class="details">
+            <h2>{{ member.name }}<br><span>{{ member.statu }}</span></h2>
+        </div>
+    </div>
+{% endblock %}
