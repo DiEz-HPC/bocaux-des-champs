@@ -40,7 +40,7 @@
         {% endfor %}
         <li>
             <a href="/cart" class="cart-nav-item">
-                <img src="{{ asset('images/icons8-shopping-cart-64.png') }}">
+                {% include('images/cart-lines-1-svgrepo-com.svg') %}
                 <div class="cart-qty">
                     <span class="cartQty" id="cart_qty"> {{ totalQty }}</span>
                 </div>

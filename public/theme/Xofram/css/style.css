@@ -1123,9 +1123,13 @@ textarea.massage-bt::placeholder, .form-textarea::placeholder {
 .cart-nav-item {
     position: relative;
 }
-.cart-nav-item img {
+.cart-nav-item svg {
     width: 45px;
     height: 45px;
+
+}
+.cart-nav-item svg path {
+    fill: #ffffff !important;
 }
 
 .cart-qty {
@@ -1143,4 +1147,9 @@ textarea.massage-bt::placeholder, .form-textarea::placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.shoppingCartIcon {
+    width: 45px;
+    height: 45px;
+
 }

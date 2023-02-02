@@ -12,11 +12,12 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 #[Route('/cart')]
 class CartController extends TwigAwareController
 {
-    public function __construct(private EntityManagerInterface $em)
+    public function __construct(private EntityManagerInterface $em, private ValidatorInterface $validator)
     {
     }
 
@@ -121,11 +122,17 @@ class CartController extends TwigAwareController
                 $this->addFlash('error', 'Votre panier est vide.');
                 return $this->redirectToRoute('app_cart_show');
             }
-            $this->handleFormData($data, $cart);
-            $sessions->remove('cart');
-
+            if($this->isValidOrder($data)){
+                $this->handleFormData($data, $cart);
+                $sessions->remove('cart');
+            }else{
+                $this->addFlash('error', 'Une erreur est survenue, veuillez réessayer.');
+            }
             return $this->redirectToRoute('app_cart_show');
+
+
         } elseif ($form->isSubmitted() && !$form->isValid()) {
+           
             if ($form->getErrors(true)) {
                 foreach ($form->getErrors(true) as $error) {
                     $this->addFlash('error', $error->getMessage());
@@ -135,6 +142,9 @@ class CartController extends TwigAwareController
             return $this->redirectToRoute('app_cart_show');
         }
     }
+
+
+
     private function isCartExist(Request $request): array
     {
         $sessions = $request->getSession();
@@ -153,6 +163,16 @@ class CartController extends TwigAwareController
             return true;
         }
         return false;
+    }
+
+    private function isValidOrder(Ordered $data): bool
+    {
+        $errors = $this->validator->validate($data);
+
+        if (count($errors) > 0) {
+            return false;
+        }
+        return true;
     }
 
     private function handleFormData(Ordered $data, array $cart): void

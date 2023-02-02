@@ -17,10 +17,6 @@ homepage:
             type: redactor
             label: Texte d'accroche
             group: Paramètres
-        image:
-            type: image
-            label: Image header
-            group: Paramètres
     viewless: false
     singleton: true
     icon_many: "fa:home"
@@ -194,41 +190,6 @@ history:
     record_template: 'histoire.twig'
 
 
-# Pages can be used for the more 'static' pages on your site. This content-type
-# has a 'templateselect' field, which allows you to override the record_template
-# setting for an individual page.
-# The taxonomy for this ContentType is defined as 'groups', which is a so-called
-# "grouping taxonomy". This way you can easily group sets of pages that logically
-# belong together. If your site has a 'services' section, in which you'd like to
-# list the different types of services a company provides, you can group these
-# together.
-
-pages:
-    name: Pages
-    singular_name: Page
-    fields:
-        title:
-            type: text
-            class: large
-            group: content
-        teaser:
-            type: textarea
-        image:
-            type: image
-            label: Highlighted image
-        body:
-            type: redactor
-            height: 300px
-        slug:
-            type: slug
-            uses: title
-            group: Meta
-        template:
-            type: templateselect
-            filter: '/^[^_].*\.twig$/'
-    taxonomy: [ groups ]
-    records_per_page: 5
-    order: id
 
 # The 'Products' ContentType can be used to manage information about the
 # products or services you (or your company, organisation) provide.
@@ -246,11 +207,6 @@ produits:
             fixture_format: '{catchPhrase}'
         image:
             type: image
-        teaser:
-            type: redactor
-            label: Texte d'accroche
-            info: Texte visible avant de visiter la fiche produit
-            fixture_format: '{paragraph}'
         content:
             type: redactor
             info: Texte visible dans la fiche produit
@@ -402,74 +358,15 @@ contact:
     name: Contact
     singular_name: Contact
     fields:
-        title:
-            type: text
-            class: large
-            variant: inline
-            info: Nom de la page
-            label: Nom de la page
-            fixture_format: '{catchPhrase}'
-        texte:
-            label: Texte de la page
-            type: textarea
-            required: true
         image:
             label: Image de la page
             type: image
             required: true
-        slug:
-            type: slug
-            uses: title
-            group: Meta
     viewless: false
     singleton: true
     icon_many: "fa:envelope"
-    icon_one: "fa:envelope"   
-    show_in_menu: Formulaire de contact
+    icon_one: "fa:envelope"
 
-Message:
-  name: Messages
-  singular_name: Message
-  title_format: "Message de : {name} {firstname}"
-  excerpt_format: "{message}"
-  slug: messages
-  fields:
-    name:
-      type: text
-      variant: inline
-      fixture_format: '{lastName}'
-    firstname:
-      type: text
-      variant: inline
-      fixture_format: '{firstName}'
-    email:
-      type: text
-      variant: inline
-      fixture_format: '{email}'
-    message:
-      type: textarea
-      variant: inline
-      fixture_format: '{paragraph}'
-    timestamp:
-      type: text
-      variant: inline
-      fixture_format: '{date}'
-    url:
-      type: text
-      variant: inline
-      fixture_format: '{url}'
-    path:
-      type: text
-      variant: inline
-      fixture_format: '{url}'
-    ip:
-      type: text
-      variant: inline
-      fixture_format: '{ipv4}'
-  show_on_dashboard: false
-  viewless: true
-  searchable: false
-  status: held
 
 Options:
   name: Options
@@ -480,11 +377,6 @@ Options:
       type: image
       info: Logo de l'entreprise
       label: Logo
-      group: Logo
-    logoFooter:
-      type: image
-      info: Logo de l'entreprise pour le footer
-      label: Logo pour le footer
       group: Logo
     productsIntro:
       type: textarea
@@ -505,22 +397,22 @@ Options:
       type: text
       info: Email de l'association Bocaux des champs
       label: Email Bocaux des champs
-      group: Contact
+      group: Informations diverses
     adressBocaux:
       type: text
       info: Adresse de l'association Bocaux des champs
       label: Adresse Bocaux des champs
-      group: Contact
+      group: Informations diverses
     emailATC45:
       type: text
       info: Email de l'entreprise ATC45
       label: Email ATC45
-      group: Contact
+      group: Informations diverses
     adressATC45:
       type: text
       info: Adresse de l'entreprise ATC45
       label: Adresse ATC45
-      group: Contact
+      group: Informations diverses
     qrInfoCard:
         type: textarea
         info: Texte pour le bandeau QR code présent en bas de differentes pages
@@ -531,16 +423,16 @@ Options:
         info: Texte d'introduction présent sur le footer
         label: Texte d'introduction présent sur le footer
         group: Autres
-    headerEvents:
-        type: textarea
-        info: Texte d'introduction présent sur le header de la page évènements
-        label: Texte d'introduction présent sur le header de la page évènements
-        group: Page évènements
     tva:
         type: number
         info: TVA de l'entreprise
         label: TVA
-        group: Autres
+        group: Informations diverses
+    actualitesIntro:
+      type: textarea
+      info: Texte d'introduction présent sur la page listing actualités
+      label: Texte d'introduction pour la page actualités
+      group: Texte pages de listing
        
   viewless: true
   singleton: true
