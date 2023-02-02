@@ -59,6 +59,18 @@ body{
     left: 10%;
 }
 
+@media (width <=1280px) {
+    #image-1,
+    #image-2,
+    #image-3,
+    #image-4,
+    #image-5 {
+        position: static !important;
+        width: var(--max-circle-size) !important;
+        height: var(--max-circle-size) !important;
+    }
+}
+
 .introduction {
     min-height: var(--min-height-section);
 }
