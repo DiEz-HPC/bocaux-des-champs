@@ -107,42 +107,80 @@ history:
             class: large
             label: Titre de la page
             group: Paramètres
-            required: true
         introduction:
             type: redactor
             class: large
             info: Texte d'introduction
             label: Introduction
             group: Introduction
-            required: true
-        imageIntroduction:
-            type: image
-            label: Image d'introduction
-            group: Introduction
-            required: true
         presentation:
             type: redactor
             class: large
-            info: Présentation de l'association
+            info: Présentation de Bocaux des champs
             label: Présentation
             group: Présentation
-            required: true
-        imagePresentation:
-            type: image
-            label: Image de présentation
-            group: Présentation
-            required: true
-        contentHistory:
-            type: redactor
+        demarche:
+            type: set
             class: large
-            info: Histoire de l'association
-            label: Notre Histoire
-            group: Notre Histoire
-            required: true
+            info: Notre démarche
+            label: Notre démarche
+            group: Objectifs
+            fields:
+                vision:
+                    type: redactor
+                    class: large
+                    label: Notre vision
+                mission:
+                    type: redactor
+                    class: large
+                    label: Notre mission
+        atc:
+            type: set
+            class: large
+            info: Présentation de l'association
+            label: Présentation
+            group: ATC45
+            fields:
+                logo:
+                    type: image
+                    class: large
+                    label: logo de l'association
+                paragraph:
+                    type: redactor
+                    class: large
+                    info: Présentation de l'association
+                    label: Présentation
+        about:
+            type: collection
+            class: large
+            info: Présentation des membres de l'association
+            label: Qui sommes-nous
+            group: Qui sommes-nous ?
+            fields:
+                members:
+                    type: set
+                    label: Membre
+                    fields:
+                        fullname:
+                            type: text
+                            class: large
+                            label: Nom du membre
+                        hierarchy:
+                            type: text
+                            class: large
+                            label: Statut du membre
+                        image:
+                              type: image
+                              label: Photo du membre
+                        paragraph:
+                            type: redactor
+                            class: large
+                            info: Présentation du membre
+                            label: Présentation
         pictures:
             type: imagelist
             label: Images mises en avant
-            group: Notre Histoire
+            group: Images de la page
             required: true
     show_on_dashboard: true
     singleton: true

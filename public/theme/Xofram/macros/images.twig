@@ -1,0 +1,7 @@
+{% macro imagePosition(loopIndex, picture) %}
+        {% apply spaceless %}
+            <div class="container-image borderNumber{{ loopIndex }}  {{ not loopIndex % 2 ? 'left' : loopIndex > 1 ? 'up' : '' }} mb-3 mb-lg-0" style="z-index: {{ loopIndex }}">
+                <img src="{{ picture }}" alt="{{ picture.alt|default() }}" class="image-bottom col-9">
+            </div>
+        {% endapply %}
+{% endmacro imagePosition %}
