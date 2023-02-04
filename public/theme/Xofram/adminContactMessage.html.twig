@@ -1,67 +1,82 @@
 {% extends '@bolt/_base/layout.html.twig' %}
-{% setcontent contactMessage = 'Message' limit '5' orderby '-timestamp' where { status: 'published || held' } %}
+
 {% block title %}
     Listes des messages
 {% endblock %}
 {% block main %}
-    <div class="container">
-        {% include 'partials/_appFlash.twig' %}
-        <div class="row">
-            {% for message in contactMessage %}
-                <div class="card w-100 my-3">
-                    <div class="card-header">
-                        <div class="row">
-                            <div class="col-8">
-                                Message envoyé par :
-                                {{ message.name }}
-                                {{message.firstname}}
-                            </div>
-                            <div class="col-4 d-flex justify-content-end">
-                                Message reçu le :
-                                {{ message.timestamp|date('d/m/Y') }}
-                            </div>
-                        </div>
-                        <div class="row text-muted mt-2 pl-3">
-                            <div class="col-6">
-                                {{ message.email }}
-                            </div>
-                            <div class="col-6 justify-content-end">
-                                {% if message.status == "published" %}
-                                    <span class="badge badge-success">Publié</span>
-                                {% else %}
-                                    <span class="badge badge-danger">Non publié</span>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">
-                            {{message.message}}
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <div class="row justify-content-around">
-                            <div class="col-4">
-                                {% if message.status == "published" %}
-                                    <a href="{{ path('app_contact_message_unpublish', {'id': message.id}) }}" class="btn btn-primary">Dépublier</a>
-                                {% else %}
-                                    <a href="{{ path('app_contact_message_publish', {'id': message.id}) }}" class="btn btn-primary">Publier</a>
-                                {% endif %}
-                            </div>
-                            <div class="col-4 d-flex justify-content-end">
-                                <form action="{{ path('app_contact_message_delete', {'id': message.id}) }}" method="post">
-                                    <button type="submit" class="btn btn-danger deleteButton">
-                                        <i class="fas fa-trash-alt"></i>
-                                        Supprimer</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/dependency/datatables.css') }}"/>
+    <style>
+        table td,
+        table th {
+            vertical-align: middle;
+            text-align: center;
+        }
+    </style>
+    {% include 'partials/_appFlash.twig' %}
+
+
+    <table class="table table-striped table-bordered table-hover" id="contactTable">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">email</th>
+                <th scope="col">Status</th>
+                <th scope="col">Date</th>
+                <th scope="col">Message</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for message in contactMessages %}
+                <tr id="line-{{ message.id }}">
+                    <th scope="row">{{ message.id }}</th>
+                    <td>{{ message.name }}</td>
+                    <td>{{ message.firstname }}</td>
+                    <td>{{ message.email }}</td>
+                    <td id="message-status-{{ message.id }}">
+                        {% if message.isPublished %}
+                            <span class="badge badge-success">Publié</span>
+                        {% else %}
+                            <span class="badge badge-danger">Non publié</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ message.timestamp|date('d/m/Y') }}</td>
+                    <td>
+                        <button id="diez-modal-open" class="btn btn-success" hx-get="message/{{ message.id }}" hx-target="#diez-modal">
+                            Voir le message
+                        </button>
+                    </td>
+                    <td>
+                        <select class="form-select" name="status" hx-get="status/{{ message.id }}" hx-swap="none" data-initialvalue="{{ message.isPublished }}" data-lineid="{{ message.id }}">
+                            <option value="0" {% if message.isPublished == 0 %} selected {% endif %}>
+                                {{ message.isPublished == 0 ? 'Non publié' : 'Dépublié' }}
+                            </option>
+                            <option value="1" {% if message.isPublished == 1 %} selected {% endif %}>Publié</option>
+                            <option value="2" hx-confirm="Are you sure you wish to delete ">Supprimer</option>
+                        </select>
+                    </td>
+                </tr>
             {% endfor %}
-        </div>
-        <div class="d-flex justify-content-center w-100">
-            {{ pager(contactMessage, template = 'helpers/_pager_bootstrap.html.twig') }}
+        </tbody>
+    </table>
+    <div id="diez-modal-overlay">
+        <div id="diez-modal">
+            <div id="diez-modal-header" class="d-flex align-items-center justify-content-center">
+                <div class="text-center">
+                    Message de John Doe</div>
+                <div id="diez-modal-close">{% include '/images/close-x-svgrepo-com.svg' %}</div>
+            </div>
+            <div id="diez-modal-content">Lorem ipsum dolor sit amet</div>
         </div>
     </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/dependency/jquery-3.6.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/dependency/htmx.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/dependency/datatables.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/adminContactMessage.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/diez-modal.js') }}"></script>
 {% endblock %}
