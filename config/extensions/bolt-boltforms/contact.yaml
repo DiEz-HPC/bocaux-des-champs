@@ -20,7 +20,7 @@ notification:
     from_email: "nepasrepondre@bocauxdeschamps.fr"
 feedback:
     success: Votre message à bien était envoyé.
-    error: Il y a eu un problème lors de l'envoi de votre message. Veuillez réessayer.
+    error: Il y a eu un problème lors de l'envoi de votre message.
 fields:
     name:
         type: text

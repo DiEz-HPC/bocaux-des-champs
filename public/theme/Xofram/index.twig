@@ -3,80 +3,105 @@
 {% use '@theme/partials/components/_index/_indexAbout.twig' %}
 {% use '@theme/partials/components/_index/_indexEngagement.twig' %}
 {% use '@theme/partials/components/_index/_indexBlog.twig' %}
-{% use '@theme/partials/components/_index/_indexTestimony.twig' %}
-
 {% block stylesheets %}
-{{ parent() }}
-{{ block('indexTestimonyStyle') }}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
 {% endblock stylesheets %}
 
 {% block main %}
 
-{{ block('indexAbout') }}
-{{ block('indexEngagement') }}
-
+    {{ block('indexAbout') }}
+    {{ block('indexEngagement') }}
 
 
     {{ block('indexProduct') }}
-    
-{{ block('indexTestimony') }}
+
+    {{ render(path('app_index_testimony')) }}
+
     {{ block('indexBlog') }}
-    <!-- resources section start -->
+<!-- resources section start -->
     <!--
-            <div class="resources_section">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="resources_main">
-                                <h1 class="resources_taital">Resources for Farming</h1>
-                                <h6 class="resources_taital_1">Go green, go natural....we love to help you!</h6>
-                                <p class="resources_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as</p>
-                                <div class="readmore_bt_1">
-                                    <a href="#">Read More</a>
+                <div class="resources_section">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="resources_main">
+                                    <h1 class="resources_taital">Resources for Farming</h1>
+                                    <h6 class="resources_taital_1">Go green, go natural....we love to help you!</h6>
+                                    <p class="resources_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as</p>
+                                    <div class="readmore_bt_1">
+                                        <a href="#">Read More</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div><img src="images/img-8.png" class="image_8"></div>
+                            <div class="col-md-6">
+                                <div><img src="images/img-8.png" class="image_8"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            -->
+                -->
     <!-- resources section end -->
-    
+
 
     <!-- newsletter section start -->
     <!--
-            <div class="newsletter_section layout_padding">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="newsletter_main">
-                                <h1 class="newsletter_taital">Subscribe Our Newsletter</h1>
-                                <p class="newsletter_text">It is a long established fact that a reader will be distracted by the readable content of a page when
-                                </p>
-                                <input type="text" class="mail_text" placeholder="Enter Your Email" name="Enter Your Email">
-                                <div class="subscribe_bt">
-                                    <a href="#">Subscribe</a>
+                <div class="newsletter_section layout_padding">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="newsletter_main">
+                                    <h1 class="newsletter_taital">Subscribe Our Newsletter</h1>
+                                    <p class="newsletter_text">It is a long established fact that a reader will be distracted by the readable content of a page when
+                                    </p>
+                                    <input type="text" class="mail_text" placeholder="Enter Your Email" name="Enter Your Email">
+                                    <div class="subscribe_bt">
+                                        <a href="#">Subscribe</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6 padding_right_0">
-                            <div class="image_12"><img src="images/img-12.png"></div>
+                            <div class="col-md-6 padding_right_0">
+                                <div class="image_12"><img src="images/img-12.png"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            -->
+                -->
     <!-- newsletter section end -->
-<!-- client section start -->
-    
+    <!-- client section start -->
+
     <!-- client section end -->
 
 {% endblock main %}
 
 {% block javascript %}
     {{ parent() }}
-    {{ block('indexTestimonyJs') }}
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel(
+                {
+                    lazyLoad: true,
+                    loop: true,
+                    margin: 10,
+                    nav: true,
+                    autoplay: true,
+                    autoplayTimeout: 7000,
+                    autoplayHoverPause: true,
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        600: {
+                            items: 1
+                        },
+                        1000: {
+                            items: 1
+                        }
+                    }
+                }
+            );
+        });
+    </script>
 {% endblock javascript %}
