@@ -6,7 +6,7 @@
         <meta
         name="viewport" content="width=device-width, initial-scale=1.0">
         {# make sure we always display a proper title: The record's title if there is one, appended with the
-                                                                   sitename. If there is no title, we append the sitename with the payoff, if there is one. #}
+                                                                                   sitename. If there is no title, we append the sitename with the payoff, if there is one. #}
         <title>
             {%- if record|default and record.title -%}
                 {{- record.title ~ ' | ' -}}
@@ -29,12 +29,9 @@
             <link
             rel="icon" href="images/fevicon.png" type="image/gif"/>
             <!-- Scrollbar Custom CSS -->
-            <link
-            rel="stylesheet" href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}">
-               <link
-            rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-
-          
+            <link rel="stylesheet" href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
 
         {% endblock stylesheets %}
     </head>
@@ -56,8 +53,10 @@
             <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
             <script src="{{ asset('js/popper.min.js') }}"></script>
             <script src="https://unpkg.com/htmx.org@1.8.5" integrity="sha384-7aHh9lqPYGYZ7sTHvzP1t3BAfLhYSTy9ArHdP3Xsr9/3TlGurYgcPBoFmXX2TX/w" crossorigin="anonymous"></script>
-         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('js/navbar.js') }}"></script>
         {% endblock %}
+
 
     </body>
 </html>

@@ -1,0 +1,51 @@
+.navbar-toggler {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 15;
+}
+.navbar-collapse {
+    display: block !important;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    transition: all 0.3s;
+}
+.navbar-collapse.show {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    max-height: 100vh;
+}
+.navbar-collapse.show .navbar-nav {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.navbar-collapse.show .navbar-nav li{
+    margin-top: 1rem;
+}
+.navbar-collapse.show .navbar-nav li a {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+}
