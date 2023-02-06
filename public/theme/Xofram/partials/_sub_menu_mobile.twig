@@ -9,14 +9,23 @@
 {% macro display_menu_item(item, loop, withsubmenus) %}
     {% from _self import display_menu_item %}
     {% apply spaceless %}
+     <li>
         <a href="{{ item.uri }}" title='{{ item.title }}' class='nav-item nav-link'>
             {{- item.label|default(item.title) -}}
         </a>
+    </li>
     {% endapply %}
 {% endmacro %}
 
 {# Make the macro available for use #}
 {% from _self import display_menu_item %}
+
+{% set totalQty = 0 %}
+{% if app.session.get('cart') %}
+    {% for item, qty in app.session.get('cart') %}
+        {% set totalQty =  totalQty + qty %}
+    {% endfor %}
+{% endif %}
 
 {# The main menu loop: Iterates over the items, calling `display_menu_item` #}
 
@@ -31,8 +40,11 @@
             {% endif %}
         {% endfor %}
         <li>
-            <a>
-                <img src="{{ asset('images/icons8-shopping-cart-64.png') }}">
+            <a href="/cart" class="cart-nav-item">
+                {% include('images/cart-lines-1-svgrepo-com.svg') %}
+                <div class="cart-qty">
+                    <span class="cartQty" id="cart_qty"> {{ totalQty }}</span>
+                </div>
             </a>
         </li>
     </div>
