@@ -7,6 +7,10 @@
     right: 1rem;
     z-index: 15;
 }
+.navbar-toggler:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
 .navbar-collapse {
     display: block !important;
     position: absolute;
