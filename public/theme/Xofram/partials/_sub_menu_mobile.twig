@@ -30,7 +30,7 @@
 {# The main menu loop: Iterates over the items, calling `display_menu_item` #}
 
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="navbar-toggler-icon d-flex justify-content-center align-items-center"><i class="fa-solid fa-bars"></i></span>
 </button>
 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
@@ -41,7 +41,7 @@
         {% endfor %}
         <li>
             <a href="/cart" class="cart-nav-item">
-                {% include('images/cart-lines-1-svgrepo-com.svg') %}
+                  <i class="fa-regular fa-cart-shopping fa-2xl"></i>
                 <div class="cart-qty">
                     <span class="cartQty" id="cart_qty"> {{ totalQty }}</span>
                 </div>
