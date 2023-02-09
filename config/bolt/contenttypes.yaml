@@ -351,6 +351,7 @@ events:
     show_on_dashboard: true
     default_status: published
     order: date
+    listing_sort: DateStart
     icon_many: "fa:calendar"
     icon_one: "fa:calendar"
 
