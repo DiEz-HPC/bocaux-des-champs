@@ -1,14 +1,16 @@
 {% extends 'partials/_master.twig' %}
+{% use '@theme/partials/components/_product/productCard.twig' %}
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/products.css') }}">
+    {{ block('productCardStyle') }}
 {% endblock stylesheets %}
 {% block main %}
     {% setcontent options = 'Options' %}
-    <div class="services_section layout_padding">
+    <div class="products_section layout_padding ">
         <div class="container">
             <h1 class="services_taital">Nos produits</h1>
-             <p class="text-center">
+            <p class="text-center">
                 {% if options and options.productsIntro is not empty %}
                     {{ options.productsIntro|raw }}
                 {% else %}
@@ -19,14 +21,10 @@
 
                 <div class="row">
                     {% for product in records %}
-                        <div class="col-md-4">
-                            <div class="image_main">
-                                <img src="{{ product|image }}" class="image_2">
-                                <h2 class="vegetable_text" hx-get="/htmx/{{ product.id }}" hx-trigger="click" hx-target="#htmx-results" hx-trigger="load delay:2s" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                    {{ product|title|excerpt(40) }}
-                                </h2>
-                            </div>
-                        </div>
+                    <div class="col-md-6">
+                   
+                    {{ block('productCardContent') }}
+                    </div>
                     {% endfor %}
                 </div>
 
@@ -34,8 +32,7 @@
                     {{ pager(records, template = 'partials/helpers/_pager.html.twig') }}
                 </div>
             </div>
-
-
+ 
             <div class="modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
