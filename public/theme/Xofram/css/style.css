@@ -26,7 +26,9 @@
 @import url(nice-select.css);
 
 /*--------------------------------------------------------------------- skeleton ---------------------------------------------------------------------*/
-
+.navbar-toggler-icon {
+    content : "O";
+}
 * {
     box-sizing: border-box !important;
     transition: ease all 0.5s;
