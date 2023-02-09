@@ -5,12 +5,12 @@
     <div class="productCard d-flex">
         <div class="col-7 productCard__content">
             <h2 class="productCard__title">{{ product.title }}</h2>
-            <p class="productCard__description">{{ product.content }}</p>
+            <div class="productCard__description mt-4">{{ product.content }}</div>
 
             <div class="productCard__content__bottom">
                 <div class="control">
-                    <button class="btn">
-                        <span class="price">{{ product.price }}
+                    <button class="btn productCard__btn">
+                        <span class="price">{{ product.price|number_format(2, ',', ' ')  }}
                             €</span>
                         <span class="shopping-cart">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -18,15 +18,11 @@
                         <span class="buy">Commander</span>
                     </button>
                 </div>
-
-                <div class="productCard__content__bottom__right">
-                    <a class="productCard__link" hx-get="/htmx/{{ product.id }}" hx-trigger="click" hx-target="#htmx-results" hx-trigger="load delay:2s" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Voir le produit</a>
-                </div>
             </div>
         </div>
         <div class="col-5 productCard__image">
             <div class="overlay">
-                <button>
+                <button hx-get="/htmx/{{ product.id }}" hx-trigger="click" hx-target="#htmx-results" hx-trigger="load delay:2s" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     Voir le produit
                 </button>
             </div>
