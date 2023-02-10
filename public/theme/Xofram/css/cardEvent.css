@@ -5,18 +5,18 @@
 
 
 .card-event {
-    background-color: #a3b104;
+    background-color: #f5f4f4;
     border-radius: 10px;
-    box-shadow: rgba(163, 177, 4, 0.12) 0 1px 3px, rgba(163, 177, 4, 0.24) 0 1px 2px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .card-event:hover {
-    box-shadow: rgba(163, 177, 4, 0.8) 0 1px 3px, rgba(163, 177, 4, 0.9) 0 1px 2px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .card-event a {
     text-decoration: none;
-    color: white;
+    color: #333;
 }
 
 .card-event .date {
@@ -24,15 +24,18 @@
 }
 
 .card-event .image-container {
-    height: 200px;
+    height: 220px;
+    overflow: hidden;
 }
 
 .card-event img {
     object-fit: cover;
     border-radius: 5px 0 0 5px;
-    height: 100%;
+    height: 230px;
 }
-
+.card-event svg{
+    fill: #a3b104;
+}
 .card-event .flag {
     position: absolute;
     top: -1.5px;
@@ -40,7 +43,7 @@
     width: 60px;
     height: 60px;
     background-color: #a3b104;
-    color: white;
+    color: #333;
     text-align: center;
     z-index: 1 !important;
 }
@@ -82,7 +85,7 @@
 
 .card-event h3 {
     font-size: var(--font-size-card-title);
-    color: #164006;
+    color: #333;
 }
 
 li {
