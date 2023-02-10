@@ -1,0 +1,18 @@
+<div class="qrCodeCard card mb-3 formTr" data-id='{{1}}'>
+    <img src="{{ records|thumbnail }}" class="card-img-top img-thumbnail" alt="...">
+    <div class="card-body">
+        <h3 class="card-title">{{ records|title }}</h3>
+        <p class="card-text">
+            <small class="text-muted">
+                <a href="{{ records|link }}" target="_blank">
+                    {{ records.slug }}</a>
+            </small>
+        </p>
+    </div>
+</div>
+    <div class="form-check form-check-inline" style="display:none;">
+        <input class="form-check-input qrCode__checkbox qrCode__checkbox_index{{1}}" type="checkbox" value="{{ records.contentType }}" id="flexCheckDefault" name="{{ records.slug }}" checked>
+    </div>
+<div class="d-flex justify-content-center">
+    <button type="submit" class="btn btn-primary" id="qrCode__sendButton" >Générer le Qr Code pour cette page</button>
+</div>
