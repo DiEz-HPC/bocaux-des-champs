@@ -1,0 +1,9 @@
+{% if type is same as "embed" %}
+    <td>
+        <img src="{{ record.embedded.thumbnail }}" class="img-fluid" alt="{{ record|title }}"/>
+    </td>
+{% elseif type is same as "image" %}
+    <td>
+        <img src="{{ record|thumbnail(280, 120) }}" class="img-thumbnail" alt="{{ record|image.alt|default() }}"/>
+    </td>
+{% endif %}

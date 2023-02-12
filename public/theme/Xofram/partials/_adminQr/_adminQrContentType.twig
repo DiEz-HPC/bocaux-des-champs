@@ -1,0 +1,19 @@
+<div class="row flex-column justify-content-center align-items-center">
+ 
+    <div>
+        <form action="{{ path('app_qr_code') }}" class="text-center" method="post">
+            <div class="form-group row flex-column justify-content-center align-items-center">
+                <label for="contentType">Pour quelle contenu voulez vous générer des Qr Codes ?</label>
+                <select class="form-select contentTypeQr" id="contentType" name="contentType">
+                    {% for contentType in contentTypes %}
+                        <option value="{{ contentType.name }}">{{ contentType.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Valider</button>
+        </form>
+    </div>
+</div>
+
+
+
