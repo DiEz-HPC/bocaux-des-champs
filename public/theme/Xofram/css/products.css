@@ -1,7 +1,7 @@
 .modal .btn-close {
     color: #163f06 !important;
 }
-.imageProduct{
+.imageProduct {
     border-radius: 8px;
     border: 2px solid grey;
 }
@@ -10,23 +10,24 @@
     position: relative;
     height: auto;
 }
-.tabs-selector {
-    width: 100%;
-}
+
 .tab-selector {
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
     width: 50%;
     font-weight: bold;
     padding-top: 13px;
     text-align: center;
-    background: #163f06;
+    background: #a3b104;
     color: #fff;
     border-radius: 30px;
     height: 100px;
+    cursor: pointer;
+    font-size: 20px;
 }
 .tabs-selector .tab-selector.active {
     background: #fff;
     color: #163f06;
-    border: 1px inset #163f06;
+    cursor: initial;
 }
 .tab-content {
     position: relative;
@@ -37,27 +38,91 @@
     color: #000;
     border-radius: 30px;
     z-index: 1000;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
     padding: 30px;
     margin-bottom: 50px;
 }
 
-.btnAddToCart{
-    background: #163f06;
-    color: #fff;
-    border-radius: 30px;
-    padding: 10px 20px;
-    font-weight: bold;
+
+#quantitySelector {
+    width: 100px !important;
+    height: 50px !important;
+    border: 1px solid #163f06;
+    padding: 0 20px;
     font-size: 20px;
-    border: 1px solid #163f06;
-}
-.btnAddToCart:hover{
-    background: #fff;
+    font-weight: bold;
     color: #163f06;
-    border: 1px solid #163f06;
+    text-align: center;
+    position: absolute;
+    bottom: 2.5%;
+    left: 30%;
 }
-.btnAddToCart:disabled{
-    background: #fff;
-    color: #163f06;
-    border: 1px solid #163f06;
+
+
+.productModal__control {
+    position: absolute;
+    bottom: 0%;
+    right: 30%;
+    height: 50px;
+}
+
+.productModal__btn {
+    transform: translateY(-10px);
+    transition: 0.3s linear;
+    background: #a1aa41;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: #eee;
+    padding: 0;
+    margin: 0;
+}
+
+.productModal__btn:hover {
+    background: #a3b104;
+}
+
+.productModal__btn span {
+    transition: transform 0.3s;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    margin: 0;
+}
+.productModal__btn .productModal__price,
+.productModal__shopping-cart {
+    background: #333;
+    border: 0;
+    margin: 0;
+}
+
+.productModal__btn .productModal__price {
+    transform: translateX(-10%);
+    padding-right: 15px;
+}
+
+.productModal__btn .productModal__shopping-cart {
+    transform: translateX(-100%);
+    position: absolute;
+    background: #333;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    color: #fff;
+}
+
+.productModal__btn .productModal__buy {
+    z-index: 3;
+    font-weight: bolder;
+}
+
+.productModal__btn:hover .productModal__price {
+    transform: translateX(-110%);
+}
+
+.productModal__btn:hover .productModal__shopping-cart {
+    transform: translateX(0%);
 }

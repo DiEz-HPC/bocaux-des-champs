@@ -2,6 +2,9 @@
 /*------------------------------------------------------------------- 767px x 599px ---------------------------------------------------------------------*/
 
 @media only screen and (min-width: 599px) and (max-width: 767px) {
+    .productCard__content__bottom .control{
+        position: initial;
+    }
     .owl-nav {
         display: none;
     }
@@ -74,6 +77,9 @@
 /*------------------------------------------------------------------- 599px x 280px ---------------------------------------------------------------------*/
 
 @media only screen and (min-width: 280px) and (max-width: 599px) {
+    .productCard__content__bottom .control{
+        position: initial;
+    }
     .owl-nav {
         display: none;
     }
@@ -350,6 +356,9 @@
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
+    .productCard__content__bottom .control{
+        position: initial;
+    }
     .owl-nav {
         display: none;
     }
@@ -489,6 +498,9 @@
 }
 
 @media (max-width: 575px) {
+    .productCard__content__bottom .control{
+        position: initial;
+    }
     .owl-nav {
         display: none;
     }

@@ -3,8 +3,8 @@
         {{ record|title }}
     </h1>
 </div>
-<div class="row">
-    <div class="col-12 col-md-4">
+<div class="row p-4">
+    <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
         <img src="{{ record.image }}" class="img-fluid imageProduct" alt="{{ record.title }}"/>
     </div>
     <div class="col-12 col-md-8 d-flex flex-column align-items-center justify-content-center">
@@ -13,11 +13,11 @@
 </div>
 <div class="outer-tabs-container">
     <div class="tabs-selector d-flex justify-content-center mt-4" id="tabsSelector">
-        <div class="tab-selector col-xl-3 active" data-tab="recipe">
+        <div class="tab-selector col-xl-3 active" id="recipeSelector" data-tab="recipe">
             <i class="fas fa-utensils"></i>
             <span>Recette</span>
         </div>
-        <div class="tab-selector col-xl-3" data-tab="nutritional">
+        <div class="tab-selector col-xl-3" id="nutritionalSelector" data-tab="nutritional">
             <i class="fas fa-chart-pie"></i>
             <span>Informations nutritionnelles</span>
         </div>
@@ -40,31 +40,33 @@
         </div>
     </div>
     <form hx-post="/cart/add/{{ record.id }}" hx-swap='none' class="d-flex flex-column align-items-center justify-content-center">
-        <div class="row align-items-center justify-content-center mb-4">
+        <div class="row align-items-center justify-content-center mb-4 mt-5">
             <div class="form-group col-6">
                 <input type="number" name="quantity" id="quantitySelector" class="form-control" value="1" min="1" max="100"/>
             </div>
-             <div class="col-6">
-                <span class="price" id="singleProductPrice" data-original-price="{{ record.price|number_format(2, ',', ' ') }}">{{ record.price|number_format(2, ',', ' ') }}
-                    €</span>
+            <div class="form-group col-6">
+                <div class="productModal__control">
+                    <button class="btn productModal__btn btnAddToCart" id="btnAddToCart" onclick="this.disabled=true;this.querySelector('.productModal__buy').innerHTML ='Produits ajouté';">
+                        <span class="productModal__price" id="singleProductPrice" data-original-price="{{ record.price|number_format(2, ',', ' ') }}">{{ record.price|number_format(2, ',', ' ') }}
+                            €</span>
+                        <span class="productModal__shopping-cart">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        </span>
+                        <span class="productModal__buy">Commander</span>
+                    </button>
+                </div>
             </div>
-        </div>
-
-        <div class="form-group ">
-            <button type="submit" id="btnAddToCart" class="btn btnAddToCart" onclick="this.disabled=true;this.innerHTML='Produits ajouté'; ">
-                Ajouter au panier
-            </button>
         </div>
     </form>
 </div>
 <script>
-var qtySelector = document.getElementById('quantitySelector');
+    var qtySelector = document.getElementById('quantitySelector');
 
-qtySelector.addEventListener('change', function() {
-    const price = document.querySelector('#singleProductPrice');
-    const initialPrice = price.dataset.originalPrice;
-    const qty = qtySelector.value;
-    const newPrice = (parseInt(initialPrice) * parseInt(qty));
-    price.innerText = newPrice + ' €';
-});
+    qtySelector.addEventListener('change', function () {
+        const price = document.querySelector('#singleProductPrice');
+        const initialPrice = price.dataset.originalPrice;
+        const qty = qtySelector.value;
+        const newPrice = (parseInt(initialPrice) * parseInt(qty));
+        price.innerText = newPrice + ' €';
+    });
 </script>
