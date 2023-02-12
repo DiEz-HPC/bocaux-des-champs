@@ -40,10 +40,10 @@
   }
 
   .card {
-    background: #a3b104;
+    background: #f5f4f4;
     text-decoration: none;
-    color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #333;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     display: flex;
     flex-direction: column;
     min-height: 100%;
@@ -53,7 +53,7 @@
   }
   .card:hover {
     top: -2px;
-    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
   .card article {
     padding: 20px;
@@ -66,7 +66,7 @@
     font-size: 20px;
     margin: 0;
     font-weight: bolder;
-    color: #fff;
+    color: #333;
   }
   .card p {
     flex: 1;

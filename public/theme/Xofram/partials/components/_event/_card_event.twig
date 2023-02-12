@@ -2,7 +2,7 @@
 
 <div class="card-event card mb-3 col-12 col-xl-5 p-0">
     <a href="{{ event|link }}" class="row g-0 d-flex align-items-center">
-        <div class="image-container col-12 col-md-4 position-relative">
+        <div class="image-container col-12 col-md-5 position-relative">
             <div class="flag d-flex flex-column align-items-center justify-content-center">
                 <div class="month mt-3">{{ (event.DateStart|format_datetime(locale='fr',pattern="MMM"))|capitalize }}</div>
                 <div class="day">{{ event.DateStart|format_datetime(locale='fr',pattern="dd") }}</div>
