@@ -2,6 +2,17 @@
 /*------------------------------------------------------------------- 767px x 599px ---------------------------------------------------------------------*/
 
 @media only screen and (min-width: 599px) and (max-width: 767px) {
+    .card-container .card-content{
+        display: flex !important;
+        background: rgb(0, 0, 0);
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.8) 100%
+        );
+       
+    
+    }
     .productCard__content__bottom .control{
         position: initial;
     }
@@ -77,6 +88,17 @@
 /*------------------------------------------------------------------- 599px x 280px ---------------------------------------------------------------------*/
 
 @media only screen and (min-width: 280px) and (max-width: 599px) {
+    .card-container .card-content{
+        display: flex !important;
+        background: rgb(0, 0, 0);
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.8) 100%
+        );
+       
+    
+    }
     .productCard__content__bottom .control{
         position: initial;
     }
@@ -190,6 +212,17 @@
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+    .card-container .card-content{
+        display: flex !important;
+        background: rgb(0, 0, 0);
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.8) 100%
+        );
+       
+    
+    }
     .owl-nav {
         display: none;
     }
@@ -356,6 +389,17 @@
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
+    .card-container .card-content{
+        display: flex !important;
+        background: rgb(0, 0, 0);
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.8) 100%
+        );
+       
+    
+    }
     .productCard__content__bottom .control{
         position: initial;
     }
@@ -498,6 +542,17 @@
 }
 
 @media (max-width: 575px) {
+    .card-container .card-content{
+        display: flex !important;
+        background: rgb(0, 0, 0);
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.8) 100%
+        );
+       
+    
+    }
     .productCard__content__bottom .control{
         position: initial;
     }
