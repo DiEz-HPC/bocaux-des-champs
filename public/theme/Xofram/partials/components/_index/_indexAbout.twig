@@ -1,27 +1,32 @@
 {% block indexAbout %}
-{% setcontent history = 'Histoire' latest limit 1 %}
+    {% setcontent history = 'Histoire' latest limit 1 %}
     <div class="about_section layout_padding">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6">
                     <div class="about_main">
                         <h1 class="about_taital">A propos de nous</h1>
-                        <p class="about_text"> {{ history.introduction | excerpt(2000) }}</p>
+                        <p class="about_text">
+                            {{ history.introduction | excerpt(2000) }}</p>
                         <div class="readmore_bt">
                             <a href="{{ history|link }}">En savoir plus</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 padding_0">
-                    <div class="image_7">
-                    {% for picture in history.pictures %}
-                    {% if loop.index == 1 %}
-                    <img src="{{ picture }}"></div>
-                    {% endif %}
-                    {% endfor %}
-                    
-                </div>
+                    <div class="image_7 d-flex justify-content-center align-items-center p-xl-5 mt-5 mt-sm-0">
+                        {% if history.pictures|length > 0 %}
+                            {% for picture in history.pictures %}
+                            
+                                {% if loop.index == 1 %}
+                                    <img class="image-rounded" src="{{ asset( picture) }}"></div>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        <img class="image-rounded" src="{{ asset( "images/legumes2.jpg") }}"></div>
+                {% endif %}
+
             </div>
         </div>
     </div>
-{% endblock indexAbout %}
+</div>{% endblock indexAbout %}

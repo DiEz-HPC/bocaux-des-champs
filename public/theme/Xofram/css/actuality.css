@@ -39,7 +39,7 @@
     }
   }
 
-  .card {
+  .actualityCard {
     background: #f5f4f4;
     text-decoration: none;
     color: #333;
@@ -51,29 +51,29 @@
     top: 0;
     transition: all 0.1s ease-in;
   }
-  .card:hover {
+  .actualityCard:hover {
     top: -2px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
-  .card article {
+  .actualityCard article {
     padding: 20px;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
-  .card h2 {
+  .actualityCard h2 {
     font-size: 20px;
     margin: 0;
     font-weight: bolder;
     color: #333;
   }
-  .card p {
+  .actualityCard p {
     flex: 1;
     line-height: 1.4;
   }
 
-  .card .thumb {
+  .actualityCard .thumb {
     padding-bottom: 60%;
     background-size: cover;
     background-position: center center;

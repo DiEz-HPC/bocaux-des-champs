@@ -6,18 +6,9 @@
             <h1 class="choose_taital">Nos actualités</h1>
             <p class="choose_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its</p>
             <div class="blog_section_2 layout_padding">
-                <div class="row">
+                <div class="grid mb-4 p-auto">
                     {% for actuality in actualities %}
-                        <div class="col-lg-4">
-                            <div class="box_main">
-                                <img src="{{ actuality.pictures }}" class="image_9">
-                                <div class="post_main">
-                                    <h1 class="fresh_text">{{ actuality.title }}</h1>
-                                    <p class="long_text">{{ actuality.teaser|striptags|truncate(150) }}</p>
-                                    <div class="read_bt"><a href="{{actuality|link}}">Lire la suite</a></div>
-                                </div>
-                            </div>
-                        </div>
+                        {% include 'partials/components/_actuality/_actualityCard.twig' with {'class': 'item-'~ loop.index , 'record': actuality} %}
                     {% endfor %}
                 </div>
             </div>
