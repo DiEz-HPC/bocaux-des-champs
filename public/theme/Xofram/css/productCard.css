@@ -41,6 +41,9 @@
 .productCard:hover .productCard__image .overlay {
     opacity: 1;
 }
+.productCard__image {
+position: relative;
+}
 .productCard__image .overlay {
     position: absolute;
     top: 0;

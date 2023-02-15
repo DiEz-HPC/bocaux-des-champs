@@ -13,6 +13,8 @@ chmod -R 777 /var/www/var
 chmod -R 777 /var/www/public
 chmod -R 777 /var/www/config/
 
+php bin/console app:make-status
+
 ## server config
 php-fpm -D &
 nginx -g "daemon off;"

@@ -46,6 +46,10 @@ class MakeStatusCommand extends Command
         ];
       
        foreach ($valueArr as $key => $value) {
+            if ($this->checkIfStatusExist($value, $io)) {
+                $io->error("Status $value already exist");
+                continue;
+            }
             $status = new OrderStatus();
             $status->setStatus($value);
             $this->em->persist($status);
@@ -53,5 +57,14 @@ class MakeStatusCommand extends Command
         }
 
         return Command::SUCCESS;
+    }
+
+    private function checkIfStatusExist($value, $io): bool
+    {
+        $status = $this->em->getRepository(OrderStatus::class)->findOneBy(['status' => $value]);
+        if ($status) {
+            return true;
+        }
+        return false;
     }
 }
