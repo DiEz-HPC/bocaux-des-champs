@@ -29,9 +29,13 @@ RUN apk add --no-cache \
       libpng-dev \
       icu-dev \
       oniguruma-dev \
-    libgd-dev \
-    && docker-php-ext-install zip
-
+    && docker-php-ext-install zip \
+    && docker-php-ext-install gd \
+    && docker-php-ext-install intl \
+    && docker-php-ext-install mbstring \
+    && docker-php-ext-install pdo_mysql \
+    && docker-php-ext-install bcmath
+    
 # silently install 'docker-php-ext-install' extensions
 RUN set -x
 RUN docker-php-ext-install gd exif intl mbstring
