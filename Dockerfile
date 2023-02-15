@@ -26,15 +26,22 @@ RUN apk update \
 RUN apk add --no-cache \
       libzip-dev \
       zip \
-      libpng-dev \
       icu-dev \
       oniguruma-dev \
-    && docker-php-ext-install zip
+      freetype-dev \
+      libpng-dev \
+      jpeg-dev \
+      libwebp-dev \
+      libjpeg-turbo-dev
 
 # silently install 'docker-php-ext-install' extensions
 RUN set -x
-RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd intl
+RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg --with-webp
+RUN docker-php-ext-install -j$(nproc) gd
+RUN docker-php-ext-install -j$(nproc) intl
+RUN docker-php-ext-install exif mbstring zip
+RUN docker-php-ext-install pdo_mysql bcmath > /dev/null
+
 
 
 COPY docker/nginx/default.conf /etc/nginx/nginx.conf
