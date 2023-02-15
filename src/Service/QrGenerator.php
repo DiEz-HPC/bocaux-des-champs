@@ -43,7 +43,8 @@ class QrGenerator
 
     private function generateLink(array $slugs, array $options): array
     {
-        $serverLink = $_SERVER['SYMFONY_PROJECT_DEFAULT_ROUTE_URL'];
+
+        $serverLink = $_SERVER['SERVER_NAME'] . '/';
         $qrcodes = [];
         foreach ($slugs as $slug => $contentType) {
             $link = $serverLink . $contentType . '/' . $slug;
