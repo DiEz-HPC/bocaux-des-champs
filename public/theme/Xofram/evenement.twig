@@ -30,13 +30,8 @@
                         {{ record.adresse ~ ', ' ~ record.Ville | capitalize }}
                     </div>
                 </div>
-                <div class="content d-flex flex-column flex-xl-row align-items-center justify-content-between mt-5 px-3 px-sm-0">
-                    <div class="image col-12 col-xl-5 mb-5 container-image borderNumber">
-                        <a href="{{ record | image }}" target="_blank"><img class="col-12" src="{{ record | image }}" alt="{{ record.alt }}"></a>
-                    </div>
-                    <div class="text col-12 col-xl-6">
-                        {{ record.article }}
-                    </div>
+                <div class="content">
+                    {{ record.article }}
                 </div>
                 <hr class="my-5">
                 <h2 class="subtitle">Événements terminés</h2>
