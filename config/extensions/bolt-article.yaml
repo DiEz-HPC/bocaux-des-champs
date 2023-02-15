@@ -11,7 +11,7 @@ default:
     css: [ '/theme/Xofram/css/customAdminArticle.css' ]
   classes:
     p: 'article-paragraph w-100'
-    figure: 'superposition d-none'
+    figure: 'superposition'
     img: 'rounded mx-auto d-block img-fluid'
     h1: 'services_taital'
     h2: 'subtitle'
