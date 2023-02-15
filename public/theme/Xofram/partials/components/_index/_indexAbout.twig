@@ -13,7 +13,13 @@
                     </div>
                 </div>
                 <div class="col-md-6 padding_0">
-                    <div class="image_7"><img src="{{ history.imageIntroduction }}"></div>
+                    <div class="image_7">
+                    {% for picture in history.pictures %}
+                    {% if loop.index == 1 %}
+                    <img src="{{ picture }}"></div>
+                    {% endif %}
+                    {% endfor %}
+                    
                 </div>
             </div>
         </div>
