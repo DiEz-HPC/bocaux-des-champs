@@ -1,4 +1,4 @@
-:root{
+:root {
     --margin-top-image-decalee: -10%;
     --min-height-section: 50vh;
     --max-circle-size: 300px;
@@ -7,14 +7,14 @@
     --green: #19420a;
 }
 
-body{
-    background: linear-gradient(white,rgba(66, 176, 27, 0.42), white);
+body {
+    background: linear-gradient(white, rgba(66, 176, 27, 0.42), white);
 }
 
 .image-rounded {
     border-radius: 50%;
     z-index: 1;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
     object-fit: cover;
     object-position: center;
 }
@@ -64,6 +64,29 @@ body{
     left: 10%;
 }
 
+@media screen and (max-width: 1280px) {
+
+    .image-position {
+        position: static;
+    }
+
+    .image-max {
+        width: var(--max-circle-size);
+        height: var(--max-circle-size);
+    }
+
+    .image-medium {
+        width: var(--max-circle-size);
+        height: var(--max-circle-size);
+    }
+
+    .image-min {
+        width: var(--max-circle-size);
+        height: var(--max-circle-size);
+    }
+
+}
+
 .introduction {
     min-height: var(--min-height-section);
 }
@@ -88,19 +111,4 @@ body{
 .history .services_section {
     width: 100% !important;
     text-align: initial !important;
-}
-
-@media (width <=1280px) {
-
-    .image-position {
-        position: static;
-    }
-
-    .image-max,
-    .image-medium,
-    .image-min {
-        width: var(--max-circle-size);
-        height: var(--max-circle-size);
-    }
-
 }
