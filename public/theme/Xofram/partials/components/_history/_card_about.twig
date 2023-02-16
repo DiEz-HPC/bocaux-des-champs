@@ -3,7 +3,8 @@
 {% endblock %}
 
 {% block cardAboutContent %}
-        <div class="card mb-5 mb-xl-0">
+    <div class="col-12 col-xl-3">
+        <div class="card mb-5">
             <div class="imgBx">
                 <img
                     src="{{ asset(member.image.path) }}"
@@ -13,4 +14,6 @@
                 <h2>{{ member.fullname }}<br><span>{{ member.hierarchy }}</span></h2>
             </div>
         </div>
+    </div>
+
 {% endblock %}
