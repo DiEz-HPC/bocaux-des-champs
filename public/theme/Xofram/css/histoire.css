@@ -7,6 +7,21 @@
     --green: #19420a;
 }
 
+@media (width <=1280px) {
+
+    .image-position {
+        position: static;
+    }
+
+    .image-max,
+    .image-medium,
+    .image-min {
+        width: var(--max-circle-size);
+        height: var(--max-circle-size);
+    }
+
+}
+
 body{
     background: linear-gradient(white,rgba(66, 176, 27, 0.42), white);
 }
@@ -62,29 +77,6 @@ body{
 #image-5 {
     bottom: 10%;
     left: 10%;
-}
-
-@media screen and (max-width: 1280px) {
-
-    .image-position {
-        position: static;
-    }
-
-    .image-max {
-        width: var(--max-circle-size);
-        height: var(--max-circle-size);
-    }
-
-    .image-medium {
-        width: var(--max-circle-size);
-        height: var(--max-circle-size);
-    }
-
-    .image-min {
-        width: var(--max-circle-size);
-        height: var(--max-circle-size);
-    }
-
 }
 
 .introduction {
