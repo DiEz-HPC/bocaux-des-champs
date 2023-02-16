@@ -34,6 +34,11 @@ body{
     height: var(--min-circle-size);
 }
 
+.image-position {
+    position: absolute;
+    z-index: 1;
+}
+
 #image-1 {
     top: 0;
     left: 20%;
@@ -60,15 +65,18 @@ body{
 }
 
 @media (width <=1280px) {
-    #image-1,
-    #image-2,
-    #image-3,
-    #image-4,
-    #image-5 {
-        position: static!important;
-        width: var(--max-circle-size)!important;
-        height: var(--max-circle-size)!important;
+
+    .image-position {
+        position: static;
     }
+
+    .image-max,
+    .image-medium,
+    .image-min {
+        width: var(--max-circle-size);
+        height: var(--max-circle-size);
+    }
+
 }
 
 .introduction {
