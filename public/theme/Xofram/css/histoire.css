@@ -70,8 +70,16 @@ body{
         position: static;
     }
 
-    .image-max,
-    .image-medium,
+    .image-max {
+        width: var(--max-circle-size);
+        height: var(--max-circle-size);
+    }
+
+    .image-medium {
+        width: var(--max-circle-size);
+        height: var(--max-circle-size);
+    }
+
     .image-min {
         width: var(--max-circle-size);
         height: var(--max-circle-size);
