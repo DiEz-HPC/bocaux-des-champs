@@ -65,9 +65,9 @@ body{
     #image-3,
     #image-4,
     #image-5 {
-        position: static !important;
-        width: var(--max-circle-size) !important;
-        height: var(--max-circle-size) !important;
+        position: static!important;
+        width: var(--max-circle-size)!important;
+        height: var(--max-circle-size)!important;
     }
 }
 
