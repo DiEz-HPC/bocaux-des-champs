@@ -79,7 +79,7 @@
 
                 <div class="about introduction py-5">
                     <h2 class="text-center my-5">{{ 'Qui sommes-nous?' | upper }}</h2>
-                    <div class="d-flex flex-column flex-xl-row justify-content-between align-items-center flex-wrap">
+                    <div class="d-flex flex-column flex-xl-row justify-content-around align-items-center flex-wrap">
                         {% for member in history.about %}
                             {{ block('cardAboutContent') }}
                         {%  endfor %}
