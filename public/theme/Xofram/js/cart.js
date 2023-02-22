@@ -60,7 +60,7 @@ const clearQty = (button) => {
 };
 
 const updateTotalItems = () => {
-  const cartTotal = document.querySelector("#cart_qty");
+  const cartTotal = document.querySelectorAll("#cart_qty");
   const totalItems = document.querySelector("#totalQuantity");
   const singleProductQty = document.querySelectorAll(".singleProductQty");
   let total = 0;
@@ -68,5 +68,7 @@ const updateTotalItems = () => {
     total += parseInt(item.innerText);
   });
   totalItems.innerHTML = total;
-  cartTotal.innerHTML = total;
+  cartTotal.forEach((cart) => {
+    cart.innerHTML = total;
+  });
 };
