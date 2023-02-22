@@ -22,7 +22,7 @@
                     {{ block('tagCloud') }}
                 {% endwith %}
             </p>
-            <div class="row justify-content-around">
+            <div class="row justify-content-around pt-5">
                 {% for record in records %}
                     {% include 'partials/vidéos/_vidéos-card.twig' with { 'loopIndex': loop.index } %}
                 {% endfor %}
@@ -40,7 +40,7 @@
                         <div class="modal-body" id="htmx-results">
                             <h3>Running</h3>
                             <div class="progress">
-                                <div id="pb" class="progress-bar" style="width:0%"></div>
+                                <div id="pb" class="progress-bar" style="width:0"></div>
                             </div>
                         </div>
                     </div>
