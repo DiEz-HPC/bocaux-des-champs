@@ -1,3 +1,44 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const cardAddToCart = document.querySelectorAll(".productCard__btn");
+  const cartTotal = document.querySelectorAll("#cart_qty");
+
+  cardAddToCart.forEach((btn) => {
+    var productId = btn.dataset.product;
+    btn.addEventListener("click", function (e) {
+      var quantity = cartTotal.innerText;
+      var value = parseInt(quantity);
+
+      cartTotal.innerText = value + 1;
+      // request to add to cart to url /card/{id}
+      $.ajax({
+        url: "/cart/add/" + productId,
+        type: "POST",
+        data: {
+          quantity: 1,
+        },
+        success: function (response) {
+          // On notifie le client que le produit a bien été ajouté au panier
+          $(btn).notify("Produit ajouté au panier", {
+            position: "top",
+            className: "success",
+          });
+          // On met à jour le nombre de produits dans le panier
+          response = JSON.parse(response);
+          let totalQuantity = 0;
+          for (let key in response) {
+            if (!isNaN(response[key])) {
+              totalQuantity += parseInt(response[key]);
+            }
+          }
+          cartTotal.forEach((cart) => {
+            cart.innerHTML = totalQuantity;
+          });
+        },
+      });
+    });
+  });
+});
+
 const htmxResult = document.getElementById("htmx-results");
 
 htmxResult.addEventListener("htmx:afterSwap", function (event) {
@@ -28,7 +69,7 @@ const handleTabChange = () => {
       if (selector.classList.contains("active")) {
         return;
       }
-      
+
       displaySelectorContent(selector);
       selectors.forEach((selector) => {
         selector.classList.toggle("active");

@@ -144,3 +144,21 @@ position: relative;
 .productCard__btn:hover .shopping-cart {
     transform: translateX(0%);
 }
+
+@media screen and (max-width: 768px) {
+    .productCard__btn span {
+        padding: 15px;
+        text-align: center;
+        font-size: 1em;
+        margin: 0;
+    }
+    .productCard__btn .price {
+        padding:5px;
+    }
+    .productCard__content .productCard__description p{
+        margin: 0;
+    }
+    .services_section {
+        width: 100% !important;
+    }
+}
