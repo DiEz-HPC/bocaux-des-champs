@@ -5,8 +5,10 @@
 {% endblock %}
 {% block main %}
     {% set totalItems = 0 %}
+    {% set totalPrice = 0 %}
     {% for item in productsInCart %}
         {% set totalItems = totalItems + item.quantity %}
+        {% set totalPrice = totalPrice + (item.product.price * item.quantity) %}
     {% endfor %}
 
     <div class="services_section layout_padding">
@@ -25,7 +27,9 @@
                         <p>
                             Vous avez
                             <span id="totalQuantity">{{ totalItems }}</span>
+                            <span id="articleWord">
                             {{ totalItems > 1 ? 'articles' : 'article' }}
+                            </span>
                             dans votre panier</p>
                     </div>
                     {% for cart in productsInCart %}
@@ -45,13 +49,25 @@
                                 </button>
                             </div>
                             <div class="d-flex flex-row align-items-center justify-content-end col-3">
-                                <span class="d-block mx-4 font-weight-bold">$900</span>
+                                <span class="d-block mx-4 font-weight-bold singleProductPrice" id="productPrice-{{ product.id }}" data-productprice="{{ product.price }}">{{ product.price * quantity }} €</span>
                                 <button hx-get='/cart/clear/{{ product.id }}' hx-swap='none' id="remove_button" data-productid="{{ product.id }}">
                                     {{ include('images/trash-svgrepo-com.svg') }}
                                 </button>
                             </div>
                         </div>
                     {% endfor %}
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                    <div class="d-flex flex-row align-items-center col-6">
+                        <span class="ms-3 font-weight-bold d-block">Total</span>
+                    </div>
+                    <div class="d-flex flex-row align-items-center col-3 quantity justify-content-center">
+                        <span class="d-block mx-4" id="totalQuantity">{{ totalItems }}</span>
+                    </div>
+                    <div class="d-flex flex-row align-items-center justify-content-end col-3">
+                        <span class="d-block mx-4 font-weight-bold" id="totalPrice">{{ totalPrice }} €</span>
+                    </div>
                 </div>
             </div>
             <div class="col-md-5">

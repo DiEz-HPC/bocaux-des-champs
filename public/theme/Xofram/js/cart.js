@@ -9,6 +9,8 @@ const handleLessButton = () => {
   lessButton.forEach(function (button) {
     button.addEventListener("click", function (e) {
       decreaseQty(this);
+      updateItemPrice(this);
+      updateTotalPrice();
     });
   });
 };
@@ -31,6 +33,8 @@ const handleMoreButton = () => {
   moreButton.forEach(function (button) {
     button.addEventListener("click", function (e) {
       increaseQty(this);
+      updateItemPrice(this);
+      updateTotalPrice();
     });
   });
 };
@@ -48,6 +52,7 @@ const handleClearProductButton = () => {
   clearButton.forEach(function (button) {
     button.addEventListener("click", function (e) {
       clearQty(this);
+      updateTotalPrice();
     });
   });
 };
@@ -61,14 +66,44 @@ const clearQty = (button) => {
 
 const updateTotalItems = () => {
   const cartTotal = document.querySelectorAll("#cart_qty");
-  const totalItems = document.querySelector("#totalQuantity");
+  const totalItems = document.querySelectorAll("#totalQuantity");
   const singleProductQty = document.querySelectorAll(".singleProductQty");
   let total = 0;
   singleProductQty.forEach((item) => {
     total += parseInt(item.innerText);
   });
-  totalItems.innerHTML = total;
+  totalItems.forEach((totalItem) => {
+  totalItem.innerHTML = total;
+  });
   cartTotal.forEach((cart) => {
     cart.innerHTML = total;
   });
+
+  if(total > 1){
+    document.getElementById("articleWord").innerHTML = "articles";
+  }else {
+    document.getElementById("articleWord").innerHTML = "article";
+  }
 };
+
+const updateItemPrice = (button) => {
+    let productId = button.dataset.productid;
+    let quantityItem = document.querySelector("#qty-" + productId);
+    if(quantityItem){
+    let quantityValue = parseInt(quantityItem.innerText);
+    let priceItem = document.querySelector("#productPrice-" + productId);
+    let priceValue = parseInt(priceItem.dataset.productprice);
+    let totalItemsPrice = quantityValue * priceValue;
+    priceItem.innerHTML = totalItemsPrice + " €";
+    }
+}
+
+const updateTotalPrice = () => {
+    const totalPrice = document.querySelector("#totalPrice");
+    const singleProductPrice = document.querySelectorAll(".singleProductPrice");
+    let total = 0;
+    singleProductPrice.forEach((item) => {
+        total += parseInt(item.innerText);
+    });
+    totalPrice.innerHTML = total + " €";
+}
