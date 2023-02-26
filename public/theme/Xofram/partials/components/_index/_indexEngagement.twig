@@ -4,17 +4,19 @@
     <div class="choose_section layout_padding">
         <div class="container">
             <h1 class="choose_taital">Nos engagements</h1>
-            <p class="choose_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its</p>
+            <p class="choose_text">It is a long established fact that a reader will be distracted by the readable
+                content of a page when looking at its</p>
             <div class="choose_section_2 layout_padding">
                 <div class="row">
-            
-                    {% for engagement in engagements.engagements %}
-                        <div class="col-sm-4">
-                            <div class="icon_1"><img src="{{ asset(engagement.image.path) }}"></div>
-                            <h2 class="farm_text">{{ engagement.title }}</h2>
-                            <p class="dummy_text">{{ engagement.paragraph|excerpt(150) }}</p>
-                        </div>
-                    {% endfor %}
+                    {% if engagements.engagements is defined %}
+                        {% for engagement in engagements.engagements %}
+                            <div class="col-sm-4">
+                                <div class="icon_1"><img src="{{ asset(engagement.image.path) }}"></div>
+                                <h2 class="farm_text">{{ engagement.title }}</h2>
+                                <p class="dummy_text">{{ engagement.paragraph|excerpt(150) }}</p>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                 </div>
             </div>
             <div class="read_bt_1">
