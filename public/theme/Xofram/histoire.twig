@@ -3,9 +3,11 @@
 
 {% setcontent history = 'Histoire' %}
 {% set images = [] %}
-{% for picture in history.pictures %}
-    {% set images = images|merge([picture]) %}
-{% endfor %}
+{% if history.pictures is defined %}
+    {% for picture in history.pictures %}
+        {% set images = images|merge([picture]) %}
+    {% endfor %}
+{% endif %}
 
 {% set images = images|shuffle %}
 
@@ -20,22 +22,28 @@
     {% if history %}
         <div class="history">
             <div class="services_section layout_padding flex flex-column">
-                <div class="position-relative introduction d-flex flex-column flex-xl-row justify-content-center mb-5 align-items-center align-items-xl-end pt-5">
-                    <img id="image-1" class="image-medium image-rounded image-position mb-5 mb-xl-0" src="{{ asset(images[0]?? "images/legumes1.jpg") }}"
+                <div
+                    class="position-relative introduction d-flex flex-column flex-xl-row justify-content-center mb-5 align-items-center align-items-xl-end pt-5">
+                    <img id="image-1" class="image-medium image-rounded image-position mb-5 mb-xl-0"
+                         src="{{ asset(images[0]?? "images/legumes1.jpg") }}"
                          alt="image illustration">
-                    <img id="image-2" class="image-max image-rounded image-position mb-5 mb-xl-0" src="{{ asset(images[1] ?? "images/legumes2.jpg") }}"
+                    <img id="image-2" class="image-max image-rounded image-position mb-5 mb-xl-0"
+                         src="{{ asset(images[1] ?? "images/legumes2.jpg") }}"
                          alt="image illustration">
                     <div class="text-center col-xl-6 d-flex flex-column my-5 py-5">
                         <h1 class="pt-5 text-center mb-3 mb-sm-5 services_taital">{{ history.title | upper }}</h1>
                         {{ history.introduction }}
                     </div>
-                    <img id="image-3" class="image-max image-rounded image-position mb-5 mb-xl-0" src="{{ asset(images[2] ?? "images/legumes3.jpg") }}"
+                    <img id="image-3" class="image-max image-rounded image-position mb-5 mb-xl-0"
+                         src="{{ asset(images[2] ?? "images/legumes3.jpg") }}"
                          alt="image illustration">
-                    <img id="image-4" class="image-min image-rounded image-position mb-5 mb-xl-0" src="{{ asset(images[3] ?? "images/legumes4.jpg") }}"
+                    <img id="image-4" class="image-min image-rounded image-position mb-5 mb-xl-0"
+                         src="{{ asset(images[3] ?? "images/legumes4.jpg") }}"
                          alt="image illustration">
                 </div>
 
-                <div class="presentation d-flex flex-column align-items-center align-items-xl-end justify-content-center position-relative py-5 p-xl-0">
+                <div
+                    class="presentation d-flex flex-column align-items-center align-items-xl-end justify-content-center position-relative py-5 p-xl-0">
                     <div class="col-10 col-xl-8 d-flex flex-column p-5">
                         <h2 class="text-xl-end py-5 mt-5 text-light">{{ 'Bocaux des champs ?' | upper }}</h2>
                         <div
@@ -43,7 +51,8 @@
                             {{ history.presentation }}
                         </div>
                     </div>
-                    <img id="image-5" class="image-max image-rounded image-position" src="{{ asset(images[3] ?? "images/legumes1.jpg") }}"
+                    <img id="image-5" class="image-max image-rounded image-position"
+                         src="{{ asset(images[3] ?? "images/legumes1.jpg") }}"
                          alt="image illustration">
                 </div>
 
@@ -56,9 +65,11 @@
                         </div>
                     </div>
                     <div class="images d-flex flex-column justify-content-between align-items-center py-5">
-                        <img class="image-medium image-rounded position-static mb-5" src="{{ asset(images[0] ?? "images/legumes2.jpg") }}"
+                        <img class="image-medium image-rounded position-static mb-5"
+                             src="{{ asset(images[0] ?? "images/legumes2.jpg") }}"
                              alt="image illustration">
-                        <img class="image-medium image-rounded position-static" src="{{ asset(images[1] ?? "images/legumes3.jpg") }}"
+                        <img class="image-medium image-rounded position-static"
+                             src="{{ asset(images[1] ?? "images/legumes3.jpg") }}"
                              alt="image illustration">
                     </div>
                     <div class="vision col-10 col-xl-4">
@@ -69,12 +80,14 @@
                     </div>
                 </div>
 
-                <div class="atc presentation d-flex flex-column flex-xl-row text-light justify-content-around position-relative p-5 align-items-center">
+                <div
+                    class="atc presentation d-flex flex-column flex-xl-row text-light justify-content-around position-relative p-5 align-items-center">
                     <div class="col-10 col-xl-8 d-flex flex-column justify-content-center py-3">
                         <h2 class="text-light text-start">{{ 'ATC45' | upper }}</h2>
                         {{ history.atc.paragraph | raw }}
                     </div>
-                    <img class="image-max image-rounded my-5 my-xl-0" src="{{ asset(history.atc.logo.path) }}" alt="image illustration">
+                    <img class="image-max image-rounded my-5 my-xl-0" src="{{ asset(history.atc.logo.path) }}"
+                         alt="image illustration">
                 </div>
 
                 <div class="about introduction py-5">
@@ -82,7 +95,7 @@
                     <div class="d-flex flex-column flex-xl-row justify-content-around align-items-center flex-wrap">
                         {% for member in history.about %}
                             {{ block('cardAboutContent') }}
-                        {%  endfor %}
+                        {% endfor %}
                     </div>
                 </div>
             </div>

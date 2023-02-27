@@ -5,7 +5,7 @@
     <!-- header section start -->
     <div class="header_section">
         <nav class="navbar navbar-expand-lg">
-            
+
             {{ menu(
                 name = 'main',
                 template = 'partials/_sub_menu_mobile.twig',
@@ -30,7 +30,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 d-flex align-items-center justify-content-center">
-                                    <img src="{{ options.logo }}" class="image_1">
+                                    <img src="{{ options.logo | default() }}" class="image_1" alt="logo">
                                 </div>
                             </div>
 
@@ -49,6 +49,6 @@
             ) }}
             </div>
         </div>
-        
+
     </div>
 </header>

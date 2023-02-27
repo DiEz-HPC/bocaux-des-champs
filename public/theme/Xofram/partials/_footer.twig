@@ -2,13 +2,13 @@
 <!-- Footer -->
 <footer>
 
-      <!-- footer section start --> 
+      <!-- footer section start -->
       <div class="footer_section layout_padding">
          <div class="container">
             <div class="row">
                <div class="col-lg-3 col-sm-6">
                   <h2 class="useful_text">À propos</h2>
-                  <p class="ipsum_text">{{ options.footerText }} </p>
+                  <p class="ipsum_text">{{ options.footerText | default("Veuillez remplir les informations en page admin.") }} </p>
                </div>
                <div class="col-lg-3 col-sm-6">
                   <h2 class="useful_text">Navigation</h2>
@@ -30,17 +30,17 @@
                   <h2 class="useful_text">Nous contacter</h2>
                   <div class="addres_link">
                      <ul>
-                        <li><a href="#"><img src="{{ asset('images/map-icon.png') }}"><span class="padding_left_10">{{ options.adressBocaux }}</span></a></li>
-                        <li><a href="#"><img src="{{ asset('images/map-icon.png') }}"><span class="padding_left_10">{{ options.adressATC45 }}</span></a></li>
-                        <li><a href="#"><img src="{{ asset('images/mail-icon.png') }}"><span class="padding_left_10">{{ options.emailBocaux }}</span></a></li>
-                        <li><a href="#"><img src="{{ asset('images/mail-icon.png') }}"><span class="padding_left_10">{{ options.emailATC45 }}</span></a></li>
+                        <li><a href="#"><img src="{{ asset('images/map-icon.png') }}"><span class="padding_left_10">{{ options.adressBocaux | default("Veuillez remplir les informations en page admin.") }}</span></a></li>
+                        <li><a href="#"><img src="{{ asset('images/map-icon.png') }}"><span class="padding_left_10">{{ options.adressATC45 | default("Veuillez remplir les informations en page admin.") }}</span></a></li>
+                        <li><a href="#"><img src="{{ asset('images/mail-icon.png') }}"><span class="padding_left_10">{{ options.emailBocaux | default("Veuillez remplir les informations en page admin.") }}</span></a></li>
+                        <li><a href="#"><img src="{{ asset('images/mail-icon.png') }}"><span class="padding_left_10">{{ options.emailATC45 | default("Veuillez remplir les informations en page admin.") }}</span></a></li>
                      </ul>
                   </div>
                </div>
             </div>
          </div>
       </div>
-      <!-- footer section end -->  
+      <!-- footer section end -->
       <!-- copyright section start -->
       <div class="copyright_section">
          <div class="container">
@@ -48,6 +48,6 @@
         <a href="https://www.deviteasy.fr/" target="_blank" class="diez-link">Deviteasy</a></p>
          </div>
       </div>
-      <!-- copyright section end -->  
+      <!-- copyright section end -->
 
 </footer>
