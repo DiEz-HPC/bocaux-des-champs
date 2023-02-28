@@ -2,52 +2,113 @@
 <!-- Footer -->
 <footer>
 
-      <!-- footer section start -->
-      <div class="footer_section layout_padding">
-         <div class="container">
+    <!-- footer section start -->
+    <div class="footer_section layout_padding">
+        <div class="container">
             <div class="row">
-               <div class="col-lg-3 col-sm-6">
-                  <h2 class="useful_text">À propos</h2>
-                  <p class="ipsum_text">{{ options.footerText | default("Veuillez remplir les informations en page admin.") }} </p>
-               </div>
-               <div class="col-lg-3 col-sm-6">
-                  <h2 class="useful_text">Navigation</h2>
-                   {{ menu(
+                <div class="col-lg-3 col-sm-6">
+                    <h2 class="useful_text">À propos</h2>
+                    <p class="ipsum_text">{{ options.footerText }}
+                    </p>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <h2 class="useful_text">Navigation</h2>
+                    {{ menu(
                     name = 'leftFooter',
                     template = 'partials/_sub_menu_footer.twig',
                     withsubmenus = false,
                 ) }}
-               </div>
-               <div class="col-lg-3 col-sm-6">
-                  <h2 class="useful_text transparent">Our Product</h2>
-                  {{ menu(
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <h2 class="useful_text transparent">Our Product</h2>
+                    {{ menu(
                     name = 'rightFooter',
                     template = 'partials/_sub_menu_footer.twig',
                     withsubmenus = false,
                 ) }}
-               </div>
-               <div class="col-lg-3 col-sm-6">
-                  <h2 class="useful_text">Nous contacter</h2>
-                  <div class="addres_link">
-                     <ul>
-                        <li><a href="#"><img src="{{ asset('images/map-icon.png') }}"><span class="padding_left_10">{{ options.adressBocaux | default("Veuillez remplir les informations en page admin.") }}</span></a></li>
-                        <li><a href="#"><img src="{{ asset('images/map-icon.png') }}"><span class="padding_left_10">{{ options.adressATC45 | default("Veuillez remplir les informations en page admin.") }}</span></a></li>
-                        <li><a href="#"><img src="{{ asset('images/mail-icon.png') }}"><span class="padding_left_10">{{ options.emailBocaux | default("Veuillez remplir les informations en page admin.") }}</span></a></li>
-                        <li><a href="#"><img src="{{ asset('images/mail-icon.png') }}"><span class="padding_left_10">{{ options.emailATC45 | default("Veuillez remplir les informations en page admin.") }}</span></a></li>
-                     </ul>
-                  </div>
-               </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <h2 class="useful_text">Nous contacter</h2>
+                    <div class="addres_link">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <imgsrc="{{asset('images/map-icon.png')}}">
+                                        <span class="padding_left_10">{{ options.adressBocaux }}</span>
+                                    </a>
+                                </li>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <imgsrc="{{asset('images/map-icon.png')}}">
+                                        <span class="padding_left_10">{{ options.adressATC45 }}</span>
+                                    </a>
+                                </li>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <imgsrc="{{asset('images/mail-icon.png')}}">
+                                        <span class="padding_left_10">{{ options.emailBocaux }}</span>
+                                    </a>
+                                </li>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <imgsrc="{{asset('images/mail-icon.png')}}">
+                                        <span class="padding_left_10">{{ options.emailATC45 }}</span>
+                                    </a>
+                                </li>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-      <!-- footer section end -->
-      <!-- copyright section start -->
-      <div class="copyright_section">
-         <div class="container">
-            <p class="copyright_text"> Site réalisé par
-        <a href="https://www.deviteasy.fr/" target="_blank" class="diez-link">Deviteasy</a></p>
-         </div>
-      </div>
-      <!-- copyright section end -->
+            <div class="row text-center useful_text">
+                <h2 class="mt-xl-3 useful_text">
+                    Notre newsletter
+                </h2>
+                <p>
+                    Inscrivez-vous à notre newsletter pour recevoir nos dernières actualités
+                </p>
+                <div class="col-lg-12" id="newsletterPart">
+                    <div class="subscribe_form">
+                        <form action="/newsletter/subscribe" name="newsletterForm" method="post" class="d-flex justify-content-center align-items-center">
+                            <input type="email" placeholder="Votre email" name="email" required="true">
+                            <button class="newsletter_bt">S'inscrire</button>
+                        </form>
+                    </div>
+                    <a class="small text-muted" id="newsletterSwitch" >Se désinscrire</a>
+                    <div class="unsubscribe_form d-none">
+                        <form action="/newsletter/unsubscribe" name="newsletterForm" method="post">
+                            <input type="email" placeholder="Votre email" name="email" required="true">
+                            <button class="newsletter_bt">Se désinscrire</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer section end -->
+    <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <p class="copyright_text">
+                Site réalisé par
+                <a href="https://www.deviteasy.fr/" target="_blank" class="diez-link">Deviteasy</a>
+            </p>
+        </div>
+    </div>
+    <!-- copyright section end -->
 
 </footer>
+<script>
+
+    var unsubscribeForm = newsletterPart.querySelector('.unsubscribe_form');
+    var newsletterSwitch = newsletterPart.querySelector('#newsletterSwitch');
+
+    newsletterSwitch.addEventListener('click', function (e) {
+            e.preventDefault();
+            unsubscribeForm.classList.toggle('d-none');
+        });
+
+</script>

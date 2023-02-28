@@ -1163,3 +1163,13 @@ textarea.massage-bt::placeholder, .form-textarea::placeholder {
     object-fit: cover;
     object-position: center;
 }
+.newsletter_bt {
+    background: #a3b104 !important;
+    border: none !important;
+    color: #fff !important;
+    font-size: 15px !important;
+    text-align: center !important;
+    padding: 5px !important;
+    border-radius: 5px !important;
+    margin-left: 15px;
+}
