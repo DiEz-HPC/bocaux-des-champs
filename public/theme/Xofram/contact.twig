@@ -17,7 +17,7 @@
                     <div class="col-md-6 d-flex align-items-center">{{ boltforms('contact') }}</div>
                     <div class="col-md-6">
                         <div>
-                            <img class="image-rounded" src="{{record.image}}" class="image_13">
+                            <img class="image-rounded image_13" src="{{record.image |default()}}" alt="image de contact">
                         </div>
                     </div>
                 </div>
