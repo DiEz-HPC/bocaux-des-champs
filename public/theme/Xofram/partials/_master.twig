@@ -6,7 +6,7 @@
         <meta
         name="viewport" content="width=device-width, initial-scale=1.0">
         {# make sure we always display a proper title: The record's title if there is one, appended with the
-                                                                                                   sitename. If there is no title, we append the sitename with the payoff, if there is one. #}
+                                                                                                           sitename. If there is no title, we append the sitename with the payoff, if there is one. #}
         <title>
             {%- if record|default and record.title -%}
                 {{- record.title ~ ' | ' -}}
@@ -34,7 +34,18 @@
         {{ include('partials/_header.twig') }}
         {% block body %}
             <main>
-
+            <div class="row">
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                {% for message in app.flashes('error') %}
+                    <div class="alert alert-danger">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
 
                 {% block main %}{% endblock main %}
 

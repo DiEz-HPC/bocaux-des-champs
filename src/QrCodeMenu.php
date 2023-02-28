@@ -47,6 +47,12 @@ class QrCodeMenu implements ExtensionBackendMenuInterface
                  'icon' => 'fa-warehouse'
              ]
          ]);
-        
+
+         $menu->addChild('Newsletter', [
+            'uri' => $this->urlGenerator->generate('app_admin_newsletter_index'),
+             'extras' => [
+                 'icon' => 'fa-newspaper'
+             ]
+         ]);
     }
 }
