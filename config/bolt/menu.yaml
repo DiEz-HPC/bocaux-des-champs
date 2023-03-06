@@ -21,11 +21,7 @@ main:
     link: videos
     class: menu-videos
     title: Vidéos
-  - label: Actualités
-    link: actualites
-    class: menu-actualites
-    title: Actualités
-  - label: Évènements
+  - label: Évènements & Actualités
     link: evenements
     class: menu-evenements
     title: Évènements
@@ -56,11 +52,7 @@ rightFooter:
     link: videos
     class: menu-videos
     title: Vidéos
-  - label: Actualités
-    link: actualites
-    class: menu-actualites
-    title: Actualités
-  - label: Évènements
+  - label: Évènements & Actualités
     link: evenements
     class: menu-evenements
     title: Évènements

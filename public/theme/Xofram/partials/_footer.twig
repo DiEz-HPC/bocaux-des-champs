@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-lg-3 col-sm-6">
                     <h2 class="useful_text">À propos</h2>
-                    <p class="ipsum_text">{{ options.footerText }}
+                    <p class="ipsum_text">{{ options.footerText | default("A définir dans les options d'administration.") }}
                     </p>
                 </div>
                 <div class="col-lg-3 col-sm-6">
@@ -33,29 +33,29 @@
                         <ul>
                             <li>
                                 <a href="#">
-                                    <imgsrc="{{asset('images/map-icon.png')}}">
-                                        <span class="padding_left_10">{{ options.adressBocaux }}</span>
+                                    <img src="{{asset('images/map-icon.png')}}">
+                                        <span class="padding_left_10">{{ options.adressBocaux | default("A définir dans les options d'administration.") }}</span>
                                     </a>
                                 </li>
                             </li>
                             <li>
                                 <a href="#">
-                                    <imgsrc="{{asset('images/map-icon.png')}}">
-                                        <span class="padding_left_10">{{ options.adressATC45 }}</span>
+                                    <img src="{{asset('images/map-icon.png')}}">
+                                        <span class="padding_left_10">{{ options.adressATC45 | default("A définir dans les options d'administration.") }}</span>
                                     </a>
                                 </li>
                             </li>
                             <li>
                                 <a href="#">
-                                    <imgsrc="{{asset('images/mail-icon.png')}}">
-                                        <span class="padding_left_10">{{ options.emailBocaux }}</span>
+                                    <img src="{{asset('images/mail-icon.png')}}">
+                                        <span class="padding_left_10">{{ options.emailBocaux | default("A définir dans les options d'administration.") }}</span>
                                     </a>
                                 </li>
                             </li>
                             <li>
                                 <a href="#">
-                                    <imgsrc="{{asset('images/mail-icon.png')}}">
-                                        <span class="padding_left_10">{{ options.emailATC45 }}</span>
+                                    <img src="{{asset('images/mail-icon.png')}}">
+                                        <span class="padding_left_10">{{ options.emailATC45 | default("A définir dans les options d'administration.") }}</span>
                                     </a>
                                 </li>
                             </li>
