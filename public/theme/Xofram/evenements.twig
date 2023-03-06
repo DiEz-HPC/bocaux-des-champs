@@ -12,11 +12,12 @@
     {% setcontent options = 'Options' %}
     {% setcontent futurEvent = 'evenements' where { DateStart: '>today || today' } limit 6 %}
     {% setcontent finishEvent = 'evenements' where { DateStart: '<today' } %}
+    {% setcontent actualities = 'actualites' %}
 
     <div class="events services_section layout_padding layout_padding_event">
         <div class="container">
             <div class="d-flex flex-column justify-content-center">
-                <h1 class="text-center services_taital">Nos évènements</h1>
+                <h1 class="text-center services_taital">Nos actualités</h1>
                 <p class="text-center">
                     {% if options and options.eventsIntro is not empty %}
                         {{ options.eventsIntro|raw }}
@@ -24,11 +25,24 @@
                         Veuillez renseigner le texte d'introduction pour la page vidéos dans l'administration
                     {% endif %}
                 </p>
+            </div>
+            <h2 class="my-5 h3 subtitle">Dernières Actualités</h2>
+            <div class="cards-events d-flex flex-column flex-lg-row flex-lg-wrap justify-content-around">
+                {% set fakeCard = 0 %}
+                {% for actuality in actualities %}
+                    {% include '@theme/partials/components/_event/_card_event.twig' with {'event': actuality} %}
+                    {% set fakeCard = fakeCard + 1 %}
+                {% endfor %}
+                {% if fakeCard % 2 %}
+                    <div class="mb-xl-3 col-12 col-xl-5 p-0"></div>
+                {% endif %}
+            </div>
 
+            <div class="d-flex justify-content-center my-5">
+                {{ pager(actualities, template = 'partials/helpers/_pager.html.twig') }}
             </div>
-            <div class="mt-5 text-center">
-                {{ options.headerEvents ?? "Veuillez renseigner le champ se situant dans les options de l'administration" }}
-            </div>
+            <hr class="my-5">
+
             <h2 class="my-5 h3 subtitle">Événements à venir</h2>
             <div class="cards-events d-flex flex-column flex-lg-row flex-lg-wrap justify-content-around">
                 {% set fakeCard = 0 %}
