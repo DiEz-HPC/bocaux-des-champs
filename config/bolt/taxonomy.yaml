@@ -1,6 +1,5 @@
 # This file defines the different types of taxonomies in Bolt. See the
 # documentation for details: https://docs.bolt.cm/contenttypes/taxonomies
-
 tags:
     slug: tags
     singular_slug: tag
@@ -9,7 +8,6 @@ tags:
     allow_spaces: false
     #listing_template: tag-listing.twig #custom template
     required: false
-
 videosTags:
     slug: videos-tags
     singular_slug: video-tag
@@ -18,15 +16,6 @@ videosTags:
     allow_spaces: false
     listing_template: videos.twig #custom template
     required: false
-
-groups:
-    slug: groups
-    singular_slug: group
-    behaves_like: grouping
-    options: { main: "The main group", meta: "Meta group", other: "The other stuff", videos: "Videos group" }
-    has_sortorder: true
-    required: false
-
 categories:
     name: Categories
     slug: categories
@@ -36,7 +25,6 @@ categories:
     multiple: true
     options: [ news, events, movies, music, books, life, love, fun ]
     required: false
-
 videoCategory:
     name: Videos
     slug: Videos
@@ -46,4 +34,13 @@ videoCategory:
     multiple: false
     options: [ movies ]
     required: true
-    default: movies
+    default: movies   
+actus:
+    name: Actualites
+    slug: actualites
+    singular_name: Actualité
+    singular_slug: actualite
+    behaves_like: actualités
+    multiple: false
+    options: [ post, évènement ]
+    required: true

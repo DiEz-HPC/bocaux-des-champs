@@ -22,9 +22,9 @@ main:
     class: menu-videos
     title: Vidéos
   - label: Actualités
-    link: evenements
+    link: actualites
     class: menu-evenements
-    title: Évènements
+    title: Nos actualités
   - label: Contact
     link: contact
     class: menu-contact
