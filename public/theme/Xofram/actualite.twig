@@ -36,7 +36,7 @@
                     {{ record.article }}
                 </div>
                 <hr class="my-5">
-                <h2 class="subtitle">Événements terminés</h2>
+                <h2 class="subtitle">Anciennes actualités</h2>
                 <div class="cards-events d-flex flex-column flex-lg-row flex-lg-wrap justify-content-between mt-5">
                     {% for event in eventsClosed %}
                         {% include '@theme/partials/components/_event/_card_event.twig' with {'event': event} %}
