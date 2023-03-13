@@ -23,12 +23,8 @@ main:
     title: Vidéos
   - label: Actualités
     link: actualites
-    class: menu-actualites
-    title: Actualités
-  - label: Évènements
-    link: evenements
     class: menu-evenements
-    title: Évènements
+    title: Nos actualités
   - label: Contact
     link: contact
     class: menu-contact
@@ -57,10 +53,6 @@ rightFooter:
     class: menu-videos
     title: Vidéos
   - label: Actualités
-    link: actualites
-    class: menu-actualites
-    title: Actualités
-  - label: Évènements
     link: evenements
     class: menu-evenements
     title: Évènements
