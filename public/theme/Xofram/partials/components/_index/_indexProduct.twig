@@ -1,16 +1,18 @@
+{% use '@theme/partials/components/_product/productCard.twig' %}
+{% block indexProductStyle %}
+    {{ block('productCardStyle') }}
+     <link rel="stylesheet" href="{{ asset('css/products.css') }}">
+{% endblock %}
 {% block indexProduct %}
-    {% setcontent products = 'Produits' latest limit 5 %}
+    {% setcontent products = 'Produits' latest limit 2 %}
     <div class="services_section layout_padding mb-5">
-        <div class="container">
+        <div class="">
             <h1 class="services_taital">Nos produits</h1>
             <div class="services_section_2 layout_padding">
-                <div class="row justify-content-around">
+                <div class="row justify-content-between">
                     {% for product in products %}
-                        <div class="col-md-4">
-                            <div class="image_main">
-                                <img src="{{ product|image }}" class="image_2">
-                                <h2 class="vegetable_text">{{ product|title|excerpt(40) }}</h2>
-                            </div>
+                        <div class="col-12 col-xl-6">
+                            {{ block('productCardContent') }}
                         </div>
                     {% endfor %}
                 </div>
@@ -20,4 +22,26 @@
             </div>
         </div>
     </div>
+
+        <div class="modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" id="htmx-results">
+                            <h3>Running</h3>
+                            <div class="progress">
+                                <div id="pb" class="progress-bar" style="width:0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 {% endblock indexProduct %}
+
+{% block indexProductJs %}
+    <script type="text/javascript" src="{{ asset('js/dependency/notify.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/products.js') }}"></script>
+{% endblock %}

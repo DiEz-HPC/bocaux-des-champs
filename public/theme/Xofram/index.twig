@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/actuality.css') }}">
+    {{ block('indexProductStyle') }}
 {% endblock stylesheets %}
 
 {% block main %}
@@ -51,4 +52,5 @@
             });
         });
     </script>
+     {{ block('indexProductJs') }}
 {% endblock javascript %}
