@@ -266,7 +266,7 @@ videos:
     icon_many: "fa:film"
     icon_one: "fa:film"
 
-actualités:
+events:
     name: Actualités
     singular_name: Actualité
     slug: actualites
@@ -275,85 +275,62 @@ actualités:
             type: text
             class: large
             variant: inline
-            info: Nom de l'actualité visible par les visiteurs
-            label: Nom de l'actualité
+            info: Titre le l'actualité
+            label: Titre
             fixture_format: '{catchPhrase}'
+            group: Contenu
         pictures:
             type: image
-            info: Image visible avant d'ouvrir' l'actualité
-            label: Image mise en avant
-        content:
-            type: article
-            class: large
-            info: Contenu de l'actualité
-            label: Contenu
-        slug:
-            type: slug
-            uses: [ title ]
-            group: Meta
-    show_on_dashboard: true
-    default_status: published
-    order: date
-    icon_many: "fa:newspaper"
-    icon_one: "fa:newspaper"
-    listing_records: 07 
-
-events:
-    name: Évènements
-    singular_name: Évènement
-    slug: evenements
-    fields:
-        title:
-            type: text
-            class: large
-            variant: inline
-            info: Nom de l'événement visible par les visiteurs
-            label: Nom de l'événement
-            fixture_format: '{catchPhrase}'
-        pictures:
-            type: image
-            info: Image visible avant d'ouvrir l'événement
+            info: Image de l'actualité
             label: Image mise en avant
         DateStart:
             type: date
             info: Date de début de l'événement
             label: Date de début
+            default: 'now'
+            display: '{{ value|date(''d/m/Y'') }}'
+            group: Evènement
         DateEnd:
             type: date
             info: Date de fin de l'événement
             label: Date de fin
+            default: 'now'
+            display: '{{ value|date(''d/m/Y'') }}'
+            group: Evènement
         adresse:
             type: text
             info: Adresse de l'événement
             label: Adresse
+            group: Evènement
         codePostal:
             type: text
             info: Code postal de l'événement
             label: Code postal
+            group: Evènement
         Ville:
             type: text
             info: Ville de l'événement
             label: Ville
+            group: Evènement
         teaser:
             type: redactor
             label: Texte d'accroche
-            info: Texte visible avant d'ouvrir l'événement
+            info: Texte d'accroche de la carte
             fixture_format: '{paragraph}'
+            group: Contenu
         article:
             type: article
             class: large
             info: Contenue de l'événement
             label: Contenue de la page
-        slug:
-            type: slug
-            uses: [ title ]
-            group: Meta
+            group: Contenu
     show_on_dashboard: true
-    default_status: published
+    default_status: held
     order: date
     listing_sort: DateStart
-    icon_many: "fa:calendar"
-    icon_one: "fa:calendar"
+    icon_many: "fa:newspaper"
+    icon_one: "fa:newspaper"
+    taxonomy: actus
 
 contact:
     name: Contact
