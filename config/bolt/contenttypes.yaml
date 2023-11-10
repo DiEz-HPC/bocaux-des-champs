@@ -266,10 +266,10 @@ videos:
     icon_many: "fa:film"
     icon_one: "fa:film"
 
-events:
-    name: Événements
-    singular_name: Événement
-    slug: evenements
+actualities:
+    name: Actualités
+    singular_name: Actualité
+    slug: actualites
     fields:
         title:
             type: text
