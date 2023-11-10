@@ -9,7 +9,7 @@
                     {% if engagements.earth_engagements is defined %}
                         {% for engagement in engagements.earth_engagements %}
                             <div class="col-sm-4">
-                                <div class="icon_1"><img src="{{ asset(engagement.image.path) }}"></div>
+                                <div class="icon_1"><img src="{{ asset(engagement.image.path) }}" alt="{{ engagement.image.alt }}"></div>
                                 <h2 class="farm_text">{{ engagement.title }}</h2>
                                 <p class="dummy_text">{{ engagement.paragraph|excerpt(150) }}</p>
                             </div>
@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="read_bt_1">
-                <a href="#">En savoir plus</a>
+                <a href="{{ engagements|link }}">En savoir plus</a>
             </div>
         </div>
     </div>
