@@ -267,9 +267,9 @@ videos:
     icon_one: "fa:film"
 
 events:
-    name: Actualités
-    singular_name: Actualité
-    slug: actualites
+    name: Événements
+    singular_name: Événement
+    slug: evenements
     fields:
         title:
             type: text
