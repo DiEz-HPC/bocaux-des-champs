@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="fr">
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="fr" trgLang="fr">
   <file id="messages.fr">
     <unit id="JKqEovv">
       <segment>
@@ -209,6 +209,12 @@
       <segment>
         <source>City type card</source>
         <target>City type card</target>
+      </segment>
+    </unit>
+    <unit id="N1K7iro" name="Date date card string">
+      <segment>
+        <source>Date date card string</source>
+        <target>Date date card string</target>
       </segment>
     </unit>
   </file>
