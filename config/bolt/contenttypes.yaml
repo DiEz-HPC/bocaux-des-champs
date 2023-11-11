@@ -266,7 +266,7 @@ videos:
     icon_many: "fa:film"
     icon_one: "fa:film"
 
-events:
+actualities:
     name: Actualités
     singular_name: Actualité
     slug: actualites
