@@ -1,24 +1,30 @@
 {% block indexEngagement %}
     {% setcontent engagements = 'engagements' %}
+    {# regroup engagements.earth_engaements and enagements.recipe_engagements  #}
+    {% set engagementsExtrait = engagements.earth_engagements|merge(engagements.recipe_engagements)|shuffle|slice(0, 3) %}
+
     <!-- choose section star -->
     <div class="choose_section layout_padding">
         <div class="container">
             <h1 class="choose_taital">Nos engagements</h1>
             <div class="choose_section_2 layout_padding">
                 <div class="row justify-content-around">
-                    {% if engagements.earth_engagements is defined %}
-                        {% for engagement in engagements.earth_engagements %}
-                            <div class="col-sm-4">
-                                <div class="icon_1"><img src="{{ asset(engagement.image.path) }}"></div>
-                                <h2 class="farm_text">{{ engagement.title }}</h2>
-                                <p class="dummy_text">{{ engagement.paragraph|excerpt(150) }}</p>
-                            </div>
+                    {% if engagementsExtrait is defined %}
+                        {% for engagement in engagementsExtrait %}
+                            <a class="col-md-5" href="{{ engagements|link }}">
+                                <div class="icon_1"><img src="{{ asset(engagement.image.path) }}" alt="icon engagement">
+                                </div>
+                                <div class="engagement_card">
+                                    <h2 class="farm_text">{{ engagement.title }}</h2>
+                                    <div class="dummy_text">{{ engagement.paragraph }}</div>
+                                </div>
+                            </a>
                         {% endfor %}
                     {% endif %}
                 </div>
             </div>
             <div class="read_bt_1">
-                <a href="#">En savoir plus</a>
+                <a href="{{ engagements|link }}">En savoir plus</a>
             </div>
         </div>
     </div>
