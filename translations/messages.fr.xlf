@@ -217,5 +217,11 @@
         <target>Date date card string</target>
       </segment>
     </unit>
+    <unit id="n1X13b6" name="Name field province province">
+      <segment>
+        <source>Name field province province</source>
+        <target>Name field province province</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
