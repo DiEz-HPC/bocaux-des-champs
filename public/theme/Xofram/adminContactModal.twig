@@ -7,9 +7,30 @@
 </div>
 <div id="diez-modal-content">{{ message }}</div>
 {# A faire : 
-    - styliser le bouton
     - Creer l'envoi de mail
+    - modifier le template email
 
     #}
+<div class="d-flex flex-column m-2">
+    <button type="button" class="collapsible btn btn-success col-6 justify-content-around m-auto">Répondre</button>
+    <div class="collapseContent">
+        {{ boltforms('reply')}}
+    </div>
+</div>
 
-     <button id="reply"> répondre </button>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+</script>

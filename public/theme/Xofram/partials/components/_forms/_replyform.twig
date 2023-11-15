@@ -20,10 +20,12 @@
     {{ form_errors(form['message']) }}
     {{ form_widget(form['message'], { 'attr': {'class': 'form-control'} } ) }}
     <br>
-    {{ form_widget(form.string_city_processor_string, { 'attr': {'class': 'd-none'} } ) }}
     <div class="row justify-content-center align-items-center">
         {{ form_widget(form.submit, { 'attr': {'class': 'btn btn-primary w-50'} } ) }}
     </div>
-    {{ form_end(form) }}
+     <div class="form-control form-special" style='opacity: 0; position: absolute; top: 0; left: 0; height: 0; width: 0; z-index: -1;'>
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
 
 </div>
