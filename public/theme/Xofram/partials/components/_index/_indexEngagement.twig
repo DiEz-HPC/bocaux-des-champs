@@ -1,7 +1,14 @@
 {% block indexEngagement %}
     {% setcontent engagements = 'engagements' %}
-    {# regroup engagements.earth_engaements and enagements.recipe_engagements  #}
-    {% set engagementsExtrait = engagements.earth_engagements|merge(engagements.recipe_engagements)|shuffle|slice(0, 3) %}
+    {% set engagementsExtrait = [] %}
+    {% if engagements.earth_engagements is defined %}
+        {% set engagementsExtrait = engagementsExtrait|merge(engagements.earth_engagements) %}
+    {% endif %}
+    {% if engagements.recipe_engagements is defined %}
+        {% set engagementsExtrait = engagements.recipe_engagements|merge(engagements.recipe_engagements) %}
+    {% endif %}
+    {% set engagementsExtrait = engagementsExtrait|shuffle|slice(0, 3) %}
+
 
     <!-- choose section star -->
     <div class="choose_section layout_padding">
