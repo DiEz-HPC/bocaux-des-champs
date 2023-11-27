@@ -8,18 +8,25 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Bolt\Controller\Backend\BackendZoneInterface;
+use Symfony\Component\HttpFoundation\Request;
+use App\Service\sendMail;
 
 #[Route('/contact-message')]
 class ContactMessageController extends TwigAwareController implements BackendZoneInterface
 {
 
-    public function __construct(private EntityManagerInterface $entityManager, private ContactMessageRepository $contactMessageRepository)
+    public function __construct(private EntityManagerInterface $entityManager, private ContactMessageRepository $contactMessageRepository, private sendMail $sendMail)
     {
     }
 
     #[Route("/", name: "app_contact_message")]
-    public function viewMessage(): Response
+    public function viewMessage(Request $request): Response
     {
+        if ($request->getMethod() == 'POST') {
+            $this->replyMessage($request);
+            // On créer une redirection afin de repasser en get apres l'envoi d'email. Cela evite l'envoi de doublon en cas de rafraichissement de page
+            return $this->redirectToRoute('app_contact_message');
+        };
         $contactMessages = $this->contactMessageRepository->findAll();
         return $this->render(
             'adminContactMessage.html.twig',
@@ -52,7 +59,7 @@ class ContactMessageController extends TwigAwareController implements BackendZon
         $qb->setParameter('id', $id);
         $query = $qb->getQuery();
         $result = $query->getResult();
-        
+
         return $this->render(
             'adminContactModal.twig',
             [
@@ -102,5 +109,16 @@ class ContactMessageController extends TwigAwareController implements BackendZon
             $this->addFlash('error', 'Message introuvable');
         }
         return $this->redirectToRoute('app_contact_message');
+    }
+
+    private function replyMessage(Request $request)
+    {
+        $formData = $request->request->get('reply');
+        $this->sendMail->sendMail([
+            'email' => $formData['email'],
+            'title' => $formData['subject'],
+            'content' => $formData['message']
+        ]);
+       
     }
 }
