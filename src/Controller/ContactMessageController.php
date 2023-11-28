@@ -54,7 +54,7 @@ class ContactMessageController extends TwigAwareController implements BackendZon
     public function getMessage(int $id): Response
     {
         $qb = $this->contactMessageRepository->createQueryBuilder('c');
-        $qb->select('c.message as message, c.name as name, c.firstname as firstname');
+        $qb->select('c.message as message, c.name as name, c.firstname as firstname, c.email as email');
         $qb->where('c.id = :id');
         $qb->setParameter('id', $id);
         $query = $qb->getQuery();
@@ -66,6 +66,7 @@ class ContactMessageController extends TwigAwareController implements BackendZon
                 'message' => $result[0]['message'],
                 'name' => $result[0]['name'],
                 'firstname' => $result[0]['firstname'],
+                'email' => $result[0]['email']
             ]
         );
     }
