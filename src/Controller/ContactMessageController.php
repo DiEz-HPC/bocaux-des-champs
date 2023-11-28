@@ -114,10 +114,27 @@ class ContactMessageController extends TwigAwareController implements BackendZon
     private function replyMessage(Request $request)
     {
         $formData = $request->request->get('reply');
+
+        // On récupère les données du formulaire
+        $emailTitle = $formData['subject'];
+        $emailAdress = $formData['email'];
+        $emailContent = $formData['message'];
+
+        // On fait un rendu du template email pour y injecté les variables
+        $htmlContent = $this->render('/partials/mail/_replyEmail.twig', [
+            'data' => [
+                'subject' => $emailTitle,
+                'message' => $emailContent,
+            ],
+        ]);
+        // On récupère le html de la réponse
+        $htmlContent = $htmlContent->getContent();
+
+        // On envoi les infos au service qui gère l'envoi de mail
         $this->sendMail->sendMail([
-            'email' => $formData['email'],
-            'title' => $formData['subject'],
-            'content' => $formData['message']
+            'email' => $emailAdress,
+            'title' => $emailTitle,
+            'content' => $htmlContent
         ]);
        
     }

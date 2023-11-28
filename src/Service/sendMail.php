@@ -47,20 +47,11 @@ class sendMail
 
     public function sendMail($emailContent)
     {
-        dd('Ça merde ici');
-        // TROUVER COMMENT CHARGER LE TEMPLATE
-        $htmlContent = $this->twigEnv->render('_replyEmail.twig', [
-            'data' => [
-                'subject' => $emailContent['title'],
-                'message' => $emailContent['content'],
-            ],
-        ]);
-
         $email = (new TemplatedEmail())
             ->from('noreply@bocauxdeschamps.fr')
             ->to($emailContent['email'])
             ->subject($emailContent['title'])
-            ->html($htmlContent);
+            ->html($emailContent['content']);
 
         $this->mailer->send($email);
 
