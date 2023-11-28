@@ -101,6 +101,7 @@ class Modal {
     this.bodyOverlay.style.left = "0";
     this.bodyOverlay.style.zIndex = "100";
     this.bodyOverlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+    this.bodyOverlay.style.overflow = 'scroll';
 
     this.modal.style.position = "fixed";
     this.modal.style.width = "60vw";
@@ -109,6 +110,7 @@ class Modal {
     this.modal.style.top = "50%";
     this.modal.style.left = "50%";
     this.modal.style.backgroundColor = "#fff";
+    this.modal.style.overflow = 'scroll';
 
     this.modalHeader.style.position = "relative";
     this.modalHeader.style.minHeight = "3.5rem";
@@ -128,6 +130,8 @@ class Modal {
       svg.style.margin = "0.75rem";
     }
     this.modalContent.style.padding = "1rem";
+    this.modalContent.style.overflow = 'scroll';
+    this.modalContent.style.maxHeight = '75vh';
   }
 
   setDisplayStyle() {

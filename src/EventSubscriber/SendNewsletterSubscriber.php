@@ -30,7 +30,7 @@ class SendNewsletterSubscriber implements EventSubscriberInterface
                'userList' => $entity->getUserList(),
            ];
 
-              $this->sendMail->sendMail($emailContent);
+              $this->sendMail->sendNewsletterMail($emailContent);
         }
     }
 

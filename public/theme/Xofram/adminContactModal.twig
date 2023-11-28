@@ -1,8 +1,34 @@
 <div id="diez-modal-header" class="d-flex align-items-center justify-content-center">
     <div class="text-center">
-        Message de
+      <b>  Message de
         {{ name }}
-        {{ firstname }}</div>
+        {{ firstname }} </b></div>
     <div id="diez-modal-close">{% include '/images/close-x-svgrepo-com.svg' %}</div>
 </div>
 <div id="diez-modal-content">{{ message }}</div>
+<div class="d-flex flex-column m-2">
+    <button type="button" class="collapsible btn btn-success col-6 justify-content-around m-auto">Répondre</button>
+    <div class="collapseContent">
+        {{ boltforms('reply')}}
+    </div>
+</div>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("d-none");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+
+           var emailInput = document.getElementById("reply_email");
+           emailInput.value = '{{email}}';
+        });
+    }
+</script>

@@ -4,27 +4,36 @@ namespace App\Service;
 
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Twig\Environment;
 
 class sendMail
 {
-    public function __construct(private MailerInterface $mailer)
+
+    public function __construct(private MailerInterface $mailer, private Environment $twigEnv)
     {
     }
 
-    public function sendMail($emailContent)
+    /*
+        Necessite un tableaux avec la structure suivante :
+         [
+            'title' => 'string'
+            'content' => 'String format html'
+            'userList' => [ arrayCollection de user]
+         ]
+    */
+    public function sendNewsletterMail($emailContent)
     {
         $usersEmail = $this->getUsersEmail($emailContent['userList']);
         foreach ($usersEmail as $userEmailAdress) {
             $email = (new Email())
-            ->from('newsletter@bocauxdeschamps.fr')
-            ->to($userEmailAdress)
-            ->subject($emailContent['title'])
-            ->html($emailContent['content']);
+                ->from('newsletter@bocauxdeschamps.fr')
+                ->to($userEmailAdress)
+                ->subject($emailContent['title'])
+                ->html($emailContent['content']);
 
-        $this->mailer->send($email);
+            $this->mailer->send($email);
         }
-       
     }
 
     private function getUsersEmail($userList)
@@ -34,5 +43,17 @@ class sendMail
             $output[] = $user->getEmail();
         }
         return $output;
+    }
+
+    public function sendMail($emailContent)
+    {
+        $email = (new TemplatedEmail())
+            ->from('noreply@bocauxdeschamps.fr')
+            ->to($emailContent['email'])
+            ->subject($emailContent['title'])
+            ->html($emailContent['content']);
+
+        $this->mailer->send($email);
+
     }
 }

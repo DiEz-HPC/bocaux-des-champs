@@ -61,5 +61,17 @@
         <target>String city processor string</target>
       </segment>
     </unit>
+    <unit id="1Tuq.0w" name="City type card">
+      <segment>
+        <source>City type card</source>
+        <target>City type card</target>
+      </segment>
+    </unit>
+    <unit id="N1K7iro" name="Date date card string">
+      <segment>
+        <source>Date date card string</source>
+        <target>Date date card string</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

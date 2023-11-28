@@ -1,0 +1,31 @@
+<div class="m-4 p-2">
+
+    {{ form_start(form) }}
+    {% if valid %}
+        <div class="boltforms-feedback error bg-success">{{formconfig.feedback.success|raw }}</div>
+    {% endif %}
+    {% if submitted and not valid %}
+        <div class="boltforms-feedback error">{{ formconfig.feedback.error|raw }}</div>
+    {% endif %}
+
+    {{ form_label(form['email']) }}
+    {{ form_errors(form['email']) }}
+    {{ form_widget(form['email'], { 'attr': {'class': 'form-control'} } ) }}
+
+    {{ form_label(form['subject']) }}
+    {{ form_errors(form['subject']) }}
+    {{ form_widget(form['subject'], { 'attr': {'class': 'form-control'} } ) }}
+
+    {{ form_label(form['message']) }}
+    {{ form_errors(form['message']) }}
+    {{ form_widget(form['message'], { 'attr': {'class': 'form-control'} } ) }}
+    <br>
+    <div class="row justify-content-center align-items-center">
+        {{ form_widget(form.submit, { 'attr': {'class': 'btn btn-primary w-50'} } ) }}
+    </div>
+     <div class="form-control form-special" style='opacity: 0; position: absolute; top: 0; left: 0; height: 0; width: 0; z-index: -1;'>
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
+
+</div>

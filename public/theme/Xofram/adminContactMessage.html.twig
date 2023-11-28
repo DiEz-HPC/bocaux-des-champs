@@ -11,6 +11,17 @@
             vertical-align: middle;
             text-align: center;
         }
+        .active,
+        .collapsible:hover {
+            background-color: #555;
+        }
+
+        .collapseContent {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
     </style>
     {% include 'partials/_appFlash.twig' %}
 
@@ -61,6 +72,7 @@
             {% endfor %}
         </tbody>
     </table>
+    {# Ici on affiche un texte fictif le temp de chargé les données via htmx. Pour modifier la modal, il faut apporté les modif dans le fichiers : adminContactModal.twig #}
     <div id="diez-modal-overlay">
         <div id="diez-modal">
             <div id="diez-modal-header" class="d-flex align-items-center justify-content-center">
